@@ -8,10 +8,10 @@
 ### Concept:
 Travel buddy lets you find new friends while moving in similar routes. The technologies we are going to incorporate are:
 MEAN stack:
-  MongoDB: Database connectivity
-  Express.js: web application framework 
-  Angular.js: Javascript MVC framework
-  Node.js: server-side and networking application
+  - MongoDB: Database connectivity
+  - Express.js: web application framework 
+  - Angular.js: Javascript MVC framework
+  - Node.js: server-side and networking application
 
 #### HELP
 [Github Help](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
