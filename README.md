@@ -14,7 +14,7 @@
 
 #### Emails
 1. Riya_Bulia@student.uml.edu
-2. Akul_Swami@student.uml.edu
+2. AkulMallayya_Swami@student.uml.edu
 3. SamarthaKajoor_Venkatramana@student.uml.edu
 4. Aanchal_Sharma@student.uml.edu
 
