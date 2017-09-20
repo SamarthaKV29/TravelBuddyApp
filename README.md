@@ -1,9 +1,9 @@
 # IWS
 ## Team Name: ActiveAdventurers
 ### Members:
-1. Riya Bulia [Website 3](https://run.plnkr.co/plunks/8zapXH5qDeP1WqfYjcGy/index.html)
-2. Akul Swami [Website 2](https://plnkr.co/LFZuh5T7gRxiLyF9rCv6)
-3. Samartha K Venkatramana [Website 1](http://plnkr.co/U66zj6YoJ3invoH7DtP9)
+1. Riya Bulia [Assignment 1](https://run.plnkr.co/plunks/8zapXH5qDeP1WqfYjcGy/index.html)
+2. Akul Swami [Assignment 1](https://plnkr.co/LFZuh5T7gRxiLyF9rCv6)
+3. Samartha K Venkatramana [Assignment 1](http://plnkr.co/U66zj6YoJ3invoH7DtP9)
 4. Aanchal Sharma
 ### Concept:
 Travel buddy lets you find new friends while moving in similar routes. The technologies we are going to incorporate are:
