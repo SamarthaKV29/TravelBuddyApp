@@ -6,17 +6,7 @@
 3. Samartha K Venkatramana [Website 1](http://plnkr.co/U66zj6YoJ3invoH7DtP9)
 4. Aanchal Sharma
 ### Concept:
-//Add here RIYA
-
-
-
-
-
-#### Emails
-1. Riya_Bulia@student.uml.edu
-2. AkulMallayya_Swami@student.uml.edu
-3. SamarthaKajoor_Venkatramana@student.uml.edu
-4. Aanchal_Sharma@student.uml.edu
+Travel buddy lets you find new friends while moving in similar routes.
 
 #### HELP
 [Github Help](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
