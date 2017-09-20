@@ -1,5 +1,5 @@
 # IWS
-## Team Name: TravelBuddy
+## Team Name: ActiveAdventurers
 ### Members:
 1. Riya Bulia
 2. Akul Swami
