@@ -9,8 +9,6 @@
 
 
 
-[Github Help](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
-[README.MD Help](https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text)
 
 
 #### Emails
@@ -18,3 +16,7 @@
 2. Akul_Swami@student.uml.edu
 3. SamarthaKajoor_Venkatramana@student.uml.edu
 4. Aanchal_Sharma@student.uml.edu
+
+#### HELP
+[Github Help](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
+[README.MD Help](https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text)
