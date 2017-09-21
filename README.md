@@ -12,6 +12,7 @@ MEAN stack:
   - Express.js: Web application framework.
   - Angular.js: javascript MVC framework.
   - Node.js: Server-side and networking application.
+  - Possibly can use Google Maps Api
 
 #### HELP
 [Github Help](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
