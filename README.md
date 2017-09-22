@@ -14,7 +14,4 @@ MEAN stack:
   - Node.js: Server-side and networking application.
   - Possibly can use Google Maps Api
 
-#### HELP
-[Github Help](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
-[README.MD Help](https://help.github.com/articles/basic-writing-and-formatting-syntax/#styling-text)
-[Github Help 2](http://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html)
+
