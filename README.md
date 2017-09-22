@@ -1,5 +1,6 @@
 # IWS
 ## Team Name: MEANBlaze
+## App: [Heroku](https://travel-buddy-app.herokuapp.com/)
 ### Members:
 1. Riya Bulia [Assignment 1](https://run.plnkr.co/plunks/8zapXH5qDeP1WqfYjcGy/index.html)
 2. Akul Swami [Assignment 1](https://plnkr.co/LFZuh5T7gRxiLyF9rCv6)
@@ -13,5 +14,6 @@ MEAN stack:
   - Angular.js: javascript MVC framework.
   - Node.js: Server-side and networking application.
   - Possibly can use Google Maps Api
+
 
 
