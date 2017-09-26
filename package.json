@@ -1,6 +1,6 @@
 {
-  "name": "meanjs",
-  "description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js.",
+  "name": "travelbuddyapp",
+  "description": "Travel buddy lets you find new friends while moving in similar routes.",
   "version": "0.5.0",
   "meanjs-version": "0.5.0",
   "private": false,
