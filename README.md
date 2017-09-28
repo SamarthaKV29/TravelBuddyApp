@@ -12,6 +12,8 @@ Travel buddy lets you find new friends while moving in similar routes.
 https://invis.io/D5DNLRF7W#/255170170_Loading
 
 
+
+
 #### The technologies we are going to incorporate are:
 MEAN stack:
   - MongoDB: Database connectivity.
@@ -22,3 +24,5 @@ MEAN stack:
 
 
 
+### Restfull API help
+[Best Practices](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
