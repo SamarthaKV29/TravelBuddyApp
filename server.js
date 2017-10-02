@@ -8,6 +8,10 @@ var CONTACTS_COLLECTION = "users";
 var app = express();
 app.use(bodyParser.json());
 
+var distDir = __dirname + "/dist";
+app.use(express.static(distDir));
+
+
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
 
@@ -41,9 +45,6 @@ function handleError(res, reason, message, code) {
    *    GET: finds all contacts
    *    POST: creates a new contact
    */
-  app.get('/', function(req, res){
-    res.render('index.html');
-  });
 
   app.get("/api/users", function(req, res) {
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
