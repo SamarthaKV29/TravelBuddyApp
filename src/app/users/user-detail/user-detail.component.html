@@ -1,0 +1,29 @@
+<div *ngIf="user" class="row">
+  <div class="col-md-12">
+    <h2 *ngIf="user._id">user Details</h2>
+    <h2 *ngIf="!user._id">New user</h2>
+  </div>
+</div>
+<div *ngIf="user" class="row">
+  <form class="col-md-12">
+    <div class="form-group">
+      <label for="user-name">Name</label>
+      <input class="form-control" name="user-name" [(ngModel)]="user.name" placeholder="Name"/>
+    </div>
+    <div class="form-group">
+      <label for="user-email">Email</label>
+      <input class="form-control" name="user-email" [(ngModel)]="user.email" placeholder="support@mlab.com"/>
+    </div>
+    <div class="form-group">
+      <label for="user-phone-mobile">Mobile</label>
+      <input class="form-control" name="user-phone-mobile" [(ngModel)]="user.phone.mobile" placeholder="1234567890"/>
+    </div>
+    <div class="form-group">
+      <label for="user-phone-work">Work</label>
+      <input class="form-control" name="user-phone-work" [(ngModel)]="user.phone.work" placeholder="0123456789"/>
+    </div>
+    <button class="btn btn-primary" *ngIf="!user._id" (click)="createuser(user)">Create</button>
+    <button class="btn btn-info" *ngIf="user._id" (click)="updateuser(user)">Update</button>
+    <button class="btn btn-danger" *ngIf="user._id" (click)="deleteuser(user._id)">Delete</button>
+  </form>
+</div>
