@@ -46,7 +46,7 @@ function handleError(res, reason, message, code) {
    */
 
   
-  app.get("/", function(req, res){
+  app.get("*", function(req, res){
     res.redirect("/api/users");
   });
   app.get("/api/users", function(req, res) {
