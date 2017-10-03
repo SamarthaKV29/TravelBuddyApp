@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
-import { UserDetailsComponent } from '../user-detail/user-detail.component';
+import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 @Component({
   selector: 'user-list',
@@ -10,7 +10,7 @@ import { UserDetailsComponent } from '../user-detail/user-detail.component';
   providers: [UserService]
 })
 
-export class UserListComponent implements OnInit {
+export class UsersListComponent implements OnInit {
 
   Users: User[]
   selectedUser: User
@@ -24,8 +24,8 @@ export class UserListComponent implements OnInit {
         this.Users = Users.map((User) => {
           if (!User.phone) {
             User.phone = {
-              mobile: '',
-              work: ''
+              mobile: null,
+              work: ""
             }
           }
           return User;
@@ -45,12 +45,27 @@ export class UserListComponent implements OnInit {
 
   createNewUser() {
     var User: User = {
-      name: '',
-      email: '',
+      _id: "",
+      salt: "",
+      displayName: "",
+      provider: "local",
+      username: "",
+      created: {
+          $date: new Date(),
+      },
+      roles: [
+        "user"
+      ],
+      profileImageURL: "",
+      password: "",
+      email: "",
       phone: {
-        work: '',
-        mobile: ''
-      }
+        mobile: "",
+        work: ""
+      },
+      lastName: "",
+      firstName: "",
+      __v: 0
     };
 
     // By default, a newly-created User will have the selected state.

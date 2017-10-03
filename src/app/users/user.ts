@@ -11,7 +11,10 @@ export class User {
   profileImageURL: String;
   password: String;
   email: String;
-  phone: String;
+  phone: {
+    mobile: String,
+    work: String
+  };
   lastName: String;
   firstName: String;
   __v: 0

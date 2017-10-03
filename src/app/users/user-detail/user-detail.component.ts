@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./User-details.component.css']
 })
 
-export class UserDetailsComponent {
+export class UserDetailComponent {
   @Input()
   User: User;
 
