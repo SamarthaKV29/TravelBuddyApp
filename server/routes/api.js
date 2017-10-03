@@ -13,3 +13,4 @@ const connection = (closure) => {
         closure(db);
     });
 };
+

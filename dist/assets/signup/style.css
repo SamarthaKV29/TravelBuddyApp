@@ -1,0 +1,222 @@
+.full-width-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+.full-width-image:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  background-image: url(images/subway.jpg);
+  background-size: cover;
+  height: 100vh;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+.signup{
+  background-color:rgba(65, 86, 121, 0.45);
+	width:80%;
+	margin:100px auto;
+	padding:0;
+}
+
+.signup .signup-image {
+  width: 50%;
+  float: left;
+  background: url(images/friends1.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  height: 555px;
+}
+.signup .signup-form {
+	width: 50%;
+  float: left;
+  padding: 25px 0 0;
+}
+input#firstname,input#email,input#password1,input#password2,input#lastname,input#username {
+	width:300px;
+	height:50px;
+	padding:0 15px;
+	color:#fff;
+	font-size:17px;
+	font-weight:200;
+	background-color:transparent;
+	/*-- w3layouts --*/ 
+	border-bottom:2px solid #fff;
+	border-top-color:transparent;
+	border-left-color:transparent;
+	border-right-color:transparent;
+	font-family: 'Raleway', sans-serif;
+	margin:0 auto 20px;
+	display:block;
+  outline:none;
+  letter-spacing: 1px;
+}
+input:focus,input:hover {
+	color:#fff;
+	border-bottom:2px solid #3970b0;
+}
+input::placeholder{
+  color:rgba(184, 207, 218, 0.86);
+}
+input.register {
+  width: 300px;
+  margin: 30px auto;
+  display: block;
+  height: 50px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: normal;
+  color: #fff;
+  background-color:#3970b0;
+  border-color: transparent;
+  font-family: sans-serif;
+  /*-- w3ls --*/
+  transition:all 0.5s ease-in-out;
+  -webkit-transition:all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+  -o-transition:all 0.5s ease-in-out;
+  -ms-transition:all 0.5s ease-in-out;
+  cursor:pointer;
+  letter-spacing: 1px;
+}
+input.register:hover {
+  color: #fff;
+  background-color:#2b5f9a;
+}
+.clear {
+	clear:both;
+}/* clear float */
+
+.font-anim
+{
+  background-color:rgba(148, 125, 57, 0.65);
+  width: 100%;
+  height: 100%;
+  top: 0; 
+  bottom: 0;
+  left:0; 
+  right: 0;
+  overflow: hidden;
+}
+.travel-content1
+{
+  margin-top: 150px;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: content1;
+ }
+@keyframes content1 
+{
+  0% {transform: translate(000px,1000px);}
+  20% {transform: translate(000px,65px);}
+  25%,65%,75% {transform: translate(000px,85px);}
+  100% {transform: translate(000px,-350px);}
+}
+.travel-content11
+{
+  vertical-align: top;
+  text-align: center;
+  color: #FFFFFF;
+  font-family: 'Roboto';
+  margin-left: 10px;
+  height:95px;
+  overflow: hidden;
+  animation-delay: 1.3s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: content11;
+}
+@-webkit-keyframes content11 
+{
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+.travel-content2
+{
+  animation-delay: 4s;
+  animation-duration: 4.8s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: content2;
+ }
+
+@keyframes content2 
+{
+  0% {transform: translate(000px,1000px);}
+  20% {transform: translate(000px,-165px);}
+  25%,65% {transform: translate(000px,-145px);}
+  100% {transform: scale(0.6);}
+}
+.travel-content21
+{
+  vertical-align: top;
+  text-align: center;
+  color: #FFFFFF;;
+  font-family: 'Roboto';
+  margin-left: 10px;
+  height:95px;
+  overflow: hidden;
+  animation-delay: 5.5s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: content21;
+}
+@keyframes content21 
+{
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+.travel-content3
+{
+  top: 75px;
+  font-family: 'Roboto';
+  color:#FFFFFF;;
+  animation-delay: 9s;
+  animation-duration: 2.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: content3;
+}
+@keyframes content3 
+{
+  0% {transform: scale(0);}
+  10% {transform: scale(1.2);}
+  20% {transform: scale(1);}
+  80% {transform: translate(000px,0px);}
+  100% {transform: translate(000px,-300px);}
+}
+.travel-content4
+{
+  font-family: 'Roboto';
+  top: 75px;
+  color:#FFFFFF;;
+  animation-delay: 12s;
+  animation-duration: 2.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: content4;
+}
+
+@keyframes content4 
+{
+  0% {transform: scale(0);}
+  10% {transform: scale(1.2);}
+  20% {transform: scale(1);}
+  80% {transform: translate(000px,0px);}
+  100% {transform: translate(000px,-300px);}
+}

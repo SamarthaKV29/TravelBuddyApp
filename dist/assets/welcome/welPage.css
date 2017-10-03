@@ -1,0 +1,83 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
+
+.backgroundImage {
+    background-image: url("header.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.center {
+      
+    text-align: center;
+    font-size:45px;
+    font-weight: bold;
+    margin-top: 80px
+}
+
+.welcomeColor {
+    color: white;
+}
+
+
+.colorChangeAnimation {
+      
+    font-family: futura;
+    font-style: italic;
+      
+    width:100%;
+      
+    margin: 0 auto;
+     
+    color:#313131;
+     
+    -webkit-animation:colorchange 20s infinite alternate;
+      
+      
+}
+
+@-webkit-keyframes colorchange {
+	0% {
+		color: #464a4e;
+	}
+
+	10% {
+    	color: #856404;
+	}
+
+	20% {
+    	color: #721c24;
+	}
+
+	30% {
+    	color: #dc3545;
+	}
+
+	40% {
+    	color: #0b3114;
+	}
+
+	50% {
+    	color: #34495e;
+	}
+
+	60% {
+    	color: #818182;
+	}
+
+	70% {
+    	color: #0b5561;
+	}
+
+	80% {
+    	color: #9e810b;
+	}
+
+	90% {
+    	color: #094416;
+	}
+
+	100% {
+    	color: #055818;
+	}
+}
