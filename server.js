@@ -47,8 +47,8 @@ function handleError(res, reason, message, code) {
    */
 
 
-  app.get("/", function(req, res){
-    res.send("/api/users");
+  app.get("*", function(req, res){
+    res.status(200).send("/api/users");
   });
   app.get("/api/users", function(req, res) {
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
