@@ -24,7 +24,7 @@ export class UsersListComponent implements OnInit {
         this.Users = Users.map((User) => {
           if (!User.phone) {
             User.phone = {
-              mobile: null,
+              mobile: "",
               work: ""
             }
           }
