@@ -5,8 +5,8 @@ import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 @Component({
   selector: 'user-list',
-  templateUrl: './User-list.component.html',
-  styleUrls: ['./User-list.component.css'],
+  templateUrl: './users-list.component.html',
+  styleUrls: ['./users-list.component.css'],
   providers: [UserService]
 })
 

@@ -15,8 +15,7 @@ export class User {
     mobile: String,
     work: String
   };
-  lastName: String;
-  firstName: String;
+  name: String;
   __v: 0
 }
 
