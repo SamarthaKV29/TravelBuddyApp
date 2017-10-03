@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <user-list></user-list>\n</div>"
+module.exports = "<div class=\"container\">\n  <user-list></user-list>\n\n  <user-detail *ngIf=\"selectedUser\"></user-detail>\n</div>"
 
 /***/ }),
 
@@ -405,8 +405,6 @@ var UsersListComponent = (function () {
     UsersListComponent.prototype.createNewUser = function () {
         var user = {
             _id: "",
-            salt: "",
-            displayName: "",
             provider: "local",
             username: "",
             created: {
@@ -422,8 +420,7 @@ var UsersListComponent = (function () {
                 mobile: "",
                 work: ""
             },
-            name: "",
-            __v: 0
+            name: ""
         };
         // By default, a newly-created User will have the selected state.
         this.selectUser(user);

@@ -1,7 +1,5 @@
 export class User {
   _id?: string;
-  salt: string;
-  displayName: string;
   provider: "local";
   username: string;
   created: {
@@ -16,6 +14,5 @@ export class User {
     work: string
   };
   name: string;
-  __v: 0
 }
 
