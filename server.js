@@ -46,7 +46,7 @@ function handleError(res, reason, message, code) {
    *    POST: creates a new contact
    */
 
-
+  
   app.get("*", function(req, res){
     res.redirect("/api/users");
   });
@@ -55,7 +55,7 @@ function handleError(res, reason, message, code) {
       if (err) {
         handleError(res, err.message, "Failed to get user details.");
       } else {
-        res.status(200).json(docs);
+        res.status(200).render()
       }
     });
   });

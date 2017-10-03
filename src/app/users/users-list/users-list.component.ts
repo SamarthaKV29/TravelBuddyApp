@@ -21,7 +21,7 @@ export class UsersListComponent implements OnInit {
      this.UserService
       .getUsers()
       .then((Users: User[]) => {
-        this.Users = Users.map((User) => {
+        this.users = Users.map((User) => {
           if (!User.phone) {
             User.phone = {
               mobile: "",
@@ -34,7 +34,7 @@ export class UsersListComponent implements OnInit {
   }
 
   private getIndexOfUser = (userId: String) => {
-    return this.Users.findIndex((user) => {
+    return this.users.findIndex((user) => {
       return user._id === userId;
     });
   }
