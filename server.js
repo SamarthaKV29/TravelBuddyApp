@@ -45,10 +45,7 @@ function handleError(res, reason, message, code) {
    *    POST: creates a new contact
    */
 
-  
-  app.get("*", function(req, res){
-    res.redirect("/api/users");
-  });
+
   app.get("/api/users", function(req, res) {
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
       if (err) {
