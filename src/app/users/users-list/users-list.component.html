@@ -4,16 +4,16 @@
     <ul class="list-group">
       <li class="list-group-item"
         *ngFor="let user of users"
-        (click)="selectUser(User)"
+        (click)="selectUser(user)"
         [class.active]="user === selectedUser">
         {{user.name}}
       </li>
     </ul>
-    <button class="btn btn-warning" (click)="createNewUser">New</button>
+    <button class="btn btn-warning" (click)="createNewUser()">New</button>
   </div>
   <div class="col-md-5 col-md-offset-2">
     <user-details
-      [User]="selectedUser"
+      [user]="selectedUser"
       [createHandler]="addUser"
       [updateHandler]="updateUser"
       [deleteHandler]="deleteUser">

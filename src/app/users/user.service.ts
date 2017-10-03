@@ -6,13 +6,13 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserService {
-  private UsersUrl = '/api/Users';
+  private usersUrl = '/api/users';
   
       constructor (private http: Http) {}
   
       // get("/api/Users")
       getUsers(): Promise<void | User[]> {
-        return this.http.get(this.UsersUrl)
+        return this.http.get(this.usersUrl)
                    .toPromise()
                    .then(response => response.json() as User[])
                    .catch(this.handleError);
@@ -20,7 +20,7 @@ export class UserService {
   
       // post("/api/Users")
       createUser(newUser: User): Promise<void | User> {
-        return this.http.post(this.UsersUrl, newUser)
+        return this.http.post(this.usersUrl, newUser)
                    .toPromise()
                    .then(response => response.json() as User)
                    .catch(this.handleError);
@@ -30,7 +30,7 @@ export class UserService {
   
       // delete("/api/Users/:id")
       deleteUser(delUserId: String): Promise<void | String> {
-        return this.http.delete(this.UsersUrl + '/' + delUserId)
+        return this.http.delete(this.usersUrl + '/' + delUserId)
                    .toPromise()
                    .then(response => response.json() as String)
                    .catch(this.handleError);
@@ -38,7 +38,7 @@ export class UserService {
   
       // put("/api/Users/:id")
       updateUser(putUser: User): Promise<void | User> {
-        var putUrl = this.UsersUrl + '/' + putUser._id;
+        var putUrl = this.usersUrl + '/' + putUser._id;
         return this.http.put(putUrl, putUser)
                    .toPromise()
                    .then(response => response.json() as User)

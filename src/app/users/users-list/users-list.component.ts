@@ -12,7 +12,7 @@ import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 export class UsersListComponent implements OnInit {
 
-  Users: User[]
+  users: User[]
   selectedUser: User
 
   constructor(private UserService: UserService) { }
@@ -33,18 +33,18 @@ export class UsersListComponent implements OnInit {
       });
   }
 
-  private getIndexOfUser = (UserId: String) => {
-    return this.Users.findIndex((User) => {
-      return User._id === UserId;
+  private getIndexOfUser = (userId: String) => {
+    return this.Users.findIndex((user) => {
+      return user._id === userId;
     });
   }
 
-  selectUser(User: User) {
-    this.selectedUser = User
+  selectUser(user: User) {
+    this.selectedUser = user
   }
 
   createNewUser() {
-    var User: User = {
+    var user: User = {
       _id: "",
       salt: "",
       displayName: "",
@@ -68,30 +68,30 @@ export class UsersListComponent implements OnInit {
     };
 
     // By default, a newly-created User will have the selected state.
-    this.selectUser(User);
+    this.selectUser(user);
   }
 
-  deleteUser = (UserId: String) => {
-    var idx = this.getIndexOfUser(UserId);
+  deleteUser = (userId: String) => {
+    var idx = this.getIndexOfUser(userId);
     if (idx !== -1) {
-      this.Users.splice(idx, 1);
+      this.users.splice(idx, 1);
       this.selectUser(null);
     }
-    return this.Users;
+    return this.users;
   }
 
-  addUser = (User: User) => {
-    this.Users.push(User);
-    this.selectUser(User);
-    return this.Users;
+  addUser = (user: User) => {
+    this.users.push(user);
+    this.selectUser(user);
+    return this.users;
   }
 
-  updateUser = (User: User) => {
-    var idx = this.getIndexOfUser(User._id);
+  updateUser = (user: User) => {
+    var idx = this.getIndexOfUser(user._id);
     if (idx !== -1) {
-      this.Users[idx] = User;
-      this.selectUser(User);
+      this.users[idx] = user;
+      this.selectUser(user);
     }
-    return this.Users;
+    return this.users;
   }
 }

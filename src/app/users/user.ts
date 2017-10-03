@@ -1,21 +1,21 @@
 export class User {
-  _id: String;
-  salt: String;
-  displayName: String;
+  _id?: string;
+  salt: string;
+  displayName: string;
   provider: "local";
-  username: String;
+  username: string;
   created: {
       $date: Date;
   };
-  roles: Array<String>;
-  profileImageURL: String;
-  password: String;
-  email: String;
+  roles: Array<string>;
+  profileImageURL: string;
+  password: string;
+  email: string;
   phone: {
-    mobile: String,
-    work: String
+    mobile: string,
+    work: string
   };
-  name: String;
+  name: string;
   __v: 0
 }
 

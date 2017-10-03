@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
-
+var router = require("router");
 var CONTACTS_COLLECTION = "users";
 
 var app = express();
@@ -48,7 +48,7 @@ function handleError(res, reason, message, code) {
 
 
   app.get("*", function(req, res){
-    res.status(200).send("/api/users");
+    res.redirect("/api/users");
   });
   app.get("/api/users", function(req, res) {
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
