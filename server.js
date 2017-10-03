@@ -1,4 +1,5 @@
 var express = require("express");
+var path = require("path");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
@@ -8,6 +9,12 @@ var app = express();
 app.use(bodyParser.json());
 
 var distDir = __dirname + "/dist";
+app.set('views', distDir);
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.use(express.static(path.join(__dirname, 'dist')));    // folder where angular will be installed
+app.use(express.static(path.join(__dirname, 'dist', 'src')));
+app.use(express.static(path.join(__dirname, 'dist', 'src', 'app')));
 app.use(express.static(distDir));
 
 
