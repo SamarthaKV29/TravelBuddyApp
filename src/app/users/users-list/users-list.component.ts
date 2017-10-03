@@ -63,8 +63,7 @@ export class UsersListComponent implements OnInit {
         mobile: "",
         work: ""
       },
-      lastName: "",
-      firstName: "",
+      name: "",
       __v: 0
     };
 
