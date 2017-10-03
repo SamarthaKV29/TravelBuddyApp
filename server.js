@@ -1,5 +1,5 @@
 var express = require("express");
-//var path = require("path");
+var path = require("path");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
@@ -7,21 +7,20 @@ var ObjectID = mongodb.ObjectID;
 var CONTACTS_COLLECTION = "users";
 
 
-// if(process.env.MONGODB_URI == undefined){
-//   process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:k3j5qi89b97t5lr0jo2arb7umt@ds147274.mlab.com:47274/heroku_tdjrgd33";
-// }
+if(process.env.MONGODB_URI == undefined){
+  process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:k3j5qi89b97t5lr0jo2arb7umt@ds147274.mlab.com:47274/heroku_tdjrgd33";
+}
 
 var app = express();
 app.use(bodyParser.json());
 
-// var distDir = __dirname + "/dist";
-// // app.set('views', distDir);
-// // app.set('view engine', 'ejs');
-// // app.engine('html', require('ejs').renderFile);
-// // app.use(express.static(path.join(__dirname, 'dist')));    // folder where angular will be installed
-// // app.use(express.static(path.join(__dirname, 'dist', 'src')));
-// // app.use(express.static(path.join(__dirname, 'dist', 'src', 'app')));
-// app.use(express.static(distDir));
+var distDir = __dirname + "/dist";
+app.set('views', distDir);
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.use(express.static(path.join(__dirname, 'dist', 'src')));
+// app.use(express.static(path.join(__dirname, 'dist', 'src', 'app')));
+app.use(express.static(distDir));
 
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
@@ -58,7 +57,9 @@ function handleError(res, reason, message, code) {
    *    POST: creates a new contact
    */
 
-
+  app.get("/", function(req, res){
+    res.render('index.html');
+  });
   app.get("/api/users", function(req, res) {
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
       if (err) {
