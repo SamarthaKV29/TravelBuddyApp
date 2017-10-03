@@ -328,7 +328,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/users-list/users-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Users</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n        *ngFor=\"let user of users\"\n        (click)=\"selectUser(user)\"\n        [class.active]=\"user === selectedUser\">\n        {{user.name}}\n      </li>\n    </ul>\n    <button class=\"btn btn-warning\" (click)=\"createNewUser()\">New</button>\n  </div>\n  <!-- div class=\"col-md-5 col-md-offset-2\">\n    <user-details\n      [user]=\"selectedUser\"\n      [createHandler]=\"addUser\"\n      [updateHandler]=\"updateUser\"\n      [deleteHandler]=\"deleteUser\">\n    </user-details>\n  </div>\n</div --!>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Users</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n        *ngFor=\"let user of users\"\n        (click)=\"selectUser(user)\"\n        [class.active]=\"user === selectedUser\">\n        {{user.name}}\n      </li>\n    </ul>\n    <button class=\"btn btn-warning\" (click)=\"createNewUser()\">New</button>\n  </div>\n  <!-- div class=\"col-md-5 col-md-offset-2\">\n    <user-details\n      [user]=\"selectedUser\"\n      [createHandler]=\"addUser\"\n      [updateHandler]=\"updateUser\"\n      [deleteHandler]=\"deleteUser\">\n    </user-details>\n  </div!-->\n</div>\n"
 
 /***/ }),
 
