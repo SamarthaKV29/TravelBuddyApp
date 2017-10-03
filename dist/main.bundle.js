@@ -169,21 +169,21 @@ var UserDetailComponent = (function () {
     function UserDetailComponent(UserService) {
         this.UserService = UserService;
     }
-    UserDetailComponent.prototype.createUser = function (User) {
+    UserDetailComponent.prototype.createUser = function (user) {
         var _this = this;
-        this.UserService.createUser(User).then(function (newUser) {
+        this.UserService.createUser(user).then(function (newUser) {
             _this.createHandler(newUser);
         });
     };
-    UserDetailComponent.prototype.updateUser = function (User) {
+    UserDetailComponent.prototype.updateUser = function (user) {
         var _this = this;
-        this.UserService.updateUser(User).then(function (updatedUser) {
+        this.UserService.updateUser(user).then(function (updatedUser) {
             _this.updateHandler(updatedUser);
         });
     };
-    UserDetailComponent.prototype.deleteUser = function (UserId) {
+    UserDetailComponent.prototype.deleteUser = function (userId) {
         var _this = this;
-        this.UserService.deleteUser(UserId).then(function (deletedUserId) {
+        this.UserService.deleteUser(userId).then(function (deletedUserId) {
             _this.deleteHandler(deletedUserId);
         });
     };
@@ -192,7 +192,7 @@ var UserDetailComponent = (function () {
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__user__["a" /* User */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__user__["a" /* User */]) === "function" && _a || Object)
-], UserDetailComponent.prototype, "User", void 0);
+], UserDetailComponent.prototype, "user", void 0);
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
     __metadata("design:type", Object)
@@ -207,7 +207,7 @@ __decorate([
 ], UserDetailComponent.prototype, "deleteHandler", void 0);
 UserDetailComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'user-details',
+        selector: 'user-detail',
         template: __webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.css")]
     }),
@@ -328,7 +328,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/users-list/users-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Users</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n        *ngFor=\"let user of users\"\n        (click)=\"selectUser(user)\"\n        [class.active]=\"user === selectedUser\">\n        {{user.name}}\n      </li>\n    </ul>\n    <button class=\"btn btn-warning\" (click)=\"createNewUser()\">New</button>\n  </div>\n  <div class=\"col-md-5 col-md-offset-2\">\n    <user-details\n      [user]=\"selectedUser\"\n      [createHandler]=\"addUser\"\n      [updateHandler]=\"updateUser\"\n      [deleteHandler]=\"deleteUser\">\n    </user-details>\n  </div>\n</div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Users</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n        *ngFor=\"let user of users\"\n        (click)=\"selectUser(user)\"\n        [class.active]=\"user === selectedUser\">\n        {{user.name}}\n      </li>\n    </ul>\n    <button class=\"btn btn-warning\" (click)=\"createNewUser()\">New</button>\n  </div>\n  <!-- div class=\"col-md-5 col-md-offset-2\">\n    <user-details\n      [user]=\"selectedUser\"\n      [createHandler]=\"addUser\"\n      [updateHandler]=\"updateUser\"\n      [deleteHandler]=\"deleteUser\">\n    </user-details>\n  </div>\n</div --!>\n"
 
 /***/ }),
 

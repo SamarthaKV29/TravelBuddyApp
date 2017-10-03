@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 
 export class UserDetailComponent {
   @Input()
-  User: User;
+  user: User;
 
   @Input()
   createHandler: Function;
@@ -21,20 +21,20 @@ export class UserDetailComponent {
 
   constructor (private UserService: UserService) {}
 
-  createUser(User: User) {
-    this.UserService.createUser(User).then((newUser: User) => {
+  createUser(user: User) {
+    this.UserService.createUser(user).then((newUser: User) => {
       this.createHandler(newUser);
     });
   }
 
-  updateUser(User: User): void {
-    this.UserService.updateUser(User).then((updatedUser: User) => {
+  updateUser(user: User): void {
+    this.UserService.updateUser(user).then((updatedUser: User) => {
       this.updateHandler(updatedUser);
     });
   }
 
-  deleteUser(UserId: String): void {
-    this.UserService.deleteUser(UserId).then((deletedUserId: String) => {
+  deleteUser(userId: String): void {
+    this.UserService.deleteUser(userId).then((deletedUserId: String) => {
       this.deleteHandler(deletedUserId);
     });
   }
