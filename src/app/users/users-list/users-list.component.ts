@@ -14,6 +14,7 @@ export class UsersListComponent implements OnInit {
 
   users: User[];
   selectedUser: User;
+  userslen: number;
 
   constructor(private UserService: UserService) { }
 
@@ -21,18 +22,16 @@ export class UsersListComponent implements OnInit {
      this.UserService
       .getUsers()
       .then((Users: User[]) => {
+        
         this.users = Users.map((User) => {
-          if (!User.phone) {
-            User.phone = {
-              mobile: "",
-              work: ""
-            }
-          }
           return User;
         });
+        this.userslen = this.users.length;
       });
   }
-
+  protected getNewID = () => {
+    return (this.userslen + 1).toString();
+  }
   private getIndexOfUser = (userId: String) => {
     return this.users.findIndex((user) => {
       return user._id === userId;
@@ -45,11 +44,11 @@ export class UsersListComponent implements OnInit {
 
   createNewUser() {
     var user: User = {
-      _id: "",
+      _id: this.getNewID(),
       provider: "local",
       username: "",
       created: {
-          $date: new Date(),
+          date: new Date(),
       },
       roles: [
         "user"
@@ -57,10 +56,7 @@ export class UsersListComponent implements OnInit {
       profileImageURL: "",
       password: "",
       email: "",
-      phone: {
-        mobile: "",
-        work: ""
-      },
+      phone: "",
       name: ""
     };
 

@@ -7,9 +7,9 @@ var ObjectID = mongodb.ObjectID;
 var CONTACTS_COLLECTION = "users";
 
 
-if(process.env.MONGODB_URI == undefined){
-  process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:k3j5qi89b97t5lr0jo2arb7umt@ds147274.mlab.com:47274/heroku_tdjrgd33";
-}
+// if(process.env.MONGODB_URI == undefined){
+//   process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:k3j5qi89b97t5lr0jo2arb7umt@ds147274.mlab.com:47274/heroku_tdjrgd33";
+// }
 
 var app = express();
 app.use(bodyParser.json());

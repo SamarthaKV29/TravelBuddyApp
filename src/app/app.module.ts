@@ -9,9 +9,9 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '/api/home', component: AppComponent },
-  { path: '/api/userslist', component: UsersListComponent},
-  { path: '', redirectTo: '/api/home', pathMatch: 'full'},
+  { path: 'api/home', component: AppComponent },
+  { path: 'api/userslist', component: UsersListComponent},
+  { path: '', redirectTo: 'api/home', pathMatch: 'full'},
   { path: 'api/signup', component: UserDetailComponent}
 ];
 
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     UsersListComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpModule, RouterModule
+    BrowserModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

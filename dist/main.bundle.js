@@ -103,9 +103,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var appRoutes = [
-    { path: '/api/home', component: __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */] },
-    { path: '/api/userslist', component: __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */] },
-    { path: '', redirectTo: '/api/home', pathMatch: 'full' },
+    { path: 'api/home', component: __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */] },
+    { path: 'api/userslist', component: __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */] },
+    { path: '', redirectTo: 'api/home', pathMatch: 'full' },
     { path: 'api/signup', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */] }
 ];
 var AppModule = (function () {
@@ -121,7 +121,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_8__angular_router__["a" /* RouterModule */]
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_8__angular_router__["a" /* RouterModule */].forRoot(appRoutes)
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_6__users_user_service__["a" /* UserService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
@@ -153,7 +153,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/user-detail/user-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\" class=\"row\">\n  <div class=\"col-md-12\">\n    <h2 *ngIf=\"user._id\">User Details</h2>\n    <h2 *ngIf=\"!user._id\">New user</h2>\n  </div>\n</div>\n<div *ngIf=\"user\" class=\"row\">\n  <form class=\"col-md-12\">\n    <div class=\"form-group\">\n      <label for=\"user-name\">Name</label>\n      <input class=\"form-control\" name=\"user-name\" [(ngModel)]=\"user.name\" placeholder=\"Name\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"user-email\">Email</label>\n      <input class=\"form-control\" name=\"user-email\" [(ngModel)]=\"user.email\" placeholder=\"support@mlab.com\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"user-phone-mobile\">Mobile</label>\n      <input class=\"form-control\" name=\"user-phone-mobile\" [(ngModel)]=\"user.phone.mobile\" placeholder=\"1234567890\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"user-phone-work\">Work</label>\n      <input class=\"form-control\" name=\"user-phone-work\" [(ngModel)]=\"user.phone.work\" placeholder=\"0123456789\"/>\n    </div>\n    <button class=\"btn btn-primary\" *ngIf=\"!user._id\" (click)=\"createUser(user)\">Create</button>\n    <button class=\"btn btn-info\" *ngIf=\"user._id\" (click)=\"updateUser(user)\">Update</button>\n    <button class=\"btn btn-danger\" *ngIf=\"user._id\" (click)=\"deleteUser(user._id)\">Delete</button>\n  </form>\n</div>"
+module.exports = "<div *ngIf=\"user\" class=\"row\">\n  <div class=\"col-md-12\">\n    <h2 *ngIf=\"user._id\">User Details</h2>\n    <h2 *ngIf=\"!user._id\">New user</h2>\n  </div>\n</div>\n<div *ngIf=\"user\" class=\"row\">\n  <form class=\"col-md-12\">\n    <div class=\"form-group\">\n      <label for=\"user-id\">ID</label>\n      <input class=\"form-control\" name=\"user-id\" [(ngModel)]=\"user._id\" disabled/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"user-name\">Name</label>\n      <input class=\"form-control\" name=\"user-name\" [(ngModel)]=\"user.name\" placeholder=\"Name\"/>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"user-uname\">Username</label>\n        <input class=\"form-control\" name=\"user-uname\" [(ngModel)]=\"user.username\" placeholder=\"Username\"/>\n      </div>\n    <div class=\"form-group\">\n      <label for=\"user-email\">Email</label>\n      <input class=\"form-control\" name=\"user-email\" [(ngModel)]=\"user.email\" placeholder=\"support@mlab.com\"/>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"user-pass\">Password</label>\n        <input class=\"form-control\" name=\"user-pass\" [(ngModel)]=\"user.password\" placeholder=\"T*****\" type=\"password\"/>\n      </div>\n    <div class=\"form-group\">\n      <label for=\"user-phone-mobile\">Phone</label>\n      <input class=\"form-control\" name=\"user-phone-mobile\" [(ngModel)]=\"user.phone\" placeholder=\"1234567890\"/>\n    </div>\n    <button class=\"btn btn-primary\" *ngIf=\"!user._id\" (click)=\"createUser(user)\">Create</button>\n    <button class=\"btn btn-info\" *ngIf=\"user._id\" (click)=\"updateUser(user)\">Update</button>\n    <button class=\"btn btn-danger\" *ngIf=\"user._id\" (click)=\"deleteUser(user._id)\">Delete</button>\n  </form>\n</div>"
 
 /***/ }),
 
@@ -221,7 +221,8 @@ UserDetailComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'user-detail',
         template: __webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_2__user_service__["a" /* UserService */]]
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__user_service__["a" /* UserService */]) === "function" && _b || Object])
 ], UserDetailComponent);
@@ -366,6 +367,9 @@ var UsersListComponent = (function () {
     function UsersListComponent(UserService) {
         var _this = this;
         this.UserService = UserService;
+        this.getNewID = function () {
+            return (_this.userslen + 1).toString();
+        };
         this.getIndexOfUser = function (userId) {
             return _this.users.findIndex(function (user) {
                 return user._id === userId;
@@ -399,14 +403,9 @@ var UsersListComponent = (function () {
             .getUsers()
             .then(function (Users) {
             _this.users = Users.map(function (User) {
-                if (!User.phone) {
-                    User.phone = {
-                        mobile: "",
-                        work: ""
-                    };
-                }
                 return User;
             });
+            _this.userslen = _this.users.length;
         });
     };
     UsersListComponent.prototype.selectUser = function (user) {
@@ -414,11 +413,11 @@ var UsersListComponent = (function () {
     };
     UsersListComponent.prototype.createNewUser = function () {
         var user = {
-            _id: "",
+            _id: this.getNewID(),
             provider: "local",
             username: "",
             created: {
-                $date: new Date(),
+                date: new Date(),
             },
             roles: [
                 "user"
@@ -426,10 +425,7 @@ var UsersListComponent = (function () {
             profileImageURL: "",
             password: "",
             email: "",
-            phone: {
-                mobile: "",
-                work: ""
-            },
+            phone: "",
             name: ""
         };
         // By default, a newly-created User will have the selected state.

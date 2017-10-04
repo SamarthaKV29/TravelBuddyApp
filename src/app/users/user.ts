@@ -3,16 +3,13 @@ export class User {
   provider: "local";
   username: string;
   created: {
-      $date: Date;
+      date: Date;
   };
   roles: Array<string>;
   profileImageURL: string;
   password: string;
   email: string;
-  phone: {
-    mobile: string,
-    work: string
-  };
+  phone: string;
   name: string;
 }
 
