@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container backgroundImage\">\n    <div class=\"center\">\n      <p class=\"welcomeColor\">Welcome to <span class=\"colorChangeAnimation\">Travel Buddies</span></p>\n      <button type=\"button\" class=\"btn btn-outline-danger\" >Sign Up</button>\n      <button type=\"button\" class=\"btn btn-outline-dark\" >Log In</button>\n    </div>\n  <user-list ></user-list>\n</div>"
+module.exports = "<div class=\"container backgroundImage\">\n    <div class=\"center\">\n      <p class=\"welcomeColor\">Welcome to <span class=\"colorChangeAnimation\">Travel Buddies</span></p>\n      <button type=\"button\" class=\"btn btn-outline-danger\" routerLink='/signup'>Sign Up</button>\n      <button type=\"button\" class=\"btn btn-outline-dark\" routerLink='/login'>Log In</button>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -87,6 +87,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__users_user_service__ = __webpack_require__("../../../../../src/app/users/user.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__ = __webpack_require__("../../../../../src/app/users/login/login.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -102,11 +103,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
-    { path: 'api/home', component: __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */] },
-    { path: 'api/userslist', component: __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */] },
-    { path: '', redirectTo: 'api/home', pathMatch: 'full' },
-    { path: 'api/signup', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */] }
+    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */] },
+    { path: 'users', component: __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */] },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__["a" /* LoginComponent */] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -118,7 +121,8 @@ AppModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
             __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */]
+            __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__["a" /* LoginComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_8__angular_router__["a" /* RouterModule */].forRoot(appRoutes)
@@ -129,6 +133,99 @@ AppModule = __decorate([
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/login/login.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/login/login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Login here</h2>\n    <form class=\"col-md-6\">\n      <div class=\"form-group\">\n        <label for=\"username\">ID</label>\n        <input class=\"form-control\" name=\"username\" />\n      </div>\n      <div class=\"form-group\">\n        <label for=\"pass\">Name</label>\n        <input class=\"form-control\" name=\"pass\" type=\"password\" />\n      </div>\n    </form>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/login/login.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_service__ = __webpack_require__("../../../../../src/app/users/user.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LoginComponent = (function () {
+    function LoginComponent(UserService) {
+        this.UserService = UserService;
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.UserService
+            .getUsers()
+            .then(function (Users) {
+            _this.users = Users.map(function (User) {
+                return User;
+            });
+        });
+    };
+    LoginComponent.prototype.checkLogin = function (unam, pass) {
+        for (var _i = 0, _a = this.users; _i < _a.length; _i++) {
+            var user = _a[_i];
+            if (user.username.toLowerCase() == unam && user.password == pass) {
+                console.log("Login success");
+            }
+            else {
+                console.log("error");
+            }
+        }
+    };
+    return LoginComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], LoginComponent.prototype, "username", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], LoginComponent.prototype, "password", void 0);
+LoginComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-login',
+        template: __webpack_require__("../../../../../src/app/users/login/login.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/users/login/login.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__user_service__["a" /* UserService */]]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__user_service__["a" /* UserService */]) === "function" && _a || Object])
+], LoginComponent);
+
+var _a;
+//# sourceMappingURL=login.component.js.map
 
 /***/ }),
 

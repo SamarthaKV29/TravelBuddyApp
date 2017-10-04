@@ -7,9 +7,9 @@ var ObjectID = mongodb.ObjectID;
 var CONTACTS_COLLECTION = "users";
 
 
-// if(process.env.MONGODB_URI == undefined){
-//   process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:k3j5qi89b97t5lr0jo2arb7umt@ds147274.mlab.com:47274/heroku_tdjrgd33";
-// }
+if(process.env.MONGODB_URI == undefined){
+  process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:k3j5qi89b97t5lr0jo2arb7umt@ds147274.mlab.com:47274/heroku_tdjrgd33";
+}
 
 var app = express();
 app.use(bodyParser.json());
@@ -56,7 +56,9 @@ function handleError(res, reason, message, code) {
    *    GET: finds all contacts
    *    POST: creates a new contact
    */
-
+  app.get("/home", function(req, res){
+    res.render('index.html');
+  });
   app.get("/api/users", function(req, res) {
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
       if (err) {
@@ -76,7 +78,7 @@ function handleError(res, reason, message, code) {
     
       db.collection(CONTACTS_COLLECTION).insertOne(newUser, function(err, doc) {
         if (err) {
-          handleError(res, err.message, "Failed to create new contact.");
+          handleError(res, err.message, "Failed to create user.");
         } else {
           res.status(201).json(doc.ops[0]);
         }

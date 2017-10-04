@@ -7,19 +7,22 @@ import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserService } from './users/user.service';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './users/login/login.component';
 
 const appRoutes: Routes = [
-  { path: 'api/home', component: AppComponent },
-  { path: 'api/userslist', component: UsersListComponent},
-  { path: '', redirectTo: 'api/home', pathMatch: 'full'},
-  { path: 'api/signup', component: UserDetailComponent}
+  { path: 'home', component: AppComponent },
+  { path: 'users', component: UsersListComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'signup', component: UserDetailComponent},
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     UserDetailComponent,
-    UsersListComponent
+    UsersListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )
