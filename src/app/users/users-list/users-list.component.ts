@@ -46,8 +46,6 @@ export class UsersListComponent implements OnInit {
   createNewUser() {
     var user: User = {
       _id: "",
-      salt: "",
-      displayName: "",
       provider: "local",
       username: "",
       created: {
@@ -63,8 +61,7 @@ export class UsersListComponent implements OnInit {
         mobile: "",
         work: ""
       },
-      name: "",
-      __v: 0
+      name: ""
     };
 
     // By default, a newly-created User will have the selected state.
