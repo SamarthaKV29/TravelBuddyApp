@@ -8,7 +8,7 @@
       </div>
       <div class="form-group">
         <label for="pass">Password</label>
-        <input class="form-control" name="pass" type="password" pattern="/[a-zA-Z0-9!@#$%^*()_+-=]+/"/>
+        <input class="form-control" name="pass" type="password" pattern="/[a-zA-Z0-9!@#$%^*()_+-=]{6,25}/"/>
       </div>
       <button (click)="checkLogin()">Login</button>
     </form>
