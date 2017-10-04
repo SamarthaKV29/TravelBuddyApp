@@ -12,8 +12,8 @@ import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 export class UsersListComponent implements OnInit {
 
-  users: User[]
-  selectedUser: User
+  users: User[];
+  selectedUser: User;
 
   constructor(private UserService: UserService) { }
 
@@ -40,7 +40,7 @@ export class UsersListComponent implements OnInit {
   }
 
   selectUser(user: User) {
-    this.selectedUser = user
+    this.selectedUser = user;
   }
 
   createNewUser() {
