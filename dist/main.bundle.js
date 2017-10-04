@@ -48,12 +48,14 @@ module.exports = "<div class=\"container backgroundImage\">\n    <div class=\"ce
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__users_user_detail_user_detail_component__ = __webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 var AppComponent = (function () {
     function AppComponent() {
@@ -65,7 +67,8 @@ AppComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/app.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__users_user_detail_user_detail_component__["a" /* UserDetailComponent */]]
     })
 ], AppComponent);
 
@@ -89,6 +92,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__ = __webpack_require__("../../../../../src/app/users/login/login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__ = __webpack_require__("../../../../../src/app/users/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__users_signup_signup_component__ = __webpack_require__("../../../../../src/app/users/signup/signup.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -106,10 +110,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__["a" /* HomeComponent */] },
     { path: 'users', component: __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */] },
-    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */] },
+    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_11__users_signup_signup_component__["a" /* SignupComponent */], },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__["a" /* LoginComponent */] }
 ];
 var AppModule = (function () {
@@ -124,7 +129,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */],
             __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */],
             __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__["a" /* HomeComponent */]
+            __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__["a" /* HomeComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__users_signup_signup_component__["a" /* SignupComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_8__angular_router__["a" /* RouterModule */].forRoot(appRoutes)
@@ -220,7 +226,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n  <div class=\"login\">\n    <h2>Login here</h2>\n    <form class=\"signup-form\">\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input class=\"form-control\" name=\"username\" />\n      </div>\n      <div class=\"form-group\">\n        <label for=\"pass\">Password</label>\n        <input class=\"form-control\" name=\"pass\" type=\"password\" pattern=\"/[a-zA-Z0-9!@#$%^*()_+-=]+/\"/>\n      </div>\n      <button (click)=\"checkLogin()\">Login</button>\n    </form>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Login here</h2>\n    <form class=\"signup-form col-md-5\">\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input class=\"form-control\" name=\"username\" />\n      </div>\n      <div class=\"form-group\">\n        <label for=\"pass\">Password</label>\n        <input class=\"form-control\" name=\"pass\" type=\"password\" pattern=\"/[a-zA-Z0-9!@#$%^*()_+-=]+/\"/>\n      </div>\n      <button (click)=\"checkLogin()\">Login</button>\n    </form>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -293,6 +299,107 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/users/signup/signup.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/signup/signup.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n    <div class=\"col-md-12\">\n      <h2>New User Signup</h2>\n    </div>\n  </div>\n  <div class=\"row\">\n    <form class=\"col-md-12\">\n      <div class=\"form-group\">\n        <label for=\"user-id\">ID</label>\n        <input class=\"form-control\" name=\"user-id\" [(ngModel)]=\"user._id\" disabled/>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"user-name\">Name</label>\n        <input class=\"form-control\" name=\"user-name\" [(ngModel)]=\"user.name\" placeholder=\"Name\"/>\n      </div>\n      <div class=\"form-group\">\n          <label for=\"user-uname\">Username</label>\n          <input class=\"form-control\" name=\"user-uname\" [(ngModel)]=\"user.username\" placeholder=\"Username\"/>\n        </div>\n      <div class=\"form-group\">\n        <label for=\"user-email\">Email</label>\n        <input class=\"form-control\" name=\"user-email\" [(ngModel)]=\"user.email\" placeholder=\"support@mlab.com\"/>\n      </div>\n      <div class=\"form-group\">\n          <label for=\"user-pass\">Password</label>\n          <input class=\"form-control\" name=\"user-pass\" [(ngModel)]=\"user.password\" placeholder=\"T*****\" type=\"password\"/>\n        </div>\n      <div class=\"form-group\">\n        <label for=\"user-phone-mobile\">Phone</label>\n        <input class=\"form-control\" name=\"user-phone-mobile\" [(ngModel)]=\"user.phone\" placeholder=\"1234567890\"/>\n      </div>\n      <button class=\"btn btn-primary\" (click)=\"createUser(user)\">Register</button>\n    </form>\n  </div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/signup/signup.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user__ = __webpack_require__("../../../../../src/app/users/user.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_service__ = __webpack_require__("../../../../../src/app/users/user.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SignupComponent = (function () {
+    function SignupComponent(UserService) {
+        this.UserService = UserService;
+    }
+    SignupComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.UserService
+            .getUsers()
+            .then(function (Users) {
+            _this.users = Users.map(function (User) {
+                return User;
+            });
+            _this.userslen = _this.users.length;
+        });
+    };
+    SignupComponent.prototype.createUser = function (user) {
+        var _this = this;
+        this.UserService.createUser(user).then(function (newUser) {
+            _this.createHandler(newUser);
+        });
+    };
+    SignupComponent.prototype.lookupUser = function (user) {
+        for (var _i = 0, _a = this.users; _i < _a.length; _i++) {
+            var u = _a[_i];
+            if (user.username.toLowerCase() == u.username.toLowerCase()) {
+                return true;
+            }
+            else
+                return false;
+        }
+    };
+    return SignupComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__user__["a" /* User */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__user__["a" /* User */]) === "function" && _a || Object)
+], SignupComponent.prototype, "user", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], SignupComponent.prototype, "createHandler", void 0);
+SignupComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-signup',
+        template: __webpack_require__("../../../../../src/app/users/signup/signup.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/users/signup/signup.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_2__user_service__["a" /* UserService */]]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__user_service__["a" /* UserService */]) === "function" && _b || Object])
+], SignupComponent);
+
+var _a, _b;
+//# sourceMappingURL=signup.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/users/user-detail/user-detail.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -314,7 +421,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/user-detail/user-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\" class=\"row\">\n  <div class=\"col-md-12\">\n    <h2 *ngIf=\"user._id\">User Details</h2>\n    <h2 *ngIf=\"!user._id\">New user</h2>\n  </div>\n</div>\n<div *ngIf=\"user\" class=\"row\">\n  <form class=\"col-md-12\">\n    <div class=\"form-group\">\n      <label for=\"user-id\">ID</label>\n      <input class=\"form-control\" name=\"user-id\" [(ngModel)]=\"user._id\" disabled/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"user-name\">Name</label>\n      <input class=\"form-control\" name=\"user-name\" [(ngModel)]=\"user.name\" placeholder=\"Name\"/>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"user-uname\">Username</label>\n        <input class=\"form-control\" name=\"user-uname\" [(ngModel)]=\"user.username\" placeholder=\"Username\"/>\n      </div>\n    <div class=\"form-group\">\n      <label for=\"user-email\">Email</label>\n      <input class=\"form-control\" name=\"user-email\" [(ngModel)]=\"user.email\" placeholder=\"support@mlab.com\"/>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"user-pass\">Password</label>\n        <input class=\"form-control\" name=\"user-pass\" [(ngModel)]=\"user.password\" placeholder=\"T*****\" type=\"password\"/>\n      </div>\n    <div class=\"form-group\">\n      <label for=\"user-phone-mobile\">Phone</label>\n      <input class=\"form-control\" name=\"user-phone-mobile\" [(ngModel)]=\"user.phone\" placeholder=\"1234567890\"/>\n    </div>\n    <button class=\"btn btn-primary\" *ngIf=\"!user._id\" (click)=\"createUser(user)\">Create</button>\n    <button class=\"btn btn-info\" *ngIf=\"user._id\" (click)=\"updateUser(user)\">Update</button>\n    <button class=\"btn btn-danger\" *ngIf=\"user._id\" (click)=\"deleteUser(user._id)\">Delete</button>\n  </form>\n</div>"
+module.exports = "<div *ngIf=\"user\" class=\"row\">\n  <div class=\"col-md-12\">\n    <h2 *ngIf=\"user.username\">User Details</h2>\n    <h2 *ngIf=\"!user.username\">New user</h2>\n  </div>\n</div>\n<div *ngIf=\"user\" class=\"row\">\n  <form class=\"col-md-12\">\n    <div class=\"form-group\">\n      <label for=\"user-id\">ID</label>\n      <input class=\"form-control\" name=\"user-id\" [(ngModel)]=\"user._id\" disabled/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"user-name\">Name</label>\n      <input class=\"form-control\" name=\"user-name\" [(ngModel)]=\"user.name\" placeholder=\"Name\"/>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"user-uname\">Username</label>\n        <input class=\"form-control\" name=\"user-uname\" [(ngModel)]=\"user.username\" placeholder=\"Username\"/>\n      </div>\n    <div class=\"form-group\">\n      <label for=\"user-email\">Email</label>\n      <input class=\"form-control\" name=\"user-email\" [(ngModel)]=\"user.email\" placeholder=\"support@mlab.com\"/>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"user-pass\">Password</label>\n        <input class=\"form-control\" name=\"user-pass\" [(ngModel)]=\"user.password\" placeholder=\"T*****\" type=\"password\"/>\n      </div>\n    <div class=\"form-group\">\n      <label for=\"user-phone-mobile\">Phone</label>\n      <input class=\"form-control\" name=\"user-phone-mobile\" [(ngModel)]=\"user.phone\" placeholder=\"1234567890\"/>\n    </div>\n    <button class=\"btn btn-primary\" *ngIf=\"user.username\" (click)=\"createUser(user)\">Create</button>\n    <button class=\"btn btn-info\" *ngIf=\"user.username\" (click)=\"updateUser(user)\">Update</button>\n    <button class=\"btn btn-danger\" *ngIf=\"user.username\" (click)=\"deleteUser(user._id)\">Delete</button>\n  </form>\n</div>"
 
 /***/ }),
 

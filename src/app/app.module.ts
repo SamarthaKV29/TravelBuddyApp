@@ -9,11 +9,12 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './users/login/login.component';
 import { HomeComponent } from './users/home/home.component';
+import { SignupComponent } from './users/signup/signup.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'users', component: UsersListComponent},
-  { path: 'signup', component: UserDetailComponent},
+  { path: 'signup', component: SignupComponent, },
   { path: 'login', component: LoginComponent}
 ];
 
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
     UserDetailComponent,
     UsersListComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )

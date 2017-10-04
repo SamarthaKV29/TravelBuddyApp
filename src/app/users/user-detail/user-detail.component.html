@@ -1,7 +1,7 @@
 <div *ngIf="user" class="row">
   <div class="col-md-12">
-    <h2 *ngIf="user._id">User Details</h2>
-    <h2 *ngIf="!user._id">New user</h2>
+    <h2 *ngIf="user.username">User Details</h2>
+    <h2 *ngIf="!user.username">New user</h2>
   </div>
 </div>
 <div *ngIf="user" class="row">
@@ -30,8 +30,8 @@
       <label for="user-phone-mobile">Phone</label>
       <input class="form-control" name="user-phone-mobile" [(ngModel)]="user.phone" placeholder="1234567890"/>
     </div>
-    <button class="btn btn-primary" *ngIf="!user._id" (click)="createUser(user)">Create</button>
-    <button class="btn btn-info" *ngIf="user._id" (click)="updateUser(user)">Update</button>
-    <button class="btn btn-danger" *ngIf="user._id" (click)="deleteUser(user._id)">Delete</button>
+    <button class="btn btn-primary" *ngIf="user.username" (click)="createUser(user)">Create</button>
+    <button class="btn btn-info" *ngIf="user.username" (click)="updateUser(user)">Update</button>
+    <button class="btn btn-danger" *ngIf="user.username" (click)="deleteUser(user._id)">Delete</button>
   </form>
 </div>

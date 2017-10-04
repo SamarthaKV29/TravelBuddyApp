@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
-var CONTACTS_COLLECTION = "users";
+var USER_COLLECTION = "users";
 
 
 if(process.env.MONGODB_URI == undefined){
@@ -56,11 +56,11 @@ function handleError(res, reason, message, code) {
    *    GET: finds all contacts
    *    POST: creates a new contact
    */
-  app.get("/home", function(req, res){
-    res.render('index.html');
-  });
+  // app.get("/home", function(req, res){
+  //   res.render('index.html');
+  // });
   app.get("/api/users", function(req, res) {
-    db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
+    db.collection(USER_COLLECTION).find({}).toArray(function(err, docs) {
       if (err) {
         handleError(res, err.message, "Failed to get user details.");
       } else {
@@ -76,7 +76,7 @@ function handleError(res, reason, message, code) {
         handleError(res, "Invalid user input", "Must provide a name.", 400);
       }
     
-      db.collection(CONTACTS_COLLECTION).insertOne(newUser, function(err, doc) {
+      db.collection(USER_COLLECTION).insertOne(newUser, function(err, doc) {
         if (err) {
           handleError(res, err.message, "Failed to create user.");
         } else {
