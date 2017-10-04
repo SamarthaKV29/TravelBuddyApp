@@ -32,14 +32,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  checkLogin(unam: String, pass: String){
+  checkLogin(){
     for(let user of this.users){
-      if(user.username.toLowerCase() == unam && user.password == pass){
-        console.log("Login success");
-      }
-      else{
-        console.log("error");
-      }
+      if(this.username)
+        if(user.username.toLowerCase() === this.username.toLowerCase() && user.password === this.password){
+          console.log("Login success");
+        }
+        else{
+          console.log("error");
+        }
     }
   }
 

@@ -8,11 +8,11 @@ import { UserService } from './users/user.service';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './users/login/login.component';
+import { HomeComponent } from './users/home/home.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: AppComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'users', component: UsersListComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'signup', component: UserDetailComponent},
   { path: 'login', component: LoginComponent}
 ];
@@ -22,7 +22,8 @@ const appRoutes: Routes = [
     AppComponent,
     UserDetailComponent,
     UsersListComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )
