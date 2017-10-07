@@ -56,9 +56,16 @@ function handleError(res, reason, message, code) {
    *    GET: finds all contacts
    *    POST: creates a new contact
    */
+
   // app.get("/home", function(req, res){
   //   res.render('index.html');
   // });
+  app.get("/", function(req, res){
+    res.status(200).redirect("home");
+  });
+  app.get("/home", function(req, res){
+    res.status(200).redirect("index.html");
+  });
   app.get("/api/users", function(req, res) {
     db.collection(USER_COLLECTION).find({}).toArray(function(err, docs) {
       if (err) {
@@ -99,3 +106,18 @@ function handleError(res, reason, message, code) {
   
   app.delete("/api/users/:id", function(req, res) {
   });
+
+  //ERROR handling
+
+  app.get('*', function(req, res, next) {
+    var err = new Error();
+    err.status = 404;
+    next(err);
+  });
+  app.use(function(err, req, res, next) {
+    if(err.status !== 404) {
+      return next();
+    }
+    res.send(err.message || 'Resource not available.');
+  });
+
