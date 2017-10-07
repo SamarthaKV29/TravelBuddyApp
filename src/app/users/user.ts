@@ -1,6 +1,5 @@
 export class User {
   _id?: string;
-  provider: "local";
   username: string;
   created: {
       date: Date;

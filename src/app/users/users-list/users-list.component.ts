@@ -45,7 +45,6 @@ export class UsersListComponent implements OnInit {
   createNewUser() {
     var user: User = {
       _id: this.getNewID(),
-      provider: "local",
       username: "",
       created: {
           date: new Date(),

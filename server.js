@@ -3,7 +3,7 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
-
+var HOMEPAGE = "index";
 var USER_COLLECTION = "users";
 
 
@@ -38,7 +38,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   console.log("Database connection ready");
 
   // Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
+  var server = app.listen(process.env.PORT || 4500, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
   });
@@ -60,12 +60,13 @@ function handleError(res, reason, message, code) {
   // app.get("/home", function(req, res){
   //   res.render('index.html');
   // });
-  app.get("/", function(req, res){
-    res.status(200).redirect("home");
+  function goHome(resp){
+    resp.status(200).sendFile(path.join(distDir + '/index.html'));
+  }
+  app.get(["/", "/home"], function(req, res){
+    goHome(res);
   });
-  app.get("/home", function(req, res){
-    res.status(200).redirect("index.html");
-  });
+  
   app.get("/api/users", function(req, res) {
     db.collection(USER_COLLECTION).find({}).toArray(function(err, docs) {
       if (err) {
@@ -77,12 +78,20 @@ function handleError(res, reason, message, code) {
   });
   
   app.post("/api/users", function(req, res) {
+
     var newUser = req.body;
-    
+    console.log(newUser);
       if (!req.body.name) {
         handleError(res, "Invalid user input", "Must provide a name.", 400);
       }
-    
+      if(!req.body._id){
+        c = db.collection(USER_COLLECTION).count(function(err, count){
+          if(err){
+            handleError(res, "Please try again", "Unable to generate ID", 400);
+          }
+          newUser._id = count + 1;
+        });
+      }
       db.collection(USER_COLLECTION).insertOne(newUser, function(err, doc) {
         if (err) {
           handleError(res, err.message, "Failed to create user.");
@@ -114,10 +123,11 @@ function handleError(res, reason, message, code) {
     err.status = 404;
     next(err);
   });
+
   app.use(function(err, req, res, next) {
     if(err.status !== 404) {
       return next();
     }
-    res.send(err.message || 'Resource not available.');
+    goHome(res);
   });
 

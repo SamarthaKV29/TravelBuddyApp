@@ -7,7 +7,6 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserService {
   private usersUrl = '/api/users';
-  
       constructor (private http: Http) {}
   
       // get("/api/Users")
@@ -27,7 +26,6 @@ export class UserService {
       }
   
       // get("/api/Users/:id") endpoint not used by Angular app
-  
       // delete("/api/Users/:id")
       deleteUser(delUserId: String): Promise<void | String> {
         return this.http.delete(this.usersUrl + '/' + delUserId)
