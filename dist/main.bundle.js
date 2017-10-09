@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container backgroundImage\">\r\n    <div class=\"center\">\r\n      <p class=\"welcomeColor\">Welcome to <span class=\"colorChangeAnimation\">Travel Buddies</span></p>\r\n      <button class=\"btn btn-outline-danger\" routerLink='/signup'>Sign Up</button>\r\n      <button class=\"btn btn-outline-dark\" routerLink='/login'>Log In</button>\r\n    </div>\r\n</div>\r\n<user-list></user-list>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<body class=\"container backgroundImage\">\r\n  <nav>\r\n    <ul>\r\n      <li>LOGO</li>\r\n      <li><button class=\"btn btn-outline-danger\" routerLink='/signup'>Sign Up</button></li>\r\n      <li><button class=\"btn btn-outline-dark\" routerLink='/login'>Log In</button></li>\r\n    </ul>\r\n  </nav>\r\n  <router-outlet></router-outlet>\r\n</body>\r\n<!-- <div class=\"container backgroundImage\">\r\n    <div class=\"center\">\r\n      <p class=\"welcomeColor\">Welcome to <span class=\"colorChangeAnimation\">Travel Buddies</span></p>\r\n      <button class=\"btn btn-outline-danger\" routerLink='/signup'>Sign Up</button>\r\n      <button class=\"btn btn-outline-dark\" routerLink='/login'>Log In</button>\r\n    </div>\r\n</div> -->\r\n<!-- <user-list></user-list> -->\r\n\r\n"
 
 /***/ }),
 
