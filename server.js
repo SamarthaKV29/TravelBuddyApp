@@ -80,16 +80,13 @@ function handleError(res, reason, message, code) {
   app.post("/api/users", function(req, res) {
 
     var newUser = req.body;
-    console.log(newUser);
-      if (!req.body.name) {
-        handleError(res, "Invalid user input", "Must provide a name.", 400);
-      }
-      if(!req.body._id){
-        c = db.collection(USER_COLLECTION).count(function(err, count){
+    console.log(newUser._id);
+      if(newUser._id == ""){
+        var c = db.collection(USER_COLLECTION).count(function(err, count){
           if(err){
             handleError(res, "Please try again", "Unable to generate ID", 400);
           }
-          newUser._id = count + 1;
+          newUser._id = String(c + 1);
         });
       }
       db.collection(USER_COLLECTION).insertOne(newUser, function(err, doc) {

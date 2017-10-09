@@ -361,6 +361,7 @@ var SignupComponent = (function () {
     };
     SignupComponent.prototype.createUser = function (user) {
         var _this = this;
+        user._id = this.userslen.toString();
         this.UserService.createUser(user).then(function (newUser) {
             _this.createHandler(newUser);
         });
