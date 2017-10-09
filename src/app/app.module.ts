@@ -9,7 +9,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './users/login/login.component';
 import { HomeComponent } from './users/home/home.component';
-import { SignupComponent } from './users/signup/signup.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -24,8 +23,7 @@ const appRoutes: Routes = [
     UserDetailComponent,
     UsersListComponent,
     LoginComponent,
-    HomeComponent,
-    SignupComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )
