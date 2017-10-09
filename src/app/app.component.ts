@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { UserDetailComponent } from './users/user-detail/user-detail.component'
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { UsersListComponent } from './users/users-list/users-list.component';
 
 
 @Component({

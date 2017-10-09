@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container backgroundImage\">\n    <div class=\"center\">\n      <p class=\"welcomeColor\">Welcome to <span class=\"colorChangeAnimation\">Travel Buddies</span></p>\n      <button class=\"btn btn-outline-danger\" routerLink='/signup'>Sign Up</button>\n      <button class=\"btn btn-outline-dark\" routerLink='/login'>Log In</button>\n    </div>\n</div>\n<router-outlet></router-outlet>"
+module.exports = "<body class=\"container backgroundImage\">\r\n  <nav>\r\n    <ul>\r\n      <li>LOGO</li>\r\n      <li><button class=\"btn btn-outline-danger\" routerLink='/signup'>Sign Up</button></li>\r\n      <li><button class=\"btn btn-outline-dark\" routerLink='/login'>Log In</button></li>\r\n    </ul>\r\n  </nav>\r\n  <router-outlet></router-outlet>\r\n</body>\r\n<!-- <div class=\"container backgroundImage\">\r\n    <div class=\"center\">\r\n      <p class=\"welcomeColor\">Welcome to <span class=\"colorChangeAnimation\">Travel Buddies</span></p>\r\n      <button class=\"btn btn-outline-danger\" routerLink='/signup'>Sign Up</button>\r\n      <button class=\"btn btn-outline-dark\" routerLink='/login'>Log In</button>\r\n    </div>\r\n</div> -->\r\n<!-- <user-list></user-list> -->\r\n\r\n"
 
 /***/ }),
 
@@ -114,7 +114,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var appRoutes = [
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__["a" /* HomeComponent */] },
     { path: 'users', component: __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */] },
-    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_11__users_signup_signup_component__["a" /* SignupComponent */], },
+    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */], },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__["a" /* LoginComponent */] }
 ];
 var AppModule = (function () {
@@ -226,7 +226,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Login here</h2>\n    <form class=\"signup-form col-md-5\">\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input class=\"form-control\" name=\"username\" />\n      </div>\n      <div class=\"form-group\">\n        <label for=\"pass\">Password</label>\n        <input class=\"form-control\" name=\"pass\" type=\"password\" pattern=\"/[a-zA-Z0-9!@#$%^*()_+-=]{6,25}/\"/>\n      </div>\n      <button (click)=\"checkLogin()\">Login</button>\n    </form>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-5\">\r\n    <h2>Login here</h2>\r\n    <form class=\"signup-form col-md-5\">\r\n      <div class=\"form-group\">\r\n        <label for=\"username\">Username</label>\r\n        <input class=\"form-control\" name=\"username\" [(ngModel)]=\"username\"/>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"pass\">Password</label>\r\n        <input class=\"form-control\" name=\"pass\" type=\"password\" [(ngModel)]=\"password\"/>\r\n      </div>\r\n      <button (click)=\"checkLogin()\">Login</button>\r\n    </form>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -320,7 +320,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-md-12\">\n      <h2>New User Signup</h2>\n    </div>\n  </div>\n  <div class=\"row\">\n    <form class=\"col-md-12\">\n      <div class=\"form-group\">\n        <label for=\"user-id\">ID</label>\n        <input class=\"form-control\" name=\"user-id\" [(ngModel)]=\"user._id\" disabled/>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"user-name\">Name</label>\n        <input class=\"form-control\" name=\"user-name\" [(ngModel)]=\"user.name\" placeholder=\"Name\"/>\n      </div>\n      <div class=\"form-group\">\n          <label for=\"user-uname\">Username</label>\n          <input class=\"form-control\" name=\"user-uname\" [(ngModel)]=\"user.username\" placeholder=\"Username\"/>\n        </div>\n      <div class=\"form-group\">\n        <label for=\"user-email\">Email</label>\n        <input class=\"form-control\" name=\"user-email\" [(ngModel)]=\"user.email\" placeholder=\"support@mlab.com\"/>\n      </div>\n      <div class=\"form-group\">\n          <label for=\"user-pass\">Password</label>\n          <input class=\"form-control\" name=\"user-pass\" [(ngModel)]=\"user.password\" placeholder=\"T*****\" type=\"password\"/>\n        </div>\n      <div class=\"form-group\">\n        <label for=\"user-phone-mobile\">Phone</label>\n        <input class=\"form-control\" name=\"user-phone-mobile\" [(ngModel)]=\"user.phone\" placeholder=\"1234567890\"/>\n      </div>\n      <button class=\"btn btn-primary\" (click)=\"createUser(user)\">Register</button>\n    </form>\n  </div>"
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n      <h2>New User Signup</h2>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <form class=\"col-md-12\">\r\n      <div class=\"form-group\">\r\n        <label for=\"user-id\">ID</label>\r\n        <input class=\"form-control\" name=\"user-id\" [(ngModel)]=\"user._id\" disabled/>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"user-name\">Name</label>\r\n        <input class=\"form-control\" name=\"user-name\" [(ngModel)]=\"user.name\" placeholder=\"Name\"/>\r\n      </div>\r\n      <div class=\"form-group\">\r\n          <label for=\"user-uname\">Username</label>\r\n          <input class=\"form-control\" name=\"user-uname\" [(ngModel)]=\"user.username\" placeholder=\"Username\"/>\r\n        </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"user-email\">Email</label>\r\n        <input class=\"form-control\" name=\"user-email\" [(ngModel)]=\"user.email\" placeholder=\"support@mlab.com\"/>\r\n      </div>\r\n      <div class=\"form-group\">\r\n          <label for=\"user-pass\">Password</label>\r\n          <input class=\"form-control\" name=\"user-pass\" [(ngModel)]=\"user.password\" placeholder=\"T*****\" type=\"password\"/>\r\n        </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"user-phone-mobile\">Phone</label>\r\n        <input class=\"form-control\" name=\"user-phone-mobile\" [(ngModel)]=\"user.phone\" placeholder=\"1234567890\"/>\r\n      </div>\r\n      <button class=\"btn btn-primary\" (click)=\"createUser(user)\">Register</button>\r\n    </form>\r\n  </div>"
 
 /***/ }),
 
@@ -361,6 +361,7 @@ var SignupComponent = (function () {
     };
     SignupComponent.prototype.createUser = function (user) {
         var _this = this;
+        user._id = this.userslen.toString();
         this.UserService.createUser(user).then(function (newUser) {
             _this.createHandler(newUser);
         });
@@ -421,7 +422,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/user-detail/user-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\" class=\"row\">\n  <div class=\"col-md-12\">\n    <h2 *ngIf=\"user.username\">User Details</h2>\n    <h2 *ngIf=\"!user.username\">New user</h2>\n  </div>\n</div>\n<div *ngIf=\"user\" class=\"row\">\n  <form class=\"col-md-12\">\n    <div class=\"form-group\">\n      <label for=\"user-id\">ID</label>\n      <input class=\"form-control\" name=\"user-id\" [(ngModel)]=\"user._id\" disabled/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"user-name\">Name</label>\n      <input class=\"form-control\" name=\"user-name\" [(ngModel)]=\"user.name\" placeholder=\"Name\"/>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"user-uname\">Username</label>\n        <input class=\"form-control\" name=\"user-uname\" [(ngModel)]=\"user.username\" placeholder=\"Username\"/>\n      </div>\n    <div class=\"form-group\">\n      <label for=\"user-email\">Email</label>\n      <input class=\"form-control\" name=\"user-email\" [(ngModel)]=\"user.email\" placeholder=\"support@mlab.com\"/>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"user-pass\">Password</label>\n        <input class=\"form-control\" name=\"user-pass\" [(ngModel)]=\"user.password\" placeholder=\"T*****\" type=\"password\"/>\n      </div>\n    <div class=\"form-group\">\n      <label for=\"user-phone-mobile\">Phone</label>\n      <input class=\"form-control\" name=\"user-phone-mobile\" [(ngModel)]=\"user.phone\" placeholder=\"1234567890\"/>\n    </div>\n    <button class=\"btn btn-primary\" *ngIf=\"user.username\" (click)=\"createUser(user)\">Create</button>\n    <button class=\"btn btn-info\" *ngIf=\"user.username\" (click)=\"updateUser(user)\">Update</button>\n    <button class=\"btn btn-danger\" *ngIf=\"user.username\" (click)=\"deleteUser(user._id)\">Delete</button>\n  </form>\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <h2>New user</h2>\r\n  </div>\r\n</div>\r\n<div  class=\"row\">\r\n  <form class=\"col-md-12\">\r\n    <div class=\"form-group\">\r\n      <label for=\"user-name\">Name</label>\r\n      <input class=\"form-control\" name=\"user-name\" [(ngModel)]=\"user.name\" placeholder=\"Name\"/>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <label for=\"user-uname\">Username</label>\r\n        <input class=\"form-control\" name=\"user-uname\" [(ngModel)]=\"user.username\" placeholder=\"Username\"/>\r\n      </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"user-email\">Email</label>\r\n      <input class=\"form-control\" name=\"user-email\" [(ngModel)]=\"user.email\" placeholder=\"support@mlab.com\"/>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <label for=\"user-pass\">Password</label>\r\n        <input class=\"form-control\" name=\"user-pass\" [(ngModel)]=\"user.password\" placeholder=\"T*****\" type=\"password\"/>\r\n      </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"user-phone-mobile\">Phone</label>\r\n      <input class=\"form-control\" name=\"user-phone-mobile\" [(ngModel)]=\"user.phone\" placeholder=\"1234567890\"/>\r\n    </div>\r\n    <button class=\"btn btn-primary\" (click)=\"createUser(user)\">Create</button>\r\n  </form>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -448,24 +449,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UserDetailComponent = (function () {
     function UserDetailComponent(UserService) {
         this.UserService = UserService;
+        this.user = {
+            _id: "",
+            username: "",
+            created: {
+                date: new Date(),
+            },
+            roles: [
+                "user"
+            ],
+            profileImageURL: "",
+            password: "",
+            email: "",
+            phone: "",
+            name: ""
+        };
     }
     UserDetailComponent.prototype.createUser = function (user) {
-        var _this = this;
-        this.UserService.createUser(user).then(function (newUser) {
-            _this.createHandler(newUser);
-        });
-    };
-    UserDetailComponent.prototype.updateUser = function (user) {
-        var _this = this;
-        this.UserService.updateUser(user).then(function (updatedUser) {
-            _this.updateHandler(updatedUser);
-        });
-    };
-    UserDetailComponent.prototype.deleteUser = function (userId) {
-        var _this = this;
-        this.UserService.deleteUser(userId).then(function (deletedUserId) {
-            _this.deleteHandler(deletedUserId);
-        });
+        this.UserService.createUser(user);
     };
     return UserDetailComponent;
 }());
@@ -473,18 +474,6 @@ __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__user__["a" /* User */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__user__["a" /* User */]) === "function" && _a || Object)
 ], UserDetailComponent.prototype, "user", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Object)
-], UserDetailComponent.prototype, "createHandler", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Object)
-], UserDetailComponent.prototype, "updateHandler", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Object)
-], UserDetailComponent.prototype, "deleteHandler", void 0);
 UserDetailComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'user-detail',
@@ -609,7 +598,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/users-list/users-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Users</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n        *ngFor=\"let user of users\"\n        (click)=\"selectUser(user)\"\n        [class.active]=\"user === selectedUser\">\n        {{user.name}}\n      </li>\n    </ul>\n    <button class=\"btn btn-warning\" (click)=\"createNewUser()\">New</button>\n  </div>\n  <div class=\"col-md-5 col-md-offset-2\">\n    <user-detail\n      [user]=\"selectedUser\"\n      [createHandler]=\"createUser\"\n      [updateHandler]=\"updateUser\"\n      [deleteHandler]=\"deleteUser\">\n    </user-detail>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-5\">\r\n    <h2>Users</h2>\r\n    <ul class=\"list-group\">\r\n      <li class=\"list-group-item\"\r\n        *ngFor=\"let user of users\"\r\n        (click)=\"selectUser(user)\"\r\n        [class.active]=\"user === selectedUser\">\r\n        {{user.name}}\r\n      </li>\r\n    </ul>\r\n    <button class=\"btn btn-warning\" (click)=\"createNewUser()\">New</button>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -682,7 +671,6 @@ var UsersListComponent = (function () {
     UsersListComponent.prototype.createNewUser = function () {
         var user = {
             _id: this.getNewID(),
-            provider: "local",
             username: "",
             created: {
                 date: new Date(),

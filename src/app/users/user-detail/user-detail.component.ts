@@ -13,30 +13,27 @@ export class UserDetailComponent {
   @Input()
   user: User;
 
-  @Input()
-  createHandler: Function;
-  @Input()
-  updateHandler: Function;
-  @Input()
-  deleteHandler: Function;
 
-  constructor (private UserService: UserService) {}
+  constructor (private UserService: UserService) {
+    this.user = {
+      _id: "",
+      username: "",
+      created: {
+          date: new Date(),
+      },
+      roles: [
+        "user"
+      ],
+      profileImageURL: "",
+      password: "",
+      email: "",
+      phone: "",
+      name: ""
+    };
+  }
 
   createUser(user: User) {
-    this.UserService.createUser(user).then((newUser: User) => {
-      this.createHandler(newUser);
-    });
+    this.UserService.createUser(user);
   }
 
-  updateUser(user: User): void {
-    this.UserService.updateUser(user).then((updatedUser: User) => {
-      this.updateHandler(updatedUser);
-    });
-  }
-
-  deleteUser(userId: String): void {
-    this.UserService.deleteUser(userId).then((deletedUserId: String) => {
-      this.deleteHandler(deletedUserId);
-    });
-  }
 }

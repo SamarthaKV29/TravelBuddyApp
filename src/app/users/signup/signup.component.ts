@@ -32,6 +32,7 @@ export class SignupComponent implements OnInit{
     });
   }
   createUser(user: User) {
+    user._id = this.userslen.toString();
     this.UserService.createUser(user).then((newUser: User) => {
       this.createHandler(newUser);
     });
