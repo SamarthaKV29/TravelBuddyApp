@@ -1,30 +1,84 @@
-<div class="row">
-  <div class="col-md-12">
-    <h2>New user</h2>
+<div class="container-fluid margins">
+  <div class="full-width-image">
+    <div class="signup">
+      <div class="signup-image">
+          <div class="font-anim" align="center">
+              <div class="travel-content1">
+                  <img src="http://www.freeiconspng.com/uploads/travel-guide-icon-map-ticket-travel-icon-17.png" width="100px"/>
+                  <div class="travel-content11">
+                      <font style="font-weight:300;font-size: 45px;"> TRAVEL </font> <font style="font-weight:50;font-size: 45px;">BUDDY</font>
+                      <br />
+                      <font style="font-weight:300; font-size: 18px;">Yes It's so crazy</font>
+                  </div>
+              </div>
+              <div class="travel-content2">
+                  <div class="travel-content21">
+                  <font style="font-weight:400;font-size: 45px;">Share</font>
+                      <br />
+                  <font style="font-weight:300; font-size: 18px;">your boredom</font>
+                  </div>
+              </div>
+              <div class="travel-content3">
+                  <font style="font-weight:300;font-size: 55px;">Find Buddies</font>
+                      <br />
+                  <font style="font-weight:300; font-size: 18px;"> with whom you want to </font>
+              </div>
+              <div class="travel-content4">
+                  <font style="font-weight:300;font-size: 45px;"> Commute</font>
+                      <br />
+                  <font style="font-weight:300; font-size: 18px;">And</font>
+              </div>
+          </div>
+      </div>
+      <div class="signup-form">
+          <form action="#" method="post">
+              <input type="text" id="userid" name="user-id" placeholder="User Id" required="" [(ngModel)]="user._id" disabled>
+              <input type="text" id="name" name="user-name" placeholder="Full Name" required="" [(ngModel)]="user.name">
+              <input type="text" id="username" name="user-uname" placeholder="User Name" required="" [(ngModel)]="user.username">
+              <input type="email" id="email" name="user-email" placeholder="mail@example.com" required="" [(ngModel)]="user.email">
+              <input type="text" id="mobile" name="user-phone-mobile" placeholder="+91 9781232100" [(ngModel)]="user.phone"/>
+              <input type="password" class="lock" name="user-pass" placeholder="Password" id="password1" required="" [(ngModel)]="user.password">
+              <input type="password" class="lock" name="confirm-password" placeholder="Confirm Password" id="password2" required="">
+
+              <input type="submit" class="register" value="Register" (click)="createUser(user)">
+          </form>
+      </div>
+      <div class="clear"></div>
+    </div>
   </div>
-</div>
-<div  class="row">
-  <form class="col-md-12">
-    <div class="form-group">
-      <label for="user-name">Name</label>
-      <input class="form-control" name="user-name" [(ngModel)]="user.name" placeholder="Name"/>
+</div> 
+
+<!-- <div class="row">
+    <div class="col-md-12">
+      <h2>New User Signup</h2>
     </div>
-    <div class="form-group">
-        <label for="user-uname">Username</label>
-        <input class="form-control" name="user-uname" [(ngModel)]="user.username" placeholder="Username"/>
+  </div>
+  <div class="row">
+    <form class="col-md-12">
+      <div class="form-group">
+        <label for="user-id">ID</label>
+        <input class="form-control" name="user-id" [(ngModel)]="user._id" disabled/>
       </div>
-    <div class="form-group">
-      <label for="user-email">Email</label>
-      <input class="form-control" name="user-email" [(ngModel)]="user.email" placeholder="support@mlab.com"/>
-    </div>
-    <div class="form-group">
-        <label for="user-pass">Password</label>
-        <input class="form-control" name="user-pass" [(ngModel)]="user.password" placeholder="T*****" type="password"/>
+      <div class="form-group">
+        <label for="user-name">Name</label>
+        <input class="form-control" name="user-name" [(ngModel)]="user.name" placeholder="Name"/>
       </div>
-    <div class="form-group">
-      <label for="user-phone-mobile">Phone</label>
-      <input class="form-control" name="user-phone-mobile" [(ngModel)]="user.phone" placeholder="1234567890"/>
-    </div>
-    <button class="btn btn-primary" (click)="createUser(user)">Create</button>
-  </form>
-</div>
+      <div class="form-group">
+          <label for="user-uname">Username</label>
+          <input class="form-control" name="user-uname" [(ngModel)]="user.username" placeholder="Username"/>
+        </div>
+      <div class="form-group">
+        <label for="user-email">Email</label>
+        <input class="form-control" name="user-email" [(ngModel)]="user.email" placeholder="support@mlab.com"/>
+      </div>
+      <div class="form-group">
+          <label for="user-pass">Password</label>
+          <input class="form-control" name="user-pass" [(ngModel)]="user.password" placeholder="T*****" type="password"/>
+        </div>
+      <div class="form-group">
+        <label for="user-phone-mobile">Phone</label>
+        <input class="form-control" name="user-phone-mobile" [(ngModel)]="user.phone" placeholder="1234567890"/>
+      </div>
+      <button class="btn btn-primary" (click)="createUser(user)">Register</button>
+    </form>
+  </div> -->

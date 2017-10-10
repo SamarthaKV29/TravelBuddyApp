@@ -36,7 +36,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   // Save database object from the callback for reuse.
   db = database;
   console.log("Database connection ready");
-
+  
   // Initialize the app.
   var server = app.listen(process.env.PORT || 4500, function () {
     var port = server.address().port;
@@ -82,11 +82,15 @@ function handleError(res, reason, message, code) {
     var newUser = req.body;
     console.log(newUser._id);
       if(newUser._id == ""){
-        var c = db.collection(USER_COLLECTION).count(function(err, count){
+      //   db.collection(USER_COLLECTION).count().then((count) => {
+      //     console.log(count);
+      // });
+        db.collection(USER_COLLECTION).count().then(function(err, count){
+          console.log(count);
           if(err){
             handleError(res, "Please try again", "Unable to generate ID", 400);
           }
-          newUser._id = String(c + 1);
+          newUser._id = String(count + 1);
         });
       }
       db.collection(USER_COLLECTION).insertOne(newUser, function(err, doc) {
