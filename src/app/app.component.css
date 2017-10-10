@@ -2,7 +2,6 @@
 
 body{
 	width: 100% !important;
-	height: 960px;
 }
 
 .backgroundImage {
@@ -36,8 +35,7 @@ body{
      
     color:#313131;
      
-    -webkit-animation:colorchange 20s infinite alternate;
-      
+    -webkit-animation:colorchange 20s infinite alternate;  
       
 }
 
