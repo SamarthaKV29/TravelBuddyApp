@@ -28,14 +28,14 @@ var db;
 
 // Connect to the database before starting the application server.
 mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
+    if (err) {
+      console.log(err);
+      process.exit(1);
+    }
 
   // Save database object from the callback for reuse.
-  db = database;
-  console.log("Database connection ready");
+    db = database;
+    console.log("Database connection ready");
   
   // Initialize the app.
   var server = app.listen(process.env.PORT || 4500, function () {
@@ -63,6 +63,7 @@ function handleError(res, reason, message, code) {
   function goHome(resp){
     resp.status(200).sendFile(path.join(distDir + '/index.html'));
   }
+  
   app.get(["/", "/home"], function(req, res){
     goHome(res);
   });
