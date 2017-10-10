@@ -13,10 +13,8 @@ import { User } from '../user';
 
 export class LoginComponent implements OnInit {
   
-  @Input()
   username: String;
 
-  @Input()
   password: String;
 
   private users: User[];
