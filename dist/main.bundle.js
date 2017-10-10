@@ -86,12 +86,11 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__ = __webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__ = __webpack_require__("../../../../../src/app/users/users-list/users-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__users_user_service__ = __webpack_require__("../../../../../src/app/users/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__ = __webpack_require__("../../../../../src/app/users/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__ = __webpack_require__("../../../../../src/app/users/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__users_user_service__ = __webpack_require__("../../../../../src/app/users/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__users_login_login_component__ = __webpack_require__("../../../../../src/app/users/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__users_home_home_component__ = __webpack_require__("../../../../../src/app/users/home/home.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -108,12 +107,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
 var appRoutes = [
-    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__["a" /* HomeComponent */] },
-    { path: 'users', component: __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */] },
+    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_9__users_home_home_component__["a" /* HomeComponent */] },
     { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */], },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__["a" /* LoginComponent */] }
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_8__users_login_login_component__["a" /* LoginComponent */] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -125,14 +122,13 @@ AppModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
             __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__users_users_list_users_list_component__["a" /* UsersListComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__["a" /* HomeComponent */]
+            __WEBPACK_IMPORTED_MODULE_8__users_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__users_home_home_component__["a" /* HomeComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_8__angular_router__["a" /* RouterModule */].forRoot(appRoutes)
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_7__angular_router__["a" /* RouterModule */].forRoot(appRoutes)
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_6__users_user_service__["a" /* UserService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_5__users_user_service__["a" /* UserService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -353,11 +349,11 @@ var UserDetailComponent = (function () {
             roles: [
                 "user"
             ],
-            profileImageURL: "",
             password: "",
             email: "",
             phone: "",
-            name: ""
+            name: "",
+            profileData: new Object()
         };
     }
     UserDetailComponent.prototype.ngOnInit = function () {
@@ -484,133 +480,6 @@ var User = (function () {
 }());
 
 //# sourceMappingURL=user.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/users/users-list/users-list.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/users/users-list/users-list.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-5\">\r\n    <h2>Users</h2>\r\n    <ul class=\"list-group\">\r\n      <li class=\"list-group-item\"\r\n        *ngFor=\"let user of users\"\r\n        (click)=\"selectUser(user)\"\r\n        [class.active]=\"user === selectedUser\">\r\n        {{user.name}}\r\n      </li>\r\n    </ul>\r\n    <button class=\"btn btn-warning\" (click)=\"createNewUser()\">New</button>\r\n  </div>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/users/users-list/users-list.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersListComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_service__ = __webpack_require__("../../../../../src/app/users/user.service.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var UsersListComponent = (function () {
-    function UsersListComponent(UserService) {
-        var _this = this;
-        this.UserService = UserService;
-        this.getNewID = function () {
-            return (_this.userslen + 1).toString();
-        };
-        this.getIndexOfUser = function (userId) {
-            return _this.users.findIndex(function (user) {
-                return user._id === userId;
-            });
-        };
-        this.deleteUser = function (userId) {
-            var idx = _this.getIndexOfUser(userId);
-            if (idx !== -1) {
-                _this.users.splice(idx, 1);
-                _this.selectUser(null);
-            }
-            return _this.users;
-        };
-        this.addUser = function (user) {
-            _this.users.push(user);
-            _this.selectUser(user);
-            return _this.users;
-        };
-        this.updateUser = function (user) {
-            var idx = _this.getIndexOfUser(user._id);
-            if (idx !== -1) {
-                _this.users[idx] = user;
-                _this.selectUser(user);
-            }
-            return _this.users;
-        };
-    }
-    UsersListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.UserService
-            .getUsers()
-            .then(function (Users) {
-            _this.users = Users.map(function (User) {
-                return User;
-            });
-            _this.userslen = _this.users.length;
-        });
-    };
-    UsersListComponent.prototype.selectUser = function (user) {
-        this.selectedUser = user;
-    };
-    UsersListComponent.prototype.createNewUser = function () {
-        var user = {
-            _id: this.getNewID(),
-            username: "",
-            created: {
-                date: new Date(),
-            },
-            roles: [
-                "user"
-            ],
-            profileImageURL: "",
-            password: "",
-            email: "",
-            phone: "",
-            name: ""
-        };
-        // By default, a newly-created User will have the selected state.
-        this.selectUser(user);
-    };
-    return UsersListComponent;
-}());
-UsersListComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'user-list',
-        template: __webpack_require__("../../../../../src/app/users/users-list/users-list.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/users/users-list/users-list.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_1__user_service__["a" /* UserService */]]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__user_service__["a" /* UserService */]) === "function" && _a || Object])
-], UsersListComponent);
-
-var _a;
-//# sourceMappingURL=users-list.component.js.map
 
 /***/ }),
 
