@@ -12,7 +12,7 @@ import { User } from '../user';
 
 
 export class LoginComponent implements OnInit {
-  
+
   username: String;
 
   password: String;
@@ -22,21 +22,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.UserService
-    .getUsers()
-    .then((Users: User[]) => {
-      this.users = Users.map((User) => {
-        return User;
+      .getUsers()
+      .then((Users: User[]) => {
+        this.users = Users.map((User) => {
+          return User;
+        });
       });
-    });
   }
 
-  checkLogin(){
-    for(let user of this.users){
-      if(this.username)
-        if(user.username.toLowerCase() === this.username.toLowerCase() && user.password === this.password){
+  checkLogin() {
+    for (let user of this.users) {
+      if (this.username)
+        if (user.username.toLowerCase() === this.username.toLowerCase() && user.password === this.password) {
           console.log("Login success");
         }
-        else{
+        else {
           console.log("error");
         }
     }
