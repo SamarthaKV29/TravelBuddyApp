@@ -1,16 +1,47 @@
-<div class="row">
-  <div class="col-md-5">
-    <h2>Login here</h2>
-    <form class="signup-form col-md-5">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input class="form-control" name="username" [(ngModel)]="username"/>
-      </div>
-      <div class="form-group">
-        <label for="pass">Password</label>
-        <input class="form-control" name="pass" type="password" [(ngModel)]="password"/>
-      </div>
-      <button (click)="checkLogin()">Login</button>
-    </form>
-  </div>
+<div class="container margin">
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Log In 
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" action=" " method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </span>
+                                        <input name="username" [(ngModel)]="username" placeholder="User Name" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-lock"></i>
+                                        </span>
+                                        <input class="form-control" name="pass" type="password" [(ngModel)]="password" placeholder="Password"/>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button type="submit" (click)="checkLogin()" class="btn btn-info btn-block">Login
+                                    </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

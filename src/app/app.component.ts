@@ -10,6 +10,7 @@ import { UsersListComponent } from './users/users-list/users-list.component';
   styleUrls: ['./app.component.css'],
   providers: [ UserDetailComponent ]
 })
+
 export class AppComponent {
   title = 'TravelBuddy';
 }

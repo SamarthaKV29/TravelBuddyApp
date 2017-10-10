@@ -1,30 +1,88 @@
-<div class="row">
-  <div class="col-md-12">
-    <h2>New user</h2>
-  </div>
-</div>
-<div  class="row">
-  <form class="col-md-12">
-    <div class="form-group">
-      <label for="user-name">Name</label>
-      <input class="form-control" name="user-name" [(ngModel)]="user.name" placeholder="Name"/>
+<div class="container margin">
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Travellers please Sign Up 
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" action=" " method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </span>
+                                        <input name="user-name" placeholder="Full Name" required="" [(ngModel)]="user.name" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 inputGroupContainer  control-label">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </span>
+                                        <input name="user-uname" placeholder="User Name" [(ngModel)]="user.username" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-earphone"></i>
+                                        </span>
+                                        <input name="user-phone-mobile" placeholder="+91 9781232100" [(ngModel)]="user.phone" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-envelope"></i>
+                                        </span>
+                                        <input name="user-email" placeholder="mail@example.com" [(ngModel)]="user.email" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-lock"></i>
+                                        </span>
+                                        <input class="form-control" type="password" name="user-pass" placeholder="Password" [(ngModel)]="user.password"/>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-lock"></i>
+                                        </span>
+                                        <input class="form-control" type="password" name="confirm-password" placeholder="Confirm Password"
+                                            required="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button type="submit" (click)="createUser(user)" class="btn btn-info btn-block">Register
+                                    </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="user-uname">Username</label>
-        <input class="form-control" name="user-uname" [(ngModel)]="user.username" placeholder="Username"/>
-      </div>
-    <div class="form-group">
-      <label for="user-email">Email</label>
-      <input class="form-control" name="user-email" [(ngModel)]="user.email" placeholder="support@mlab.com"/>
-    </div>
-    <div class="form-group">
-        <label for="user-pass">Password</label>
-        <input class="form-control" name="user-pass" [(ngModel)]="user.password" placeholder="T*****" type="password"/>
-      </div>
-    <div class="form-group">
-      <label for="user-phone-mobile">Phone</label>
-      <input class="form-control" name="user-phone-mobile" [(ngModel)]="user.phone" placeholder="1234567890"/>
-    </div>
-    <button class="btn btn-primary" (click)="createUser(user)">Create</button>
-  </form>
 </div>

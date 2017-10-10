@@ -1,20 +1,29 @@
 <body class="container backgroundImage">
   <nav class="navbar navbar-inverse">
-    <ul class="container-fluid">
-      <li><a class="navbar-brand">LOGO</a></li>
-      <li><button class="btn active" routerLink='/home'>Home</button></li>
-      <li><button class="btn btn-outline-danger" routerLink='/signup'>Sign Up</button></li>
-      <li><button class="btn btn-outline-dark" routerLink='/login'>Log In</button></li>
-    </ul>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Travel Buddy</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li>
+          <a class="active" routerLink='/home'>Home</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a routerLink='/signup'>Sign Up</a>
+        </li>
+        <li>
+          <a routerLink='/login'>Log In</a>
+        </li>
+        <li></li>
+      </ul>
+    </div>
   </nav>
+  <div class="wrapper">
+    <h1 class="h1 text-center">Welcome to
+      <span class="colorChangeAnimation">Travel Buddies</span>
+    </h1>
+  </div>
   <router-outlet></router-outlet>
 </body>
-<!-- <div class="container backgroundImage">
-    <div class="center">
-      <p class="welcomeColor">Welcome to <span class="colorChangeAnimation">Travel Buddies</span></p>
-      <button class="btn btn-outline-danger" routerLink='/signup'>Sign Up</button>
-      <button class="btn btn-outline-dark" routerLink='/login'>Log In</button>
-    </div>
-</div> -->
-<!-- <user-list></user-list> -->
-
