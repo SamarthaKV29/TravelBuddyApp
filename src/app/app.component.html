@@ -1,11 +1,13 @@
 <body class="container backgroundImage">
   <nav class="navbar navbar-inverse">
-    <ul class="container-fluid">
-      <li><a class="navbar-brand">LOGO</a></li>
-      <li><button class="btn active" routerLink='/home'>Home</button></li>
-      <li><button class="btn btn-outline-danger" routerLink='/signup'>Sign Up</button></li>
-      <li><button class="btn btn-outline-dark" routerLink='/login'>Log In</button></li>
-    </ul>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">LOGO</a>
+      </div>
+      <a routerLink='/home'>Home</a>
+      <a routerLink='/signup'>Sign Up</a>
+      <a routerLink='/login'>Log In</a>
+    </div>
   </nav>
   <router-outlet></router-outlet>
 </body>
