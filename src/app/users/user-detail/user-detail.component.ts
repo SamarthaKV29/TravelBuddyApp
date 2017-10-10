@@ -27,11 +27,11 @@ export class UserDetailComponent implements OnInit{
       roles: [
         "user"
       ],
-      profileImageURL: "",
       password: "",
       email: "",
       phone: "",
-      name: ""
+      name: "",
+      profileData: new Object()
     };
   }
 

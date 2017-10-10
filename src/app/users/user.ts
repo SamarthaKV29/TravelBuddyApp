@@ -5,10 +5,10 @@ export class User {
       date: Date;
   };
   roles: Array<string>;
-  profileImageURL: string;
   password: string;
   email: string;
   phone: string;
   name: string;
+  profileData: Object;
 }
 
