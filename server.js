@@ -51,15 +51,6 @@ function handleError(res, reason, message, code) {
     console.log("ERROR: " + reason);
     res.status(code || 500).json({"error": message});
   }
-  
-  /*  "/api/contacts"
-   *    GET: finds all contacts
-   *    POST: creates a new contact
-   */
-
-  // app.get("/home", function(req, res){
-  //   res.render('index.html');
-  // });
   function goHome(resp){
     resp.status(200).sendFile(path.join(distDir + '/index.html'));
   }
@@ -78,24 +69,14 @@ function handleError(res, reason, message, code) {
   });
   
   app.post("/api/users", function(req, res) {
-
     var newUser = req.body;
-    console.log(newUser._id);
-      if(newUser._id == ""){
-        var c = db.collection(USER_COLLECTION).count(function(err, count){
-          if(err){
-            handleError(res, "Please try again", "Unable to generate ID", 400);
-          }
-          newUser._id = String(c + 1);
-        });
+    db.collection(USER_COLLECTION).insertOne(newUser, function(err, doc) {
+      if (err) {
+        res.redirect("/signup");
+      } else {
+        res.status(201).json(doc.ops[0]);
       }
-      db.collection(USER_COLLECTION).insertOne(newUser, function(err, doc) {
-        if (err) {
-          handleError(res, err.message, "Failed to create user.");
-        } else {
-          res.status(201).json(doc.ops[0]);
-        }
-      });
+    });
   });
   
   /*  "/api/contacts/:id"

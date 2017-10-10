@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -9,7 +9,10 @@ import { UserService } from '../user.service';
   providers: [ UserService ]
 })
 
-export class UserDetailComponent {
+export class UserDetailComponent implements OnInit{
+  users: User[];
+  userslen: number;
+
   @Input()
   user: User;
 
@@ -32,7 +35,24 @@ export class UserDetailComponent {
     };
   }
 
+  ngOnInit(){
+    this.UserService
+    .getUsers()
+    .then((Users: User[]) => {
+      this.users = Users.map((User) => {
+        return User;
+      });
+      this.userslen = this.users.length;
+    });
+    
+  }
+  
+  
   createUser(user: User) {
+    if(this.user._id === ""){
+      this.user._id = (this.userslen + 1).toString();
+      console.log(this.user);
+    }
     this.UserService.createUser(user);
   }
 
