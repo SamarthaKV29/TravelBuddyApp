@@ -7,5 +7,4 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthService{
     public token: string;
-    constructor
 }
