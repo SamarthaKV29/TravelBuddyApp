@@ -2,21 +2,22 @@
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand">LOGO</a>
+        <a class="navbar-brand">Travel Buddy</a>
       </div>
-      <a routerLink='/home'>Home</a>
-      <a routerLink='/signup'>Sign Up</a>
-      <a routerLink='/login'>Log In</a>
+      <ul class="nav navbar-nav">
+          <li><a class="active" routerLink='/home'>Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a routerLink='/signup'>Sign Up</a></li>
+          <li><a routerLink='/login'>Log In</a></li>
+          <li></li>
+      </ul>
     </div>
   </nav>
+  <div class="wrapper">
+    <h1 class="h1 text-center">Welcome to <span class="colorChangeAnimation">Travel Buddies</span></h1>
+  </div>
   <router-outlet></router-outlet>
 </body>
-<!-- <div class="container backgroundImage">
-    <div class="center">
-      <p class="welcomeColor">Welcome to <span class="colorChangeAnimation">Travel Buddies</span></p>
-      <button class="btn btn-outline-danger" routerLink='/signup'>Sign Up</button>
-      <button class="btn btn-outline-dark" routerLink='/login'>Log In</button>
-    </div>
-</div> -->
-<!-- <user-list></user-list> -->
 
+`
