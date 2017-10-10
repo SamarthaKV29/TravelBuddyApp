@@ -7,7 +7,7 @@ var HOMEPAGE = "index";
 var USER_COLLECTION = "users";
 
 
-if (process.env.MONGODB_URI == undefined) {
+if(process.env.MONGODB_URI == undefined){
   process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:k3j5qi89b97t5lr0jo2arb7umt@ds147274.mlab.com:47274/heroku_tdjrgd33";
 }
 
@@ -28,21 +28,15 @@ var db;
 
 // Connect to the database before starting the application server.
 mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
-    if (err) {
-      console.log(err);
-      process.exit(1);
-    }
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
 
   // Save database object from the callback for reuse.
-<<<<<<< HEAD
   db = database;
   console.log("Database connection ready");
 
-=======
-    db = database;
-    console.log("Database connection ready");
-  
->>>>>>> 914b395bbffadbb2433815fe579bdafb97886556
   // Initialize the app.
   var server = app.listen(process.env.PORT || 4500, function () {
     var port = server.address().port;
@@ -54,26 +48,6 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 ///API code
 
 function handleError(res, reason, message, code) {
-<<<<<<< HEAD
-  console.log("ERROR: " + reason);
-  res.status(code || 500).json({ "error": message });
-}
-
-/*  "/api/contacts"
-  *    GET: finds all contacts
-  *    POST: creates a new contact
-  */
-
-// app.get("/home", function(req, res){
-//   res.render('index.html');
-// });
-function goHome(resp) {
-  resp.status(200).sendFile(path.join(distDir + '/index.html'));
-}
-app.get(["/", "/home"], function (req, res) {
-  goHome(res);
-});
-=======
     console.log("ERROR: " + reason);
     res.status(code || 500).json({"error": message});
   }
@@ -89,7 +63,6 @@ app.get(["/", "/home"], function (req, res) {
   function goHome(resp){
     resp.status(200).sendFile(path.join(distDir + '/index.html'));
   }
-  
   app.get(["/", "/home"], function(req, res){
     goHome(res);
   });
@@ -109,15 +82,11 @@ app.get(["/", "/home"], function (req, res) {
     var newUser = req.body;
     console.log(newUser._id);
       if(newUser._id == ""){
-      //   db.collection(USER_COLLECTION).count().then((count) => {
-      //     console.log(count);
-      // });
-        db.collection(USER_COLLECTION).count().then(function(err, count){
-          console.log(count);
+        var c = db.collection(USER_COLLECTION).count(function(err, count){
           if(err){
             handleError(res, "Please try again", "Unable to generate ID", 400);
           }
-          newUser._id = String(count + 1);
+          newUser._id = String(c + 1);
         });
       }
       db.collection(USER_COLLECTION).insertOne(newUser, function(err, doc) {
@@ -143,67 +112,18 @@ app.get(["/", "/home"], function (req, res) {
   
   app.delete("/api/users/:id", function(req, res) {
   });
->>>>>>> 914b395bbffadbb2433815fe579bdafb97886556
 
-app.get("/api/users", function (req, res) {
-  db.collection(USER_COLLECTION).find({}).toArray(function (err, docs) {
-    if (err) {
-      handleError(res, err.message, "Failed to get user details.");
-    } else {
-      res.status(200).json(docs);
+  //ERROR handling
+
+  app.get('*', function(req, res, next) {
+    var err = new Error();
+    err.status = 404;
+    next(err);
+  });
+
+  app.use(function(err, req, res, next) {
+    if(err.status !== 404) {
+      return next();
     }
+    goHome(res);
   });
-});
-
-app.post("/api/users", function (req, res) {
-  var newUser = req.body;
-  console.log("ID1:" + newUser._id);
-  db.collection(USER_COLLECTION).count().then((count) => {
-    newUser._id = String(count + 1);
-    console.log("newUser._id", newUser._id);
-    newUser.profileImageURL = String(count + 1);
-    console.log("Image:", newUser.profileImageURL);
-    newUser._id = 21;
-  });
-
-  console.log("ID2:", newUser);
-  db.collection(USER_COLLECTION).insertOne(newUser, function (err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to create user.");
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
-
-});
-
-/*  "/api/contacts/:id"
-  *    GET: find contact by id
-  *    PUT: update contact by id
-  *    DELETE: deletes contact by id
-  */
-
-app.get("/api/users/:id", function (req, res) {
-});
-
-app.put("/api/users/:id", function (req, res) {
-});
-
-app.delete("/api/users/:id", function (req, res) {
-});
-
-//ERROR handling
-
-app.get('*', function (req, res, next) {
-  var err = new Error();
-  err.status = 404;
-  next(err);
-});
-
-app.use(function (err, req, res, next) {
-  if (err.status !== 404) {
-    return next();
-  }
-  goHome(res);
-});
-
