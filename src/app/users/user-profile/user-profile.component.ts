@@ -3,19 +3,19 @@ import { User } from '../user';
 import { UserService } from '../../_services/user.service';
 
 @Component({
-  selector: 'user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css'],
+  selector: 'user-profile',
+  templateUrl: './user-profile.component.html',
+  styleUrls: ['./user-profile.component.css'],
   providers: [ UserService ]
 })
 
-export class UserDetailComponent implements OnInit{
+export class UserProfileComponent implements OnInit{
   
   profileData: Object;
-
+  users: User[];
   constructor (private UserService: UserService) {
-  	profileData = {
-  		
+  	this.profileData = {
+
   	};
   }
 
@@ -26,18 +26,8 @@ export class UserDetailComponent implements OnInit{
       this.users = Users.map((User) => {
         return User;
       });
-      this.userslen = this.users.length;
     });
     
-  }
-  
-  
-  createUser(user: User) {
-    if(this.user._id === ""){
-      this.user._id = (this.userslen + 1).toString();
-      console.log(this.user);
-    }
-    this.UserService.createUser(user);
   }
 
 }

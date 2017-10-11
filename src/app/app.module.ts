@@ -15,7 +15,8 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'signup', component: UserDetailComponent, },
   { path: 'login', component: LoginComponent},
-  { path: 'fpass', component: ForgotPassComponent }
+  { path: 'fpass', component: ForgotPassComponent },
+  { path: 'userprof', component: UserProfileComponent}
 ];
 
 @NgModule({
