@@ -505,7 +505,6 @@ var UserDetailComponent = (function () {
     UserDetailComponent.prototype.createUser = function (user) {
         if (this.user._id === "") {
             this.user._id = (this.userslen + 1).toString();
-            console.log(this.user);
         }
         this.UserService.createUser(user);
     };
