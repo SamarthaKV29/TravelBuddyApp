@@ -11,11 +11,15 @@ import { UserService } from '../../_services/user.service';
 
 export class UserProfileComponent implements OnInit{
   
-  profileData: Object;
+  profileData: {
+  	desc: String;
+  	origin: String;
+  };
   users: User[];
   constructor (private UserService: UserService) {
   	this.profileData = {
-
+  		desc: "Good ",
+  		origin: ""
   	};
   }
 
@@ -28,6 +32,10 @@ export class UserProfileComponent implements OnInit{
       });
     });
     
+  }
+
+  onSubmit(){
+  	console.log(this.profileData);
   }
 
 }
