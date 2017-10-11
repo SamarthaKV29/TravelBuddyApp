@@ -30,9 +30,11 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  
   checkLogin() {
+    
     for (let user of this.users) {
-      if (this.username)
+      if(this.username){
         if (user.username.toLowerCase() === this.username.toLowerCase() && user.password === this.password) {
           console.log("Login success");
         }
@@ -41,5 +43,5 @@ export class LoginComponent implements OnInit {
         }
     }
   }
-
+}
 }
