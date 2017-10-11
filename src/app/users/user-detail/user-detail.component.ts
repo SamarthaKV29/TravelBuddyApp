@@ -12,15 +12,13 @@ import { UserService } from '../../_services/user.service';
 export class UserDetailComponent implements OnInit{
   users: User[];
   userslen: number;
-  errFlag: boolean;
-  errMsg: String;
+
   @Input()
   user: User;
 
 
   constructor (private UserService: UserService) {
-    this.errFlag = false;
-    this.user = {
+    this.user =  {
       _id: "",
       username: "",
       created: {
@@ -51,9 +49,10 @@ export class UserDetailComponent implements OnInit{
   
   
   createUser(user: User) {
-    if(this.user._id === ""){
-      this.user._id = (this.userslen + 1).toString();
+    if(user._id === ""){
+      user._id = (this.userslen + 1).toString();
     }
+    console.log(user);
     this.UserService.createUser(user);
   }
 
