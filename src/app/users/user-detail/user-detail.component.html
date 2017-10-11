@@ -8,6 +8,8 @@
                 <div class="panel-body">
                     <form class="form-horizontal" action=" " method="post">
                         <fieldset>
+                            <p class="col-md-12 bg-warning" *ngIf="state == 0">{{message}}</p>
+                            <p class="col-md-12 bg-success" *ngIf="state == 1">{{message}}</p>
                             <div class="form-group">
                                 <div class="col-md-12  inputGroupContainer">
                                     <div class="input-group">

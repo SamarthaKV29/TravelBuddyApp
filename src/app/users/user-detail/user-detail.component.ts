@@ -12,6 +12,9 @@ import { UserService } from '../../_services/user.service';
 export class UserDetailComponent implements OnInit{
   users: User[];
   userslen: number;
+  state: number = 0;
+  message: String;
+
 
   @Input()
   user: User;
@@ -53,7 +56,21 @@ export class UserDetailComponent implements OnInit{
       user._id = (this.userslen + 1).toString();
     }
     console.log(user);
-    this.UserService.createUser(user);
+    for(let key in user){
+      if(user[key] == "" || user[key] == null){
+        console.log(key, user[key]);
+        this.state = 0;
+        this.message = "Failed to register, please check details.";
+        return;
+      }
+    }
+    this.UserService.createUser(user).then(response => {
+      this.state = 1;
+      this.message = "Registered Successfully.";
+    }, reject => {
+      this.state = 0;
+      this.message = "Failed to register, please check details.";
+    });
   }
 
 }
