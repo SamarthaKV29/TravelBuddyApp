@@ -70,6 +70,9 @@ app.get("/api/users", function (req, res) {
 
 app.post("/api/users", function (req, res) {
   var newUser = req.body;
+  if (!req.body.name || !req.body.uname) {
+    handleError(res, "Invalid user input", "Must provide all details.", 400);
+  }
   db.collection(USER_COLLECTION).insertOne(newUser, function (err, doc) {
     if (err) {
       res.redirect("/signup");
