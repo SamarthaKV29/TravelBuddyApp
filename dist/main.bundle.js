@@ -723,7 +723,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/utility/error/error.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-8 center-block\">\n    <div class=\"panel\">\n      <div class=\"panel-title\">Error</div>\n      <div class=\"panel-body\">Please try again</div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-8 center-block\">\r\n    <div class=\"panel\">\r\n      <div class=\"panel-title\">Error</div>\r\n      <div class=\"panel-body\">Please try again</div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
