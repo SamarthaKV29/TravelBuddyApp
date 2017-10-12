@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../_services/user.service';
+import { Router } from '@angular/router';
+import { AppComponent } from "../../app.component";
 import { User } from '../user';
 
 @Component({
@@ -13,12 +15,14 @@ import { User } from '../user';
 
 export class LoginComponent implements OnInit {
 
-  username: String;
+  username: string;
 
-  password: String;
+  password: string;
+
+  loading: boolean = false;
 
   private users: User[];
-  constructor(private UserService: UserService) { }
+  constructor(private UserService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.UserService
@@ -32,16 +36,44 @@ export class LoginComponent implements OnInit {
 
   
   checkLogin() {
-    
+    this.loading = true;
     for (let user of this.users) {
-      if(this.username){
-        if (user.username.toLowerCase() === this.username.toLowerCase() && user.password === this.password) {
-          console.log("Login success");
+      if(this.username.toLowerCase() === user.username.toLowerCase() && this.password === user.password){
+        if(!localStorage.getItem("currentUser") || localStorage.getItem("currentUser") == ""){
+          this.login();
+          break;
         }
-        else {
-          console.log("error");
+        else{
+          var curr = JSON.parse(localStorage.getItem("currentUser"));
+          if(curr.username == user.username){
+            this.reset();
+            this.login();
+          }
+          else{
+            this.router.navigate(["/login"]);
+          }
         }
+      }
+      else{
+        this.reset();
+      }
+      
     }
   }
-}
+
+  genToken() : string {
+    return new Date().toTimeString();
+  }
+
+  login(){
+    localStorage.setItem("currentUser", JSON.stringify({username: this.username, token: this.genToken()}));    
+    AppComponent.setLoggedIn();
+    this.router.navigate(["home"]);
+  }
+  reset(){
+    this.loading = false;
+    localStorage.setItem("currentUser", "");
+    AppComponent.resetLoggedIn();
+    this.password = "";
+  }
 }

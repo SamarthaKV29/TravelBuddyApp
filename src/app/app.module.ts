@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   { path: 'fpass', component: ForgotPassComponent },
   { path: 'userprof', component: UserProfileComponent}
 ];
-
+//{ path: '**', component: AppComponent},
 @NgModule({
   declarations: [
     AppComponent,

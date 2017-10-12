@@ -1,12 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,  } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { User } from '../user';
 import { UserService } from '../../_services/user.service';
+
 
 @Component({
   selector: 'user-detail',
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.css'],
-  providers: [ UserService ]
+  providers: [ UserService, NgForm ]
 })
 
 export class UserDetailComponent implements OnInit{
@@ -15,12 +17,15 @@ export class UserDetailComponent implements OnInit{
   state: number = 0;
   message: String;
 
-
   @Input()
   user: User;
 
 
   constructor (private UserService: UserService) {
+    this.initUser();
+  }
+
+  initUser(){
     this.user =  {
       _id: "",
       username: "",
@@ -37,7 +42,6 @@ export class UserDetailComponent implements OnInit{
       profileData: new Object()
     };
   }
-
   ngOnInit(){
     this.UserService
     .getUsers()
@@ -67,6 +71,7 @@ export class UserDetailComponent implements OnInit{
     this.UserService.createUser(user).then(response => {
       this.state = 1;
       this.message = "Registered Successfully.";
+      this.initUser();
     }, reject => {
       this.state = 0;
       this.message = "Failed to register, please check details.";

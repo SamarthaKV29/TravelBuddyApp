@@ -25,9 +25,12 @@ app.use(express.static(distDir));
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
-
+app.use((req, res, next) => {
+  res.header("Content-Type", 'application/json');
+  next();
+});
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+mongodb.MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
   if (err) {
     console.log(err);
     process.exit(1);
@@ -51,10 +54,11 @@ function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
   res.status(code || 500).json({ "error": message });
 }
-function goHome(resp) {
+goHome = (resp) => {
   resp.status(200).sendFile(path.join(distDir + '/index.html'));
 }
-app.get(["/", "/home"], function (req, res) {
+
+app.get(["/"], (req, res) => {
   goHome(res);
 });
 
@@ -69,40 +73,32 @@ app.get("/api/users", function (req, res) {
 });
 
 app.post("/api/users", function (req, res) {
-  var newUser = req.body;
-  if (!req.body.name || !req.body.uname) {
-    handleError(res, "Invalid user input", "Must provide all details.", 400);
-  }
   db.collection(USER_COLLECTION).insertOne(newUser, function (err, doc) {
     if (err) {
-      res.redirect("/signup");
+      return res.redirect("/signup");
     } else {
-      res.status(201).json(doc.ops[0]);
+      return res.status(201).json(doc.ops[0]);
     }
   });
 });
 
-/*  "/api/contacts/:id"
- *    GET: find contact by id
- *    PUT: update contact by id
- *    DELETE: deletes contact by id
- */
 
-app.get("/api/users/:id", function (req, res) {
+app.get("/home/:username", function (req, res) {
+  db.collection(USER_COLLECTION).find({ username: req.body.username }).toArray(function (err, docs) {
+    console.log("USERNAME" + docs[0]);
+  });
 });
 
-app.put("/api/users/:id", function (req, res) {
+app.put("/api/users/:username", function (req, res) {
 });
 
-app.delete("/api/users/:id", function (req, res) {
+app.delete("/api/users/:username", function (req, res) {
 });
 
 //ERROR handling
 
 app.get('*', function (req, res, next) {
-  var err = new Error();
-  err.status = 404;
-  next(err);
+  goHome();
 });
 
 app.use(function (err, req, res, next) {

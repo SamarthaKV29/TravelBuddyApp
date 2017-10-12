@@ -10,10 +10,10 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
+        <li *ngIf="!loggedin">
           <a routerLink='/signup'>Sign Up</a>
         </li>
-        <li>
+        <li  *ngIf="!loggedin">
           <a routerLink='/login'>Log In</a>
         </li>
         <li>
