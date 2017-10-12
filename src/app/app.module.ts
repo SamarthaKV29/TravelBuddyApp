@@ -10,13 +10,15 @@ import { LoginComponent } from './users/login/login.component';
 import { HomeComponent } from './users/home/home.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
 import { ForgotPassComponent } from './users/forgot-pass/forgot-pass.component';
+import { ErrorComponent } from './utility/error/error.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'signup', component: UserDetailComponent, },
   { path: 'login', component: LoginComponent},
   { path: 'fpass', component: ForgotPassComponent },
-  { path: 'userprof', component: UserProfileComponent}
+  { path: 'userprof', component: UserProfileComponent},
+  { path: 'error', component: ErrorComponent}
 ];
 //{ path: '**', component: AppComponent},
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     LoginComponent,
     HomeComponent,
     UserProfileComponent,
-    ForgotPassComponent
+    ForgotPassComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )
