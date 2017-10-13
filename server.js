@@ -1,107 +1,83 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var mongodb = require("mongodb");
-var ObjectID = mongodb.ObjectID;
-
-var USERS_COLLECTION = "users";
-
-var app = express();
-app.use(bodyParser.json());
-
-// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
-var db;
+var express  = require('express');
+var app      = express();                               // create our app w/ express
+var mongoose = require('mongoose');                     // mongoose for mongodb
+var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 
 if(!process.env.MONGODB_URI || process.env.MONGODB_URI == ""){
   process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:k3j5qi89b97t5lr0jo2arb7umt@ds147274.mlab.com:47274/heroku_tdjrgd33";
 }
-// Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
+
+
+mongoose.connect(process.env.MONGODB_URI, {
+  useMongoClient: true,
+  socketTimeoutMS: 0,
+  keepAlive: true,
+  reconnectTries: 30
+}, (err)=>{
+  if(err){
+    console.log(err.message);
   }
+  app.listen(4500);
+  console.log("App listening on port 4500");
+  
+});     // connect to mongoDB database on modulus.io
 
-  // Save database object from the callback for reuse.
-  db = database;
-  console.log("Database connection ready");
+app.use(express.static(__dirname + '/dist'));                 // set the static files location /public/img will be /img for users                           // log every request to the console
+app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
+app.use(bodyParser.json());                                     // parse application/json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 
-  // Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
+// listen (start app with node server.js) ======================================
+
+//API Model
+var UserSchema = new mongoose.Schema({
+  username: String,
+  created: {
+    date: Date
+  },
+  roles: [],
+  password: String,
+  email: String,
+  phone: String,
+  name: String,
+  profileData: {}
 });
+var User = mongoose.model("User", UserSchema);
 
-// CONTACTS API ROUTES BELOW
-
-// Generic error handler used by all endpoints.
-function handleError(res, reason, message, code) {
-  console.log("ERROR: " + reason);
-  res.status(code || 500).json({"error": message});
-}
-
-/*  "/api/user"
- *    GET: finds all user
- *    POST: creates a new contact
- */
-
-app.get("/api/user", function(req, res) {
-  db.collection(USERS_COLLECTION).find({}).toArray(function(err, docs) {
-    if (err) {
-      handleError(res, err.message, "Failed to get user.");
-    } else {
-      res.status(200).json(docs);
+//API 
+app.get('/api/v1/users', (req, res)=>{
+  User.find((err, users)=>{
+    if(err){
+      res.send("<p>DB error, please try again later</p>");
+    }
+    else{
+      res.status(200).json(users);
     }
   });
 });
 
-app.post("/api/user", function(req, res) {
-  var newUser = req.body;
-  newUser.createDate = new Date();
-
-  if (!req.body.name) {
-    handleError(res, "Invalid user input", "Must provide a name.", 400);
+app.post('/api/v1/users', (req, res)=>{
+  if(req.body == {}){
+    console.log("error");
   }
-
-  db.collection(USERS_COLLECTION).insertOne(newUser, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to create new User.");
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
+  else{
+    User.create({
+      text: req.body.text,
+      done: false
+    }, (err, user)=>{
+      if(err)
+        res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
+        setTimeout(function() {
+          res.redirect('/signup/:false');    
+        }, 3000);
+      if(user){
+        res.redirect('/signup/:true');
+      } 
+    });
+  }
 });
 
-app.get("/api/user/:id", function(req, res) {
-  db.collection(USERS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to get contact");
-    } else {
-      res.status(200).json(doc);
-    }
-  });
-});
 
-app.put("/api/user/:id", function(req, res) {
-  var updateDoc = req.body;
-  delete updateDoc._id;
-
-  db.collection(USERS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to update contact");
-    } else {
-      updateDoc._id = req.params.id;
-      res.status(200).json(updateDoc);
-    }
-  });
-});
-
-app.delete("/api/user/:id", function(req, res) {
-  db.collection(USERS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
-    if (err) {
-      handleError(res, err.message, "Failed to delete contact");
-    } else {
-      res.status(200).json(req.params.id);
-    }
-  });
+app.get('*', (req, res)=>{
+  res.sendFile('/dist/index.html');
 });

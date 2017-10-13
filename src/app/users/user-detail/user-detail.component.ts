@@ -27,7 +27,6 @@ export class UserDetailComponent implements OnInit{
 
   initUser(){
     this.user =  {
-      _id: "",
       username: "",
       created: {
           date: new Date(),

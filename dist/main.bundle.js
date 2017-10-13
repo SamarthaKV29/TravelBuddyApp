@@ -111,7 +111,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"container backgroundImage\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n        <a class=\"navbar-brand\">Travel Buddy</a>\r\n      </div>\r\n      <ul class=\"nav navbar-nav\">\r\n        <li>\r\n          <a class=\"active\" routerLink='/home'>Home</a>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf=\"!loggedin\">\r\n          <a routerLink='/signup'>Sign Up</a>\r\n        </li>\r\n        <li  *ngIf=\"!loggedin\">\r\n          <a routerLink='/login'>Log In</a>\r\n        </li>\r\n        <li>\r\n          <a routerLink='/userprof'>User Profile</a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddies</span>\r\n    </h1>\r\n  </div>\r\n  <router-outlet></router-outlet>\r\n</body>"
+module.exports = "<body class=\"container backgroundImage\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n        <a class=\"navbar-brand\">Travel Buddy</a>\r\n      </div>\r\n      <ul class=\"nav navbar-nav \">\r\n        <li>\r\n          <a class=\"active\" routerLink='/home'>Home</a>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf=\"!loggedin\">\r\n          <a routerLink='/signup'>Sign Up</a>\r\n        </li>\r\n        <li  *ngIf=\"!loggedin\">\r\n          <a routerLink='/login'>Log In</a>\r\n        </li>\r\n        <li>\r\n          <a routerLink='/userprof'>User Profile</a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddies</span>\r\n    </h1>\r\n  </div>\r\n  <router-outlet></router-outlet>\r\n</body>"
 
 /***/ }),
 
@@ -536,7 +536,6 @@ var UserDetailComponent = (function () {
     }
     UserDetailComponent.prototype.initUser = function () {
         this.user = {
-            _id: "",
             username: "",
             created: {
                 date: new Date(),

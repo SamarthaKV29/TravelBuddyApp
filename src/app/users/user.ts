@@ -9,6 +9,6 @@ export class User {
   email: string;
   phone: string;
   name: string;
-  profileData: Object;
+  profileData: {};
 }
 
