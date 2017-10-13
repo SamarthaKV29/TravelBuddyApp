@@ -12,13 +12,15 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
 import { ForgotPassComponent } from './users/forgot-pass/forgot-pass.component';
 import { ErrorComponent } from './utility/error/error.component';
 
+
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'signup', component: UserDetailComponent, },
-  { path: 'login', component: LoginComponent},
+  { path: 'login/:logginin', component: LoginComponent},
   { path: 'fpass', component: ForgotPassComponent },
   { path: 'userprof', component: UserProfileComponent},
-  { path: 'error', component: ErrorComponent}
+  { path: 'error', component: ErrorComponent},
+  { path: 'login/:loginstate', component: LoginComponent}
 ];
 //{ path: '**', component: AppComponent},
 @NgModule({

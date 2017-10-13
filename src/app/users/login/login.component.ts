@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../_services/user.service';
-import { Router } from '@angular/router';
-import { AppComponent } from "../../app.component";
+import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../user';
 
 @Component({
@@ -14,66 +13,65 @@ import { User } from '../user';
 
 
 export class LoginComponent implements OnInit {
+  private users: User[];
+  private loginstate: boolean = undefined;
+  private sub: any;
+  message: string;
+  username: string = "";
 
-  username: string;
-
-  password: string;
+  password: string = "";
 
   loading: boolean = false;
+  error: boolean = false;
 
-  private users: User[];
-  constructor(private UserService: UserService, private router: Router) { }
+  constructor(private UserService: UserService, private router: Router, private route: ActivatedRoute){
+    this.error = this.loading = false;
+  }
 
-  ngOnInit() {
-    this.UserService
-      .getUsers()
-      .then((Users: User[]) => {
-        this.users = Users.map((User) => {
-          return User;
-        });
+  ngOnInit(){
+    this.UserService.getUsers().then((users: User[]) =>{
+      this.users = users.map((user: User)=>{
+        return user;
       });
+    });
+    this.sub = this.route.params.subscribe(params => {
+      if(params['loginstate'] === "false")
+        this.loginstate = false;
+      else
+        this.loginstate = true;
+      if(!this.loginstate || sessionStorage.getItem('token')){
+        sessionStorage.clear();
+        this.loading = false;
+        this.error = false;
+        this.router.navigate(['login', true]);
+        this.message = undefined;
+      }
+      else if(sessionStorage.getItem('token')){
+        this.message = "Already logged in, redirecting to home";
+        setTimeout(function() {
+          this.router.navigate(['home']);
+        }, 2000);
+      }
+    });
+    
   }
-
   
-  checkLogin() {
+  checkLogin(){
     this.loading = true;
-    for (let user of this.users) {
-      if(this.username.toLowerCase() === user.username.toLowerCase() && this.password === user.password){
-        if(!localStorage.getItem("currentUser") || localStorage.getItem("currentUser") == ""){
-          this.login();
-          break;
-        }
-        else{
-          var curr = JSON.parse(localStorage.getItem("currentUser"));
-          if(curr.username == user.username){
-            this.reset();
-            this.login();
-          }
-          else{
-            this.router.navigate(["/login"]);
-          }
-        }
+    if(this.users){
+      var USER = this.users.find(x => x.username.toLowerCase() == this.username.toLowerCase() && x.password === this.password);
+      if(USER){
+        var currentMilli = new Date().getMilliseconds();
+        var token = {
+          user: USER,
+          start: currentMilli
+        };
+        sessionStorage.setItem('token', JSON.stringify(token));
+        this.router.navigate(['home']);
       }
-      else{
-        this.reset();
-      }
-      
     }
-  }
-
-  genToken() : string {
-    return new Date().toTimeString();
-  }
-
-  login(){
-    localStorage.setItem("currentUser", JSON.stringify({username: this.username, token: this.genToken()}));    
-    AppComponent.setLoggedIn();
-    this.router.navigate(["home"]);
-  }
-  reset(){
-    this.loading = false;
-    localStorage.setItem("currentUser", "");
-    AppComponent.resetLoggedIn();
-    this.password = "";
+    else{
+      this.error = true;
+    }
   }
 }

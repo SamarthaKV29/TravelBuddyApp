@@ -1,4 +1,4 @@
-import { Component, Input, OnInit,  } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../user';
 import { UserService } from '../../_services/user.service';
@@ -12,9 +12,7 @@ import { UserService } from '../../_services/user.service';
 })
 
 export class UserDetailComponent implements OnInit{
-  users: User[];
-  userslen: number;
-  state: number = 0;
+  state: boolean = false;
   message: String;
 
   @Input()
@@ -41,38 +39,25 @@ export class UserDetailComponent implements OnInit{
       profileData: new Object()
     };
   }
-  ngOnInit(){
-    this.UserService
-    .getUsers()
-    .then((Users: User[]) => {
-      this.users = Users.map((User) => {
-        return User;
-      });
-      this.userslen = this.users.length;
-    });
-    
-  }
+  ngOnInit(){}
   
   
   createUser(user: User) {
-    if(user._id === ""){
-      user._id = (this.userslen + 1).toString();
-    }
     console.log(user);
     for(let key in user){
       if(user[key] == "" || user[key] == null){
         console.log(key, user[key]);
-        this.state = 0;
+        this.state = false;
         this.message = "Failed to register, please check details.";
         return;
       }
     }
     this.UserService.createUser(user).then(response => {
-      this.state = 1;
+      this.state = true;
       this.message = "Registered Successfully.";
       this.initUser();
     }, reject => {
-      this.state = 0;
+      this.state = false;
       this.message = "Failed to register, please check details.";
     });
   }

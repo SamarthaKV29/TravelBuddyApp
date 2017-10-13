@@ -1,27 +1,34 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { UserDetailComponent } from './users/user-detail/user-detail.component';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 
+
+
 export class AppComponent {
-  title = 'TravelBuddy';
-  static loggedin: boolean = false;
+  
+  isLoggedin : boolean = false;
+  title = 'TravelBuddy';  
+  
 
-  static getLoginStatus(): boolean {
-    return this.loggedin;
-  }
-  static setLoggedIn(){
-    this.loggedin = true;
-  }
-
-  static resetLoggedIn(){
-    this.loggedin = false;
+  constructor(){
+    sessionStorage.clear();
+    let checker = setInterval(()=>{
+      console.log("loginstate: " + this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
+      if(sessionStorage.getItem('token')){
+        this.isLoggedin = true;
+      }
+      else if(!sessionStorage.getItem('token')){
+        this.isLoggedin = false;
+      }
+    }, 200);
   }
 
   
+
 }

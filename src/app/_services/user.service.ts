@@ -6,7 +6,8 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserService {
-  private usersUrl = '/api/users';
+  private usersUrl = '/api/v1/users';
+  
       constructor (private http: Http) {}
   
       // get("/api/Users")

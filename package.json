@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^4.4.4",
     "@angular/platform-browser-dynamic": "^4.4.4",
     "@angular/router": "^4.4.4",
+    "angular2-jwt": "^0.2.3",
     "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
     "ejs": "^2.5.7",

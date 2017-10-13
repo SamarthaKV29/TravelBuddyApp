@@ -10,20 +10,24 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!loggedin">
-          <a routerLink='/signup'>Sign Up</a>
+        <li *ngIf="!this.isLoggedin">
+          <a [routerLink]="['/signup']">Sign Up</a>
         </li>
-        <li  *ngIf="!loggedin">
-          <a routerLink='/login'>Log In</a>
+        <li  *ngIf="!this.isLoggedin">
+          <a [routerLink]="['/login', true]">Log In</a>
         </li>
-        <li>
-          <a routerLink='/userprof'>User Profile</a>
+        <li *ngIf="!this.isLoggedin">
+          <a [routerLink]="['/userprof']">User Profile</a>
         </li>
+        <li *ngIf="this.isLoggedin">
+          <a [routerLink]="['/login', false]">Logout</a>
+        </li>
+        
       </ul>
     </div>
   </nav>
   <div class="wrapper">
-    <h1 class="h1 text-center">Welcome to
+    <h1 class="h1 text-center" *ngIf="!this.isLoggedin">Welcome to
       <span class="colorChangeAnimation">Travel Buddies</span>
     </h1>
   </div>
