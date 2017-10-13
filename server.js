@@ -17,8 +17,8 @@ mongoose.connect(process.env.MONGODB_URI, {
   if(err){
     console.log(err.message);
   }
-  app.listen(4500);
-  console.log("App listening on port 4500");
+  app.listen(process.env.PORT || 4500);
+  console.log("App started");
   
 });     // connect to mongoDB database on modulus.io
 
