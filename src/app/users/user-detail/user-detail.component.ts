@@ -14,6 +14,8 @@ import { UserService } from '../../_services/user.service';
 export class UserDetailComponent implements OnInit{
   state: boolean = false;
   message: String;
+  sub: any;
+  
 
   @Input()
   user: User;
@@ -39,7 +41,9 @@ export class UserDetailComponent implements OnInit{
       profileData: new Object()
     };
   }
-  ngOnInit(){}
+  ngOnInit(){
+    this.initUser();
+  }
   
   
   createUser(user: User) {
