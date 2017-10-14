@@ -16,7 +16,7 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-user"></i>
                                         </span>
-                                        <input name="user-name" placeholder="Full Name" required="" [(ngModel)]="user.name" class="form-control" type="text">
+                                        <input name="user-name" placeholder="Full Name" required [(ngModel)]="user.name" class="form-control" type="text">
                                     </div>
                                 </div>
                             </div>
@@ -26,7 +26,7 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-user"></i>
                                         </span>
-                                        <input name="user-uname" placeholder="User Name" [(ngModel)]="user.username" class="form-control" type="text">
+                                        <input name="user-uname" placeholder="User Name" maxlength="25" [(ngModel)]="user.username" class="form-control" type="text">
                                     </div>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-earphone"></i>
                                         </span>
-                                        <input name="user-phone-mobile" placeholder="+91 9781232100" [(ngModel)]="user.phone" class="form-control" type="text">
+                                        <input name="user-phone-mobile" placeholder="+91 9781232100" maxlength="10" [(ngModel)]="user.phone" class="form-control" type="phone">
                                     </div>
                                 </div>
                             </div>

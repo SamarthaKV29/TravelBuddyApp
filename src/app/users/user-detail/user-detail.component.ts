@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute} from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../../_services/user.service';
 
@@ -14,7 +15,7 @@ import { UserService } from '../../_services/user.service';
 export class UserDetailComponent implements OnInit{
   state: boolean = false;
   message: String;
-  sub: any;
+  
   
 
   @Input()
@@ -43,6 +44,7 @@ export class UserDetailComponent implements OnInit{
   }
   ngOnInit(){
     this.initUser();
+    
   }
   
   
