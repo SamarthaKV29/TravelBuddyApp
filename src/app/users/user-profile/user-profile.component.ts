@@ -12,14 +12,24 @@ import { UserService } from '../../_services/user.service';
 export class UserProfileComponent implements OnInit{
   
   profileData: {
-  	desc: String;
-  	origin: String;
+  	originCity: String;
+    originTime: String;
+    destinationCity: String;
+    destinationTime: String;
+    bio: String;
+    seatsOffered: String;
+    seatRequired: String;
   };
   users: User[];
   constructor (private UserService: UserService) {
   	this.profileData = {
-  		desc: "Good ",
-  		origin: ""
+  		originCity: "",
+      originTime: "",
+      destinationCity: "",
+      destinationTime: "",
+      bio: "",
+      seatsOffered: "",
+      seatRequired: ""
   	};
   }
 
