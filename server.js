@@ -82,9 +82,3 @@ app.get('*', (req, res)=>{
   res.sendFile('/dist/index.html');
 });
 
-app.get('*', (err, req, res)=>{
-  if(err){
-    res.redirect('/error');
-  }
-});
-
