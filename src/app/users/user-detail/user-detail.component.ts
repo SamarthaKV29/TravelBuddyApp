@@ -13,7 +13,7 @@ import { UserService } from '../../_services/user.service';
 })
 
 export class UserDetailComponent implements OnInit{
-  regState: boolean = false;
+  regState: boolean = undefined;
   message: String = undefined;
   sub: any;
 
@@ -50,14 +50,15 @@ export class UserDetailComponent implements OnInit{
       if(params['regstate'] === "false"){
         this.regState = false;
         this.message = "Failed to register, please check details.";
-        
       }
-      else{
+      else if(params['regstate'] === "true"){
         this.regState = true;
         this.message = "Registered Successfully.";
         this.initUser();
       }
-       
+      else{
+        this.message = "Please enter your details below to begin!"
+      }
     });
   }
   
