@@ -111,7 +111,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"container backgroundImage\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n        <a class=\"navbar-brand\">Travel Buddy</a>\r\n      </div>\r\n      <ul class=\"nav navbar-nav \">\r\n        <li>\r\n          <a class=\"active\" routerLink='/home'>Home</a>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf=\"!this.isLoggedin\">\r\n          <a [routerLink]=\"['/signup']\">Sign Up</a>\r\n        </li>\r\n        <li  *ngIf=\"!this.isLoggedin\">\r\n          <a [routerLink]=\"['/login', true]\">Log In</a>\r\n        </li>\r\n        <li *ngIf=\"!this.isLoggedin\">\r\n          <a [routerLink]=\"['/userprof']\">User Profile</a>\r\n        </li>\r\n        <li *ngIf=\"this.isLoggedin\">\r\n          <a [routerLink]=\"['/login', false]\">Logout</a>\r\n        </li>\r\n        \r\n      </ul>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center\" *ngIf=\"!this.isLoggedin\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddies</span>\r\n    </h1>\r\n  </div>\r\n  <router-outlet></router-outlet>\r\n</body>"
+module.exports = "<body class=\"container backgroundImage\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n        <a class=\"navbar-brand\">Travel Buddy</a>\r\n      </div>\r\n      <ul class=\"nav navbar-nav \">\r\n        <li>\r\n          <a class=\"active\" routerLink='/home'>Home</a>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf=\"!this.isLoggedin\">\r\n          <a [routerLink]=\"['/signup', false]\">Sign Up</a>\r\n        </li>\r\n        <li  *ngIf=\"!this.isLoggedin\">\r\n          <a [routerLink]=\"['/login', true]\">Log In</a>\r\n        </li>\r\n        <li *ngIf=\"!this.isLoggedin\">\r\n          <a [routerLink]=\"['/userprof']\">User Profile</a>\r\n        </li>\r\n        <li *ngIf=\"this.isLoggedin\">\r\n          <a [routerLink]=\"['/login', false]\">Logout</a>\r\n        </li>\r\n        \r\n      </ul>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center\" *ngIf=\"!this.isLoggedin\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddies</span>\r\n    </h1>\r\n  </div>\r\n  <router-outlet></router-outlet>\r\n</body>"
 
 /***/ }),
 
@@ -201,12 +201,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var appRoutes = [
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_9__users_home_home_component__["a" /* HomeComponent */] },
-    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */], },
-    { path: 'login/:logginin', component: __WEBPACK_IMPORTED_MODULE_8__users_login_login_component__["a" /* LoginComponent */] },
+    { path: 'signup/:regstate', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */], },
+    { path: 'login/:loginstate', component: __WEBPACK_IMPORTED_MODULE_8__users_login_login_component__["a" /* LoginComponent */] },
     { path: 'fpass', component: __WEBPACK_IMPORTED_MODULE_11__users_forgot_pass_forgot_pass_component__["a" /* ForgotPassComponent */] },
     { path: 'userprof', component: __WEBPACK_IMPORTED_MODULE_10__users_user_profile_user_profile_component__["a" /* UserProfileComponent */] },
     { path: 'error', component: __WEBPACK_IMPORTED_MODULE_12__utility_error_error_component__["a" /* ErrorComponent */] },
-    { path: 'login/:loginstate', component: __WEBPACK_IMPORTED_MODULE_8__users_login_login_component__["a" /* LoginComponent */] }
 ];
 //{ path: '**', component: AppComponent},
 var AppModule = (function () {
@@ -517,7 +516,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/user-detail/user-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container margin\">\r\n    <div class=\"row centered-form\">\r\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <div class=\"panel panel-default\">\r\n                <div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">Sign Up</h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <form class=\"form-horizontal\" action=\" \" method=\"post\" #registrationForm=\"ngForm\">\r\n                        <fieldset>\r\n                            <p class=\"col-md-12 bg-warning\" *ngIf=\"!state\">{{message}}</p>\r\n                            <p class=\"col-md-12 bg-success\" *ngIf=\"!state\">{{message}}</p>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-user\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-name\" placeholder=\"Full Name\" required [(ngModel)]=\"user.name\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12 inputGroupContainer  control-label\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-user\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-uname\" placeholder=\"User Name\" maxlength=\"25\" [(ngModel)]=\"user.username\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-earphone\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-phone-mobile\" placeholder=\"+91 9781232100\" maxlength=\"10\" [(ngModel)]=\"user.phone\" class=\"form-control\" type=\"phone\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                        <fieldset>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-envelope\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-email\" placeholder=\"mail@example.com\" [(ngModel)]=\"user.email\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group has-feedback\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-lock\"></i>\r\n                                        </span>\r\n                                        <input class=\"form-control\" type=\"password\" name=\"user-pass\" placeholder=\"Password\" [(ngModel)]=\"user.password\"/>\r\n                                            \r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group has-feedback\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-lock\"></i>\r\n                                        </span>\r\n                                        <input class=\"form-control\" type=\"password\" name=\"confirm-password\" placeholder=\"Confirm Password\"\r\n                                            required />\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12\">\r\n                                    <button type=\"submit\" (click)=\"createUser(user);registrationForm.reset();\" class=\"btn btn-info btn-block\">Register\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container margin\">\r\n    <div class=\"row centered-form\">\r\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <div class=\"panel panel-default\">\r\n                <div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">Sign Up</h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <form class=\"form-horizontal\" action=\" \" method=\"post\" #registrationForm=\"ngForm\">\r\n                        <fieldset>\r\n                            <p class=\"col-md-12 bg-warning\" *ngIf=\"!state && message\">{{message}}</p>\r\n                            <p class=\"col-md-12 bg-success\" *ngIf=\"state && message\">{{message}}</p>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-user\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-name\" placeholder=\"Full Name\" required [(ngModel)]=\"user.name\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12 inputGroupContainer  control-label\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-user\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-uname\" placeholder=\"User Name\" maxlength=\"25\" [(ngModel)]=\"user.username\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-earphone\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-phone-mobile\" placeholder=\"+91 9781232100\" maxlength=\"10\" [(ngModel)]=\"user.phone\" class=\"form-control\" type=\"phone\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                        <fieldset>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-envelope\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-email\" placeholder=\"mail@example.com\" [(ngModel)]=\"user.email\" class=\"form-control\" type=\"email\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group has-feedback\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-lock\"></i>\r\n                                        </span>\r\n                                        <input class=\"form-control\" type=\"password\" name=\"user-pass\" placeholder=\"Password\" [(ngModel)]=\"user.password\"/>\r\n                                            \r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group has-feedback\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-lock\"></i>\r\n                                        </span>\r\n                                        <input class=\"form-control\" type=\"password\" name=\"confirm-password\" placeholder=\"Confirm Password\"\r\n                                            required />\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12\">\r\n                                    <button type=\"submit\" (click)=\"{createUser(user);registrationForm.reset();}\" class=\"btn btn-info btn-block\">Register\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -528,8 +527,9 @@ module.exports = "<div class=\"container margin\">\r\n    <div class=\"row cente
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserDetailComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user__ = __webpack_require__("../../../../../src/app/users/user.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service__ = __webpack_require__("../../../../../src/app/_services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user__ = __webpack_require__("../../../../../src/app/users/user.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_user_service__ = __webpack_require__("../../../../../src/app/_services/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -543,10 +543,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var UserDetailComponent = (function () {
-    function UserDetailComponent(UserService) {
+    function UserDetailComponent(UserService, route) {
         this.UserService = UserService;
-        this.state = false;
+        this.route = route;
+        this.regState = false;
+        this.message = undefined;
         this.initUser();
     }
     UserDetailComponent.prototype.initUser = function () {
@@ -566,45 +569,50 @@ var UserDetailComponent = (function () {
         };
     };
     UserDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.initUser();
+        this.sub = this.route.params.subscribe(function (params) {
+            if (params['regstate'] === "false") {
+                _this.regState = false;
+                _this.message = "Failed to register, please check details.";
+            }
+            else {
+                _this.regState = true;
+                _this.message = "Registered Successfully.";
+                _this.initUser();
+            }
+        });
     };
     UserDetailComponent.prototype.createUser = function (user) {
-        var _this = this;
         console.log(user);
         for (var key in user) {
             if (user[key] == "" || user[key] == null) {
                 console.log(key, user[key]);
-                this.state = false;
+                this.regState = false;
                 this.message = "Failed to register, please check details.";
                 return;
             }
+            this.UserService.createUser(user);
+            return;
         }
-        this.UserService.createUser(user).then(function (response) {
-            _this.state = true;
-            _this.message = "Registered Successfully.";
-            _this.initUser();
-        }, function (reject) {
-            _this.state = false;
-            _this.message = "Failed to register, please check details.";
-        });
     };
     return UserDetailComponent;
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__user__["a" /* User */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__user__["a" /* User */]) === "function" && _a || Object)
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__user__["a" /* User */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__user__["a" /* User */]) === "function" && _a || Object)
 ], UserDetailComponent.prototype, "user", void 0);
 UserDetailComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'user-detail',
         template: __webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NgForm */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NgForm */]]
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
 ], UserDetailComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=user-detail.component.js.map
 
 /***/ }),

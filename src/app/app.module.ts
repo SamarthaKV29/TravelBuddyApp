@@ -15,12 +15,11 @@ import { ErrorComponent } from './utility/error/error.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'signup', component: UserDetailComponent, },
-  { path: 'login/:logginin', component: LoginComponent},
+  { path: 'signup/:regstate', component: UserDetailComponent, },
+  { path: 'login/:loginstate', component: LoginComponent},
   { path: 'fpass', component: ForgotPassComponent },
   { path: 'userprof', component: UserProfileComponent},
   { path: 'error', component: ErrorComponent},
-  { path: 'login/:loginstate', component: LoginComponent}
 ];
 //{ path: '**', component: AppComponent},
 @NgModule({

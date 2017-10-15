@@ -13,8 +13,10 @@ import { UserService } from '../../_services/user.service';
 })
 
 export class UserDetailComponent implements OnInit{
-  state: boolean = false;
-  message: String;
+  regState: boolean = false;
+  message: String = undefined;
+  sub: any;
+
   
   
 
@@ -22,7 +24,7 @@ export class UserDetailComponent implements OnInit{
   user: User;
 
 
-  constructor (private UserService: UserService) {
+  constructor (private UserService: UserService, private route: ActivatedRoute) {
     this.initUser();
   }
 
@@ -44,7 +46,19 @@ export class UserDetailComponent implements OnInit{
   }
   ngOnInit(){
     this.initUser();
-    
+    this.sub = this.route.params.subscribe(params => {
+      if(params['regstate'] === "false"){
+        this.regState = false;
+        this.message = "Failed to register, please check details.";
+        
+      }
+      else{
+        this.regState = true;
+        this.message = "Registered Successfully.";
+        this.initUser();
+      }
+       
+    });
   }
   
   
@@ -53,19 +67,14 @@ export class UserDetailComponent implements OnInit{
     for(let key in user){
       if(user[key] == "" || user[key] == null){
         console.log(key, user[key]);
-        this.state = false;
+        this.regState = false;
         this.message = "Failed to register, please check details.";
         return;
       }
+      this.UserService.createUser(user);
+      return;
     }
-    this.UserService.createUser(user).then(response => {
-      this.state = true;
-      this.message = "Registered Successfully.";
-      this.initUser();
-    }, reject => {
-      this.state = false;
-      this.message = "Failed to register, please check details.";
-    });
+    
   }
 
 }
