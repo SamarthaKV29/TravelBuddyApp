@@ -19,7 +19,7 @@ export class AppComponent {
   constructor(){
     sessionStorage.clear();
     let checker = setInterval(()=>{
-      console.log("loginstate: " + this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
+      //console.log("loginstate: " + this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
       if(sessionStorage.getItem('token')){
         this.isLoggedin = true;
       }

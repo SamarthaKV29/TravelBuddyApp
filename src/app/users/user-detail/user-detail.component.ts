@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ActivatedRoute} from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, ActivatedRoute} from '@angular/router';
+import { NgForm, Validators } from '@angular/forms';
 import { User } from '../user';
 import { UserService } from '../../_services/user.service';
 
@@ -12,70 +12,78 @@ import { UserService } from '../../_services/user.service';
   providers: [ UserService, NgForm ]
 })
 
+
 export class UserDetailComponent implements OnInit{
   regState: boolean = undefined;
   message: String = undefined;
   sub: any;
-
-  
-  
-
-  @Input()
+  confirmpassword: string;
   user: User;
 
+  constructor (private UserService: UserService, private route: ActivatedRoute, private router: Router) {}
 
-  constructor (private UserService: UserService, private route: ActivatedRoute) {
-    this.initUser();
-  }
 
   initUser(){
-    this.user =  {
+    this.user = {
+      name: "",
       username: "",
       created: {
-          date: new Date(),
+        date: new Date()
       },
-      roles: [
-        "user"
-      ],
-      password: "",
       email: "",
       phone: "",
-      name: "",
-      profileData: new Object()
+      password: "",
+      roles: ['user'],
+      profileData: {}
     };
   }
   ngOnInit(){
-    this.initUser();
+    this.initUser();  
+
     this.sub = this.route.params.subscribe(params => {
-      if(params['regstate'] === "false"){
+      if(params['regstate'] == "false"){
         this.regState = false;
         this.message = "Failed to register, please check details.";
       }
-      else if(params['regstate'] === "true"){
+      else if(params['regstate'] == "true"){
         this.regState = true;
         this.message = "Registered Successfully.";
-        this.initUser();
+        return;
       }
-      else{
-        this.message = "Please enter your details below to begin!"
+      else if(params['regstate'] == "undefined"){
+        this.message = "Please enter your details."
+        setTimeout(()=>{
+          this.message = undefined;
+        }, 3000);
       }
     });
   }
   
-  
-  createUser(user: User) {
-    console.log(user);
-    for(let key in user){
-      if(user[key] == "" || user[key] == null){
-        console.log(key, user[key]);
+  createUser() {
+    console.log(this.user);
+    for(let key in this.user){
+      if(this.user[key] == ""){
+        console.log("KEY: " + key);
+        this.message = "Invalid input";
         this.regState = false;
-        this.message = "Failed to register, please check details.";
+        setTimeout(()=>{
+          this.message = undefined;
+          this.regState = undefined;
+        }, 5000)
         return;
       }
-      this.UserService.createUser(user);
-      return;
     }
-    
+    this.UserService.createUser(this.user).then(success=>{
+      if(success){
+        this.initUser();
+        this.confirmpassword = "";
+        this.router.navigate(['/signup/:true']);
+      }
+    }, reject=>{
+      if(reject){
+        this.router.navigate(['/signup/:false']);
+      }
+    });    
   }
 
 }

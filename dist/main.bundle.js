@@ -138,7 +138,7 @@ var AppComponent = (function () {
         this.title = 'TravelBuddy';
         sessionStorage.clear();
         var checker = setInterval(function () {
-            console.log("loginstate: " + _this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
+            //console.log("loginstate: " + this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
             if (sessionStorage.getItem('token')) {
                 _this.isLoggedin = true;
             }
@@ -201,7 +201,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var appRoutes = [
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_9__users_home_home_component__["a" /* HomeComponent */] },
-    { path: 'signup/:regstate', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */], },
+    { path: 'signup/:regstate', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */] },
+    { path: 'signup', redirectTo: 'signup/undefined' },
+    { path: 'login', redirectTo: 'login/false' },
     { path: 'login/:loginstate', component: __WEBPACK_IMPORTED_MODULE_8__users_login_login_component__["a" /* LoginComponent */] },
     { path: 'fpass', component: __WEBPACK_IMPORTED_MODULE_11__users_forgot_pass_forgot_pass_component__["a" /* ForgotPassComponent */] },
     { path: 'userprof', component: __WEBPACK_IMPORTED_MODULE_10__users_user_profile_user_profile_component__["a" /* UserProfileComponent */] },
@@ -225,7 +227,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_12__utility_error_error_component__["a" /* ErrorComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* RouterModule */].forRoot(appRoutes)
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* ReactiveFormsModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* RouterModule */].forRoot(appRoutes)
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_5__services_user_service__["a" /* UserService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
@@ -503,7 +505,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".margin {\r\n  margin-top: 10%\r\n}", ""]);
+exports.push([module.i, ".margin {\r\n  margin-top: 10%\r\n}\r\n\r\n.alert.alert-warning, .alert.alert-danger{\r\n  font-size: 12px !important;\r\n  padding: 2%;\r\n  border: none;\r\n  border-bottom: solid thin lightseagreen;\r\n  border-top-left-radius: 0px;\r\n  border-top-right-radius: 0px;\r\n  box-shadow: 0px 0px 10px 0px lightgrey;\r\n  margin: 0;\r\n}", ""]);
 
 // exports
 
@@ -516,7 +518,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/user-detail/user-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container margin\">\r\n    <div class=\"row centered-form\">\r\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <div class=\"panel panel-default\">\r\n                <div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">Sign Up</h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <form class=\"form-horizontal\" action=\" \" method=\"post\" #registrationForm=\"ngForm\">\r\n                        <fieldset>\r\n                            <p class=\"col-md-12 bg-warning\" *ngIf=\"message\">{{message}}</p>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-user\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-name\" placeholder=\"Full Name\" required [(ngModel)]=\"user.name\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12 inputGroupContainer  control-label\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-user\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-uname\" placeholder=\"User Name\" maxlength=\"25\" [(ngModel)]=\"user.username\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-earphone\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-phone-mobile\" placeholder=\"+91 9781232100\" maxlength=\"10\" [(ngModel)]=\"user.phone\" class=\"form-control\" type=\"phone\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                        <fieldset>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-envelope\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-email\" placeholder=\"mail@example.com\" [(ngModel)]=\"user.email\" class=\"form-control\" type=\"email\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group has-feedback\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-lock\"></i>\r\n                                        </span>\r\n                                        <input class=\"form-control\" type=\"password\" name=\"user-pass\" placeholder=\"Password\" [(ngModel)]=\"user.password\"/>\r\n                                            \r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group has-feedback\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-lock\"></i>\r\n                                        </span>\r\n                                        <input class=\"form-control\" type=\"password\" name=\"confirm-password\" placeholder=\"Confirm Password\"\r\n                                            required />\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12\">\r\n                                    <button type=\"submit\" (click)=\"createUser(user);registrationForm.reset()\" class=\"btn btn-info btn-block\">Register\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container margin\">\r\n    <div class=\"row centered-form\">\r\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <div class=\"panel panel-default\">\r\n                <div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">\r\n                        Sign Up <i class=\"glyphicon glyphicon-question-sign\" style=\"float: right;\"></i>\r\n                    </h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <form role=\"form\" class=\"form-horizontal\" action=\" \" method=\"post\" #regForm=\"ngForm\" novalidate>\r\n                        <fieldset>\r\n                            <div class=\"alert\" [class.alert-danger]='regState == false' [class.alert-success]='regState == true' *ngIf=\"message\">{{message}}</div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-user\"></i>\r\n                                        </span>\r\n                                        <input name=\"name\" placeholder=\"Full Name\" required #name=\"ngModel\" [(ngModel)]=\"user.name\" [(value)]=\"user.name\" class=\"form-control\" type=\"text\">\r\n                                        \r\n                                    </div>\r\n                                    <div class=\"alert alert-warning\" [hidden]=\"user.name && user.name.length > 3\">Please enter a valid full name.</div>\r\n                                </div>\r\n                                \r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-envelope\"></i>\r\n                                        </span>\r\n                                        <input name=\"email\" required placeholder=\"mail@example.com\" #email=\"ngModel\" [(ngModel)]=\"user.email\" [(value)]=\"user.email\" class=\"form-control\" type=\"email\">\r\n                                    </div>\r\n                                    <div class=\"alert alert-warning\" [hidden]=\"user.email && user.email.length > 3 && user.email.indexOf('@') > 2 && user.email.indexOf('.', user.email.indexOf('@')) >= 3\">Please enter a valid email.</div>\r\n                                </div>\r\n                                \r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-earphone\"></i>\r\n                                        </span>\r\n                                        <input name=\"phone-mobile\" placeholder=\"9781232100\" required #phone=\"ngModel\" maxlength=\"10\" [(ngModel)]=\"user.phone\" [(value)]=\"user.phone\" class=\"form-control\"\r\n                                            type=\"phone\">\r\n                                    </div>\r\n                                </div>\r\n                                \r\n                            </div>\r\n                        <!-- </fieldset>\r\n                        <fieldset> -->\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12 inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            @\r\n                                        </span>\r\n                                        <input name=\"username\" placeholder=\"Username\" #username=\"ngModel\" required maxlength=\"25\" [(ngModel)]=\"user.username\" [(value)]=\"user.username\" class=\"form-control\"\r\n                                            type=\"text\">\r\n                                    </div>\r\n                                    <div class=\"alert alert-warning\" [hidden]=\"user.username && user.username.length > 3 && user.username.indexOf('_') != 0\">Please enter a valid username.</div>\r\n                                </div>\r\n                            </div>\r\n                            \r\n                            <div class=\"form-group has-feedback\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-lock\"></i>\r\n                                        </span>\r\n                                        <input class=\"form-control\" #password=\"ngModel\" required type=\"password\" name=\"password\" placeholder=\"password\" [(value)]=\"user.password\" [(ngModel)]=\"user.password\"\r\n                                        />\r\n                                    </div>\r\n                                    <div class=\"alert alert-warning\" [hidden]=\"user.password && user.password.length >= 6\">Please enter a valid password.</div>\r\n                                    <div class=\"alert alert-danger\" *ngIf=\"user.password.length < 6\">Password must be at least 6 characters long.</div>\r\n                                </div>\r\n                                \r\n                            </div>\r\n                            <div class=\"form-group has-feedback\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-lock\"></i>\r\n                                        </span>\r\n                                        <input class=\"form-control\" type=\"password\" id=\"confirmpassword\" name=\"confirmpassword\" placeholder=\"Confirm password\" required [(ngModel)]=\"confirmpassword\"/>                                        \r\n                                        \r\n                                    </div>\r\n                                    <div class=\"alert alert-danger\" [hidden]=\"confirmpassword == user.password\">Passwords do not match</div>\r\n                                </div>\r\n                                \r\n                            </div>\r\n                            \r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12\">\r\n                                    <button type=\"button\" (click)=\"createUser()\" class=\"btn btn-info btn-block\">Register\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -526,10 +528,9 @@ module.exports = "<div class=\"container margin\">\r\n    <div class=\"row cente
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserDetailComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user__ = __webpack_require__("../../../../../src/app/users/user.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_user_service__ = __webpack_require__("../../../../../src/app/_services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service__ = __webpack_require__("../../../../../src/app/_services/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -543,76 +544,86 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var UserDetailComponent = (function () {
-    function UserDetailComponent(UserService, route) {
+    function UserDetailComponent(UserService, route, router) {
         this.UserService = UserService;
         this.route = route;
+        this.router = router;
         this.regState = undefined;
         this.message = undefined;
-        this.initUser();
     }
     UserDetailComponent.prototype.initUser = function () {
         this.user = {
+            name: "",
             username: "",
             created: {
-                date: new Date(),
+                date: new Date()
             },
-            roles: [
-                "user"
-            ],
-            password: "",
             email: "",
             phone: "",
-            name: "",
-            profileData: new Object()
+            password: "",
+            roles: ['user'],
+            profileData: {}
         };
     };
     UserDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.initUser();
         this.sub = this.route.params.subscribe(function (params) {
-            if (params['regstate'] === "false") {
+            if (params['regstate'] == "false") {
                 _this.regState = false;
                 _this.message = "Failed to register, please check details.";
             }
-            else if (params['regstate'] === "true") {
+            else if (params['regstate'] == "true") {
                 _this.regState = true;
                 _this.message = "Registered Successfully.";
-                _this.initUser();
+                return;
             }
-            else {
-                _this.message = "Please enter your details below to begin!";
+            else if (params['regstate'] == "undefined") {
+                _this.message = "Please enter your details.";
+                setTimeout(function () {
+                    _this.message = undefined;
+                }, 3000);
             }
         });
     };
-    UserDetailComponent.prototype.createUser = function (user) {
-        console.log(user);
-        for (var key in user) {
-            if (user[key] == "" || user[key] == null) {
-                console.log(key, user[key]);
+    UserDetailComponent.prototype.createUser = function () {
+        var _this = this;
+        console.log(this.user);
+        for (var key in this.user) {
+            if (this.user[key] == "") {
+                console.log("KEY: " + key);
+                this.message = "Invalid input";
                 this.regState = false;
-                this.message = "Failed to register, please check details.";
+                setTimeout(function () {
+                    _this.message = undefined;
+                    _this.regState = undefined;
+                }, 5000);
                 return;
             }
-            this.UserService.createUser(user);
-            return;
         }
+        this.UserService.createUser(this.user).then(function (success) {
+            if (success) {
+                _this.initUser();
+                _this.confirmpassword = "";
+                _this.router.navigate(['/signup/:true']);
+            }
+        }, function (reject) {
+            if (reject) {
+                _this.router.navigate(['/signup/:false']);
+            }
+        });
     };
     return UserDetailComponent;
 }());
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__user__["a" /* User */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__user__["a" /* User */]) === "function" && _a || Object)
-], UserDetailComponent.prototype, "user", void 0);
 UserDetailComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'user-detail',
         template: __webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NgForm */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* NgForm */]]
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object])
 ], UserDetailComponent);
 
 var _a, _b, _c;
@@ -698,21 +709,6 @@ UserProfileComponent = __decorate([
 
 var _a;
 //# sourceMappingURL=user-profile.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/users/user.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
-var User = (function () {
-    function User() {
-    }
-    return User;
-}());
-
-//# sourceMappingURL=user.js.map
 
 /***/ }),
 

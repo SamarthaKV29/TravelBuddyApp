@@ -1,3 +1,14 @@
 .margin {
   margin-top: 10%
 }
+
+.alert.alert-warning, .alert.alert-danger{
+  font-size: 12px !important;
+  padding: 2%;
+  border: none;
+  border-bottom: solid thin lightseagreen;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  box-shadow: 0px 0px 10px 0px lightgrey;
+  margin: 0;
+}

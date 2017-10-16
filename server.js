@@ -57,28 +57,19 @@ app.get('/api/v1/users', (req, res)=>{
 });
 
 app.post('/api/v1/users', (req, res)=>{
-  if(req.body == {}){
-    console.log("error");
-  }
-  else{
-    User.create({
-      text: req.body.text,
-      done: false
-    }, (err, user)=>{
+  User.create(req.body, (err, user)=>{
+    if(err)
+      res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
+    User.find((err, users)=>{
       if(err)
-        res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
-        setTimeout(function() {
-          res.redirect('/signup/:false');    
-        }, 3000);
-      if(user){
-        res.redirect('/signup/:true');
-      } 
-    });
-  }
+        res.send(err);
+      res.json(users);
+    });        
+  });
 });
 
 
 app.get('*', (req, res)=>{
-  res.sendFile('/dist/index.html');
+  res.sendFile(__dirname + '/dist/index.html');
 });
 
