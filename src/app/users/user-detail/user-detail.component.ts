@@ -39,7 +39,9 @@ export class UserDetailComponent implements OnInit{
   }
   ngOnInit(){
     this.initUser();  
+    
     this.sub = this.route.params.subscribe(params => {
+      console.log(params);
       if(params['regstate'] == "false"){
         this.regState = false;
         this.message = "Failed to register, please check details.";
@@ -54,7 +56,7 @@ export class UserDetailComponent implements OnInit{
       }
       setTimeout(()=>{
         this.message = undefined;
-      }, 3000);
+      }, 10000);
     });
   }
   
@@ -73,11 +75,11 @@ export class UserDetailComponent implements OnInit{
     }
     this.UserService.createUser(this.user).then(success=>{
       if(success){
-        this.router.navigate(['/signup/:true']);
+        this.router.navigate(['/signup/true']);
       }
     }, reject=>{
       if(reject){
-        this.router.navigate(['/signup/:false']);
+        this.router.navigate(['/signup/false']);
       }
     });    
   }

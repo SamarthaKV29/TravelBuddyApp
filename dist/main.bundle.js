@@ -570,6 +570,7 @@ var UserDetailComponent = (function () {
         var _this = this;
         this.initUser();
         this.sub = this.route.params.subscribe(function (params) {
+            console.log(params);
             if (params['regstate'] == "false") {
                 _this.regState = false;
                 _this.message = "Failed to register, please check details.";
@@ -584,7 +585,7 @@ var UserDetailComponent = (function () {
             }
             setTimeout(function () {
                 _this.message = undefined;
-            }, 3000);
+            }, 10000);
         });
     };
     UserDetailComponent.prototype.createUser = function () {
@@ -603,11 +604,11 @@ var UserDetailComponent = (function () {
         }
         this.UserService.createUser(this.user).then(function (success) {
             if (success) {
-                _this.router.navigate(['/signup/:true']);
+                _this.router.navigate(['/signup/true']);
             }
         }, function (reject) {
             if (reject) {
-                _this.router.navigate(['/signup/:false']);
+                _this.router.navigate(['/signup/false']);
             }
         });
     };
