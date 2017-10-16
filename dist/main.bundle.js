@@ -581,15 +581,14 @@ var UserDetailComponent = (function () {
             }
             else if (params['regstate'] == "undefined") {
                 _this.message = "Please enter your details.";
-                setTimeout(function () {
-                    _this.message = undefined;
-                }, 3000);
             }
+            setTimeout(function () {
+                _this.message = undefined;
+            }, 3000);
         });
     };
     UserDetailComponent.prototype.createUser = function () {
         var _this = this;
-        console.log(this.user);
         for (var key in this.user) {
             if (this.user[key] == "") {
                 console.log("KEY: " + key);
@@ -604,8 +603,6 @@ var UserDetailComponent = (function () {
         }
         this.UserService.createUser(this.user).then(function (success) {
             if (success) {
-                _this.initUser();
-                _this.confirmpassword = "";
                 _this.router.navigate(['/signup/:true']);
             }
         }, function (reject) {

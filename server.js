@@ -48,10 +48,10 @@ var User = mongoose.model("User", UserSchema);
 app.get('/api/v1/users', (req, res)=>{
   User.find((err, users)=>{
     if(err){
-      res.send("<p>DB error, please try again later</p>");
+      return res.send("<p>DB error, please try again later</p>");
     }
     else{
-      res.status(200).json(users);
+      res.json(users);
     }
   });
 });
@@ -59,10 +59,10 @@ app.get('/api/v1/users', (req, res)=>{
 app.post('/api/v1/users', (req, res)=>{
   User.create(req.body, (err, user)=>{
     if(err)
-      res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
+      return res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
     User.find((err, users)=>{
       if(err)
-        res.send(err);
+        return res.send(err);
       res.json(users);
     });        
   });

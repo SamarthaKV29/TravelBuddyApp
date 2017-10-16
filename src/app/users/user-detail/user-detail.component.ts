@@ -39,7 +39,6 @@ export class UserDetailComponent implements OnInit{
   }
   ngOnInit(){
     this.initUser();  
-
     this.sub = this.route.params.subscribe(params => {
       if(params['regstate'] == "false"){
         this.regState = false;
@@ -52,15 +51,14 @@ export class UserDetailComponent implements OnInit{
       }
       else if(params['regstate'] == "undefined"){
         this.message = "Please enter your details."
-        setTimeout(()=>{
-          this.message = undefined;
-        }, 3000);
       }
+      setTimeout(()=>{
+        this.message = undefined;
+      }, 3000);
     });
   }
   
   createUser() {
-    console.log(this.user);
     for(let key in this.user){
       if(this.user[key] == ""){
         console.log("KEY: " + key);
@@ -75,8 +73,6 @@ export class UserDetailComponent implements OnInit{
     }
     this.UserService.createUser(this.user).then(success=>{
       if(success){
-        this.initUser();
-        this.confirmpassword = "";
         this.router.navigate(['/signup/:true']);
       }
     }, reject=>{
