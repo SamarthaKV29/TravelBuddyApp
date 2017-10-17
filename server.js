@@ -83,7 +83,18 @@ app.post('/api/v1/users', (req, res)=>{
 //     });        
 //   });
 // });
-app.get('*', (req, res)=>{
+app.get('*', (err, req, res)=>{
+  if(err){
+    res.send("\
+    <div class='container center-block'> \
+      <div class='row'> \
+        <div class='col-md-6'> \
+          <p class='alert alert-danger'>Error</p>\
+        </div> \
+      </div>\
+    </div> \
+    ");
+  }
   res.sendFile(__dirname + '/dist/index.html');
 });
 

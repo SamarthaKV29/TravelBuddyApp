@@ -12,4 +12,13 @@
 	background: #feffe8; /* Old browsers */
 	background: linear-gradient(to bottom, #feffe8 0%,#d6dbbf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 ); /* IE6-9 */
-  }
+}
+	
+.alert.alert-warning, .alert.alert-danger{
+	font-size: 12px !important;
+	padding: 2%;
+	border: none;
+	border-bottom: solid thin lightseagreen;
+	box-shadow: 0px 1px 10px -1px lightgoldenrodyellow;
+	margin: 0;
+}
