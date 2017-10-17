@@ -11,7 +11,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!this.isLoggedin">
-          <a [routerLink]="['/signup']">Sign Up</a>
+          <a [routerLink]="['/signup', undefined]">Sign Up</a>
         </li>
         <li  *ngIf="!this.isLoggedin">
           <a [routerLink]="['/login', true]">Log In</a>

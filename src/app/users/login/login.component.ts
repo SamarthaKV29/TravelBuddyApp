@@ -30,9 +30,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(){
     this.UserService.getUsers().then((users: User[]) =>{
-      this.users = users.map((user: User)=>{
-        return user;
-      });
+      if(users){
+        this.users = users.map((user: User)=>{
+          return user;
+        });
+      }
     });
     this.sub = this.route.params.subscribe(params => {
       if(params['loginstate'] === "false")

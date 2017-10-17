@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserService } from './_services/user.service';
@@ -15,12 +15,13 @@ import { ErrorComponent } from './utility/error/error.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'signup', component: UserDetailComponent, },
-  { path: 'login/:logginin', component: LoginComponent},
+  { path: 'signup/:regstate', component: UserDetailComponent },
+  { path: 'signup', redirectTo: 'signup/undefined'},
+  { path: 'login', redirectTo: 'login/false'},
+  { path: 'login/:loginstate', component: LoginComponent},
   { path: 'fpass', component: ForgotPassComponent },
   { path: 'userprof', component: UserProfileComponent},
   { path: 'error', component: ErrorComponent},
-  { path: 'login/:loginstate', component: LoginComponent}
 ];
 //{ path: '**', component: AppComponent},
 @NgModule({
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
     ErrorComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )
+    BrowserModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

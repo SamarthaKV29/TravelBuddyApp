@@ -48,37 +48,42 @@ var User = mongoose.model("User", UserSchema);
 app.get('/api/v1/users', (req, res)=>{
   User.find((err, users)=>{
     if(err){
-      res.send("<p>DB error, please try again later</p>");
+      return res.send("<p>DB error, please try again later</p>");
     }
     else{
-      res.status(200).json(users);
+      res.json(users);
     }
   });
 });
 
 app.post('/api/v1/users', (req, res)=>{
-  if(req.body == {}){
-    console.log("error");
-  }
-  else{
-    User.create({
-      text: req.body.text,
-      done: false
-    }, (err, user)=>{
+  User.create(req.body, (err, user)=>{
+    if(err)
+      return res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
+    User.find((err, users)=>{
       if(err)
-        res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
-        setTimeout(function() {
-          res.redirect('/signup/:false');    
-        }, 3000);
-      if(user){
-        res.redirect('/signup/:true');
-      } 
-    });
-  }
+        return res.send(err);
+      res.json(users);
+    });        
+  });
 });
 
-
+// app.put('/api/v1/users/:id', (req, res)=>{
+//   var updateDoc = req.body;
+//   User.update({_id: new ObjectID(req.params.id)},updateDoc, (err, user)=>{
+//     if(err)
+//       return res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
+//     User.find((err, users)=>{
+//       if(err)
+//         return res.send(err);
+//       else{
+//         updateDoc._id = req.params.id;
+//         res.json(users);
+//       }
+//     });        
+//   });
+// });
 app.get('*', (req, res)=>{
-  res.sendFile('/dist/index.html');
+  res.sendFile(__dirname + '/dist/index.html');
 });
 
