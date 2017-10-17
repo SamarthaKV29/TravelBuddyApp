@@ -7,8 +7,17 @@
   padding: 2%;
   border: none;
   border-bottom: solid thin lightseagreen;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  box-shadow: 0px 0px 10px 0px lightgrey;
+  box-shadow: 0px 1px 10px -1px lightgoldenrodyellow;
   margin: 0;
+}
+
+.panel-heading{
+  background: #cdeb8e;
+  background: linear-gradient(to bottom, #cdeb8e 0%,#a5c956 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 ); /* IE6-9 */
+}
+.panel-body{
+  background: #feffe8; /* Old browsers */
+  background: linear-gradient(to bottom, #feffe8 0%,#d6dbbf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 ); /* IE6-9 */
 }
