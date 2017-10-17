@@ -34,9 +34,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     setInterval(()=>{
-      if(this.route){
-        console.log(this.route);
-      }
+      console.log(this.route.pathFromRoot);
     }, 1000);
   }
 
