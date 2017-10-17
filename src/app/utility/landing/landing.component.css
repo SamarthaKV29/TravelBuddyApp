@@ -9,6 +9,7 @@
     left:0; 
     right: 0;
     overflow: hidden;
+    margin-top: 13%;
   }
   .travel-content1
   {
@@ -59,7 +60,7 @@
     0% {transform: translate(000px,1000px);}
     20% {transform: translate(000px,-165px);}
     25%,65% {transform: translate(000px,-105px);}
-    100% {transform: scale(0.6) translate(0px, -85px); }
+    100% {transform: scale(0.6) translate(0px, 50px); }
   }
   .travel-content21
   {
