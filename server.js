@@ -83,7 +83,11 @@ app.post('/api/v1/users', (req, res)=>{
 //     });        
 //   });
 // });
-app.get('*', (err, req, res)=>{
+app.get('*', (req, res)=>{
+  res.sendFile(__dirname + '/dist/index.html');
+});
+
+app.use((err, req, res, next)=>{
   if(err){
     res.send("\
     <div class='container center-block'> \
@@ -95,6 +99,6 @@ app.get('*', (err, req, res)=>{
     </div> \
     ");
   }
-  res.sendFile(__dirname + '/dist/index.html');
-});
+  next();
+})
 
