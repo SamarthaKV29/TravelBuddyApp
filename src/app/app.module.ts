@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
 import { ForgotPassComponent } from './users/forgot-pass/forgot-pass.component';
 import { ErrorComponent } from './utility/error/error.component';
 import { LandingComponent } from './utility/landing/landing.component';
+import {DateTimePickerModule} from 'ng-pick-datetime';
 
 
 const appRoutes: Routes = [
@@ -37,7 +39,7 @@ const appRoutes: Routes = [
     LandingComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )
+    BrowserModule, DateTimePickerModule, BrowserAnimationsModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

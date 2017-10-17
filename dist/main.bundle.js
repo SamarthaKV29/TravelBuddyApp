@@ -81,7 +81,7 @@ var UserService = (function () {
     return UserService;
 }());
 UserService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
 ], UserService);
 
@@ -167,7 +167,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")],
@@ -186,19 +186,22 @@ var _a, _b;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__ = __webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_user_service__ = __webpack_require__("../../../../../src/app/_services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__users_login_login_component__ = __webpack_require__("../../../../../src/app/users/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__users_home_home_component__ = __webpack_require__("../../../../../src/app/users/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__users_user_profile_user_profile_component__ = __webpack_require__("../../../../../src/app/users/user-profile/user-profile.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__users_forgot_pass_forgot_pass_component__ = __webpack_require__("../../../../../src/app/users/forgot-pass/forgot-pass.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__utility_error_error_component__ = __webpack_require__("../../../../../src/app/utility/error/error.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__utility_landing_landing_component__ = __webpack_require__("../../../../../src/app/utility/landing/landing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__users_user_detail_user_detail_component__ = __webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_user_service__ = __webpack_require__("../../../../../src/app/_services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__ = __webpack_require__("../../../../../src/app/users/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__ = __webpack_require__("../../../../../src/app/users/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__users_user_profile_user_profile_component__ = __webpack_require__("../../../../../src/app/users/user-profile/user-profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__users_forgot_pass_forgot_pass_component__ = __webpack_require__("../../../../../src/app/users/forgot-pass/forgot-pass.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__utility_error_error_component__ = __webpack_require__("../../../../../src/app/utility/error/error.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__utility_landing_landing_component__ = __webpack_require__("../../../../../src/app/utility/landing/landing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime__ = __webpack_require__("../../../../ng-pick-datetime/picker.module.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -219,15 +222,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var appRoutes = [
-    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_9__users_home_home_component__["a" /* HomeComponent */] },
-    { path: 'signup/:regstate', component: __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */] },
+    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__["a" /* HomeComponent */] },
+    { path: 'signup/:regstate', component: __WEBPACK_IMPORTED_MODULE_5__users_user_detail_user_detail_component__["a" /* UserDetailComponent */] },
     { path: 'signup', redirectTo: 'signup/undefined' },
     { path: 'login', redirectTo: 'login/true' },
-    { path: 'login/:loginstate', component: __WEBPACK_IMPORTED_MODULE_8__users_login_login_component__["a" /* LoginComponent */] },
-    { path: 'forgotpass', component: __WEBPACK_IMPORTED_MODULE_11__users_forgot_pass_forgot_pass_component__["a" /* ForgotPassComponent */] },
-    { path: 'userprof', component: __WEBPACK_IMPORTED_MODULE_10__users_user_profile_user_profile_component__["a" /* UserProfileComponent */] },
-    { path: 'error', component: __WEBPACK_IMPORTED_MODULE_12__utility_error_error_component__["a" /* ErrorComponent */] },
+    { path: 'login/:loginstate', component: __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__["a" /* LoginComponent */] },
+    { path: 'forgotpass', component: __WEBPACK_IMPORTED_MODULE_12__users_forgot_pass_forgot_pass_component__["a" /* ForgotPassComponent */] },
+    { path: 'userprof', component: __WEBPACK_IMPORTED_MODULE_11__users_user_profile_user_profile_component__["a" /* UserProfileComponent */] },
+    { path: 'error', component: __WEBPACK_IMPORTED_MODULE_13__utility_error_error_component__["a" /* ErrorComponent */] },
 ];
 //{ path: '**', component: AppComponent},
 var AppModule = (function () {
@@ -236,22 +241,22 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__users_user_detail_user_detail_component__["a" /* UserDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__users_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__users_home_home_component__["a" /* HomeComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__users_user_profile_user_profile_component__["a" /* UserProfileComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__users_forgot_pass_forgot_pass_component__["a" /* ForgotPassComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__utility_error_error_component__["a" /* ErrorComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__utility_landing_landing_component__["a" /* LandingComponent */]
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__users_user_detail_user_detail_component__["a" /* UserDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__["a" /* HomeComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__users_user_profile_user_profile_component__["a" /* UserProfileComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__users_forgot_pass_forgot_pass_component__["a" /* ForgotPassComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__utility_error_error_component__["a" /* ErrorComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__utility_landing_landing_component__["a" /* LandingComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* ReactiveFormsModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* RouterModule */].forRoot(appRoutes)
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime__["DateTimePickerModule"], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_8__angular_router__["c" /* RouterModule */].forRoot(appRoutes)
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_5__services_user_service__["a" /* UserService */]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_6__services_user_service__["a" /* UserService */]],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -309,7 +314,7 @@ var ForgotPassComponent = (function () {
     return ForgotPassComponent;
 }());
 ForgotPassComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-forgot-pass',
         template: __webpack_require__("../../../../../src/app/users/forgot-pass/forgot-pass.component.html"),
         styles: [__webpack_require__("../../../../../src/app/users/forgot-pass/forgot-pass.component.css")]
@@ -386,7 +391,7 @@ var HomeComponent = (function () {
     return HomeComponent;
 }());
 HomeComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-home',
         template: __webpack_require__("../../../../../src/app/users/home/home.component.html"),
         styles: [__webpack_require__("../../../../../src/app/users/home/home.component.css")],
@@ -509,7 +514,7 @@ var LoginComponent = (function () {
     return LoginComponent;
 }());
 LoginComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-login',
         template: __webpack_require__("../../../../../src/app/users/login/login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/users/login/login.component.css")],
@@ -642,11 +647,11 @@ var UserDetailComponent = (function () {
     return UserDetailComponent;
 }());
 UserDetailComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'user-detail',
         template: __webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/users/user-detail/user-detail.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* NgForm */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["NgForm"]]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object])
 ], UserDetailComponent);
@@ -664,7 +669,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".margin {\r\n  margin-top: 10%\r\n}\r\n\r\n.panel-heading {\r\n  font-weight: 100;\r\n  font-size: 15px;\r\n  color: #333;\r\n  background-color: #f5f5f5;\r\n}\r\n\r\n.panel-title-inner {\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  font-size: 14px;\r\n  color: inherit;\r\n  font-weight: bold;\r\n}", ""]);
+exports.push([module.i, ".margin {\r\n  margin-top: 10%\r\n}\r\n\r\n.sub-heading {\r\n  font-weight: 100;\r\n  font-size: 15px;\r\n  color: #333;\r\n  background-color: #f5f5f5;\r\n  padding-top: 10px;\r\n  padding-bottom: 10px;\r\n  padding-left: 5px;\r\n}\r\n\r\n.panel-title-inner {\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  font-size: 14px;\r\n  color: inherit;\r\n  font-weight: bold;\r\n}\r\n\r\n.panel-heading{\r\n  background: #EBB38E;\r\n  background: linear-gradient(to bottom, #EBB38E 0%,#EE8F54 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EBB38E', endColorstr='#EE8F54',GradientType=0 ); /* IE6-9 */\r\n}\r\n", ""]);
 
 // exports
 
@@ -677,7 +682,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/user-profile/user-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container margin\">\r\n\t<div class=\"row centered-form\">\r\n\t\t<div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <div class=\"panel panel-default\">\r\n            \t<div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">User Profile page \r\n                    </h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <form class=\"form-horizontal\" action=\" \" method=\"post\">\r\n                        <fieldset>\r\n                           \r\n                            <div class=\"panel panel-heading form-group\">\r\n                                <h3 class=\"panel-title-inner\">From Trip Origin: \r\n                                </h3>\r\n                            </div>\r\n\r\n                             <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-globe\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-originCity\" placeholder=\"City\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-time\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-originTime\" placeholder=\"Time\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            \r\n                            <div class=\"panel panel-heading form-group\">\r\n                                    <h3 class=\"panel-title-inner\">To Trip Destination: \r\n                                    </h3>\r\n                                </div>\r\n    \r\n                                <div class=\"form-group\">\r\n                                    <div class=\"col-md-12  inputGroupContainer\">\r\n                                        <div class=\"input-group\">\r\n                                            <span class=\"input-group-addon\">\r\n                                                <i class=\"glyphicon glyphicon-globe\"></i>\r\n                                            </span>\r\n                                            <input name=\"user-destinationCity\" placeholder=\"City\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n    \r\n                                <div class=\"form-group\">\r\n                                    <div class=\"col-md-12  inputGroupContainer\">\r\n                                        <div class=\"input-group\">\r\n                                            <span class=\"input-group-addon\">\r\n                                                <i class=\"glyphicon glyphicon-time\"></i>\r\n                                            </span>\r\n                                            <input name=\"user-destinationTime\" placeholder=\"Time\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n\r\n                                <div class=\"panel panel-heading form-group\">\r\n                                        <h3 class=\"panel-title-inner\">Additional Information: \r\n                                        </h3>\r\n                                    </div>\r\n        \r\n                                    <div class=\"form-group\">\r\n                                        <div class=\"col-md-12  inputGroupContainer\">\r\n                                            <div class=\"input-group\">\r\n                                                <span class=\"input-group-addon\">\r\n                                                    <i class=\"glyphicon glyphicon-info-sign\"></i>\r\n                                                </span>\r\n                                                <input name=\"user-bio\" placeholder=\"Short Bio\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n        \r\n                                    <div class=\"form-group\">\r\n                                        <div class=\"col-md-12  inputGroupContainer\">\r\n                                            <div class=\"input-group\">\r\n                                                <span class=\"input-group-addon\">\r\n                                                    <i class=\"glyphicon glyphicon-question-sign\"></i>\r\n                                                </span>\r\n                                                <input name=\"user-seatsOffered\" placeholder=\"Seats Offered\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n\r\n                                    <div class=\"form-group\">\r\n                                        <div class=\"col-md-12  inputGroupContainer\">\r\n                                            <div class=\"input-group\">\r\n                                                <span class=\"input-group-addon\">\r\n                                                    <i class=\"glyphicon glyphicon-question-sign\"></i>\r\n                                                </span>\r\n                                                <input name=\"user-seatRequired\" placeholder=\"Seats Required\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                            </div>\r\n                                       </div>\r\n                                    </div>\r\n\r\n                                    <div class=\"form-group\">\r\n                                            <div class=\"col-md-12  inputGroupContainer\">\r\n                                                <div class=\"input-group\">\r\n                                                    <span class=\"input-group-addon\">\r\n                                                        <i class=\"glyphicon glyphicon-camera\"></i>\r\n                                                    </span>\r\n                                                    <input type=\"file\" name=\"user-pic\" accept=\"image/*\" class=\"form-control\">\r\n                                                </div>\r\n                                            </div>\r\n                                        </div>\r\n                                   \r\n            \r\n\r\n                        <!-- \r\n                                        <div class=\"form-group\">\r\n                                            <div class=\"col-md-12  inputGroupContainer\">\r\n                                                <div class=\"input-group\">\r\n                                                    <span class=\"input-group-addon\">\r\n                                                        <i class=\"glyphicon glyphicon-info-sign\"></i>\r\n                                                    </span>\r\n                                                    <input name=\"user-desc\" placeholder=\"Full Name\" required=\"\" [(ngModel)]=\"profileData.desc\" class=\"form-control\" type=\"text\">\r\n                                                </div>\r\n                                            </div>\r\n                                        </div>\r\n                        -->\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12\">\r\n                                    <button type=\"submit\" (click)=\"onSubmit()\" class=\"btn btn-info btn-block\">Update\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"container margin\">\r\n\t<div class=\"row centered-form\">\r\n\t\t<div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <div class=\"panel panel-default\">\r\n            \t<div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">User Profile page \r\n                    </h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <form class=\"form-horizontal\" action=\" \" method=\"post\">\r\n                        <fieldset>\r\n                           \r\n                            <div class=\"panel sub-heading form-group\">\r\n                                <h3 class=\"panel-title-inner\">From Trip Origin: \r\n                                </h3>\r\n                            </div>\t\t\t\r\n                                                \r\n                             <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-globe\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-originCity\" placeholder=\"City\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-time\"></i>\r\n                                        </span>\r\n                                        <owl-date-time [(ngModel)]=\"moment\" ></owl-date-time>\r\n                                        <input name=\"user-originTime\" placeholder=\"Time\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            \r\n                            <div class=\"panel sub-heading form-group\">\r\n                                    <h3 class=\"panel-title-inner\">To Trip Destination: \r\n                                    </h3>\r\n                                </div>\r\n    \r\n                                <div class=\"form-group\">\r\n                                    <div class=\"col-md-12  inputGroupContainer\">\r\n                                        <div class=\"input-group\">\r\n                                            <span class=\"input-group-addon\">\r\n                                                <i class=\"glyphicon glyphicon-globe\"></i>\r\n                                            </span>\r\n                                            <input name=\"user-destinationCity\" placeholder=\"City\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n    \r\n                                <div class=\"form-group\">\r\n                                    <div class=\"col-md-12  inputGroupContainer\">\r\n                                        <div class=\"input-group\">\r\n                                            <span class=\"input-group-addon\">\r\n                                                <i class=\"glyphicon glyphicon-time\"></i>\r\n                                            </span>\r\n                                            <input name=\"user-destinationTime\" placeholder=\"Time\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n\r\n                                <div class=\"panel sub-heading form-group\">\r\n                                        <h3 class=\"panel-title-inner\">Additional Information: \r\n                                        </h3>\r\n                                    </div>\r\n        \r\n                                    <div class=\"form-group\">\r\n                                        <div class=\"col-md-12  inputGroupContainer\">\r\n                                            <div class=\"input-group\">\r\n                                                <span class=\"input-group-addon\">\r\n                                                    <i class=\"glyphicon glyphicon-info-sign\"></i>\r\n                                                </span>\r\n                                                <input name=\"user-bio\" placeholder=\"Short Bio\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n        \r\n                                    <div class=\"form-group\">\r\n                                        <div class=\"col-md-12  inputGroupContainer\">\r\n                                            <div class=\"input-group\">\r\n                                                <span class=\"input-group-addon\">\r\n                                                    <i class=\"glyphicon glyphicon-question-sign\"></i>\r\n                                                </span>\r\n                                                <input name=\"user-seatsOffered\" placeholder=\"Seats Offered\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n\r\n                                    <div class=\"form-group\">\r\n                                        <div class=\"col-md-12  inputGroupContainer\">\r\n                                            <div class=\"input-group\">\r\n                                                <span class=\"input-group-addon\">\r\n                                                    <i class=\"glyphicon glyphicon-question-sign\"></i>\r\n                                                </span>\r\n                                                <input name=\"user-seatRequired\" placeholder=\"Seats Required\" required=\"\" class=\"form-control\" type=\"text\">\r\n                                            </div>\r\n                                       </div>\r\n                                    </div>\r\n\r\n                                    <div class=\"form-group\">\r\n                                            <div class=\"col-md-12  inputGroupContainer\">\r\n                                                <div class=\"input-group\">\r\n                                                    <span class=\"input-group-addon\">\r\n                                                        <i class=\"glyphicon glyphicon-camera\"></i>\r\n                                                    </span>\r\n                                                    <input type=\"file\" name=\"user-pic\" accept=\"image/*\" class=\"form-control\">\r\n                                                </div>\r\n                                            </div>\r\n                                        </div>\r\n                                   \r\n            \r\n\r\n                        <!-- \r\n                                        <div class=\"form-group\">\r\n                                            <div class=\"col-md-12  inputGroupContainer\">\r\n                                                <div class=\"input-group\">\r\n                                                    <span class=\"input-group-addon\">\r\n                                                        <i class=\"glyphicon glyphicon-info-sign\"></i>\r\n                                                    </span>\r\n                                                    <input name=\"user-desc\" placeholder=\"Full Name\" required=\"\" [(ngModel)]=\"profileData.desc\" class=\"form-control\" type=\"text\">\r\n                                                </div>\r\n                                            </div>\r\n                                        </div>\r\n                        -->\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12\">\r\n                                    <button type=\"submit\" (click)=\"onSubmit()\" class=\"btn btn-info btn-block\">Update\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -728,7 +733,7 @@ var UserProfileComponent = (function () {
     return UserProfileComponent;
 }());
 UserProfileComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'user-profile',
         template: __webpack_require__("../../../../../src/app/users/user-profile/user-profile.component.html"),
         styles: [__webpack_require__("../../../../../src/app/users/user-profile/user-profile.component.css")],
@@ -791,7 +796,7 @@ var ErrorComponent = (function () {
     return ErrorComponent;
 }());
 ErrorComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-error',
         template: __webpack_require__("../../../../../src/app/utility/error/error.component.html"),
         styles: [__webpack_require__("../../../../../src/app/utility/error/error.component.css")]
@@ -856,7 +861,7 @@ var LandingComponent = (function () {
     return LandingComponent;
 }());
 LandingComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-landing',
         template: __webpack_require__("../../../../../src/app/utility/landing/landing.component.html"),
         styles: [__webpack_require__("../../../../../src/app/utility/landing/landing.component.css")],
@@ -883,7 +888,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_23" /* enableProdMode */])();
+Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["enableProdMode"])();
 Object(__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });
 //# sourceMappingURL=main.js.map
