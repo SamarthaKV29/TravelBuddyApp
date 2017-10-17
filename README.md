@@ -2,10 +2,10 @@
 ## Team Name: MEANBlaze
 ## App: [Heroku/TravelBuddyApp](https://travel-buddy-app.herokuapp.com/)
 ### Members:
-1. Riya Bulia [Assignment 1](https://run.plnkr.co/plunks/8zapXH5qDeP1WqfYjcGy/index.html)
-2. Akul Swami [Assignment 1](https://plnkr.co/LFZuh5T7gRxiLyF9rCv6)
-3. Samartha K Venkatramana [Assignment 1](http://plnkr.co/U66zj6YoJ3invoH7DtP9)
-4. Aanchal Sharma [Assignment1](http://plnkr.co/wF9kdVFvBfr2Dg3r2aof)
+1. Riya Bulia
+2. Akul Swami
+3. Samartha K Venkatramana
+4. Aanchal Sharma
 ### Concept:
 Travel buddy lets you find new friends while moving in similar routes.
 ### Wireframes:
