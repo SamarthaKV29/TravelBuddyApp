@@ -20,7 +20,7 @@ Travel buddy lets you find new friends while moving in similar routes.
 https://invis.io/D5DNLRF7W#/255170170_Loading
 
 ### Current Status
-#### UI
+#### Completed
 1. Completed basic pages.
 2. Basic API routes configured.
 3. Created multiple components.
