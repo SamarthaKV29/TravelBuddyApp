@@ -138,29 +138,4 @@
     80% {transform: translate(000px,0px);}
     100% {transform: translate(000px,-300px);}
   }
-
-  .travel-content2 {
-    -moz-animation: cssAnimation 0s ease-in 20s forwards;
-    /* Firefox */
-    -webkit-animation: cssAnimation 0s ease-in 20s forwards;
-    /* Safari and Chrome */
-    -o-animation: cssAnimation 0s ease-in 20s forwards;
-    /* Opera */
-    animation: cssAnimation 0s ease-in 20s forwards;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
+  
