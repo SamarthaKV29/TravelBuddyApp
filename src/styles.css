@@ -8,3 +8,8 @@
 	0px 4px 12px rgba(0,0,0,0.1),
 	0px 8px 20px rgba(0,0,0,0.1);
 }
+.panel-body{
+	background: #feffe8; /* Old browsers */
+	background: linear-gradient(to bottom, #feffe8 0%,#d6dbbf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 ); /* IE6-9 */
+  }
