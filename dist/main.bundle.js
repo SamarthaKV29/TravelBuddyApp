@@ -437,9 +437,11 @@ var LoginComponent = (function () {
     LoginComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.UserService.getUsers().then(function (users) {
-            _this.users = users.map(function (user) {
-                return user;
-            });
+            if (users) {
+                _this.users = users.map(function (user) {
+                    return user;
+                });
+            }
         });
         this.sub = this.route.params.subscribe(function (params) {
             if (params['loginstate'] === "false")
@@ -570,7 +572,7 @@ var UserDetailComponent = (function () {
         var _this = this;
         this.initUser();
         this.sub = this.route.params.subscribe(function (params) {
-            console.log(params);
+            //console.log(params);
             if (params['regstate'] == "false") {
                 _this.regState = false;
                 _this.message = "Failed to register, please check details.";
@@ -578,7 +580,7 @@ var UserDetailComponent = (function () {
             else if (params['regstate'] == "true") {
                 _this.regState = true;
                 _this.message = "Registered Successfully.";
-                return;
+                _this.initUser();
             }
             else if (params['regstate'] == "undefined") {
                 _this.message = "Please enter your details.";

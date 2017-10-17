@@ -41,7 +41,7 @@ export class UserDetailComponent implements OnInit{
     this.initUser();  
     
     this.sub = this.route.params.subscribe(params => {
-      console.log(params);
+      //console.log(params);
       if(params['regstate'] == "false"){
         this.regState = false;
         this.message = "Failed to register, please check details.";
@@ -49,7 +49,7 @@ export class UserDetailComponent implements OnInit{
       else if(params['regstate'] == "true"){
         this.regState = true;
         this.message = "Registered Successfully.";
-        return;
+        this.initUser();
       }
       else if(params['regstate'] == "undefined"){
         this.message = "Please enter your details."
