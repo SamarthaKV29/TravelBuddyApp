@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 *, body *{
-    font-family: 'Raleway', sans-serif;
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
 }
 
 .coolShadow{
@@ -24,8 +25,9 @@
 }
 
 .colorChangeAnimation {
-    animation:colorchange 5s infinite alternate;
+    animation: colorchange 5s infinite alternate;
 }
+
 
 @keyframes colorchange {
 	0% {

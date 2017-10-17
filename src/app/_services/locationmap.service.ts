@@ -70,17 +70,19 @@ export class LocationService{
     
     selectedState: string[2] = "";
     
-    getCities(state): Promise<void | any>{
+    getCities(state: string): Promise<void | any>{
         
-        let stateUrl = "http://gomashup.com/json.php?fds=geo/usa/zipcode/state/"+ state +"&jsoncallback=";
-        return this.http.get(stateUrl)
-        .toPromise()
-        .then(response => response.json())
-        .catch((error)=>{
-            let errMsg = (error.message) ? error.message :
-            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-            console.log(errMsg);
-        });
+        if(state.length == 2 && state.toUpperCase() in this.stateList){
+            let stateUrl = "http://gomashup.com/json.php?fds=geo/usa/zipcode/state/"+ state.toUpperCase() +"&jsoncallback=";
+            return this.http.get(stateUrl)
+            .toPromise()
+            .then(response => response.json())
+            .catch((error)=>{
+                let errMsg = (error.message) ? error.message :
+                error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+                console.log(errMsg);
+            });
+        }
     }
 
 }
