@@ -33,9 +33,15 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
+    //console.log(this.router.url);
     setInterval(()=>{
-      console.log(this.route.pathFromRoot);
-    }, 1000);
+      if(this.router.url == "/"){
+        this.landing = true;
+      }
+      else{
+        this.landing = false;
+      }
+    }, 200)
   }
 
   

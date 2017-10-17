@@ -2,14 +2,7 @@
   margin-top: 10%
 }
 
-.alert.alert-warning, .alert.alert-danger{
-  font-size: 12px !important;
-  padding: 2%;
-  border: none;
-  border-bottom: solid thin lightseagreen;
-  box-shadow: 0px 1px 10px -1px lightgoldenrodyellow;
-  margin: 0;
-}
+
 
 .panel-heading{
   background: #cdeb8e;

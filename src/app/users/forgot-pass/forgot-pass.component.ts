@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class ForgotPassComponent implements OnInit {
 
   constructor() { }
+  emailID: string;
 
   ngOnInit() {
+    this.emailID = "";
   }
 
 }
