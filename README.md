@@ -1,4 +1,4 @@
-# IWS
+# Internet & Web Systems
 ## Team Name: MEANBlaze
 ## App: [Heroku/TravelBuddyApp](https://travel-buddy-app.herokuapp.com/)
 ### Members:
