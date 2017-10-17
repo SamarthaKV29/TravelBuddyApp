@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'signup/:regstate', component: UserDetailComponent },
   { path: 'signup', redirectTo: 'signup/undefined'},
-  { path: 'login', redirectTo: 'login/false'},
+  { path: 'login', redirectTo: 'login/true'},
   { path: 'login/:loginstate', component: LoginComponent},
   { path: 'fpass', component: ForgotPassComponent },
   { path: 'userprof', component: UserProfileComponent},
