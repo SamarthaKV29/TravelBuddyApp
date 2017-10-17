@@ -23,7 +23,6 @@ const appRoutes: Routes = [
   { path: 'forgotpass', component: ForgotPassComponent },
   { path: 'userprof', component: UserProfileComponent},
   { path: 'error', component: ErrorComponent},
-  { path: 'landing', component: LandingComponent}
 ];
 //{ path: '**', component: AppComponent},
 @NgModule({
