@@ -25,9 +25,10 @@ export class AppComponent implements OnInit{
       }
       else if(!sessionStorage.getItem('token')){
         this.isLoggedin = false;
+        
       }
     }, 200);
-    this.router.navigate(['landing']);
+    
   }
 
   ngOnInit(){
