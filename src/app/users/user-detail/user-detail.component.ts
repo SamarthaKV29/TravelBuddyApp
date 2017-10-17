@@ -36,6 +36,7 @@ export class UserDetailComponent implements OnInit{
       roles: ['user'],
       profileData: {}
     };
+    this.confirmpassword = "";
   }
   ngOnInit(){
     this.initUser();  
