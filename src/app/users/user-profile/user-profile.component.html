@@ -32,7 +32,7 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-time"></i>
                                         </span>
-                                        <owl-date-time [(ngModel)]="moment" name="user-originTime" class="form-control" ></owl-date-time>
+                                        <owl-date-time [(ngModel)]="dateValue" [locale]="en" name="user-originTime" class="form-control" ></owl-date-time>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-time"></i>
                                             </span>
-                                            <input name="user-destinationTime" placeholder="Time" required="" class="form-control" type="text">
+                                            <owl-date-time [(ngModel)]="moment" name="user-destinationTime" class="form-control" ></owl-date-time>
                                         </div>
                                     </div>
                                 </div>
