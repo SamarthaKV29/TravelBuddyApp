@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\n*, body *{\r\n    font-family: 'Raleway', sans-serif;\r\n}\r\n\r\n.coolShadow{\r\n\ttext-shadow: 0px 2px 3px rgba(0,0,0,0.4),\r\n\t0px 4px 12px rgba(0,0,0,0.1),\r\n\t0px 8px 20px rgba(0,0,0,0.1);\r\n}", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n*, body *{\n    font-family: 'Raleway', sans-serif;\n}\n\n.coolShadow{\n\ttext-shadow: 0px 2px 3px rgba(0,0,0,0.4),\n\t0px 4px 12px rgba(0,0,0,0.1),\n\t0px 8px 20px rgba(0,0,0,0.1);\n}", ""]);
 
 // exports
 
