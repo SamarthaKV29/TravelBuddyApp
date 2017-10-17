@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+*, body *{
+    font-family: 'Raleway', sans-serif;
+}
+
+.coolShadow{
+	text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
+	0px 4px 12px rgba(0,0,0,0.1),
+	0px 8px 20px rgba(0,0,0,0.1);
+}

@@ -48,7 +48,7 @@ var User = mongoose.model("User", UserSchema);
 app.get('/api/v1/users', (req, res)=>{
   User.find((err, users)=>{
     if(err){
-      return res.send("<p>DB error, please try again later</p>");
+      return res.send("<p class='bg-warning text-danger'>DB error, please try again later</p>");
     }
     else{
       res.json(users);

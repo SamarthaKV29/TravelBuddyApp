@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../_services/user.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { User } from '../user';
 
 @Component({
@@ -13,7 +13,7 @@ import { User } from '../user';
 
 
 export class LoginComponent implements OnInit {
-  private users: User[];
+  private users: User[] = undefined;
   private loginstate: boolean = undefined;
   private sub: any;
   message: string;
@@ -26,16 +26,16 @@ export class LoginComponent implements OnInit {
 
   constructor(private UserService: UserService, private router: Router, private route: ActivatedRoute){
     this.error = this.loading = false;
+    if(this.users == undefined){
+      this.UserService.getUsers().then((users: User[]) =>{
+        this.users = users.map((user)=>{
+          return user;
+        });
+      });
+    }
   }
 
   ngOnInit(){
-    this.UserService.getUsers().then((users: User[]) =>{
-      if(users){
-        this.users = users.map((user: User)=>{
-          return user;
-        });
-      }
-    });
     this.sub = this.route.params.subscribe(params => {
       if(params['loginstate'] === "false")
         this.loginstate = false;

@@ -11,17 +11,19 @@ import { HomeComponent } from './users/home/home.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
 import { ForgotPassComponent } from './users/forgot-pass/forgot-pass.component';
 import { ErrorComponent } from './utility/error/error.component';
+import { LandingComponent } from './utility/landing/landing.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'signup/:regstate', component: UserDetailComponent },
   { path: 'signup', redirectTo: 'signup/undefined'},
-  { path: 'login', redirectTo: 'login/false'},
+  { path: 'login', redirectTo: 'login/true'},
   { path: 'login/:loginstate', component: LoginComponent},
-  { path: 'fpass', component: ForgotPassComponent },
+  { path: 'forgotpass', component: ForgotPassComponent },
   { path: 'userprof', component: UserProfileComponent},
   { path: 'error', component: ErrorComponent},
+  { path: 'landing', component: LandingComponent}
 ];
 //{ path: '**', component: AppComponent},
 @NgModule({
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     HomeComponent,
     UserProfileComponent,
     ForgotPassComponent,
-    ErrorComponent
+    ErrorComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )

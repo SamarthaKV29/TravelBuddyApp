@@ -5,6 +5,8 @@ body{
 	height: 960px;
 }
 
+
+
 .backgroundImage {
     background-image: url("/assets/imgs/header.jpg");
     background-repeat:no-repeat;
@@ -12,12 +14,19 @@ body{
     background-attachment: fixed;
 }
 
-.center, router-outlet{
+.navbar-brand{
+	text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+}
+
+ul.nav * a{
+	color: white !important;
+}
+
+
+router-outlet{
     text-align: center;
-    font-size:45px;
-    font-weight: bold;
 	margin-top: 80px;
-	height: 60%;
+	height: auto;
 }
 
 .welcomeColor {
@@ -26,63 +35,19 @@ body{
 
 
 .colorChangeAnimation {
-      
-    font-family: futura;
-    font-style: italic;
-      
-    width:100%;
-      
-    margin: 0 auto;
-     
-    color:#313131;
-     
-    -webkit-animation:colorchange 20s infinite alternate;
-      
-      
+    animation:colorchange 5s infinite alternate;
 }
 
-@-webkit-keyframes colorchange {
+@keyframes colorchange {
 	0% {
-		color: #464a4e;
-	}
-
-	10% {
-    	color: #856404;
-	}
-
-	20% {
-    	color: #721c24;
-	}
-
-	30% {
-    	color: #dc3545;
-	}
-
-	40% {
-    	color: #0b3114;
+		color: rgb(33, 228, 179);
 	}
 
 	50% {
-    	color: #34495e;
-	}
-
-	60% {
-    	color: #818182;
-	}
-
-	70% {
-    	color: #0b5561;
-	}
-
-	80% {
-    	color: #9e810b;
-	}
-
-	90% {
-    	color: #094416;
+    	color: #34d6f3;
 	}
 
 	100% {
-    	color: #055818;
+    	color: #cfa6eb;
 	}
 }
