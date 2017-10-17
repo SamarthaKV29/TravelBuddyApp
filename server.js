@@ -83,18 +83,25 @@ app.post('/api/v1/users', (req, res)=>{
 //     });        
 //   });
 // });
-app.get('*', (err, req, res)=>{
+app.get('*', (req, res)=>{
+  res.sendFile(__dirname + '/dist/index.html');
+});
+
+app.use((err, req, res, next)=>{
   if(err){
     res.send("\
+    <head>\
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>\
+    </head>\
     <div class='container center-block'> \
       <div class='row'> \
-        <div class='col-md-6'> \
-          <p class='alert alert-danger'>Error</p>\
+        <div class='col-md-6 center-block'> \
+          <p class='alert alert-danger'>"+ err.message +"</p>\
         </div> \
       </div>\
     </div> \
     ");
   }
-  res.sendFile(__dirname + '/dist/index.html');
-});
+  next();
+})
 
