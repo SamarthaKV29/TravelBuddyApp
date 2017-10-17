@@ -21,7 +21,7 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-globe"></i>
                                         </span>
-                                        <input name="user-originCity" placeholder="City" required="" class="form-control" type="text">
+                                        <input name="user-originCity" placeholder="City" required class="form-control" type="text">
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-time"></i>
                                         </span>
-                                        <owl-date-time [(ngModel)]="dateValue" [locale]="en" name="user-originTime" class="form-control" ></owl-date-time>
+                                        <owl-date-time [required]="true" [(ngModel)]="dateValue" [locale]="en" name="user-originTime" class="container form-control" ></owl-date-time>
                                     </div>
                                 </div>
                             </div>

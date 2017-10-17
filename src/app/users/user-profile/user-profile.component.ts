@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../../_services/user.service';
+import { DateTimePickerModule } from 'ng-pick-datetime'
 
 @Component({
   selector: 'user-profile',
@@ -12,25 +13,26 @@ import { UserService } from '../../_services/user.service';
 export class UserProfileComponent implements OnInit{
   
   profileData: {
-  	originCity: String;
-    originTime: String;
-    destinationCity: String;
-    destinationTime: String;
-    bio: String;
-    seatsOffered: String;
-    seatRequired: String;
+  	originCity: string;
+    originTime: Date;
+    destinationCity: string;
+    destinationTime: Date;
+    bio: string;
+    seatsOffered: string;
+    seatRequired: string;
   };
   users: User[];
-  constructor (private UserService: UserService) {
+  constructor (private UserService: UserService, private datepicker: DateTimePickerModule) {
   	this.profileData = {
   		originCity: "",
-      originTime: "",
+      originTime: new Date(),
       destinationCity: "",
-      destinationTime: "",
+      destinationTime: new Date(),
       bio: "",
       seatsOffered: "",
       seatRequired: ""
-  	};
+    };
+    
   }
 
   ngOnInit(){
