@@ -27,10 +27,11 @@ export class AppComponent implements OnInit{
         this.isLoggedin = false;
       }
     }, 200);
+    this.router.navigate(['landing']);
   }
 
   ngOnInit(){
-    this.router.navigate(['landing']);
+    
   }
 
   

@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'signup', redirectTo: 'signup/undefined'},
   { path: 'login', redirectTo: 'login/true'},
   { path: 'login/:loginstate', component: LoginComponent},
-  { path: 'fpass', component: ForgotPassComponent },
+  { path: 'forgotpass', component: ForgotPassComponent },
   { path: 'userprof', component: UserProfileComponent},
   { path: 'error', component: ErrorComponent},
   { path: 'landing', component: LandingComponent}
