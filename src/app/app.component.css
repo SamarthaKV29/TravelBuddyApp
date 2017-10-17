@@ -33,24 +33,4 @@ router-outlet{
     color: white;
 }
 
-.applogo{
-	background-image: url('http://www.freeiconspng.com/uploads/travel-guide-icon-map-ticket-travel-icon-17.png');
-}
 
-.colorChangeAnimation {
-    animation:colorchange 5s infinite alternate;
-}
-
-@keyframes colorchange {
-	0% {
-		color: rgb(33, 228, 179);
-	}
-
-	50% {
-    	color: #34d6f3;
-	}
-
-	100% {
-    	color: #cfa6eb;
-	}
-}

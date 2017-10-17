@@ -1,22 +1,4 @@
-.signup{
-    /* background-color:rgba(65, 86, 121, 0.45); */
-      width:50%;
-      margin:100px auto;
-      padding:0;
-  }
-  
-  .signup .signup-image {
-    width: 50%;
-    float: left;
-    /* background: url(images/friends1.jpg) no-repeat; */
-    background-position: center;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
-    height: 555px;
-  }
+
   .font-anim
   {
     /* background-color:rgba(148, 125, 57, 0.65); */
@@ -41,7 +23,7 @@
     0% {transform: translate(000px,1000px);}
     20% {transform: translate(000px,65px);}
     25%,65%,75% {transform: translate(000px,85px);}
-    100% {transform: translate(000px,-350px);}
+    100% {transform: translate(000px,-150px);}
   }
   .travel-content11
   {
@@ -76,8 +58,8 @@
   {
     0% {transform: translate(000px,1000px);}
     20% {transform: translate(000px,-165px);}
-    25%,65% {transform: translate(000px,-145px);}
-    100% {transform: scale(0.6);}
+    25%,65% {transform: translate(000px,-105px);}
+    100% {transform: scale(0.6) translate(0px, -85px); }
   }
   .travel-content21
   {
@@ -103,7 +85,7 @@
   {
     top: 75px;
     font-family: 'Roboto';
-    color:#FFFFFF;;
+    color:#FFFFFF;
     animation-delay: 9s;
     animation-duration: 2.5s;
     animation-iteration-count: 1;
@@ -116,7 +98,7 @@
     10% {transform: scale(1.2);}
     20% {transform: scale(1);}
     80% {transform: translate(000px,0px);}
-    100% {transform: translate(000px,-300px);}
+    100% {transform: translate(000px,-250px);}
   }
   .travel-content4
   {
@@ -136,5 +118,6 @@
     10% {transform: scale(1.2);}
     20% {transform: scale(1);}
     80% {transform: translate(000px,0px);}
-    100% {transform: translate(000px,-300px);}
+    100% {transform: translate(000px,-250px);}
   }
+  
