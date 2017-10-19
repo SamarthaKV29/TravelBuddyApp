@@ -18,7 +18,7 @@
         <li  *ngIf="!this.isLoggedin">
           <a [routerLink]="['/login', true]">Log In</a>
         </li>
-        <li *ngIf="!this.isLoggedin">
+        <li *ngIf="this.isLoggedin">
           <a [routerLink]="['/userprof']">User Profile</a>
         </li>
         <li *ngIf="this.isLoggedin">
