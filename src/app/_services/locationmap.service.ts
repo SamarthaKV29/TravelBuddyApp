@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 export class LocationService{
     constructor(private http: Http){ }
 
-    stateList: {} = {
+    private stateList: {} = {
         "AL": "Alabama",
         "AK": "Alaska",
         "AS": "American Samoa",
@@ -70,18 +70,31 @@ export class LocationService{
     
     selectedState: string[2] = "";
     
+    getState(state:string){
+        for(let s in this.stateList){
+            if(state == this.stateList[s]){
+                return s;
+            }
+        }
+    }
+    getStates(){
+        return this.stateList;
+    }
     getCities(state: string): Promise<void | any>{
         
         if(state.length == 2 && state.toUpperCase() in this.stateList){
             let stateUrl = "http://gomashup.com/json.php?fds=geo/usa/zipcode/state/"+ state.toUpperCase() +"&jsoncallback=";
             return this.http.get(stateUrl)
             .toPromise()
-            .then(response => response.json())
+            .then(response => response)
             .catch((error)=>{
                 let errMsg = (error.message) ? error.message :
                 error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-                console.log(errMsg);
+                return errMsg;
             });
+        }
+        else{
+            return;
         }
     }
 

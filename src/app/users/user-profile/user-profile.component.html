@@ -14,14 +14,30 @@
                                 <h3 class="panel-title-inner">From Trip Origin: 
                                 </h3>
                             </div>			
-                                                
+                            <div class="form-group">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-globe"></i>
+                                        </span>
+                                        <input list="originState" (change)="onSelect()" name="user-originState" [(ngModel)]="profileData.originAddress.state" placeholder="State" required class="form-control"/>
+                                        <datalist id="originState">
+                                            <option *ngFor="let state of this.states" [ngValue]="this.LocationService.getState(state)">{{state}}</option>
+                                        </datalist>
+                                    </div>
+                                </div>
+                            </div>                   
                              <div class="form-group">
                                 <div class="col-md-12  inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-globe"></i>
                                         </span>
-                                        <input name="user-originCity" placeholder="City" required class="form-control" type="text">
+                                        <span class="alert alert-warning" [hidden]="!this.loading"></span>
+                                        <input list="originCity" [hidden]="!this.loading" name="user-originCity" [(ngModel)]="profileData.originAddress.city" placeholder="City" required class="form-control"/>
+                                        <datalist id="originCity">
+                                                <option *ngFor="let city of this.cities" [ngValue]="city">{{city}}</option>
+                                        </datalist>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +48,7 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-time"></i>
                                         </span>
-                                        <owl-date-time [required]="true" [(ngModel)]="dateValue" [locale]="en" name="user-originTime" class="container form-control" ></owl-date-time>
+                                        <owl-date-time [min]="profileData.originTime" [required]="true" [(ngModel)]="profileData.originTime" [locale]="en" name="user-originTime" ></owl-date-time>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +75,7 @@
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-time"></i>
                                             </span>
-                                            <owl-date-time [(ngModel)]="moment" name="user-destinationTime" class="form-control" ></owl-date-time>
+                                            <owl-date-time [min]="profileData.originTime" [required]="true" [(ngModel)]="profileData.destinationTime" [locale]="en" name="user-destinationTime"></owl-date-time>
                                         </div>
                                     </div>
                                 </div>
@@ -75,32 +91,11 @@
                                                 <span class="input-group-addon">
                                                     <i class="glyphicon glyphicon-info-sign"></i>
                                                 </span>
-                                                <input name="user-bio" placeholder="Short Bio" required="" class="form-control" type="text">
+                                                <textarea name="user-bio" placeholder="Short Bio" required="" class="form-control" type="text" ></textarea>
                                             </div>
                                         </div>
                                     </div>
         
-                                    <div class="form-group">
-                                        <div class="col-md-12  inputGroupContainer">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="glyphicon glyphicon-question-sign"></i>
-                                                </span>
-                                                <input name="user-seatsOffered" placeholder="Seats Offered" required="" class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-12  inputGroupContainer">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="glyphicon glyphicon-question-sign"></i>
-                                                </span>
-                                                <input name="user-seatRequired" placeholder="Seats Required" required="" class="form-control" type="text">
-                                            </div>
-                                       </div>
-                                    </div>
 
                                     <div class="form-group">
                                             <div class="col-md-12  inputGroupContainer">
@@ -112,21 +107,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                   
-            
-
-                        <!-- 
-                                        <div class="form-group">
-                                            <div class="col-md-12  inputGroupContainer">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="glyphicon glyphicon-info-sign"></i>
-                                                    </span>
-                                                    <input name="user-desc" placeholder="Full Name" required="" [(ngModel)]="profileData.desc" class="form-control" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                        -->
+                            
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <button type="submit" (click)="onSubmit()" class="btn btn-info btn-block">Update
