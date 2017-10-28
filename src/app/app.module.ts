@@ -14,6 +14,7 @@ import { ForgotPassComponent } from './users/forgot-pass/forgot-pass.component';
 import { ErrorComponent } from './utility/error/error.component';
 import { LandingComponent } from './utility/landing/landing.component';
 import { DateTimePickerModule } from 'ng-pick-datetime';
+import { AboutComponent } from './utility/about/about.component';
 
 
 const appRoutes: Routes = [
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
   { path: 'forgotpass', component: ForgotPassComponent },
   { path: 'userprof', component: UserProfileComponent},
   { path: 'error', component: ErrorComponent},
+  { path: 'about', component: AboutComponent}
 ];
 //{ path: '**', component: AppComponent},
 @NgModule({
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     UserProfileComponent,
     ForgotPassComponent,
     ErrorComponent,
-    LandingComponent
+    LandingComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule, DateTimePickerModule, BrowserAnimationsModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes )

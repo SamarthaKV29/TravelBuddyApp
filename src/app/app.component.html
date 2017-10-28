@@ -1,4 +1,4 @@
-<body class="container backgroundImage">
+<body class="container">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -14,21 +14,24 @@
       <div class="collapse navbar-collapse" id="collapsible" #collapsible>
         <ul class="nav navbar-nav">
           <li>
-            <a class="active" routerLink='/home'>Home</a>
+            <a class="active" routerLink='/home'><i class="glyphicon glyphicon-home"></i> Home</a>
+          </li>
+          <li>
+            <a routerLink='/about'><i class="glyphicon glyphicon-info-sign"></i> About</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/signup', undefined]">Sign Up</a>
+            <a [routerLink]="['/signup', undefined]"><i class="glyphicon glyphicon-user"></i> Sign Up</a>
           </li>
           <li  *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/login', true]">Log In</a>
+            <a [routerLink]="['/login', true]"><i class="glyphicon glyphicon-log-in"></i> Log In</a>
           </li>
           <li *ngIf="this.isLoggedin">
-            <a [routerLink]="['/userprof']">User Profile</a>
+            <a [routerLink]="['/userprof']"><i class="glyphicon glyphicon-user"></i> User Profile</a>
           </li>
           <li *ngIf="this.isLoggedin">
-            <a [routerLink]="['/login', false]">Logout</a>
+            <a [routerLink]="['/login', false]"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
           </li>
           
         </ul>

@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     if(this.users){
       var USER = this.users.find(x => x.username.toLowerCase() == this.username.toLowerCase() && x.password === this.password);
-      this.username = this.password = "";
+      
       if(USER){
         var currentMilli = new Date().getMilliseconds();
         var token = {
@@ -75,10 +75,15 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('token', JSON.stringify(token));
         this.router.navigate(['home']);
         this.error = false;
+        this.username = this.password = "";
+      }
+      else{
+        this.error = true;
+        this.password = "";
       }
     }
     else{
-      this.error = true;
+      this.message = "Server busy, please try after some time.";
     }
   }
 }

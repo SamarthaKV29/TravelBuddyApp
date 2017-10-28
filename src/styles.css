@@ -4,15 +4,23 @@
 	margin: 0;
 }
 
+.backgroundImage {
+    background-image: url("/assets/imgs/header.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 .coolShadow{
 	text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
 	0px 4px 12px rgba(0,0,0,0.1),
 	0px 8px 20px rgba(0,0,0,0.1);
 }
 .panel-body{
-	background: #feffe8; /* Old browsers */
-	background: linear-gradient(to bottom, #feffe8 0%,#d6dbbf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 ); /* IE6-9 */
+	background: #d6f9ff;
+    background: linear-gradient(to bottom, rgba(214, 250, 255, 0.8) 0%,rgba(158, 233, 250, 0.9) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6f9ff', endColorstr='#9ee8fa',GradientType=0 );
+    border-radius: 5px;
+	box-shadow: 0px 1px 10px 1px rgba(90, 80, 80, 0.63);
 }
 	
 .alert.alert-warning, .alert.alert-danger{

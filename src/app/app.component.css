@@ -2,24 +2,22 @@
 
 body{
 	width: 100% !important;
-	height: 960px;
-}
-
-
-
-.backgroundImage {
-    background-image: url("/assets/imgs/header.jpg");
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    height: 100%;
+    padding: 5%;
+    padding-top: 0;
+    background: none;
 }
 
 .navbar-brand{
 	text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
 }
 
-ul.nav * a{
+#collapsible ul.nav * a{
 	color: white !important;
+}
+
+#collapsible ul.nav * a:hover{
+    color: gold !important;
 }
 
 

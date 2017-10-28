@@ -223,7 +223,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato:700);", ""]);
 
 // module
-exports.push([module.i, "body{\r\n\twidth: 100% !important;\r\n\theight: 960px;\r\n}\r\n\r\n\r\n\r\n.backgroundImage {\r\n    background-image: url(\"/assets/imgs/header.jpg\");\r\n    background-repeat:no-repeat;\r\n    background-size: cover;\r\n    background-attachment: fixed;\r\n}\r\n\r\n.navbar-brand{\r\n\ttext-shadow: 2px 2px 3px rgba(255,255,255,0.1);\r\n}\r\n\r\nul.nav * a{\r\n\tcolor: white !important;\r\n}\r\n\r\n\r\nrouter-outlet{\r\n    text-align: center;\r\n\tmargin-top: 80px;\r\n\theight: auto;\r\n}\r\n\r\n.welcomeColor {\r\n    color: white;\r\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "body{\r\n\twidth: 100% !important;\r\n    height: 100%;\r\n    padding: 5%;\r\n    padding-top: 0;\r\n    background: none;\r\n}\r\n\r\n.navbar-brand{\r\n\ttext-shadow: 2px 2px 3px rgba(255,255,255,0.1);\r\n}\r\n\r\n#collapsible ul.nav * a{\r\n\tcolor: white !important;\r\n}\r\n\r\n#collapsible ul.nav * a:hover{\r\n    color: gold !important;\r\n}\r\n\r\n\r\nrouter-outlet{\r\n    text-align: center;\r\n\tmargin-top: 80px;\r\n\theight: auto;\r\n}\r\n\r\n.welcomeColor {\r\n    color: white;\r\n}\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -236,7 +236,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"container backgroundImage\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n        <ul class=\"nav navbar-nav\">\r\n          <li>\r\n            <a class=\"active\" routerLink='/home'>Home</a>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/signup', undefined]\">Sign Up</a>\r\n          </li>\r\n          <li  *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', true]\">Log In</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/userprof']\">User Profile</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', false]\">Logout</a>\r\n          </li>\r\n          \r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center coolShadow\" *ngIf=\"!this.isLoggedin\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddies</span>\r\n    </h1>\r\n    <app-landing *ngIf=\"landing\"></app-landing>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n  \r\n</body>"
+module.exports = "<body class=\"container\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n        <ul class=\"nav navbar-nav\">\r\n          <li>\r\n            <a class=\"active\" routerLink='/home'><i class=\"glyphicon glyphicon-home\"></i> Home</a>\r\n          </li>\r\n          <li>\r\n            <a routerLink='/about'><i class=\"glyphicon glyphicon-info-sign\"></i> About</a>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/signup', undefined]\"><i class=\"glyphicon glyphicon-user\"></i> Sign Up</a>\r\n          </li>\r\n          <li  *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', true]\"><i class=\"glyphicon glyphicon-log-in\"></i> Log In</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/userprof']\"><i class=\"glyphicon glyphicon-user\"></i> User Profile</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', false]\"><i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\r\n          </li>\r\n          \r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center coolShadow\" *ngIf=\"!this.isLoggedin\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddies</span>\r\n    </h1>\r\n    <app-landing *ngIf=\"landing\"></app-landing>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n  \r\n</body>"
 
 /***/ }),
 
@@ -345,12 +345,14 @@ var _a, _b, _c, _d;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__utility_landing_landing_component__ = __webpack_require__("../../../../../src/app/utility/landing/landing.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime__ = __webpack_require__("../../../../ng-pick-datetime/picker.module.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__utility_about_about_component__ = __webpack_require__("../../../../../src/app/utility/about/about.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -376,6 +378,7 @@ var appRoutes = [
     { path: 'forgotpass', component: __WEBPACK_IMPORTED_MODULE_12__users_forgot_pass_forgot_pass_component__["a" /* ForgotPassComponent */] },
     { path: 'userprof', component: __WEBPACK_IMPORTED_MODULE_11__users_user_profile_user_profile_component__["a" /* UserProfileComponent */] },
     { path: 'error', component: __WEBPACK_IMPORTED_MODULE_13__utility_error_error_component__["a" /* ErrorComponent */] },
+    { path: 'about', component: __WEBPACK_IMPORTED_MODULE_16__utility_about_about_component__["a" /* AboutComponent */] }
 ];
 //{ path: '**', component: AppComponent},
 var AppModule = (function () {
@@ -393,7 +396,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__users_user_profile_user_profile_component__["a" /* UserProfileComponent */],
             __WEBPACK_IMPORTED_MODULE_12__users_forgot_pass_forgot_pass_component__["a" /* ForgotPassComponent */],
             __WEBPACK_IMPORTED_MODULE_13__utility_error_error_component__["a" /* ErrorComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__utility_landing_landing_component__["a" /* LandingComponent */]
+            __WEBPACK_IMPORTED_MODULE_14__utility_landing_landing_component__["a" /* LandingComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__utility_about_about_component__["a" /* AboutComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime__["DateTimePickerModule"], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_8__angular_router__["c" /* RouterModule */].forRoot(appRoutes)
@@ -415,7 +419,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".margin {\r\n    margin-top: 10%;\r\n  }\r\n\r\n.glyphicon-refresh-animate {\r\n  -animation: spin .7s infinite linear;\r\n}\r\n\r\n@-webkit-keyframes spin {\r\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\r\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\r\n}\r\n\r\n@keyframes spin {\r\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\r\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\r\n}\r\n\r\n.panel-heading{\r\n  background: #ffc578; /* Old browsers */\r\n  background: linear-gradient(to bottom, #a1f31c 0%,#a1f31c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', endColorstr='#fb9d23',GradientType=0 ); /* IE6-9 */\r\n}\r\n.panel-body{\r\n  background: #feffe8; /* Old browsers */\r\n  background: linear-gradient(to bottom, #feffe8 0%,#d6dbbf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 ); /* IE6-9 */\r\n}", ""]);
+exports.push([module.i, ".margin {\r\n    margin-top: 10%;\r\n  }\r\n\r\n.glyphicon-refresh-animate {\r\n  -animation: spin .7s infinite linear;\r\n}\r\n\r\n@-webkit-keyframes spin {\r\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\r\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\r\n}\r\n\r\n@keyframes spin {\r\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\r\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\r\n}\r\n\r\n.panel-heading{\r\n  color: black;\r\n  background: #FFA17F;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */\r\n  background: linear-gradient(to top, rgb(255, 142, 37), rgb(247, 153, 122)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  \r\n}", ""]);
 
 // exports
 
@@ -428,7 +432,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/forgot-pass/forgot-pass.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container margin\">\r\n  <div class=\"row centered-form\">\r\n      <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n          <div class=\"panel panel-default\">\r\n              <div class=\"panel-heading\">\r\n                  <h3 class=\"panel-title\">Forgot Password \r\n                  </h3>\r\n              </div>\r\n              <div class=\"panel-body\">\r\n                <div class=\"panel-body\">\r\n                    <form role=\"form\" class=\"form-horizontal\" action=\" \" method=\"post\" #regForm=\"ngForm\" novalidate>\r\n                        <fieldset>\r\n                            <div class=\"alert\" [class.alert-danger]='regState == false' [class.alert-success]='regState == true' *ngIf=\"message\">{{message}}</div>\r\n                            \r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-envelope\"></i>\r\n                                        </span>\r\n                                        <input name=\"email\" required placeholder=\"mail@example.com\" #email=\"ngModel\" [(ngModel)]=\"emailID\" [(value)]=\"emailID\" class=\"form-control\" type=\"email\">\r\n                                    </div>\r\n                                    <div class=\"alert alert-warning\" [hidden]=\"emailID && emailID.length > 3 && emailID.indexOf('@') > 2 && emailID.indexOf('.', emailID.indexOf('@')) >= 3\">Please enter a valid email.</div>\r\n                                </div>\r\n                                \r\n                            </div>                            \r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12\">\r\n                                    <button type=\"button\" (click)=\"createUser()\" class=\"btn btn-info btn-block\">Submit\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                    </form>\r\n              </div>\r\n          </div>             \r\n      </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container margin\">\r\n  <div class=\"row centered-form\">\r\n    <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n        <div class=\"panel panel-default\">\r\n            <div class=\"panel-heading\">\r\n                <h3 class=\"panel-title\">Forgot Password</h3>\r\n            </div>\r\n            <div class=\"panel-body\">\r\n                <form role=\"form\" class=\"form-horizontal\" action=\" \" method=\"post\" #regForm=\"ngForm\" novalidate>\r\n                    <fieldset>\r\n                        <div class=\"alert\" [class.alert-danger]='regState == false' [class.alert-success]='regState == true' *ngIf=\"message\">{{message}}</div>\r\n                        \r\n                        <div class=\"form-group\">\r\n                            <div class=\"col-md-12  inputGroupContainer\">\r\n                                <div class=\"input-group\">\r\n                                    <span class=\"input-group-addon\">\r\n                                        <i class=\"glyphicon glyphicon-envelope\"></i>\r\n                                    </span>\r\n                                    <input name=\"email\" required placeholder=\"mail@example.com\" #email=\"ngModel\" [(ngModel)]=\"emailID\" [(value)]=\"emailID\" class=\"form-control\" type=\"email\">\r\n                                </div>\r\n                                <div class=\"alert alert-warning\" [hidden]=\"emailID && emailID.length > 3 && emailID.indexOf('@') > 2 && emailID.indexOf('.', emailID.indexOf('@')) >= 3\">Please enter a valid email.</div>\r\n                            </div>\r\n                            \r\n                        </div>                            \r\n                        <div class=\"form-group\">\r\n                            <div class=\"col-md-12\">\r\n                                <button type=\"button\" (click)=\"createUser()\" class=\"btn btn-info btn-block\">Submit\r\n                                </button>\r\n                            </div>\r\n                        </div>\r\n                    </fieldset>\r\n                </form>\r\n            </div>             \r\n        </div>      \r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -477,7 +481,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".home{\r\n    background: linear-gradient(to bottom, rgba(252,255,244,0.5) 0%,rgba(233,233,206,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80fcfff4', endColorstr='#80e9e9ce',GradientType=0 ); /* IE6-9 */\r\n}", ""]);
+exports.push([module.i, ".home{\r\n    \r\n}", ""]);
 
 // exports
 
@@ -490,7 +494,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container margin home\">\r\n    <div class=\"row centered-form\">\r\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <h1>{{this.message}}</h1>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container margin home\">\r\n    <div class=\"row centered-form\">\r\n        <div class=\"col\">\r\n            <div class=\"panel panel-info\">\r\n                <div class=\"panel-heading\">\r\n                    <div class=\"panel-title\">\r\n                        {{this.message}}\r\n                    </div>\r\n                </div>\r\n                <div class=\"panel-content\">\r\n                    {{this.currentUser}}\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -555,7 +559,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".margin {\r\n    margin-top: 10%;\r\n  }\r\n\r\n.glyphicon-refresh-animate {\r\n  -animation: spin .7s infinite linear;\r\n}\r\n\r\n@-webkit-keyframes spin {\r\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\r\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\r\n}\r\n\r\n@keyframes spin {\r\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\r\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\r\n}\r\n\r\n.panel-heading{\r\n  background: #ffc578; /* Old browsers */\r\n  background: linear-gradient(to bottom, #ffc578 0%,#fb9d23 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', endColorstr='#fb9d23',GradientType=0 ); /* IE6-9 */\r\n}\r\n.panel-body{\r\n  background: #feffe8; /* Old browsers */\r\n  background: linear-gradient(to bottom, #feffe8 0%,#d6dbbf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 ); /* IE6-9 */\r\n}", ""]);
+exports.push([module.i, ".margin {\r\n    margin-top: 10%;\r\n  }\r\n\r\n.glyphicon-refresh-animate {\r\n  -animation: spin .7s infinite linear;\r\n}\r\n\r\n@-webkit-keyframes spin {\r\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\r\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\r\n}\r\n\r\n@keyframes spin {\r\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\r\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\r\n}\r\n\r\n.panel-heading{\r\n  background: #ffc578; /* Old browsers */\r\n  background: linear-gradient(to bottom, #ffc578 0%,#fb9d23 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', endColorstr='#fb9d23',GradientType=0 ); /* IE6-9 */\r\n}", ""]);
 
 // exports
 
@@ -643,7 +647,6 @@ var LoginComponent = (function () {
         this.loading = true;
         if (this.users) {
             var USER = this.users.find(function (x) { return x.username.toLowerCase() == _this.username.toLowerCase() && x.password === _this.password; });
-            this.username = this.password = "";
             if (USER) {
                 var currentMilli = new Date().getMilliseconds();
                 var token = {
@@ -653,10 +656,15 @@ var LoginComponent = (function () {
                 sessionStorage.setItem('token', JSON.stringify(token));
                 this.router.navigate(['home']);
                 this.error = false;
+                this.username = this.password = "";
+            }
+            else {
+                this.error = true;
+                this.password = "";
             }
         }
         else {
-            this.error = true;
+            this.message = "Server busy, please try after some time.";
         }
     };
     return LoginComponent;
@@ -927,6 +935,67 @@ var _a, _b, _c;
 
 /***/ }),
 
+/***/ "../../../../../src/app/utility/about/about.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".center-block{\r\n    margin: 0\r\n\r\n}\r\n\r\n.container{\r\n    padding: 1%;\r\n    background: #d6f9ff;\r\n    background: linear-gradient(to bottom, rgba(214, 250, 255, 0.8) 0%,rgba(158, 233, 250, 0.9) 100%);\r\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6f9ff', endColorstr='#9ee8fa',GradientType=0 );\r\n    border-radius: 5px;\r\n    box-shadow: 0px 1px 10px 1px rgba(90, 80, 80, 0.63);\r\n}\r\n\r\np{\r\n    padding: 1%;\r\n}\r\n\r\nli{\r\n    list-style: none;\r\n    padding: 5px;\r\n    \r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/utility/about/about.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row center-block\">\n    <div class=\"col\">\n      <p>Looking for someone to join you on your next travel adventure? Looking for someone to meet up with on your next business trip? You've come to the right place! Let TravelBuddy connect you with other travelers instead of traveling alone.</p>\n      <div class=\"panel panel-info\">\n        <div class=\"panel-heading\">\n          <h4 class=\"panel-title\">With TravelBuddy you can:</h4>\n        </div>\n        <div class=\"panel-content\">\n          <ul>\n            <li>Sign up and create a profile.</li>\n            <li>Create a trip you would like to take/are taking.</li>\n            <li>Search for trips to destinations you're interested in.</li>\n            <li>Follow and message other users.</li>\n          </ul>\n        </div>\n      </div>\n    \n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/utility/about/about.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AboutComponent = (function () {
+    function AboutComponent() {
+    }
+    AboutComponent.prototype.ngOnInit = function () {
+    };
+    return AboutComponent;
+}());
+AboutComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-about',
+        template: __webpack_require__("../../../../../src/app/utility/about/about.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/utility/about/about.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], AboutComponent);
+
+//# sourceMappingURL=about.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/utility/error/error.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -996,7 +1065,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\n\r\n  .travel-content1\r\n  {\r\n    margin-top: 150px;\r\n    -webkit-animation-duration: 5s;\r\n            animation-duration: 5s;\r\n    -webkit-animation-iteration-count: 1;\r\n            animation-iteration-count: 1;\r\n    -webkit-animation-fill-mode: both;\r\n            animation-fill-mode: both;\r\n    -webkit-animation-name: content1;\r\n            animation-name: content1;\r\n   }\r\n  @-webkit-keyframes content1 \r\n  {\r\n    0% {-webkit-transform: translate(000px,1000px);transform: translate(000px,1000px);}\r\n    20% {-webkit-transform: translate(000px,65px);transform: translate(000px,65px);}\r\n    25%,65%,75% {-webkit-transform: translate(000px,85px);transform: translate(000px,85px);}\r\n    100% {-webkit-transform: translate(000px,-120px);transform: translate(000px,-120px);}\r\n  }\r\n  @keyframes content1 \r\n  {\r\n    0% {-webkit-transform: translate(000px,1000px);transform: translate(000px,1000px);}\r\n    20% {-webkit-transform: translate(000px,65px);transform: translate(000px,65px);}\r\n    25%,65%,75% {-webkit-transform: translate(000px,85px);transform: translate(000px,85px);}\r\n    100% {-webkit-transform: translate(000px,-120px);transform: translate(000px,-120px);}\r\n  }\r\n  .travel-content11\r\n  {\r\n    vertical-align: top;\r\n    text-align: center;\r\n    color: #FFFFFF;\r\n    font-family: 'Roboto';\r\n    margin-left: 10px;\r\n    height:95px;\r\n    overflow: hidden;\r\n    -webkit-animation-delay: 1.3s;\r\n            animation-delay: 1.3s;\r\n    -webkit-animation-duration: 1s;\r\n            animation-duration: 1s;\r\n    -webkit-animation-iteration-count: 1;\r\n            animation-iteration-count: 1;\r\n    -webkit-animation-fill-mode: both;\r\n            animation-fill-mode: both;\r\n    -webkit-animation-name: content11;\r\n            animation-name: content11;\r\n  }\r\n  @-webkit-keyframes content11 \r\n  {\r\n    0% {opacity:0;}\r\n    100% {opacity:1;}\r\n  }\r\n  .travel-content2\r\n  {\r\n    -webkit-animation-delay: 4s;\r\n            animation-delay: 4s;\r\n    -webkit-animation-duration: 4.8s;\r\n            animation-duration: 4.8s;\r\n    -webkit-animation-iteration-count: 1;\r\n            animation-iteration-count: 1;\r\n    -webkit-animation-fill-mode: both;\r\n            animation-fill-mode: both;\r\n    -webkit-animation-name: content2;\r\n            animation-name: content2;\r\n   }\r\n  \r\n  @-webkit-keyframes content2 \r\n  {\r\n    0% {-webkit-transform: translate(000px,1000px);transform: translate(000px,1000px);}\r\n    20% {-webkit-transform: translate(000px,-165px);transform: translate(000px,-165px);}\r\n    25%,65% {-webkit-transform: translate(000px,-105px);transform: translate(000px,-105px);}\r\n    100% {-webkit-transform: scale(0.6) translate(0px, 205px);transform: scale(0.6) translate(0px, 205px); }\r\n  }\r\n  \r\n  @keyframes content2 \r\n  {\r\n    0% {-webkit-transform: translate(000px,1000px);transform: translate(000px,1000px);}\r\n    20% {-webkit-transform: translate(000px,-165px);transform: translate(000px,-165px);}\r\n    25%,65% {-webkit-transform: translate(000px,-105px);transform: translate(000px,-105px);}\r\n    100% {-webkit-transform: scale(0.6) translate(0px, 205px);transform: scale(0.6) translate(0px, 205px); }\r\n  }\r\n  .travel-content21\r\n  {\r\n    vertical-align: top;\r\n    text-align: center;\r\n    color: #FFFFFF;;\r\n    font-family: 'Roboto';\r\n    margin-left: 10px;\r\n    height:95px;\r\n    overflow: hidden;\r\n    -webkit-animation-delay: 5.5s;\r\n            animation-delay: 5.5s;\r\n    -webkit-animation-duration: 1s;\r\n            animation-duration: 1s;\r\n    -webkit-animation-iteration-count: 1;\r\n            animation-iteration-count: 1;\r\n    -webkit-animation-fill-mode: both;\r\n            animation-fill-mode: both;\r\n    -webkit-animation-name: content21;\r\n            animation-name: content21;\r\n  }\r\n  @-webkit-keyframes content21 \r\n  {\r\n    0% {opacity:0;}\r\n    100% {opacity:1;}\r\n  }\r\n  @keyframes content21 \r\n  {\r\n    0% {opacity:0;}\r\n    100% {opacity:1;}\r\n  }\r\n  .travel-content3\r\n  {\r\n    top: 20%;\r\n    font-family: 'Roboto';\r\n    color:#FFFFFF;\r\n    -webkit-animation-delay: 9s;\r\n            animation-delay: 9s;\r\n    -webkit-animation-duration: 2.5s;\r\n            animation-duration: 2.5s;\r\n    -webkit-animation-iteration-count: 1;\r\n            animation-iteration-count: 1;\r\n    -webkit-animation-fill-mode: both;\r\n            animation-fill-mode: both;\r\n    -webkit-animation-name: content3;\r\n            animation-name: content3;\r\n  }\r\n  @-webkit-keyframes content3 \r\n  {\r\n    0% {-webkit-transform: scale(0);transform: scale(0);}\r\n    10% {-webkit-transform: scale(1.5);transform: scale(1.5);}\r\n    20% {-webkit-transform: scale(1);transform: scale(1);}\r\n    80% {-webkit-transform: translate(000px,0px);transform: translate(000px,0px);}\r\n    100% {-webkit-transform: translate(000px,-180px);transform: translate(000px,-180px);}\r\n  }\r\n  @keyframes content3 \r\n  {\r\n    0% {-webkit-transform: scale(0);transform: scale(0);}\r\n    10% {-webkit-transform: scale(1.5);transform: scale(1.5);}\r\n    20% {-webkit-transform: scale(1);transform: scale(1);}\r\n    80% {-webkit-transform: translate(000px,0px);transform: translate(000px,0px);}\r\n    100% {-webkit-transform: translate(000px,-180px);transform: translate(000px,-180px);}\r\n  }\r\n  .travel-content4\r\n  {\r\n    font-family: 'Roboto';\r\n    top: 75px;\r\n    color:#FFFFFF;;\r\n    -webkit-animation-delay: 12s;;\r\n            animation-delay: 12s;\r\n    -webkit-animation-duration: 2.5s;\r\n            animation-duration: 2.5s;\r\n    -webkit-animation-iteration-count: 1;\r\n            animation-iteration-count: 1;\r\n    -webkit-animation-fill-mode: both;\r\n            animation-fill-mode: both;\r\n    -webkit-animation-name: content4;\r\n            animation-name: content4;\r\n  }\r\n  \r\n  @-webkit-keyframes content4 \r\n  {\r\n    0% {-webkit-transform: scale(0);transform: scale(0);}\r\n    10% {-webkit-transform: scale(1.5);transform: scale(1.5);}\r\n    20% {-webkit-transform: scale(1);transform: scale(1);}\r\n    80% {-webkit-transform: translate(000px,0px);transform: translate(000px,0px);}\r\n    100% {-webkit-transform: translate(000px,-165px);transform: translate(000px,-165px);}\r\n  }\r\n  \r\n  @keyframes content4 \r\n  {\r\n    0% {-webkit-transform: scale(0);transform: scale(0);}\r\n    10% {-webkit-transform: scale(1.5);transform: scale(1.5);}\r\n    20% {-webkit-transform: scale(1);transform: scale(1);}\r\n    80% {-webkit-transform: translate(000px,0px);transform: translate(000px,0px);}\r\n    100% {-webkit-transform: translate(000px,-165px);transform: translate(000px,-165px);}\r\n  }\r\n  ", ""]);
+exports.push([module.i, ".center{\r\n  margin: auto;\r\n  text-align: center !important;\r\n}\r\n\r\n.design{\r\n  background-color: rgba(104,200,204,0.47);\r\n  background: linear-gradient(to bottom, rgba(104,200,204,0.47) 0%,rgba(47,138,163,0.61) 100%);\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7868c8cc', endColorstr='#9c2f8aa3',GradientType=0 );\r\n  border-radius: 50px;\r\n  width: 40%;\r\n}\r\n\r\ndiv{\r\n  padding: 10px;\r\n}\r\n\r\n.content{\r\n  -webkit-animation: landinganim 1s 0s alternate both ease-in;\r\n          animation: landinganim 1s 0s alternate both ease-in; \r\n}\r\n.content1{\r\n  color: lightsalmon;\r\n  -webkit-animation: landinganim 1s 1.1s alternate both ease-in;\r\n          animation: landinganim 1s 1.1s alternate both ease-in;\r\n}\r\n.content2{\r\n  color: lightgreen;\r\n  -webkit-animation: landinganim 1s 2.2s alternate both ease-in;\r\n          animation: landinganim 1s 2.2s alternate both ease-in;\r\n}\r\n.content3{\r\n  color: lightskyblue;\r\n  -webkit-animation: landinganim 1s 3.3s alternate both ease-in;\r\n          animation: landinganim 1s 3.3s alternate both ease-in;\r\n}\r\nspan{\r\n  color: gold !important;\r\n}\r\n\r\nimg{\r\n  width: 64px;\r\n}\r\n\r\n\r\n@-webkit-keyframes landinganim{\r\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n\r\n@keyframes landinganim{\r\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}", ""]);
 
 // exports
 
@@ -1009,7 +1078,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/utility/landing/landing.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"font-anim\" align=\"center\">\r\n  <div class=\"travel-content1\">\r\n    <img src=\"http://www.freeiconspng.com/uploads/travel-guide-icon-map-ticket-travel-icon-17.png\" width=\"100px\" />\r\n  </div>\r\n  <div class=\"travel-content2\">\r\n    <div class=\"travel-content21\">\r\n      <font style=\"font-weight:400;font-size: 45px;\" class=\"coolShadow\">Share</font>\r\n      <br />\r\n      <font style=\"font-weight:300; font-size: 18px;\" class=\"coolShadow\">your boredom</font>\r\n    </div>\r\n  </div>\r\n  <div class=\"travel-content3\">\r\n    <font style=\"font-weight:300;font-size: 55px;\" class=\"coolShadow\">Find Buddies</font>\r\n    <br />\r\n    <font style=\"font-weight:300; font-size: 18px;\" class=\"coolShadow\"> with whom you want to </font>\r\n  </div>\r\n  <div class=\"travel-content4\">\r\n    <font style=\"font-weight:300;font-size: 45px;\" class=\"coolShadow \"> Commute</font>\r\n    <br />\r\n    <font style=\"font-weight:300; font-size: 18px;\"class=\"coolShadow\">And</font>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col center design\">\r\n        <img class=\"content coolShadow\" src=\"/assets/imgs/travellogoicon.png\"/>\r\n        <div class=\"content1 coolShadow\">\r\n            <h1>Find Buddies</h1>\r\n            <span>with whom you want to</span>\r\n        </div>\r\n        <div class=\"content2 coolShadow\">\r\n            <h1>Commute</h1>\r\n            <span>and</span>\r\n        </div>\r\n        <div class=\"content3 coolShadow\">\r\n            <h1>Share</h1>\r\n            <span>your boredom</span>\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
