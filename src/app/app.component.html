@@ -11,26 +11,28 @@
           <span class="d-inline">Travel Buddy</span>
         </a>
       </div>
-      <ul class="nav navbar-nav">
-        <li>
-          <a class="active" routerLink='/home'>Home</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!this.isLoggedin">
-          <a [routerLink]="['/signup', undefined]">Sign Up</a>
-        </li>
-        <li  *ngIf="!this.isLoggedin">
-          <a [routerLink]="['/login', true]">Log In</a>
-        </li>
-        <li *ngIf="this.isLoggedin">
-          <a [routerLink]="['/userprof']">User Profile</a>
-        </li>
-        <li *ngIf="this.isLoggedin">
-          <a [routerLink]="['/login', false]">Logout</a>
-        </li>
-        
-      </ul>
+      <div class="collapse navbar-collapse" id="collapsible" #collapsible>
+        <ul class="nav navbar-nav">
+          <li>
+            <a class="active" routerLink='/home'>Home</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li *ngIf="!this.isLoggedin">
+            <a [routerLink]="['/signup', undefined]">Sign Up</a>
+          </li>
+          <li  *ngIf="!this.isLoggedin">
+            <a [routerLink]="['/login', true]">Log In</a>
+          </li>
+          <li *ngIf="this.isLoggedin">
+            <a [routerLink]="['/userprof']">User Profile</a>
+          </li>
+          <li *ngIf="this.isLoggedin">
+            <a [routerLink]="['/login', false]">Logout</a>
+          </li>
+          
+        </ul>
+      </div>
     </div>
   </nav>
   <div class="wrapper">

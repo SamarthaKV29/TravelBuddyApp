@@ -236,7 +236,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"container backgroundImage\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <ul class=\"nav navbar-nav\">\r\n        <li>\r\n          <a class=\"active\" routerLink='/home'>Home</a>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf=\"!this.isLoggedin\">\r\n          <a [routerLink]=\"['/signup', undefined]\">Sign Up</a>\r\n        </li>\r\n        <li  *ngIf=\"!this.isLoggedin\">\r\n          <a [routerLink]=\"['/login', true]\">Log In</a>\r\n        </li>\r\n        <li *ngIf=\"this.isLoggedin\">\r\n          <a [routerLink]=\"['/userprof']\">User Profile</a>\r\n        </li>\r\n        <li *ngIf=\"this.isLoggedin\">\r\n          <a [routerLink]=\"['/login', false]\">Logout</a>\r\n        </li>\r\n        \r\n      </ul>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center coolShadow\" *ngIf=\"!this.isLoggedin\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddies</span>\r\n    </h1>\r\n    <app-landing *ngIf=\"landing\"></app-landing>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n  \r\n</body>"
+module.exports = "<body class=\"container backgroundImage\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n        <ul class=\"nav navbar-nav\">\r\n          <li>\r\n            <a class=\"active\" routerLink='/home'>Home</a>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/signup', undefined]\">Sign Up</a>\r\n          </li>\r\n          <li  *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', true]\">Log In</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/userprof']\">User Profile</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', false]\">Logout</a>\r\n          </li>\r\n          \r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center coolShadow\" *ngIf=\"!this.isLoggedin\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddies</span>\r\n    </h1>\r\n    <app-landing *ngIf=\"landing\"></app-landing>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n  \r\n</body>"
 
 /***/ }),
 
@@ -607,9 +607,12 @@ var LoginComponent = (function () {
         this.error = this.loading = false;
         if (this.users == undefined) {
             this.UserService.getUsers().then(function (users) {
-                _this.users = users.map(function (user) {
-                    return user;
-                });
+                if (users) {
+                    _this.users = users.map(function (user) {
+                        if (user)
+                            return user;
+                    });
+                }
             });
         }
     }
@@ -640,6 +643,7 @@ var LoginComponent = (function () {
         this.loading = true;
         if (this.users) {
             var USER = this.users.find(function (x) { return x.username.toLowerCase() == _this.username.toLowerCase() && x.password === _this.password; });
+            this.username = this.password = "";
             if (USER) {
                 var currentMilli = new Date().getMilliseconds();
                 var token = {
@@ -648,6 +652,7 @@ var LoginComponent = (function () {
                 };
                 sessionStorage.setItem('token', JSON.stringify(token));
                 this.router.navigate(['home']);
+                this.error = false;
             }
         }
         else {

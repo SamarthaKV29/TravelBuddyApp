@@ -28,9 +28,12 @@ export class LoginComponent implements OnInit {
     this.error = this.loading = false;
     if(this.users == undefined){
       this.UserService.getUsers().then((users: User[]) =>{
-        this.users = users.map((user)=>{
-          return user;
-        });
+        if(users){
+          this.users = users.map((user)=>{
+            if(user)
+              return user;
+          });
+        }
       });
     }
   }
@@ -62,6 +65,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     if(this.users){
       var USER = this.users.find(x => x.username.toLowerCase() == this.username.toLowerCase() && x.password === this.password);
+      this.username = this.password = "";
       if(USER){
         var currentMilli = new Date().getMilliseconds();
         var token = {
@@ -70,6 +74,7 @@ export class LoginComponent implements OnInit {
         };
         sessionStorage.setItem('token', JSON.stringify(token));
         this.router.navigate(['home']);
+        this.error = false;
       }
     }
     else{
