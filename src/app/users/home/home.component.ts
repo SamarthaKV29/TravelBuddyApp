@@ -11,7 +11,7 @@ import { UserService } from '../../_services/user.service';
 export class HomeComponent implements OnInit{
   currentUser: User;
   message: string = "Please login first.";
-
+  loggedIn: boolean = false;
   constructor() { 
     setInterval(this.checkLoggedIn, 5000);
   }
@@ -26,11 +26,13 @@ export class HomeComponent implements OnInit{
       if (curr = sessionStorage.getItem('token')){
         curr = JSON.parse(curr);
         this.currentUser = curr.user;
-        this.message = "Welcome " + this.currentUser.username;
+        this.message = "Welcome " + this.currentUser.name;
+        this.loggedIn = true;
       }
     }
     else{
       this.message = "Please login first.";
+      this.loggedIn = false;
     }
   }
   

@@ -1,16 +1,25 @@
-<div class="container margin home">
-    <div class="row centered-form">
-        <div class="col">
+<div class="container center">
+    <div class="row center">
+        <div class="col center">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <div class="panel-title">
                         {{this.message}}
                     </div>
                 </div>
-                <div class="panel-content">
-                    {{this.currentUser}}
+                <div class="panel-content" *ngIf="this.loggedIn">
+                    <ul class="nav nav-tabs">
+                        <li><a target="#createTrip">Create Trip</a></li>
+                        <li class="active"><a target="#manageTrip">Manage Trips</a></li>
+                        <li><a target="#inbox">Inbox</a></li>
+                    </ul>
+                    <div id="manageTrip">
+                        <router-outlet></router-outlet>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
+            
 </div>

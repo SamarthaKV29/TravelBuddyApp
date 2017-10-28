@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserService {
-  private usersUrl = '/api/v1/users';
+  private usersUrl = 'https://travel-buddy-app.herokuapp.com/api/v1/users';
   
       constructor (private http: Http) {}
   

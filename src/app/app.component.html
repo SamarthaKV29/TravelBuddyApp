@@ -1,4 +1,4 @@
-<body class="container">
+<div class="container">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -43,7 +43,10 @@
       <span class="colorChangeAnimation">Travel Buddy</span>
     </h1>
     <app-landing *ngIf="landing"></app-landing>
-    <router-outlet></router-outlet>
+    <div class="loading" *ngIf="this.loading">
+        <p>Loading . . . </p>
+      </div>
+    <router-outlet *ngIf="!this.loading"></router-outlet>
   </div>
   
-</body>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
-import { RouterLink, Router, ActivatedRoute} from '@angular/router';
+import { RouterLink, Router, ActivatedRoute, Event as RouterEvent, NavigationStart, NavigationCancel, NavigationEnd, NavigationError} from '@angular/router';
 
 
 @Component({
@@ -15,11 +15,14 @@ export class AppComponent implements OnInit{
   isLoggedin: boolean = false;
   title = 'TravelBuddy';  
   collapsed: boolean = true;
+  loading: boolean = true;
 
   @ViewChild('collapsible') collapsible: ElementRef;
   
   constructor(private router: Router, private route: ActivatedRoute, private renderer: Renderer2){
-    
+    this.router.events.subscribe((event: RouterEvent) => {
+      this.navIntercept(event);
+    });
     sessionStorage.clear();
     let checker = setInterval(()=>{
       //console.log("loginstate: " + this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
@@ -34,6 +37,17 @@ export class AppComponent implements OnInit{
     
   }
 
+  navIntercept(event: RouterEvent): void{
+    if(event instanceof NavigationStart){
+      this.loading = true;
+    }
+    if(event instanceof NavigationEnd){
+      this.loading = false;
+    }
+    if(event instanceof NavigationCancel || event instanceof NavigationError){
+      this.loading = false;
+    }
+  }
   ngOnInit(){
     //console.log(this.router.url);
     setInterval(()=>{
