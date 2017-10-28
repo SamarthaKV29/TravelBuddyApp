@@ -9,12 +9,15 @@
                 </div>
                 <div class="panel-content" *ngIf="this.loggedIn">
                     <ul class="nav nav-tabs">
-                        <li><a target="#createTrip">Create Trip</a></li>
-                        <li class="active"><a target="#manageTrip">Manage Trips</a></li>
-                        <li><a target="#inbox">Inbox</a></li>
+                        <li><a target="#createTrip"><i class="glyphicon glyphicon-plus-sign"></i> Create Trip</a></li>
+                        <li class="active"><a target="#manageTrip"><i class="glyphicon glyphicon-cog"></i> Manage Trips</a></li>
+                        <li><a target="#inbox"><i class="glyphicon glyphicon-comment"></i> Inbox</a></li>
                     </ul>
                     <div id="manageTrip">
                         <router-outlet></router-outlet>
+                    </div>
+                    <div id="createTrip">
+                        CREATE THE trip
                     </div>
                 </div>
             </div>
