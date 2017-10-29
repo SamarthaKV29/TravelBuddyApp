@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../../_services/user.service';
+import { Router, RouterLink, ActivatedRoute} from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home',
@@ -12,13 +15,14 @@ export class HomeComponent implements OnInit{
   currentUser: User;
   message: string = "Please login first.";
   loggedIn: boolean = false;
-  constructor() { 
+  constructor(private router: Router, private route: ActivatedRoute) { 
     setInterval(this.checkLoggedIn, 5000);
   }
 
   ngOnInit() {
     this.checkLoggedIn();
   }
+
 
   checkLoggedIn(){
     if(sessionStorage.getItem('token')){

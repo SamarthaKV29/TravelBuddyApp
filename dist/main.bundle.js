@@ -236,7 +236,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n        <ul class=\"nav navbar-nav\">\r\n          <li>\r\n            <a class=\"active\" routerLink='/home'><i class=\"glyphicon glyphicon-home\"></i> Home</a>\r\n          </li>\r\n          <li>\r\n            <a routerLink='/about'><i class=\"glyphicon glyphicon-info-sign\"></i> About</a>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/signup', undefined]\"><i class=\"glyphicon glyphicon-user\"></i> Sign Up</a>\r\n          </li>\r\n          <li  *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', true]\"><i class=\"glyphicon glyphicon-log-in\"></i> Log In</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/userprof']\"><i class=\"glyphicon glyphicon-user\"></i> User Profile</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', false]\"><i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\r\n          </li>\r\n          \r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center coolShadow\" *ngIf=\"this.landing\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddy</span>\r\n    </h1>\r\n    <app-landing *ngIf=\"landing\"></app-landing>\r\n    <div class=\"loading\" *ngIf=\"this.loading\">\r\n        <p>Loading . . . </p>\r\n      </div>\r\n    <router-outlet *ngIf=\"!this.loading\"></router-outlet>\r\n  </div>\r\n  \r\n</div>"
+module.exports = "<div class=\"container\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n        <ul class=\"nav navbar-nav\">\r\n          <li>\r\n            <a class=\"active\" routerLink='/home'><i class=\"glyphicon glyphicon-home\"></i> Home</a>\r\n          </li>\r\n          <li>\r\n            <a routerLink='/about'><i class=\"glyphicon glyphicon-info-sign\"></i> About</a>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/signup', new]\"><i class=\"glyphicon glyphicon-user\"></i> Sign Up</a>\r\n          </li>\r\n          <li  *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', true]\"><i class=\"glyphicon glyphicon-log-in\"></i> Log In</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/userprof']\"><i class=\"glyphicon glyphicon-user\"></i> User Profile</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', false]\"><i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\r\n          </li>\r\n          \r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center coolShadow\" *ngIf=\"this.landing\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddy</span>\r\n    </h1>\r\n    <app-landing *ngIf=\"landing\"></app-landing>\r\n    <div class=\"loading\" *ngIf=\"this.loading\">\r\n        <p class=\"alert-warning\">Loading . . . </p>\r\n    </div>\r\n    <router-outlet *ngIf=\"!this.loading\"></router-outlet>\r\n  </div>\r\n  \r\n</div>"
 
 /***/ }),
 
@@ -342,6 +342,7 @@ var _a, _b, _c, _d;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export homeRoutes */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
@@ -361,6 +362,9 @@ var _a, _b, _c, _d;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime__ = __webpack_require__("../../../../ng-pick-datetime/picker.module.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__utility_about_about_component__ = __webpack_require__("../../../../../src/app/utility/about/about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__users_inbox_inbox_component__ = __webpack_require__("../../../../../src/app/users/inbox/inbox.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__users_managetrips_managetrips_component__ = __webpack_require__("../../../../../src/app/users/managetrips/managetrips.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__users_createtrip_createtrip_component__ = __webpack_require__("../../../../../src/app/users/createtrip/createtrip.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -384,10 +388,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+var homeRoutes = [
+    { path: "create", component: __WEBPACK_IMPORTED_MODULE_19__users_createtrip_createtrip_component__["a" /* CreatetripComponent */] },
+    { path: "manage", component: __WEBPACK_IMPORTED_MODULE_18__users_managetrips_managetrips_component__["a" /* ManagetripsComponent */] },
+    { path: "inbox", component: __WEBPACK_IMPORTED_MODULE_17__users_inbox_inbox_component__["a" /* InboxComponent */] }
+];
 var appRoutes = [
-    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__["a" /* HomeComponent */] },
+    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_10__users_home_home_component__["a" /* HomeComponent */], children: homeRoutes },
     { path: 'signup/:regstate', component: __WEBPACK_IMPORTED_MODULE_5__users_user_detail_user_detail_component__["a" /* UserDetailComponent */] },
-    { path: 'signup', redirectTo: 'signup/undefined' },
+    { path: 'signup', redirectTo: 'signup/new' },
     { path: 'login', redirectTo: 'login/true' },
     { path: 'login/:loginstate', component: __WEBPACK_IMPORTED_MODULE_9__users_login_login_component__["a" /* LoginComponent */] },
     { path: 'forgotpass', component: __WEBPACK_IMPORTED_MODULE_12__users_forgot_pass_forgot_pass_component__["a" /* ForgotPassComponent */] },
@@ -412,17 +424,82 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_12__users_forgot_pass_forgot_pass_component__["a" /* ForgotPassComponent */],
             __WEBPACK_IMPORTED_MODULE_13__utility_error_error_component__["a" /* ErrorComponent */],
             __WEBPACK_IMPORTED_MODULE_14__utility_landing_landing_component__["a" /* LandingComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__utility_about_about_component__["a" /* AboutComponent */]
+            __WEBPACK_IMPORTED_MODULE_16__utility_about_about_component__["a" /* AboutComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__users_inbox_inbox_component__["a" /* InboxComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__users_managetrips_managetrips_component__["a" /* ManagetripsComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__users_createtrip_createtrip_component__["a" /* CreatetripComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime__["DateTimePickerModule"], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_8__angular_router__["g" /* RouterModule */].forRoot(appRoutes)
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_15_ng_pick_datetime__["DateTimePickerModule"], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_8__angular_router__["g" /* RouterModule */].forRoot(appRoutes, { enableTracing: true })
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_6__services_user_service__["a" /* UserService */]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]],
+        exports: [__WEBPACK_IMPORTED_MODULE_8__angular_router__["g" /* RouterModule */]]
     })
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/createtrip/createtrip.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/createtrip/createtrip.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!-- <div class=\"container margin\">\n    <div class=\"row centered-form\">\n      <div class=\"col-md-6 col-offset-sm-2\">\n              <div class=\"panel panel-default\">\n                <div class=\"panel-heading\">\n                      <h3 class=\"panel-title\">User Profile page \n                      </h3>\n                  </div>\n                  <div class=\"panel-body\">\n                      <form class=\"form-horizontal\" action=\" \" method=\"post\">\n                          <fieldset>\n                             \n                              <div class=\"panel sub-heading form-group\">\n                                  <h3 class=\"panel-title-inner\">From Trip Origin: \n                                  </h3>\n                              </div>\t\t\t\n                              <div class=\"form-group\">\n                                  <div class=\"col-md-12  inputGroupContainer\">\n                                      <div class=\"input-group\">\n                                          <span class=\"input-group-addon\">\n                                              <i class=\"glyphicon glyphicon-globe\"></i>\n                                          </span>\n                                          <input list=\"originState\" (change)=\"onSelect()\" name=\"user-originState\" [(ngModel)]=\"profileData.originAddress.state\" placeholder=\"State\" required class=\"form-control\"/>\n                                          <datalist id=\"originState\">\n                                              <option *ngFor=\"let state of this.states\" [ngValue]=\"this.LocationService.getState(state)\">{{state}}</option>\n                                          </datalist>\n                                      </div>\n                                  </div>\n                              </div>                   \n                               <div class=\"form-group\">\n                                  <div class=\"col-md-12  inputGroupContainer\">\n                                      <div class=\"input-group\">\n                                          <span class=\"input-group-addon\">\n                                              <i class=\"glyphicon glyphicon-globe\"></i>\n                                          </span>\n                                          <span class=\"alert alert-warning\" [hidden]=\"!this.loading\"></span>\n                                          <input list=\"originCity\" [hidden]=\"!this.loading\" name=\"user-originCity\" [(ngModel)]=\"profileData.originAddress.city\" placeholder=\"City\" required class=\"form-control\"/>\n                                          <datalist id=\"originCity\">\n                                                  <option *ngFor=\"let city of this.cities\" [ngValue]=\"city\">{{city}}</option>\n                                          </datalist>\n                                      </div>\n                                  </div>\n                              </div>\n  \n                              <div class=\"form-group\">\n                                  <div class=\"col-md-12  inputGroupContainer\">\n                                      <div class=\"input-group\">\n                                          <span class=\"input-group-addon\">\n                                              <i class=\"glyphicon glyphicon-time\"></i>\n                                          </span>\n                                          <owl-date-time [min]=\"profileData.originTime\" [required]=\"true\" [(ngModel)]=\"profileData.originTime\" [locale]=\"en\" name=\"user-originTime\" ></owl-date-time>\n                                      </div>\n                                  </div>\n                              </div>\n                              \n                              <div class=\"panel sub-heading form-group\">\n                                      <h3 class=\"panel-title-inner\">To Trip Destination: \n                                      </h3>\n                                  </div>\n      \n                                  <div class=\"form-group\">\n                                      <div class=\"col-md-12  inputGroupContainer\">\n                                          <div class=\"input-group\">\n                                              <span class=\"input-group-addon\">\n                                                  <i class=\"glyphicon glyphicon-globe\"></i>\n                                              </span>\n                                              <input name=\"user-destinationCity\" placeholder=\"City\" required=\"\" class=\"form-control\" type=\"text\">\n                                          </div>\n                                      </div>\n                                  </div>\n      \n                                  <div class=\"form-group\">\n                                      <div class=\"col-md-12  inputGroupContainer\">\n                                          <div class=\"input-group\">\n                                              <span class=\"input-group-addon\">\n                                                  <i class=\"glyphicon glyphicon-time\"></i>\n                                              </span>\n                                              <owl-date-time [min]=\"profileData.originTime\" [required]=\"true\" [(ngModel)]=\"profileData.destinationTime\" [locale]=\"en\" name=\"user-destinationTime\"></owl-date-time>\n                                          </div>\n                                      </div>\n                                  </div>\n  \n                                \n                          </fieldset>\n                      </form>\n                  </div>\n              </div>\n          </div>\n    </div>\n  </div> -->"
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/createtrip/createtrip.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreatetripComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CreatetripComponent = (function () {
+    function CreatetripComponent() {
+    }
+    CreatetripComponent.prototype.ngOnInit = function () {
+    };
+    return CreatetripComponent;
+}());
+CreatetripComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-createtrip',
+        template: __webpack_require__("../../../../../src/app/users/createtrip/createtrip.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/users/createtrip/createtrip.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], CreatetripComponent);
+
+//# sourceMappingURL=createtrip.component.js.map
 
 /***/ }),
 
@@ -509,7 +586,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container center\">\r\n    <div class=\"row center\">\r\n        <div class=\"col center\">\r\n            <div class=\"panel panel-info\">\r\n                <div class=\"panel-heading\">\r\n                    <div class=\"panel-title\">\r\n                        {{this.message}}\r\n                    </div>\r\n                </div>\r\n                <div class=\"panel-content\" *ngIf=\"this.loggedIn\">\r\n                    <ul class=\"nav nav-tabs\">\r\n                        <li><a target=\"#createTrip\"><i class=\"glyphicon glyphicon-plus-sign\"></i> Create Trip</a></li>\r\n                        <li class=\"active\"><a target=\"#manageTrip\"><i class=\"glyphicon glyphicon-cog\"></i> Manage Trips</a></li>\r\n                        <li><a target=\"#inbox\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li>\r\n                    </ul>\r\n                    <div id=\"manageTrip\">\r\n                        <router-outlet></router-outlet>\r\n                    </div>\r\n                    <div id=\"createTrip\">\r\n                        CREATE THE trip\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    \r\n            \r\n</div>"
+module.exports = "<div class=\"container center\">\r\n    <div class=\"row center\">\r\n        <div class=\"col center\">\r\n            <div class=\"panel panel-info\">\r\n                <div class=\"panel-heading\">\r\n                    <div class=\"panel-title\">\r\n                        {{this.message}}\r\n                    </div>\r\n                </div>\r\n                <div class=\"panel-content\" *ngIf=\"this.loggedIn\">\r\n                    <ul class=\"nav nav-tabs\">\r\n                        <li><a [routerLink]=\"['create']\" ><i class=\"glyphicon glyphicon-plus-sign\"></i> Create Trip</a></li>\r\n                        <li><a [routerLink]=\"['manage']\"><i class=\"glyphicon glyphicon-cog\"></i> Manage Trips</a></li>\r\n                        <li><a [routerLink]=\"['inbox']\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li>\r\n                    </ul>\r\n                    <router-outlet></router-outlet>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -519,6 +596,7 @@ module.exports = "<div class=\"container center\">\r\n    <div class=\"row cente
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -529,8 +607,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(router, route) {
+        this.router = router;
+        this.route = route;
         this.message = "Please login first.";
         this.loggedIn = false;
         setInterval(this.checkLoggedIn, 5000);
@@ -562,10 +643,72 @@ HomeComponent = __decorate([
         styles: [__webpack_require__("../../../../../src/app/users/home/home.component.css")],
         providers: []
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object])
 ], HomeComponent);
 
+var _a, _b;
 //# sourceMappingURL=home.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/inbox/inbox.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/inbox/inbox.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  inbox works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/inbox/inbox.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InboxComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var InboxComponent = (function () {
+    function InboxComponent() {
+    }
+    InboxComponent.prototype.ngOnInit = function () {
+    };
+    return InboxComponent;
+}());
+InboxComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-inbox',
+        template: __webpack_require__("../../../../../src/app/users/inbox/inbox.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/users/inbox/inbox.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], InboxComponent);
+
+//# sourceMappingURL=inbox.component.js.map
 
 /***/ }),
 
@@ -699,6 +842,67 @@ LoginComponent = __decorate([
 
 var _a, _b, _c;
 //# sourceMappingURL=login.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/managetrips/managetrips.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/managetrips/managetrips.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  managetrips works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/managetrips/managetrips.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManagetripsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ManagetripsComponent = (function () {
+    function ManagetripsComponent() {
+    }
+    ManagetripsComponent.prototype.ngOnInit = function () {
+    };
+    return ManagetripsComponent;
+}());
+ManagetripsComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-managetrips',
+        template: __webpack_require__("../../../../../src/app/users/managetrips/managetrips.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/users/managetrips/managetrips.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ManagetripsComponent);
+
+//# sourceMappingURL=managetrips.component.js.map
 
 /***/ }),
 
@@ -1083,7 +1287,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".center{\r\n  margin: auto;\r\n  text-align: center !important;\r\n}\r\n\r\n.design{\r\n  background-color: rgba(104,200,204,0.47);\r\n  background: linear-gradient(to bottom, rgba(104,200,204,0.47) 0%,rgba(47,138,163,0.61) 100%);\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7868c8cc', endColorstr='#9c2f8aa3',GradientType=0 );\r\n  border-radius: 50px;\r\n  width: 40%;\r\n}\r\n\r\ndiv{\r\n  padding: 10px;\r\n}\r\n\r\n.content{\r\n  -webkit-animation: landinganim 1s 0s alternate both ease-in;\r\n          animation: landinganim 1s 0s alternate both ease-in; \r\n}\r\n.content1{\r\n  color: lightsalmon;\r\n  -webkit-animation: landinganim 1s 1.1s alternate both ease-in;\r\n          animation: landinganim 1s 1.1s alternate both ease-in;\r\n}\r\n.content2{\r\n  color: lightgreen;\r\n  -webkit-animation: landinganim 1s 2.2s alternate both ease-in;\r\n          animation: landinganim 1s 2.2s alternate both ease-in;\r\n}\r\n.content3{\r\n  color: lightskyblue;\r\n  -webkit-animation: landinganim 1s 3.3s alternate both ease-in;\r\n          animation: landinganim 1s 3.3s alternate both ease-in;\r\n}\r\nspan{\r\n  color: gold !important;\r\n}\r\n\r\nimg{\r\n  width: 64px;\r\n}\r\n\r\n\r\n@-webkit-keyframes landinganim{\r\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n\r\n@keyframes landinganim{\r\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}", ""]);
+exports.push([module.i, ".center{\r\n  margin: auto;\r\n  text-align: center !important;\r\n}\r\n\r\n.design{\r\n  background-color: rgba(59, 58, 65, 0.479);\r\n  border-top-left-radius: 400px;\r\n  border-top-right-radius: 400px;\r\n  border-bottom-left-radius: 200px;\r\n  border-bottom-right-radius: 200px;\r\n  width: 100%;\r\n  \r\n  -webkit-animation: fade-in 4s ease infinite alternate;\r\n  \r\n          animation: fade-in 4s ease infinite alternate;\r\n}\r\n\r\n@-webkit-keyframes fade-in{\r\n  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}\r\n  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}\r\n}\r\n\r\n@keyframes fade-in{\r\n  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}\r\n  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}\r\n}\r\ndiv{\r\n  padding: 10px;\r\n}\r\n\r\n.content{\r\n  -webkit-animation: landinganim 0.5s 0s alternate both ease-in;\r\n          animation: landinganim 0.5s 0s alternate both ease-in; \r\n}\r\n.content1{\r\n  color: lightsalmon;\r\n  -webkit-animation: landinganim2 1s 0.6s alternate both ease-in;\r\n          animation: landinganim2 1s 0.6s alternate both ease-in;\r\n}\r\n.content2{\r\n  color: lightgreen;\r\n  -webkit-animation: landinganim3 1s 0.6s alternate both ease-in;\r\n          animation: landinganim3 1s 0.6s alternate both ease-in;\r\n}\r\n.content3{\r\n  color: lightskyblue;\r\n  -webkit-animation: landinganim2 1s 0.6s alternate both ease-in;\r\n          animation: landinganim2 1s 0.6s alternate both ease-in;\r\n}\r\nspan{\r\n  color: gold !important;\r\n}\r\n\r\nimg{\r\n  width: 64px;\r\n}\r\n\r\n\r\n@-webkit-keyframes landinganim{\r\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n\r\n@keyframes landinganim{\r\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n@-webkit-keyframes landinganim2 {\r\n  0%{ -webkit-transform: scale(0) translate(-400px, 0px); transform: scale(0) translate(-400px, 0px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n@keyframes landinganim2 {\r\n  0%{ -webkit-transform: scale(0) translate(-400px, 0px); transform: scale(0) translate(-400px, 0px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n@-webkit-keyframes landinganim3 {\r\n  0%{ -webkit-transform: scale(0) translate(400px, 0px); transform: scale(0) translate(400px, 0px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n@keyframes landinganim3 {\r\n  0%{ -webkit-transform: scale(0) translate(400px, 0px); transform: scale(0) translate(400px, 0px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}", ""]);
 
 // exports
 
@@ -1096,7 +1300,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/utility/landing/landing.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col center design\">\r\n        <img class=\"content coolShadow\" src=\"/assets/imgs/travellogoicon.png\"/>\r\n        <div class=\"content1 coolShadow\">\r\n            <h1>Find Buddies</h1>\r\n            <span>with whom you want to</span>\r\n        </div>\r\n        <div class=\"content2 coolShadow\">\r\n            <h1>Commute</h1>\r\n            <span>and</span>\r\n        </div>\r\n        <div class=\"content3 coolShadow\">\r\n            <h1>Share</h1>\r\n            <span>your boredom</span>\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row center\">\r\n    <div class=\"col-md-6 center design\">\r\n        <img class=\"content coolShadow\" src=\"/assets/imgs/travellogoicon.png\"/>\r\n        <div class=\"content1 coolShadow\">\r\n            <h1>Find Buddies</h1>\r\n            <span>with whom you want to</span>\r\n        </div>\r\n        <div class=\"content2 coolShadow\">\r\n            <h1>Commute</h1>\r\n            <span>and</span>\r\n        </div>\r\n        <div class=\"content3 coolShadow\">\r\n            <h1>Share</h1>\r\n            <span>your boredom</span>\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
