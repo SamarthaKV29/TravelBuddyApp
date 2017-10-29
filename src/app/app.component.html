@@ -22,7 +22,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/signup', undefined]"><i class="glyphicon glyphicon-user"></i> Sign Up</a>
+            <a [routerLink]="['/signup', new]"><i class="glyphicon glyphicon-user"></i> Sign Up</a>
           </li>
           <li  *ngIf="!this.isLoggedin">
             <a [routerLink]="['/login', true]"><i class="glyphicon glyphicon-log-in"></i> Log In</a>
@@ -44,8 +44,8 @@
     </h1>
     <app-landing *ngIf="landing"></app-landing>
     <div class="loading" *ngIf="this.loading">
-        <p>Loading . . . </p>
-      </div>
+        <p class="alert-warning">Loading . . . </p>
+    </div>
     <router-outlet *ngIf="!this.loading"></router-outlet>
   </div>
   
