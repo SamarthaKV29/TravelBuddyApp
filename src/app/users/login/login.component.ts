@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       else if(sessionStorage.getItem('token')){
         this.message = "Already logged in, redirecting to home";
         setTimeout(function() {
-          this.router.navigate(['home']);
+          this.router.navigate(['home/manage']);
         }, 2000);
       }
     });
@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
           start: currentMilli
         };
         sessionStorage.setItem('token', JSON.stringify(token));
-        this.router.navigate(['home']);
+        this.router.navigate(['home/manage']);
         this.error = false;
         this.username = this.password = "";
       }

@@ -16,7 +16,7 @@
                     </ul>
                 </div>
             </div>
-            <router-outlet></router-outlet>
+            <router-outlet *ngIf="this.loggedIn"></router-outlet>
         </div>
     </div>
 </div>

@@ -34,10 +34,16 @@ export class UserDetailComponent implements OnInit{
       phone: "",
       password: "",
       roles: ['user'],
-      profileData: {}
+      profileData: {
+        bio: "",
+        gender: "",
+        profilePic: "",
+        url: ""
+      }
     };
     this.confirmpassword = "";
   }
+  
   ngOnInit(){
     this.initUser();  
     
@@ -76,11 +82,11 @@ export class UserDetailComponent implements OnInit{
     }
     this.UserService.createUser(this.user).then(success=>{
       if(success){
-        this.router.navigate(['/signup/true']);
+        this.router.navigate(['/signup', 'true']);
       }
     }, reject=>{
       if(reject){
-        this.router.navigate(['/signup/false']);
+        this.router.navigate(['/signup', 'false']);
       }
     });    
   }

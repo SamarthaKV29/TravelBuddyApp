@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserService } from './_services/user.service';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes, RouteReuseStrategy } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './users/login/login.component';
 import { HomeComponent } from './users/home/home.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
@@ -20,7 +20,7 @@ import { ManagetripsComponent } from './users/managetrips/managetrips.component'
 import { CreatetripComponent } from './users/createtrip/createtrip.component';
 
 
-export const homeRoutes: Routes = [
+const homeRoutes: Routes = [
   { path: "create", component: CreatetripComponent},
   { path: "manage", component: ManagetripsComponent},
   { path: "inbox", component: InboxComponent}
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
   { path: 'login', redirectTo: 'login/true'},
   { path: 'login/:loginstate', component: LoginComponent},
   { path: 'forgotpass', component: ForgotPassComponent },
-  { path: 'userprof', component: UserProfileComponent},
+  { path: 'profile/:updstate', component: UserProfileComponent},
   { path: 'error', component: ErrorComponent},
   { path: 'about', component: AboutComponent}
 ];
@@ -53,7 +53,7 @@ const appRoutes: Routes = [
     CreatetripComponent
   ],
   imports: [
-    BrowserModule, DateTimePickerModule, BrowserAnimationsModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes, {enableTracing:true} )
+    BrowserModule, DateTimePickerModule, BrowserAnimationsModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes)
   ],
   providers: [UserService],
   bootstrap: [AppComponent],

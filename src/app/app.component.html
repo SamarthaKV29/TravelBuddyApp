@@ -14,10 +14,10 @@
       <div class="collapse navbar-collapse" id="collapsible" #collapsible>
         <ul class="nav navbar-nav">
           <li>
-            <a class="active" routerLink='/home'><i class="glyphicon glyphicon-home"></i> Home</a>
+            <a class="active" [routerLink]="['/home']"><i class="glyphicon glyphicon-home"></i> Home</a>
           </li>
           <li>
-            <a routerLink='/about'><i class="glyphicon glyphicon-info-sign"></i> About</a>
+            <a [routerLink]="['/about']"><i class="glyphicon glyphicon-info-sign"></i> About</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -28,7 +28,7 @@
             <a [routerLink]="['/login', true]"><i class="glyphicon glyphicon-log-in"></i> Log In</a>
           </li>
           <li *ngIf="this.isLoggedin">
-            <a [routerLink]="['/userprof']"><i class="glyphicon glyphicon-user"></i> User Profile</a>
+            <a [routerLink]="['/profile', update]"><i class="glyphicon glyphicon-user"></i> User Profile</a>
           </li>
           <li *ngIf="this.isLoggedin">
             <a [routerLink]="['/login', false]"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
@@ -44,7 +44,7 @@
     </h1>
     <app-landing *ngIf="landing"></app-landing>
     <div class="loading" *ngIf="this.loading">
-        <p class="alert-warning">Loading . . . </p>
+        <p class="alert alert-warning">Loading . . . </p>
     </div>
     <router-outlet *ngIf="!this.loading"></router-outlet>
   </div>

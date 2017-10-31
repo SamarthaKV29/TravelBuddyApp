@@ -1,26 +1,20 @@
 <div class="container margin">
 	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-            <div class="panel panel-default">
+            <div class="panel panel-warning" *ngIf="this.loading">
+                <div class="panel-body">Loading ..</div>
+            </div>
+            <div class="panel panel-default" *ngIf="!this.loading">
             	<div class="panel-heading">
                     <h3 class="panel-title">Edit Info 
                     </h3>
                 </div>
+                <div class="alert alert-warning" *ngIf="this.message">
+                    {{this.message}}
+                </div>
                 <div class="panel-body">
                     <form class="form-horizontal" action=" " method="post">
                         <fieldset>
-                            <div class="form-group">
-                                <div class="col-md-12  inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-envelope"></i>
-                                        </span>
-                                        <input name="email" required placeholder="mail@example.com" #email="ngModel" [(ngModel)]="user.email" [(value)]="user.email" class="form-control" type="email">
-                                       
-                                    </div>
-                                    <div class="alert alert-warning" [hidden]="user.email && user.email.length > 3 && user.email.indexOf('@') > 2 && user.email.indexOf('.', user.email.indexOf('@')) >= 3">Please enter a valid email.</div>
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <div class="col-md-12  inputGroupContainer">
                                     <div class="input-group">
@@ -38,27 +32,18 @@
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-link"></i>
                                             </span>
-                                            <input name="user-url" placeholder="www.user.com" required #url="ngModel" [(ngModel)]="user.url" [(value)]="user.url" class="form-control" type="text">
+                                            <input name="user-url" placeholder="www.user.com" required #url="ngModel" [(ngModel)]="user.profileData.url" [(value)]="user.profileData.url" class="form-control" type="text">
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <div class="form-group">
                                     <div class="col-md-12  inputGroupContainer">
                                         <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="glyphicon glyphicon-time"></i>
-                                            </span>
-                                            <input name="user-age" placeholder="Age" required #age="ngModel" [(ngModel)]="user.age" [(value)]="user.age" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-12  inputGroupContainer">
-                                        <div class="input-group">
-                                            
-                                            <label class="radio-inline"><input type="radio" name="answer" value="Female" ng-model="answers.gender" />Female</label>
-                                            <label class="radio-inline"><input type="radio" name="answer" value="Male" ng-model="answers.gender" />Male</label>
+                
+                                            <label class="radio-inline"><input type="radio" name="gender" value="female" [(ngModel)]="user.profileData.gender" />Female</label>
+                                            <label class="radio-inline"><input type="radio" name="gender" value="male" [(ngModel)]="user.profileData.gender" />Male</label>
+                                            <label class="radio-inline"><input type="radio" name="gender" value="other" [(ngModel)]="user.profileData.gender" />Other</label>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +59,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="glyphicon glyphicon-info-sign"></i>
                                                 </span>
-                                                <textarea name="user-bio" placeholder="Short Bio" required="" class="form-control" type="text" ></textarea>
+                                                <textarea name="user-bio" placeholder="Short Bio" required="" class="form-control" type="text" [(ngModel)]="user.profileData.bio" ></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -86,9 +71,11 @@
                                                     <span class="input-group-addon">
                                                         <i class="glyphicon glyphicon-camera"></i>
                                                     </span>
-                                                    <input type="file" name="user-pic" accept="image/*" class="form-control">
+                    
+                                                    <input type="file" name="user-pic" accept="image/*" (change)="handleNewDP($event)" class="form-control">
                                                 </div>
                                             </div>
+                                            <div class="alert alert-warning" *ngIf="this.imgLoad">Uploading ..</div>
                                         </div>
                             
                             <div class="form-group">

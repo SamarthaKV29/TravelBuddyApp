@@ -68,21 +68,22 @@ app.post('/api/v1/users', (req, res)=>{
   });
 });
 
-// app.put('/api/v1/users/:id', (req, res)=>{
-//   var updateDoc = req.body;
-//   User.update({_id: new ObjectID(req.params.id)},updateDoc, (err, user)=>{
-//     if(err)
-//       return res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
-//     User.find((err, users)=>{
-//       if(err)
-//         return res.send(err);
-//       else{
-//         updateDoc._id = req.params.id;
-//         res.json(users);
-//       }
-//     });        
-//   });
-// });
+app.put('/api/v1/users/:id', (req, res)=>{
+  var updateDoc = req.body;
+  User.update({_id: new ObjectID(req.params.id)},updateDoc, (err, user)=>{
+    if(err)
+      return res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
+    User.find((err, users)=>{
+      if(err)
+        return res.send(err);
+      else{
+        updateDoc._id = req.params.id;
+        res.json(users);
+      }
+    });        
+  });
+});
+
 app.get('*', (req, res)=>{
   res.sendFile(__dirname + '/dist/index.html');
 });

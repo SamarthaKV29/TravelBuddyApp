@@ -9,6 +9,11 @@ export class User {
   email: string;
   phone: string;
   name: string;
-  profileData: {};
-}
+  profileData: {
+    url: string;
+    gender: string;
+    bio: string;
+    profilePic: string;
+  };
+};
 
