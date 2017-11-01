@@ -43,7 +43,7 @@ export class UserDetailComponent implements OnInit{
     };
     this.confirmpassword = "";
   }
-  
+
   ngOnInit(){
     this.initUser();  
     

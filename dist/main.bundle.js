@@ -166,7 +166,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.usersUrl = 'https://travel-buddy-app.herokuapp.com/api/v1/users';
+        this.usersUrl = 'http://localhost:4500/api/v1/users';
     }
     // get("/api/Users")
     UserService.prototype.getUsers = function () {
@@ -193,6 +193,7 @@ var UserService = (function () {
     // put("/api/Users/:id")
     UserService.prototype.updateUser = function (putUser) {
         var putUrl = this.usersUrl + '/' + putUser._id;
+        console.log(putUrl);
         return this.http.put(putUrl, putUser)
             .toPromise()
             .then(function (response) { return response.json(); })
@@ -201,7 +202,7 @@ var UserService = (function () {
     UserService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :
             error.status ? error.status + " - " + error.statusText : 'Server error';
-        //console.log(errMsg);
+        console.log(errMsg, error);
     };
     return UserService;
 }());
@@ -236,7 +237,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n        <ul class=\"nav navbar-nav\">\r\n          <li>\r\n            <a class=\"active\" [routerLink]=\"['/home']\"><i class=\"glyphicon glyphicon-home\"></i> Home</a>\r\n          </li>\r\n          <li>\r\n            <a [routerLink]=\"['/about']\"><i class=\"glyphicon glyphicon-info-sign\"></i> About</a>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/signup', new]\"><i class=\"glyphicon glyphicon-user\"></i> Sign Up</a>\r\n          </li>\r\n          <li  *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', true]\"><i class=\"glyphicon glyphicon-log-in\"></i> Log In</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/profile', update]\"><i class=\"glyphicon glyphicon-user\"></i> User Profile</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', false]\"><i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\r\n          </li>\r\n          \r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center coolShadow\" *ngIf=\"this.landing\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddy</span>\r\n    </h1>\r\n    <app-landing *ngIf=\"landing\"></app-landing>\r\n    <div class=\"loading\" *ngIf=\"this.loading\">\r\n        <p class=\"alert alert-warning\">Loading . . . </p>\r\n    </div>\r\n    <router-outlet *ngIf=\"!this.loading\"></router-outlet>\r\n  </div>\r\n  \r\n</div>"
+module.exports = "<div class=\"container\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n        <ul class=\"nav navbar-nav\">\r\n          <li>\r\n            <a class=\"active\" [routerLink]=\"['/home']\"><i class=\"glyphicon glyphicon-home\"></i> Home</a>\r\n          </li>\r\n          <li>\r\n            <a [routerLink]=\"['/about']\"><i class=\"glyphicon glyphicon-info-sign\"></i> About</a>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/signup', new]\"><i class=\"glyphicon glyphicon-user\"></i> Sign Up</a>\r\n          </li>\r\n          <li  *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', true]\"><i class=\"glyphicon glyphicon-log-in\"></i> Log In</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/profile', this.currentUser.username]\"><i class=\"glyphicon glyphicon-user\"></i> User Profile</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', false]\"><i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\r\n          </li>\r\n          \r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center coolShadow\" *ngIf=\"this.landing\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddy</span>\r\n    </h1>\r\n    <app-landing *ngIf=\"landing\"></app-landing>\r\n    <div class=\"loading\" *ngIf=\"this.loading\">\r\n        <p class=\"alert alert-warning\">Loading . . . </p>\r\n    </div>\r\n    <router-outlet *ngIf=\"!this.loading\"></router-outlet>\r\n  </div>\r\n  \r\n</div>"
 
 /***/ }),
 
@@ -277,9 +278,13 @@ var AppComponent = (function () {
             //console.log("loginstate: " + this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
             if (sessionStorage.getItem('token')) {
                 _this.isLoggedin = true;
+                var tok = sessionStorage.getItem('token');
+                var s = JSON.parse(tok);
+                _this.currentUser = s.user;
             }
             else if (!sessionStorage.getItem('token')) {
                 _this.isLoggedin = false;
+                _this.currentUser = null;
             }
         }, 200);
     }
@@ -1109,7 +1114,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".margin {\r\n  margin-top: 10%\r\n}\r\n\r\n.sub-heading {\r\n  font-weight: 100;\r\n  font-size: 15px;\r\n  color: #333;\r\n  background-color: #f5f5f5;\r\n  padding-top: 10px;\r\n  padding-bottom: 10px;\r\n  padding-left: 5px;\r\n}\r\n\r\n.panel-title-inner {\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  font-size: 14px;\r\n  color: inherit;\r\n  font-weight: bold;\r\n}\r\n\r\n.panel-heading{\r\n  background: #EBB38E;\r\n  background: linear-gradient(to bottom, #EBB38E 0%,#EE8F54 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EBB38E', endColorstr='#EE8F54',GradientType=0 ); /* IE6-9 */\r\n}\r\n\r\nowl-date-time{\r\n  border: none !important;\r\n  margin: 0 !important;\r\n}", ""]);
+exports.push([module.i, ".margin {\r\n  margin-top: 10%\r\n}\r\n\r\n.sub-heading {\r\n  font-weight: 100;\r\n  font-size: 15px;\r\n  color: #333;\r\n  background-color: #f5f5f5;\r\n  padding-top: 10px;\r\n  padding-bottom: 10px;\r\n  padding-left: 5px;\r\n}\r\n\r\n.panel-title-inner {\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  font-size: 14px;\r\n  color: inherit;\r\n  font-weight: bold;\r\n}\r\n\r\n.panel-heading{\r\n  background: #EBB38E;\r\n  background: linear-gradient(to bottom, rgba(255, 146, 78, 0.712) 0%,rgba(255, 111, 33, 0.712) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EBB38E', endColorstr='#EE8F54',GradientType=0 ); /* IE6-9 */\r\n}\r\n\r\n\r\nowl-date-time{\r\n  border: none !important;\r\n  margin: 0 !important;\r\n}", ""]);
 
 // exports
 
@@ -1122,7 +1127,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/user-profile/user-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container margin\">\r\n\t<div class=\"row centered-form\">\r\n\t\t<div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <div class=\"panel panel-warning\" *ngIf=\"this.loading\">\r\n                <div class=\"panel-body\">Loading ..</div>\r\n            </div>\r\n            <div class=\"panel panel-default\" *ngIf=\"!this.loading\">\r\n            \t<div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">Edit Info \r\n                    </h3>\r\n                </div>\r\n                <div class=\"alert alert-warning\" *ngIf=\"this.message\">\r\n                    {{this.message}}\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <form class=\"form-horizontal\" action=\" \" method=\"post\">\r\n                        <fieldset>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-phone\"></i>\r\n                                        </span>\r\n                                        <input name=\"phone-mobile\" placeholder=\"9781232100\" required #phone=\"ngModel\" maxlength=\"10\" [(ngModel)]=\"user.phone\" [(value)]=\"user.phone\" class=\"form-control\"\r\n                                        type=\"phone\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                                <div class=\"form-group\">\r\n                                    <div class=\"col-md-12  inputGroupContainer\">\r\n                                        <div class=\"input-group\">\r\n                                            <span class=\"input-group-addon\">\r\n                                                <i class=\"glyphicon glyphicon-link\"></i>\r\n                                            </span>\r\n                                            <input name=\"user-url\" placeholder=\"www.user.com\" required #url=\"ngModel\" [(ngModel)]=\"user.profileData.url\" [(value)]=\"user.profileData.url\" class=\"form-control\" type=\"text\">\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n\r\n                                <div class=\"form-group\">\r\n                                    <div class=\"col-md-12  inputGroupContainer\">\r\n                                        <div class=\"input-group\">\r\n                \r\n                                            <label class=\"radio-inline\"><input type=\"radio\" name=\"gender\" value=\"female\" [(ngModel)]=\"user.profileData.gender\" />Female</label>\r\n                                            <label class=\"radio-inline\"><input type=\"radio\" name=\"gender\" value=\"male\" [(ngModel)]=\"user.profileData.gender\" />Male</label>\r\n                                            <label class=\"radio-inline\"><input type=\"radio\" name=\"gender\" value=\"other\" [(ngModel)]=\"user.profileData.gender\" />Other</label>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n\r\n                                <div class=\"panel sub-heading form-group\">\r\n                                        <h3 class=\"panel-title-inner\">Additional Information: \r\n                                        </h3>\r\n                                    </div>\r\n        \r\n                                    <div class=\"form-group\">\r\n                                        <div class=\"col-md-12  inputGroupContainer\">\r\n                                            <div class=\"input-group\">\r\n                                                <span class=\"input-group-addon\">\r\n                                                    <i class=\"glyphicon glyphicon-info-sign\"></i>\r\n                                                </span>\r\n                                                <textarea name=\"user-bio\" placeholder=\"Short Bio\" required=\"\" class=\"form-control\" type=\"text\" [(ngModel)]=\"user.profileData.bio\" ></textarea>\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n        \r\n\r\n                                    <div class=\"form-group\">\r\n                                            <div class=\"col-md-12  inputGroupContainer\">\r\n                                                <div class=\"input-group\">\r\n                                                    <span class=\"input-group-addon\">\r\n                                                        <i class=\"glyphicon glyphicon-camera\"></i>\r\n                                                    </span>\r\n                    \r\n                                                    <input type=\"file\" name=\"user-pic\" accept=\"image/*\" (change)=\"handleNewDP($event)\" class=\"form-control\">\r\n                                                </div>\r\n                                            </div>\r\n                                            <div class=\"alert alert-warning\" *ngIf=\"this.imgLoad\">Uploading ..</div>\r\n                                        </div>\r\n                            \r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12\">\r\n                                    <button type=\"submit\" (click)=\"onSubmit()\" class=\"btn btn-info btn-block\">Done\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"container margin\">\r\n    <div class=\"row centered-form\">\r\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <div class=\"panel panel-warning\" *ngIf=\"this.loading\">\r\n                <div class=\"panel-heading\">Loading ..</div>\r\n            </div>\r\n            <div class=\"panel panel-default\" *ngIf=\"!this.loading\">\r\n                <div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">Edit Info\r\n                    </h3>\r\n                </div>\r\n                <div class=\"alert alert-warning\" *ngIf=\"this.message\">\r\n                    {{this.message}}\r\n                </div>\r\n\r\n                <div class=\"panel-body\">\r\n                    <div class=\"panel panel-info\">\r\n                        <div class=\"panel-content\">\r\n                            <div class=\"media\">\r\n                                <div class=\"media-left\">\r\n                                    <img class=\"media-object\" alt=\"Profile image\" #profilepic id=\"profilepic\" style=\"max-width: 64px;margin:5px;\" />\r\n                                </div>\r\n                                <div class=\"media-body\" style=\"padding: 5px;\">\r\n                                    <h4 class=\"media-heading\">{{this.user.name}}</h4>\r\n                                    <p>Username: {{this.user.username}}</p>\r\n                                    <p>Email: {{this.user.email}}</p>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <form class=\"form-horizontal\" action=\" \" method=\"post\">\r\n                        <fieldset>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-camera\"></i>\r\n                                        </span>\r\n\r\n                                        <input type=\"file\" name=\"user-pic\" accept=\"image/*\" (change)=\"handleNewDP($event)\" class=\"form-control\">\r\n                                    </div>\r\n                                    <span class=\"alert alert-warning\" *ngIf=\"this.imgLoad\">Uploading ..</span>\r\n                                    <span class=\"alert alert-successs\" *ngIf=\"this.imgLoaded\">Ready!</span>\r\n                                    <span class=\"alert alert-warning\" *ngIf=\"!this.imgLoaded\">Failed to load image!</span>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-phone\"></i>\r\n                                        </span>\r\n                                        <input name=\"phone-mobile\" placeholder=\"9781232100\" required #phone=\"ngModel\" maxlength=\"10\" [(ngModel)]=\"user.phone\" [(value)]=\"user.phone\"\r\n                                            class=\"form-control\" type=\"phone\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-link\"></i>\r\n                                        </span>\r\n                                        <input name=\"user-url\" placeholder=\"www.user.com\" required #url=\"ngModel\" [(ngModel)]=\"user.profileData.url\" [(value)]=\"user.profileData.url\"\r\n                                            class=\"form-control\" type=\"text\">\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n\r\n                                        <label class=\"radio-inline\">\r\n                                            <input type=\"radio\" name=\"gender\" value=\"female\" [(ngModel)]=\"user.profileData.gender\" />Female</label>\r\n                                        <label class=\"radio-inline\">\r\n                                            <input type=\"radio\" name=\"gender\" value=\"male\" [(ngModel)]=\"user.profileData.gender\" />Male</label>\r\n                                        <label class=\"radio-inline\">\r\n                                            <input type=\"radio\" name=\"gender\" value=\"other\" [(ngModel)]=\"user.profileData.gender\" />Other</label>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12  inputGroupContainer\">\r\n                                    <div class=\"input-group\">\r\n                                        <span class=\"input-group-addon\">\r\n                                            <i class=\"glyphicon glyphicon-info-sign\"></i>\r\n                                        </span>\r\n                                        <textarea name=\"user-bio\" placeholder=\"Short Bio\" required=\"\" class=\"form-control\" type=\"text\" [(ngModel)]=\"user.profileData.bio\"></textarea>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <div class=\"col-md-12\">\r\n                                    <button type=\"submit\" (click)=\"onSubmit()\" class=\"btn btn-info btn-block\">Update\r\n                                    </button>\r\n                                </div>\r\n                            </div>\r\n                        </fieldset>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1154,33 +1159,73 @@ var UserProfileComponent = (function () {
         this.loggedIn = false;
         this.loading = false;
         this.imgLoad = false;
-        this.agelist = new Array();
+        this.imgLoaded = undefined;
         this.message = "";
         this.updStatus = false;
-        this.user = {
-            name: "",
-            username: "",
-            password: "",
-            email: "",
-            created: {
-                date: new Date()
-            },
-            phone: "",
-            roles: ['user'],
-            profileData: {
-                url: "",
-                gender: "",
-                bio: "",
-                profilePic: ""
-            }
-        };
+        var t;
+        if (t = sessionStorage.getItem('token')) {
+            this.loggedIn = true;
+            var s = JSON.parse(t);
+            this.user = s.user;
+        }
+        else {
+            this.sendLogin();
+        }
     }
+    UserProfileComponent.prototype.sendLogin = function () {
+        var _this = this;
+        this.message = "Please login first. Redirecting . . 2s";
+        setTimeout(function () {
+            _this.router.navigate(['login', 'true']);
+        }, 2000);
+    };
+    UserProfileComponent.prototype.ngAfterViewInit = function () {
+        if (this.loggedIn)
+            if (this.user.profileData.profilePic) {
+                this.profilepic.nativeElement.src = this.user.profileData.profilePic;
+                this.imgLoaded = true;
+                return;
+            }
+            else
+                this.sendLogin();
+    };
+    UserProfileComponent.prototype.handleNewDP = function (event) {
+        var _this = this;
+        this.imgLoad = true;
+        var image = event.target.files[0];
+        if (image) {
+            var reader = new FileReader();
+            reader.onloadend = function (e) {
+                _this.user.profileData.profilePic = reader.result;
+            };
+            reader.readAsDataURL(image);
+            this.imgLoaded = true;
+            return;
+        }
+        this.imgLoad = false;
+    };
+    UserProfileComponent.prototype.initUserProfile = function (uname) {
+        if (this.loggedIn) {
+            if (this.user.profileData == undefined || this.user.profileData == {}) {
+                this.user.profileData = {
+                    url: "",
+                    gender: "",
+                    bio: "",
+                    profilePic: ""
+                };
+                return;
+            }
+            else {
+                if (this.user.profileData.profilePic)
+                    this.profilepic.nativeElement.src = this.user.profileData.profilePic;
+            }
+        }
+        else
+            this.sendLogin();
+    };
     UserProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.loading = true;
-        for (var i = 0; i < 90; i++) {
-            this.agelist[i] = (i + 13);
-        }
         this.route.params.subscribe(function (params) {
             if (params['updstate'] == "false") {
                 _this.updStatus = false;
@@ -1189,69 +1234,44 @@ var UserProfileComponent = (function () {
             else if (params['updstate'] == "true") {
                 _this.updStatus = true;
                 _this.message = "Updated details Successfully.";
-                _this.ngOnInit();
+                _this.router.navigate(['profile/', _this.user.username]);
             }
-            else if (params['updstate']) {
-                _this.message = "Please enter your details.";
+            else {
+                _this.initUserProfile(params['updstate']);
+                //this.validate();
             }
-            setTimeout(function () {
-                _this.message = undefined;
-            }, 8000);
         });
-        var t;
-        if (t = sessionStorage.getItem('token')) {
-            this.loggedIn = true;
-            var s = JSON.parse(t);
-            this.user = s.user;
-        }
-        else {
-            this.message = "Please login first. Redirecting . . .";
-            setTimeout(function () {
-                _this.router.navigate(['login', 'true']);
-            }, 3000);
-        }
         this.loading = false;
     };
-    UserProfileComponent.prototype.handleNewDP = function (event) {
-        var _this = this;
-        this.imgLoad = true;
-        var image = event.target.files[0];
-        var reader = new FileReader();
-        reader.onloadend = function (e) {
-            _this.user.profileData.profilePic = String(reader.result);
-        };
-        reader.readAsDataURL(image);
-        this.imgLoad = false;
-    };
-    UserProfileComponent.prototype.onSelect = function () {
-        // if(this.profileData.originAddress.state){
-        //   this.loading = true;
-        //   this.profileData.originAddress.state = this.LocationService.getState(this.profileData.originAddress.state);
-        //   console.log(this.profileData.originAddress.state);
-        //   this.LocationService.getCities(this.profileData.originAddress.state).then((response)=>{
-        //     var x = response._body.substring(1, response._body.length - 1);
-        //     x = JSON.parse(x);
-        //     var result = x.result;
-        //     for(let x in result){
-        //       this.cities.push(result[x].City);
-        //     }
-        //     this.cities = this.cities.filter((elem, index)=>{
-        //       return index == this.cities.indexOf(elem);
-        //     });
-        //     this.loading = false;
-        //   });
-        // }
+    UserProfileComponent.prototype.validate = function () {
+        this.message = "";
+        if (this.user)
+            for (var key in this.user.profileData) {
+                if (this.user.profileData[key] == "") {
+                    this.message = "Please enter update your " + key + ", ";
+                }
+            }
+        else
+            this.message = "Please try again.";
+        if (this.message == "")
+            this.message = "Ready to submit.";
     };
     UserProfileComponent.prototype.onSubmit = function () {
         var _this = this;
-        this.UserService.updateUser(this.user).then(function (success) {
-            _this.router.navigate(['profile', 'true']);
-        }, function (reject) {
-            _this.router.navigate(['profile', 'false']);
-        });
+        this.validate();
+        if (this.message.length > 1)
+            this.UserService.updateUser(this.user).then(function (success) {
+                _this.router.navigate(['profile', 'true']);
+            }, function (reject) {
+                _this.router.navigate(['profile', 'false']);
+            });
     };
     return UserProfileComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('profilepic'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object)
+], UserProfileComponent.prototype, "profilepic", void 0);
 UserProfileComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'user-profile',
@@ -1259,10 +1279,29 @@ UserProfileComponent = __decorate([
         styles: [__webpack_require__("../../../../../src/app/users/user-profile/user-profile.component.css")],
         providers: [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["f" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["f" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object])
 ], UserProfileComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
+// onSelect(){
+//   if(this.profileData.originAddress.state){
+//     this.loading = true;
+//     this.profileData.originAddress.state = this.LocationService.getState(this.profileData.originAddress.state);
+//     console.log(this.profileData.originAddress.state);
+//     this.LocationService.getCities(this.profileData.originAddress.state).then((response)=>{
+//       var x = response._body.substring(1, response._body.length - 1);
+//       x = JSON.parse(x);
+//       var result = x.result;
+//       for(let x in result){
+//         this.cities.push(result[x].City);
+//       }
+//       this.cities = this.cities.filter((elem, index)=>{
+//         return index == this.cities.indexOf(elem);
+//       });
+//       this.loading = false;
+//     });
+//   }
+// } 
 //# sourceMappingURL=user-profile.component.js.map
 
 /***/ }),

@@ -1,86 +1,101 @@
 <div class="container margin">
-	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
             <div class="panel panel-warning" *ngIf="this.loading">
-                <div class="panel-body">Loading ..</div>
+                <div class="panel-heading">Loading ..</div>
             </div>
             <div class="panel panel-default" *ngIf="!this.loading">
-            	<div class="panel-heading">
-                    <h3 class="panel-title">Edit Info 
+                <div class="panel-heading">
+                    <h3 class="panel-title">Edit Info
                     </h3>
                 </div>
                 <div class="alert alert-warning" *ngIf="this.message">
                     {{this.message}}
                 </div>
+
                 <div class="panel-body">
+                    <div class="panel panel-info">
+                        <div class="panel-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <img class="media-object" alt="Profile image" #profilepic id="profilepic" style="max-width: 64px;margin:5px;" />
+                                </div>
+                                <div class="media-body" style="padding: 5px;">
+                                    <h4 class="media-heading">{{this.user.name}}</h4>
+                                    <p>Username: {{this.user.username}}</p>
+                                    <p>Email: {{this.user.email}}</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                     <form class="form-horizontal" action=" " method="post">
                         <fieldset>
                             <div class="form-group">
                                 <div class="col-md-12  inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-camera"></i>
+                                        </span>
+
+                                        <input type="file" name="user-pic" accept="image/*" (change)="handleNewDP($event)" class="form-control">
+                                    </div>
+                                    <span class="alert alert-warning" *ngIf="this.imgLoad">Uploading ..</span>
+                                    <span class="alert alert-successs" *ngIf="this.imgLoaded">Ready!</span>
+                                    <span class="alert alert-warning" *ngIf="!this.imgLoaded">Failed to load image!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-phone"></i>
                                         </span>
-                                        <input name="phone-mobile" placeholder="9781232100" required #phone="ngModel" maxlength="10" [(ngModel)]="user.phone" [(value)]="user.phone" class="form-control"
-                                        type="phone">
+                                        <input name="phone-mobile" placeholder="9781232100" required #phone="ngModel" maxlength="10" [(ngModel)]="user.phone" [(value)]="user.phone"
+                                            class="form-control" type="phone">
                                     </div>
                                 </div>
                             </div>
-                                <div class="form-group">
-                                    <div class="col-md-12  inputGroupContainer">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="glyphicon glyphicon-link"></i>
-                                            </span>
-                                            <input name="user-url" placeholder="www.user.com" required #url="ngModel" [(ngModel)]="user.profileData.url" [(value)]="user.profileData.url" class="form-control" type="text">
-                                        </div>
+                            <div class="form-group">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-link"></i>
+                                        </span>
+                                        <input name="user-url" placeholder="www.user.com" required #url="ngModel" [(ngModel)]="user.profileData.url" [(value)]="user.profileData.url"
+                                            class="form-control" type="text">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-12  inputGroupContainer">
-                                        <div class="input-group">
-                
-                                            <label class="radio-inline"><input type="radio" name="gender" value="female" [(ngModel)]="user.profileData.gender" />Female</label>
-                                            <label class="radio-inline"><input type="radio" name="gender" value="male" [(ngModel)]="user.profileData.gender" />Male</label>
-                                            <label class="radio-inline"><input type="radio" name="gender" value="other" [(ngModel)]="user.profileData.gender" />Other</label>
-                                        </div>
+                            <div class="form-group">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+
+                                        <label class="radio-inline">
+                                            <input type="radio" name="gender" value="female" [(ngModel)]="user.profileData.gender" />Female</label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="gender" value="male" [(ngModel)]="user.profileData.gender" />Male</label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="gender" value="other" [(ngModel)]="user.profileData.gender" />Other</label>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="panel sub-heading form-group">
-                                        <h3 class="panel-title-inner">Additional Information: 
-                                        </h3>
-                                    </div>
-        
-                                    <div class="form-group">
-                                        <div class="col-md-12  inputGroupContainer">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="glyphicon glyphicon-info-sign"></i>
-                                                </span>
-                                                <textarea name="user-bio" placeholder="Short Bio" required="" class="form-control" type="text" [(ngModel)]="user.profileData.bio" ></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-        
 
-                                    <div class="form-group">
-                                            <div class="col-md-12  inputGroupContainer">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="glyphicon glyphicon-camera"></i>
-                                                    </span>
-                    
-                                                    <input type="file" name="user-pic" accept="image/*" (change)="handleNewDP($event)" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="alert alert-warning" *ngIf="this.imgLoad">Uploading ..</div>
-                                        </div>
-                            
+                            <div class="form-group">
+                                <div class="col-md-12  inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-info-sign"></i>
+                                        </span>
+                                        <textarea name="user-bio" placeholder="Short Bio" required="" class="form-control" type="text" [(ngModel)]="user.profileData.bio"></textarea>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" (click)="onSubmit()" class="btn btn-info btn-block">Done
+                                    <button type="submit" (click)="onSubmit()" class="btn btn-info btn-block">Update
                                     </button>
                                 </div>
                             </div>
@@ -89,5 +104,5 @@
                 </div>
             </div>
         </div>
-	</div>
+    </div>
 </div>
