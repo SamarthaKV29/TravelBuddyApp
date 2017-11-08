@@ -166,7 +166,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.usersUrl = 'http://localhost:4500/api/v1/users';
+        this.usersUrl = 'https://travel-buddy-app.herokuapp.com/api/v1/users';
     }
     // get("/api/Users")
     UserService.prototype.getUsers = function () {
