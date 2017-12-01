@@ -1,37 +1,52 @@
-<body class="container backgroundImage">
+<div class="container">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand colorChangeAnimation" routerLink='/'>Travel Buddy</a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" (click)="collapse()">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span> 
+            </button>
+        <a class="navbar-brand colorChangeAnimation d-flex" routerLink='/'>
+          <span class="d-inline">Travel Buddy</span>
+        </a>
       </div>
-      <ul class="nav navbar-nav">
-        <li>
-          <a class="active" routerLink='/home'>Home</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!this.isLoggedin">
-          <a [routerLink]="['/signup', undefined]">Sign Up</a>
-        </li>
-        <li  *ngIf="!this.isLoggedin">
-          <a [routerLink]="['/login', true]">Log In</a>
-        </li>
-        <li *ngIf="!this.isLoggedin">
-          <a [routerLink]="['/userprof']">User Profile</a>
-        </li>
-        <li *ngIf="this.isLoggedin">
-          <a [routerLink]="['/login', false]">Logout</a>
-        </li>
-        
-      </ul>
+      <div class="collapse navbar-collapse" id="collapsible" #collapsible>
+        <ul class="nav navbar-nav">
+          <li>
+            <a class="active" [routerLink]="['/home']"><i class="glyphicon glyphicon-home"></i> Home</a>
+          </li>
+          <li>
+            <a [routerLink]="['/about']"><i class="glyphicon glyphicon-info-sign"></i> About</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li *ngIf="!this.isLoggedin">
+            <a [routerLink]="['/signup', new]"><i class="glyphicon glyphicon-user"></i> Sign Up</a>
+          </li>
+          <li  *ngIf="!this.isLoggedin">
+            <a [routerLink]="['/login', true]"><i class="glyphicon glyphicon-log-in"></i> Log In</a>
+          </li>
+          <li *ngIf="this.isLoggedin">
+            <a [routerLink]="['/profile', this.currentUser.username]"><i class="glyphicon glyphicon-user"></i> User Profile</a>
+          </li>
+          <li *ngIf="this.isLoggedin">
+            <a [routerLink]="['/login', false]"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
+          </li>
+          
+        </ul>
+      </div>
     </div>
   </nav>
   <div class="wrapper">
-    <h1 class="h1 text-center coolShadow" *ngIf="!this.isLoggedin">Welcome to
-      <span class="colorChangeAnimation">Travel Buddies</span>
+    <h1 class="h1 text-center coolShadow" *ngIf="this.landing">Welcome to
+      <span class="colorChangeAnimation">Travel Buddy</span>
     </h1>
     <app-landing *ngIf="landing"></app-landing>
-    <router-outlet></router-outlet>
+    <div class="loading" *ngIf="this.loading">
+        <p class="alert alert-warning">Loading . . . </p>
+    </div>
+    <router-outlet *ngIf="!this.loading"></router-outlet>
   </div>
   
-</body>
+</div>

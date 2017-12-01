@@ -22,10 +22,10 @@ mongoose.connect(process.env.MONGODB_URI, {
   
 });     // connect to mongoDB database on modulus.io
 
-app.use(express.static(__dirname + '/dist'));                 // set the static files location /public/img will be /img for users                           // log every request to the console
-app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
-app.use(bodyParser.json());                                     // parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+app.use(express.static(__dirname + '/dist'));                 // set the static files location /public/img will be /img for users
+app.use(bodyParser.json({ limit: '50mb'}));                                     // parse application/json
+app.use(bodyParser.json({ limit: '50mb', type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+app.use(bodyParser.urlencoded({ limit: '50mb', 'extended':'true'}));            // parse application/x-www-form-urlencoded
 
 // listen (start app with node server.js) ======================================
 
@@ -40,7 +40,12 @@ var UserSchema = new mongoose.Schema({
   email: String,
   phone: String,
   name: String,
-  profileData: {}
+  profileData: {
+    url: String,
+    gender: String,
+    bio: String,
+    profilePic: String
+  }
 });
 var User = mongoose.model("User", UserSchema);
 
@@ -48,41 +53,35 @@ var User = mongoose.model("User", UserSchema);
 app.get('/api/v1/users', (req, res)=>{
   User.find((err, users)=>{
     if(err){
-      return res.send("<p class='bg-warning text-danger'>DB error, please try again later</p>");
+      console.log(err);
+      return null;
     }
-    else{
-      res.json(users);
-    }
+    return res.json(users);
   });
 });
 
 app.post('/api/v1/users', (req, res)=>{
   User.create(req.body, (err, user)=>{
-    if(err)
-      return res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
-    User.find((err, users)=>{
-      if(err)
-        return res.send(err);
-      res.json(users);
-    });        
+    if(err){
+      console.log(err);
+      return null;
+    }
+    return res.json(user);       
   });
 });
 
-// app.put('/api/v1/users/:id', (req, res)=>{
-//   var updateDoc = req.body;
-//   User.update({_id: new ObjectID(req.params.id)},updateDoc, (err, user)=>{
-//     if(err)
-//       return res.send("<p class='bg-warning text-danger'>" + err.message + "</p>");
-//     User.find((err, users)=>{
-//       if(err)
-//         return res.send(err);
-//       else{
-//         updateDoc._id = req.params.id;
-//         res.json(users);
-//       }
-//     });        
-//   });
-// });
+app.put('/api/v1/users/:id', (req, res)=>{
+  var updateDoc = req.body;
+  User.findByIdAndUpdate(req.params.id, updateDoc, (err, user)=>{
+    if(err){
+      console.log(err);
+      return null;
+    }
+    console.log("Update success!");
+    return res.json(user);
+  });
+});
+
 app.get('*', (req, res)=>{
   res.sendFile(__dirname + '/dist/index.html');
 });
@@ -93,13 +92,15 @@ app.use((err, req, res, next)=>{
     <head>\
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>\
     </head>\
-    <div class='container center-block'> \
-      <div class='row'> \
-        <div class='col-md-6 center-block'> \
-          <p class='alert alert-danger'>"+ err.message +"</p>\
-        </div> \
-      </div>\
-    </div> \
+    <body>\
+      <div class='container center-block'> \
+        <div class='row'> \
+          <div class='col-md-6 center-block'> \
+            <p class='alert alert-danger'>"+ err.message +"</p>\
+          </div> \
+        </div>\
+      </div> \
+    </body>\
     ");
   }
   next();

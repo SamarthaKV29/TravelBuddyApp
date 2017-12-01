@@ -6,7 +6,8 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserService {
-  private usersUrl = '/api/v1/users';
+  private usersUrl = 'http://travel-buddy-app.herokuapp.com/api/v1/users';
+  private usersUrl2 = 'http://localhost:4500/api/v1/users';
   
       constructor (private http: Http) {}
   
@@ -37,7 +38,8 @@ export class UserService {
   
       // put("/api/Users/:id")
       updateUser(putUser: User): Promise<void | User> {
-        var putUrl = this.usersUrl + '/' + putUser._id;
+        var putUrl = this.usersUrl2 + '/' + putUser._id;
+        console.log(putUrl);
         return this.http.put(putUrl, putUser)
                    .toPromise()
                    .then(response => response.json() as User)
@@ -47,6 +49,6 @@ export class UserService {
       private handleError (error: any) {
         let errMsg = (error.message) ? error.message :
         error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-        //console.log(errMsg);
+        console.log(errMsg, error);
       }
 }
