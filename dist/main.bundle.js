@@ -17,6 +17,92 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 
 /***/ }),
 
+/***/ "../../../../../src/app/Users/home/home.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".center{\n    margin: auto;\n    padding: 0;\n    width: 100%;\n}\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/Users/home/home.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container center\">\n    <div class=\"row center\">\n        <div class=\"col center\">\n            <div class=\"panel panel-info\">\n                <div class=\"panel-heading\">\n                    <div class=\"panel-title\">\n                        {{this.message}}\n                    </div>\n                </div>\n                <!-- *ngIf=\"this.loggedIn\" -->\n                <div class=\"panel-content\" *ngIf=\"this.loggedIn\">\n                    <ul class=\"nav nav-tabs\">\n                        <li><a [routerLink]=\"['create']\" ><i class=\"glyphicon glyphicon-plus-sign\"></i> Create Trip</a></li>\n                        <li><a [routerLink]=\"['manage']\"><i class=\"glyphicon glyphicon-cog\"></i> Manage Trips</a></li>\n                        <li><a [routerLink]=\"['inbox']\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li>\n                    </ul>\n                </div>\n            </div>\n            <router-outlet></router-outlet>\n        </div>\n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/Users/home/home.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HomeComponent = (function () {
+    function HomeComponent(router, route) {
+        this.router = router;
+        this.route = route;
+        this.message = "Please login first.";
+        this.loggedIn = false;
+        setInterval(this.checkLoggedIn, 5000);
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+        this.checkLoggedIn();
+    };
+    HomeComponent.prototype.checkLoggedIn = function () {
+        if (sessionStorage.getItem('token')) {
+            var curr;
+            if (curr = sessionStorage.getItem('token')) {
+                curr = JSON.parse(curr);
+                this.currentUser = curr.user;
+                this.message = "Welcome " + this.currentUser.name;
+                this.loggedIn = true;
+            }
+        }
+        else {
+            this.message = "Please login first.";
+            this.loggedIn = false;
+        }
+    };
+    return HomeComponent;
+}());
+HomeComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-home',
+        template: __webpack_require__("../../../../../src/app/Users/home/home.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/Users/home/home.component.css")],
+        providers: []
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object])
+], HomeComponent);
+
+var _a, _b;
+//# sourceMappingURL=home.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/Users/login/login.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -261,11 +347,15 @@ var _a, _b, _c, _d;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Users_login_login_component__ = __webpack_require__("../../../../../src/app/Users/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utility_error_error_component__ = __webpack_require__("../../../../../src/app/utility/error/error.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utility_landing_landing_component__ = __webpack_require__("../../../../../src/app/utility/landing/landing.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ng_pick_datetime__ = __webpack_require__("../../../../ng-pick-datetime/picker.module.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ng_pick_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_ng_pick_datetime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__utility_about_about_component__ = __webpack_require__("../../../../../src/app/utility/about/about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Users_home_home_component__ = __webpack_require__("../../../../../src/app/Users/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utility_error_error_component__ = __webpack_require__("../../../../../src/app/utility/error/error.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utility_landing_landing_component__ = __webpack_require__("../../../../../src/app/utility/landing/landing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ng_pick_datetime__ = __webpack_require__("../../../../ng-pick-datetime/picker.module.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_ng_pick_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_ng_pick_datetime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__utility_about_about_component__ = __webpack_require__("../../../../../src/app/utility/about/about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__users_inbox_inbox_component__ = __webpack_require__("../../../../../src/app/users/inbox/inbox.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__users_managetrips_managetrips_component__ = __webpack_require__("../../../../../src/app/users/managetrips/managetrips.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__users_createtrip_createtrip_component__ = __webpack_require__("../../../../../src/app/users/createtrip/createtrip.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -282,23 +372,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-//import { HomeComponent } from './users/home/home.component';
+
 //import { UserProfileComponent } from './users/user-profile/user-profile.component';
 //import { ForgotPassComponent } from './users/forgot-pass/forgot-pass.component';
 
 
 
 
-//import { InboxComponent } from './users/inbox/inbox.component';
-//import { ManagetripsComponent } from './users/managetrips/managetrips.component';
-//import { CreatetripComponent } from './users/createtrip/createtrip.component';
-// const homeRoutes: Routes = [
-//   { path: "create", component: CreatetripComponent},
-//   { path: "manage", component: ManagetripsComponent},
-//   { path: "inbox", component: InboxComponent}
-// ];
+
+
+
+var homeRoutes = [
+    { path: "create", component: __WEBPACK_IMPORTED_MODULE_15__users_createtrip_createtrip_component__["a" /* CreatetripComponent */] },
+    { path: "manage", component: __WEBPACK_IMPORTED_MODULE_14__users_managetrips_managetrips_component__["a" /* ManagetripsComponent */] },
+    { path: "inbox", component: __WEBPACK_IMPORTED_MODULE_13__users_inbox_inbox_component__["a" /* InboxComponent */] }
+];
 var appRoutes = [
-    //{ path: 'home', component: HomeComponent, children: homeRoutes},
+    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_8__Users_home_home_component__["a" /* HomeComponent */], children: homeRoutes },
     //{ path: 'signup/:regstate', component: UserDetailComponent },
     { path: 'signup', redirectTo: 'signup/new' },
     { path: 'login', redirectTo: 'login/true' },
@@ -306,8 +396,8 @@ var appRoutes = [
     //{ path: 'forgotpass', component: ForgotPassComponent },
     //{ path: 'profile/:user', component: UserProfileComponent},
     //{ path: 'profile/:user/:updstate', component: UserProfileComponent },
-    { path: 'error', component: __WEBPACK_IMPORTED_MODULE_8__utility_error_error_component__["a" /* ErrorComponent */] },
-    { path: 'about', component: __WEBPACK_IMPORTED_MODULE_11__utility_about_about_component__["a" /* AboutComponent */] }
+    { path: 'error', component: __WEBPACK_IMPORTED_MODULE_9__utility_error_error_component__["a" /* ErrorComponent */] },
+    { path: 'about', component: __WEBPACK_IMPORTED_MODULE_12__utility_about_about_component__["a" /* AboutComponent */] }
 ];
 //{ path: '**', component: AppComponent},
 var AppModule = (function () {
@@ -321,15 +411,18 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
             //UserDetailComponent,
             __WEBPACK_IMPORTED_MODULE_7__Users_login_login_component__["a" /* LoginComponent */],
-            //HomeComponent,
+            __WEBPACK_IMPORTED_MODULE_8__Users_home_home_component__["a" /* HomeComponent */],
             //UserProfileComponent,
             //ForgotPassComponent,
-            __WEBPACK_IMPORTED_MODULE_8__utility_error_error_component__["a" /* ErrorComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__utility_landing_landing_component__["a" /* LandingComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__utility_about_about_component__["a" /* AboutComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__utility_error_error_component__["a" /* ErrorComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__utility_landing_landing_component__["a" /* LandingComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__utility_about_about_component__["a" /* AboutComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__users_inbox_inbox_component__["a" /* InboxComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__users_managetrips_managetrips_component__["a" /* ManagetripsComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__users_createtrip_createtrip_component__["a" /* CreatetripComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_10_ng_pick_datetime__["DateTimePickerModule"], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_6__angular_router__["g" /* RouterModule */].forRoot(appRoutes)
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_11_ng_pick_datetime__["DateTimePickerModule"], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_6__angular_router__["g" /* RouterModule */].forRoot(appRoutes)
         ],
         providers: [],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]],
@@ -338,6 +431,187 @@ AppModule = __decorate([
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/createtrip/createtrip.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".margin {\n    margin-top: 10%\n  }\n  \n  .sub-heading {\n    font-weight: 100;\n    font-size: 15px;\n    color: #333;\n    background-color: #f5f5f5;\n    padding-top: 10px;\n    padding-bottom: 10px;\n    padding-left: 5px;\n  }\n  \n  .panel-title-inner {\n    margin-top: 0;\n    margin-bottom: 0;\n    font-size: 14px;\n    color: inherit;\n    font-weight: bold;\n  }\n  \n  .panel-heading{\n    background: #EBB38E;\n    background: linear-gradient(to bottom, #EBB38E 0%,#EE8F54 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EBB38E', endColorstr='#EE8F54',GradientType=0 ); /* IE6-9 */\n  }\n  \n  owl-date-time{\n    border: none !important;\n    margin: 0 !important;\n  }", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/createtrip/createtrip.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container margin\">\n    <div class=\"row centered-form\">\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\n            <div class=\"panel panel-default\">\n                <div class=\"panel-heading\">\n                    <h3 class=\"panel-title\">Create Trip\n                    </h3>\n                </div>\n                <div class=\"panel-body\">\n                    <form class=\"form-horizontal\" action=\" \" method=\"post\">\n                        <fieldset>\n\n                            <div class=\"panel sub-heading form-group\">\n                                <h3 class=\"panel-title-inner\"> Origin:\n                                </h3>\n                            </div>\n                            <div class=\"form-group\">\n                                <div class=\"col-md-12  inputGroupContainer\">\n                                    <div class=\"input-group\">\n                                        <span class=\"input-group-addon\">\n                                            <i class=\"glyphicon glyphicon-globe\"></i>\n                                        </span>\n                                        <input list=\"originState\" (change)=\"onSelect()\" name=\"user-originState\" [(ngModel)]=\"profileData.originAddress.state\" placeholder=\"State\"\n                                            required class=\"form-control\" />\n                                        <datalist id=\"originState\">\n                                            <option *ngFor=\"let state of this.states\" [ngValue]=\"this.LocationService.getState(state)\">{{state}}</option>\n                                        </datalist>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"form-group\">\n                                <div class=\"col-md-12  inputGroupContainer\">\n                                    <div class=\"input-group\">\n                                        <span class=\"input-group-addon\">\n                                            <i class=\"glyphicon glyphicon-globe\"></i>\n                                        </span>\n                                        <span class=\"alert alert-warning\" [hidden]=\"!this.loading\"></span>\n                                        <input list=\"originCity\" [hidden]=\"!this.loading\" name=\"user-originCity\" [(ngModel)]=\"profileData.originAddress.city\" placeholder=\"City\"\n                                            required class=\"form-control\" />\n                                        <datalist id=\"originCity\">\n                                            <option *ngFor=\"let city of this.cities\" [ngValue]=\"city\">{{city}}</option>\n                                        </datalist>\n                                    </div>\n                                </div>\n                            </div>\n\n                            <div class=\"panel sub-heading form-group\">\n                                <h3 class=\"panel-title-inner\"> Destination:\n                                </h3>\n                            </div>\n\n                            <div class=\"form-group\">\n                                <div class=\"col-md-12  inputGroupContainer\">\n                                    <div class=\"input-group\">\n                                        <span class=\"input-group-addon\">\n                                            <i class=\"glyphicon glyphicon-globe\"></i>\n                                        </span>\n                                        <input name=\"user-destinationCity\" placeholder=\"City\" required=\"\" class=\"form-control\" type=\"text\">\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"panel sub-heading form-group\">\n                                <h3 class=\"panel-title-inner\">Start Time:\n                                </h3>\n                            </div>\n                            <div class=\"form-group\">\n                                <div class=\"col-md-12  inputGroupContainer\">\n                                    <div class=\"input-group\">\n                                        <span class=\"input-group-addon\">\n                                            <i class=\"glyphicon glyphicon-time\"></i>\n                                        </span>\n                                        <owl-date-time [min]=\"profileData.originTime\" [required]=\"true\" [(ngModel)]=\"profileData.originTime\" [locale]=\"en\" name=\"user-originTime\"></owl-date-time>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"panel sub-heading form-group\">\n                                <h3 class=\"panel-title-inner\">Return Time:\n                                </h3>\n                            </div>\n                            <div class=\"form-group\">\n                                <div class=\"col-md-12  inputGroupContainer\">\n                                    <div class=\"input-group\">\n                                        <span class=\"input-group-addon\">\n                                            <i class=\"glyphicon glyphicon-time\"></i>\n                                        </span>\n                                        <owl-date-time [min]=\"profileData.originTime\" [required]=\"true\" [(ngModel)]=\"profileData.destinationTime\" [locale]=\"en\" name=\"user-destinationTime\"></owl-date-time>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"form-group\">\n                                <div class=\"col-md-12\">\n                                    <button type=\"submit\" (click)=\"onSubmit()\" class=\"btn btn-info btn-block\">Create\n                                    </button>\n                                </div>\n                            </div>\n                        </fieldset>\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/createtrip/createtrip.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreatetripComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var CreatetripComponent = (function () {
+    function CreatetripComponent() {
+        this.states = [];
+        this.cities = [];
+        this.loading = false;
+    }
+    return CreatetripComponent;
+}());
+CreatetripComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-createtrip',
+        template: __webpack_require__("../../../../../src/app/users/createtrip/createtrip.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/users/createtrip/createtrip.component.css")],
+        providers: []
+    })
+], CreatetripComponent);
+
+//# sourceMappingURL=createtrip.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/inbox/inbox.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/inbox/inbox.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  inbox works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/inbox/inbox.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InboxComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var InboxComponent = (function () {
+    function InboxComponent() {
+    }
+    InboxComponent.prototype.ngOnInit = function () {
+    };
+    return InboxComponent;
+}());
+InboxComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-inbox',
+        template: __webpack_require__("../../../../../src/app/users/inbox/inbox.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/users/inbox/inbox.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], InboxComponent);
+
+//# sourceMappingURL=inbox.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/managetrips/managetrips.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/managetrips/managetrips.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  managetrips works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/users/managetrips/managetrips.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManagetripsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ManagetripsComponent = (function () {
+    function ManagetripsComponent() {
+    }
+    ManagetripsComponent.prototype.ngOnInit = function () {
+    };
+    return ManagetripsComponent;
+}());
+ManagetripsComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-managetrips',
+        template: __webpack_require__("../../../../../src/app/users/managetrips/managetrips.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/users/managetrips/managetrips.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ManagetripsComponent);
+
+//# sourceMappingURL=managetrips.component.js.map
 
 /***/ }),
 
@@ -471,7 +745,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".center{\n  margin: auto;\n  text-align: center !important;\n}\n\n.design{\n  background-color: rgba(59, 58, 65, 0.479);\n  border-top-left-radius: 400px;\n  border-top-right-radius: 400px;\n  border-bottom-left-radius: 200px;\n  border-bottom-right-radius: 200px;\n  width: 100%;\n  \n  -webkit-animation: fade-in 4s ease infinite alternate;\n  \n          animation: fade-in 4s ease infinite alternate;\n}\n\n@-webkit-keyframes fade{\n  0%{opacity: 0%;}\n  25%{opacity: 50%;}\n  90%{opacity: 70}\n  100%{opacity: 100%;}\n}\n\n@keyframes fade{\n  0%{opacity: 0%;}\n  25%{opacity: 50%;}\n  90%{opacity: 70}\n  100%{opacity: 100%;}\n}\n@-webkit-keyframes fade-in{\n  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}\n  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}\n}\n@keyframes fade-in{\n  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}\n  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}\n}\ndiv{\n  padding: 10px;\n}\n\n.content{\n  -webkit-animation: landinganim 0.5s 0s alternate both ease-in;\n          animation: landinganim 0.5s 0s alternate both ease-in; \n}\n.content1{\n  color: lightsalmon;\n  -webkit-animation: landinganim2 1s 0.6s alternate both ease-in;\n          animation: landinganim2 1s 0.6s alternate both ease-in;\n}\n.content2{\n  color: lightgreen;\n  -webkit-animation: landinganim3 1s 0.6s alternate both ease-in;\n          animation: landinganim3 1s 0.6s alternate both ease-in;\n}\n.content3{\n  color: lightskyblue;\n  -webkit-animation: landinganim2 1s 0.6s alternate both ease-in;\n          animation: landinganim2 1s 0.6s alternate both ease-in;\n}\nspan{\n  color: gold !important;\n}\n\nimg{\n  width: 64px;\n}\n\n\n@-webkit-keyframes landinganim{\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n\n@keyframes landinganim{\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@-webkit-keyframes landinganim2 {\n  0%{ -webkit-transform: scale(0) translate(-400px, 0px); transform: scale(0) translate(-400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@keyframes landinganim2 {\n  0%{ -webkit-transform: scale(0) translate(-400px, 0px); transform: scale(0) translate(-400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@-webkit-keyframes landinganim3 {\n  0%{ -webkit-transform: scale(0) translate(400px, 0px); transform: scale(0) translate(400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@keyframes landinganim3 {\n  0%{ -webkit-transform: scale(0) translate(400px, 0px); transform: scale(0) translate(400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}", ""]);
+exports.push([module.i, ".center{\n  margin: auto;\n  text-align: center !important;\n}\n\n.design{\n  background-color: rgba(59, 58, 65, 0.479);\n  border-top-left-radius: 400px;\n  border-top-right-radius: 400px;\n  border-bottom-left-radius: 200px;\n  border-bottom-right-radius: 200px;\n  width: 100%;\n  \n  -webkit-animation: fade-in 4s ease infinite alternate;\n  \n          animation: fade-in 4s ease infinite alternate;\n}\n.fade-in{\n  -webkit-animation: fade 1s ease 1 alternate;\n          animation: fade 1s ease 1 alternate;\n}\n@-webkit-keyframes fade{\n  0%{opacity: 0%;}\n  25%{opacity: 50%;}\n  90%{opacity: 70}\n  100%{opacity: 100%;}\n}\n@keyframes fade{\n  0%{opacity: 0%;}\n  25%{opacity: 50%;}\n  90%{opacity: 70}\n  100%{opacity: 100%;}\n}\n@-webkit-keyframes fade-in{\n  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}\n  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}\n}\n@keyframes fade-in{\n  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}\n  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}\n}\ndiv{\n  padding: 10px;\n}\n\n.content{\n  -webkit-animation: landinganim 0.5s 0s alternate both ease-in;\n          animation: landinganim 0.5s 0s alternate both ease-in; \n}\n.content1{\n  color: lightsalmon;\n  -webkit-animation: landinganim2 1s 0.6s alternate both ease-in;\n          animation: landinganim2 1s 0.6s alternate both ease-in;\n}\n.content2{\n  color: lightgreen;\n  -webkit-animation: landinganim3 1s 0.6s alternate both ease-in;\n          animation: landinganim3 1s 0.6s alternate both ease-in;\n}\n.content3{\n  color: lightskyblue;\n  -webkit-animation: landinganim2 1s 0.6s alternate both ease-in;\n          animation: landinganim2 1s 0.6s alternate both ease-in;\n}\nspan{\n  color: gold !important;\n}\n\nimg{\n  width: 64px;\n}\n\n\n@-webkit-keyframes landinganim{\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n\n@keyframes landinganim{\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@-webkit-keyframes landinganim2 {\n  0%{ -webkit-transform: scale(0) translate(-400px, 0px); transform: scale(0) translate(-400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@keyframes landinganim2 {\n  0%{ -webkit-transform: scale(0) translate(-400px, 0px); transform: scale(0) translate(-400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@-webkit-keyframes landinganim3 {\n  0%{ -webkit-transform: scale(0) translate(400px, 0px); transform: scale(0) translate(400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@keyframes landinganim3 {\n  0%{ -webkit-transform: scale(0) translate(400px, 0px); transform: scale(0) translate(400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}", ""]);
 
 // exports
 
@@ -484,7 +758,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/utility/landing/landing.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row center\">\n    <div class=\"col-md-6 center design\">\n        <img class=\"content coolShadow\" src=\"/assets/imgs/travellogoicon.png\"/>\n        <div class=\"content1 coolShadow\">\n            <h1>Find Buddies</h1>\n            <span>with whom you want to</span>\n        </div>\n        <div class=\"content2 coolShadow\">\n            <h1>Commute</h1>\n            <span>and</span>\n        </div>\n        <div class=\"content3 coolShadow\">\n            <h1>Share</h1>\n            <span>your boredom</span>\n        </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row center\">\n    <div class=\"col-md-6 center design fade-in\">\n        <img class=\"content coolShadow\" src=\"/assets/imgs/travellogoicon.png\"/>\n        <div class=\"content1 coolShadow\">\n            <h1>Find Buddies</h1>\n            <span>with whom you want to</span>\n        </div>\n        <div class=\"content2 coolShadow\">\n            <h1>Commute</h1>\n            <span>and</span>\n        </div>\n        <div class=\"content3 coolShadow\">\n            <h1>Share</h1>\n            <span>your boredom</span>\n        </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 

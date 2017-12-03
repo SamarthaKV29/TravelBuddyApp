@@ -8,25 +8,25 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Users/login/login.component';
-//import { HomeComponent } from './users/home/home.component';
+import { HomeComponent } from './Users/home/home.component';
 //import { UserProfileComponent } from './users/user-profile/user-profile.component';
 //import { ForgotPassComponent } from './users/forgot-pass/forgot-pass.component';
 import { ErrorComponent } from './utility/error/error.component';
 import { LandingComponent } from './utility/landing/landing.component';
 import { DateTimePickerModule } from 'ng-pick-datetime';
 import { AboutComponent } from './utility/about/about.component';
-//import { InboxComponent } from './users/inbox/inbox.component';
-//import { ManagetripsComponent } from './users/managetrips/managetrips.component';
-//import { CreatetripComponent } from './users/createtrip/createtrip.component';
+import { InboxComponent } from './users/inbox/inbox.component';
+import { ManagetripsComponent } from './users/managetrips/managetrips.component';
+import { CreatetripComponent } from './users/createtrip/createtrip.component';
 
 
-// const homeRoutes: Routes = [
-//   { path: "create", component: CreatetripComponent},
-//   { path: "manage", component: ManagetripsComponent},
-//   { path: "inbox", component: InboxComponent}
-// ];
+const homeRoutes: Routes = [
+  { path: "create", component: CreatetripComponent},
+  { path: "manage", component: ManagetripsComponent},
+  { path: "inbox", component: InboxComponent}
+];
 const appRoutes: Routes = [
-  //{ path: 'home', component: HomeComponent, children: homeRoutes},
+  { path: 'home', component: HomeComponent, children: homeRoutes},
   //{ path: 'signup/:regstate', component: UserDetailComponent },
   { path: 'signup', redirectTo: 'signup/new'},
   { path: 'login', redirectTo: 'login/true'},
@@ -43,15 +43,15 @@ const appRoutes: Routes = [
     AppComponent,
     //UserDetailComponent,
     LoginComponent,
-    //HomeComponent,
+    HomeComponent,
     //UserProfileComponent,
     //ForgotPassComponent,
     ErrorComponent,
     LandingComponent,
     AboutComponent,
-    //InboxComponent,
-    //ManagetripsComponent,
-    //CreatetripComponent
+    InboxComponent,
+    ManagetripsComponent,
+    CreatetripComponent
   ],
   imports: [
     BrowserModule, DateTimePickerModule, BrowserAnimationsModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes)
