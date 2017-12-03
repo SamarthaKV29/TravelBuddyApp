@@ -10,7 +10,7 @@ module.exports = __webpack_require__.p + "fontello.078f910f70a2e032f1b6.eot";
 /***/ "../../../../../src/assets/font/fontello.svg?81091010":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "fontello.42641586af6054f0f7e6.svg";
+module.exports = __webpack_require__.p + "fontello.2a487997b6e15027fe08.svg";
 
 /***/ }),
 

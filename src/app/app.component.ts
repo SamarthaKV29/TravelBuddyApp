@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
 import { RouterLink, Router, ActivatedRoute, Event as RouterEvent, NavigationStart, NavigationCancel, NavigationEnd, NavigationError} from '@angular/router';
-import { User } from './users/user';
-
+import {User} from './Users/login/login.component';
 
 @Component({
   selector: 'app-root',
