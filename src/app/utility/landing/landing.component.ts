@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../Users/user';
-import { UserService } from '../../_services/user.service';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css'],
-  providers: [UserService]
+  providers: []
 })
 export class LandingComponent implements OnInit {
 
-  constructor(private UserService: UserService) { }
+  constructor() { }
   userslen: number = 3;
 
   ngOnInit() {

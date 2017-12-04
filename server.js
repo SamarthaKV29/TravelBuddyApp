@@ -7,6 +7,13 @@ if(!process.env.MONGODB_URI || process.env.MONGODB_URI == ""){
   process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:k3j5qi89b97t5lr0jo2arb7umt@ds147274.mlab.com:47274/heroku_tdjrgd33";
 }
 
+var request = require('request');
+
+request('https://realemail.expeditedaddons.com/?api_key=8N65F7RG03XVCW3H14MLI4PB1256K9JEQ9OTA7Z8YDSU02&email=email@example.org&fix_typos=false', function (error, response, body) {
+  console.log('Status:', response.statusCode);
+  console.log('Headers:', JSON.stringify(response.headers));
+  console.log('Response:', body);
+});
 
 mongoose.connect(process.env.MONGODB_URI, {
   useMongoClient: true,

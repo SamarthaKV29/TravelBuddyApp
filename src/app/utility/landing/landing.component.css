@@ -35,16 +35,18 @@ display: none;
   background-image: linear-gradient(to bottom, #6461b3, #191842);
   text-decoration: none;
 }
-
-.img1{
-  float: left;
-  width:500px;
-  transform: rotate(-10deg);
-  margin-top: 100px;
+.fade-in{
+  animation: fade 1s ease 1 alternate;
 }
-.center{
-  margin: auto;
-  text-align: center !important;
+@keyframes fade{
+  0%{opacity: 0%;}
+  25%{opacity: 50%;}
+  90%{opacity: 70}
+  100%{opacity: 100%;}
+}
+@keyframes fade-in{
+  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}
+  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}
 }
 div{
   padding: 10px;
