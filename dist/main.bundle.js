@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Users/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container center\">\n    <div class=\"row center\">\n        <div class=\"col center\">\n            <div class=\"panel panel-info\">\n                <div class=\"panel-heading\">\n                    <div class=\"panel-title\">\n                        {{this.message}}\n                    </div>\n                </div>\n                <!-- *ngIf=\"this.loggedIn\" -->\n                <div class=\"panel-content\" *ngIf=\"this.loggedIn\">\n                    <ul class=\"nav nav-tabs\">\n                        <li><a [routerLink]=\"['create']\" ><i class=\"glyphicon glyphicon-plus-sign\"></i> Create Trip</a></li>\n                        <li><a [routerLink]=\"['manage']\"><i class=\"glyphicon glyphicon-cog\"></i> Manage Trips</a></li>\n                        <li><a [routerLink]=\"['inbox']\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li>\n                    </ul>\n                </div>\n            </div>\n            <router-outlet></router-outlet>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"container\">\r\n    <div class=\"row center\">\r\n        <div class=\"col center\">\r\n            <div class=\"panel panel-info\">\r\n                <div class=\"panel-heading\">\r\n                    <div class=\"panel-title\">\r\n                        {{this.message}}\r\n                    </div>\r\n                </div>\r\n                <!-- *ngIf=\"this.loggedIn\" -->\r\n                \r\n                <div class=\"panel-content\">\r\n                    <ul class=\"nav nav-tabs\">\r\n                        <li><a [routerLink]=\"['create']\" ><i class=\"glyphicon glyphicon-plus-sign\"></i> Create Trip</a></li>\r\n                        <li><a [routerLink]=\"['manage']\"><i class=\"glyphicon glyphicon-cog\"></i> Manage Trips</a></li>\r\n                        <li><a [routerLink]=\"['inbox']\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -111,7 +111,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".margin {\n    margin: auto;\n  }\n\n.glyphicon-refresh-animate {\n  -animation: spin .7s infinite linear;\n}\n\n@-webkit-keyframes spin {\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\n}\n\n@keyframes spin {\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\n}\n\n.panel-heading{\n  background: #ffc578; /* Old browsers */\n  background: linear-gradient(to bottom, #ffc578 0%,#fb9d23 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', endColorstr='#fb9d23',GradientType=0 ); /* IE6-9 */\n}", ""]);
+exports.push([module.i, ".margin {\r\n    margin: auto;\r\n  }\r\n\r\n.glyphicon-refresh-animate {\r\n  -animation: spin .7s infinite linear;\r\n}\r\n\r\n@-webkit-keyframes spin {\r\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\r\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\r\n}\r\n\r\n@keyframes spin {\r\n    from { -webkit-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg);}\r\n    to { -webkit-transform: scale(1) rotate(360deg); transform: scale(1) rotate(360deg);}\r\n}\r\n.panel-title{\r\n  color:#fff;\r\n  padding:5px;\r\n}\r\n.panel-heading{\r\n  background: #42925b;\r\n  background: linear-gradient(to bottom right, #42925b 0%,#a4eaba 100%);\r\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', endColorstr='#fb9d23',GradientType=0 );\r\n  height: 50px;\r\n}", ""]);
 
 // exports
 
@@ -124,7 +124,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Users/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container margin\">\r\n    <div class=\"row centered-form\">\r\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <div class=\"panel panel-default\">\r\n                <div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">Log In \r\n                    </h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <div class=\"g-signin2\" data-onsuccess=\"onSignIn\"></div>\r\n                </div>\r\n            </div>             \r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"container margin\">\r\n    <div class=\"row centered-form\">\r\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\r\n            <div class=\"panel panel-default\">\r\n                <div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">Log In \r\n                    </h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <div class=\"g-signin2 btn\" data-onsuccess=\"onSignIn\">\r\n                    </div> \r\n                </div>\r\n            </div>             \r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -174,7 +174,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato:700);", ""]);
 
 // module
-exports.push([module.i, "body{\r\n\twidth: 100% !important;\r\n    height: 100%;\r\n    padding: 5%;\r\n    padding-top: 0;\r\n    background: none;\r\n}\r\n\r\n.navbar-brand{\r\n\ttext-shadow: 2px 2px 3px rgba(255,255,255,0.1);\r\n}\r\n\r\n#collapsible ul.nav * a{\r\n\tcolor: white !important;\r\n}\r\n\r\n#collapsible ul.nav * a:hover{\r\n    color: gold !important;\r\n}\r\n\r\n\r\nrouter-outlet{\r\n    text-align: center;\r\n\tmargin-top: 80px;\r\n\theight: auto;\r\n}\r\n\r\n.welcomeColor {\r\n    color: white;\r\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "body{\r\n\twidth: 100% !important;\r\n    height: 100%;\r\n    padding: 5%;\r\n    padding-top: 0;\r\n    background: none;\r\n}\r\n.navbar-inverse{\r\n    background-color:#2f296b;;\r\n}\r\n.navbar {\r\n    min-height: 50px;\r\n  }\r\n.navbar-brand{\r\n    height: 50px;\r\n\ttext-shadow: 2px 2px 3px rgba(255,255,255,0.1);\r\n}\r\n.container-fluid{\r\n    padding: 15px 7%;\r\n}\r\n#collapsible ul.nav * a{\r\n\tcolor: white !important;\r\n}\r\n\r\n#collapsible ul.nav * a:hover{\r\n    color: gold !important;\r\n}\r\n\r\nrouter-outlet{\r\n    text-align: center;\r\n\tmargin-top: 80px;\r\n\theight: auto;\r\n}\r\n\r\n.welcomeColor {\r\n    color: white;\r\n}\r\n.wrapper{\r\n    margin-top: 80px;\r\n}\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -187,7 +187,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n        <ul class=\"nav navbar-nav\">\r\n          <li>\r\n            <a class=\"active\" [routerLink]=\"['/home']\"><i class=\"glyphicon glyphicon-home\"></i> Home</a>\r\n          </li>\r\n          <li>\r\n            <a [routerLink]=\"['/about']\"><i class=\"glyphicon glyphicon-info-sign\"></i> About</a>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/signup', new]\"><i class=\"glyphicon glyphicon-user\"></i> Sign Up</a>\r\n          </li>\r\n          <li  *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', true]\"><i class=\"glyphicon glyphicon-log-in\"></i> Log In</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/profile', this.currentUser.username]\"><i class=\"glyphicon glyphicon-user\"></i> User Profile</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', false]\"><i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\r\n          </li>\r\n          \r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <h1 class=\"h1 text-center coolShadow\" *ngIf=\"this.landing\">Welcome to\r\n      <span class=\"colorChangeAnimation\">Travel Buddy</span>\r\n    </h1>\r\n    <app-landing *ngIf=\"landing\"></app-landing>\r\n    <div class=\"loading\" *ngIf=\"this.loading\">\r\n        <p class=\"alert alert-warning\">Loading . . . </p>\r\n    </div>\r\n    <router-outlet *ngIf=\"!this.loading\"></router-outlet>\r\n  </div>\r\n  \r\n</div>"
+module.exports = "<nav class=\"navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n        <ul class=\"nav navbar-nav\">\r\n          <li>\r\n            <a class=\"active\" [routerLink]=\"['/home']\">Home</a>\r\n          </li>\r\n          <li>\r\n            <a [routerLink]=\"['/about']\">About</a>\r\n          </li>\r\n          <li>\r\n              <a [routerLink]=\"['/team']\">Team</a>\r\n            </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/signup', new]\"> Sign Up</a>\r\n          </li>\r\n          <li  *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', true]\"> Log In</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/profile', this.currentUser.username]\"><i class=\"glyphicon glyphicon-user\"></i> User Profile</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/login', false]\"><i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\r\n          </li>\r\n          \r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"wrapper\">\r\n    <app-landing *ngIf=\"landing\"></app-landing>\r\n    <div class=\"loading\" *ngIf=\"this.loading\">\r\n        <p class=\"alert alert-warning\">Loading . . . </p>\r\n    </div>\r\n    <router-outlet *ngIf=\"!this.loading\"></router-outlet>\r\n  </div>"
 
 /***/ }),
 
@@ -315,6 +315,7 @@ var _a, _b, _c, _d;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__users_inbox_inbox_component__ = __webpack_require__("../../../../../src/app/users/inbox/inbox.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__users_managetrips_managetrips_component__ = __webpack_require__("../../../../../src/app/users/managetrips/managetrips.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__users_createtrip_createtrip_component__ = __webpack_require__("../../../../../src/app/users/createtrip/createtrip.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__utility_team_team_component__ = __webpack_require__("../../../../../src/app/utility/team/team.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -341,6 +342,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var homeRoutes = [
     { path: "create", component: __WEBPACK_IMPORTED_MODULE_15__users_createtrip_createtrip_component__["a" /* CreatetripComponent */] },
     { path: "manage", component: __WEBPACK_IMPORTED_MODULE_14__users_managetrips_managetrips_component__["a" /* ManagetripsComponent */] },
@@ -356,7 +358,8 @@ var appRoutes = [
     //{ path: 'profile/:user', component: UserProfileComponent},
     //{ path: 'profile/:user/:updstate', component: UserProfileComponent },
     { path: 'error', component: __WEBPACK_IMPORTED_MODULE_9__utility_error_error_component__["a" /* ErrorComponent */] },
-    { path: 'about', component: __WEBPACK_IMPORTED_MODULE_12__utility_about_about_component__["a" /* AboutComponent */] }
+    { path: 'about', component: __WEBPACK_IMPORTED_MODULE_12__utility_about_about_component__["a" /* AboutComponent */] },
+    { path: 'team', component: __WEBPACK_IMPORTED_MODULE_16__utility_team_team_component__["a" /* TeamComponent */] }
 ];
 //{ path: '**', component: AppComponent},
 var AppModule = (function () {
@@ -378,7 +381,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_12__utility_about_about_component__["a" /* AboutComponent */],
             __WEBPACK_IMPORTED_MODULE_13__users_inbox_inbox_component__["a" /* InboxComponent */],
             __WEBPACK_IMPORTED_MODULE_14__users_managetrips_managetrips_component__["a" /* ManagetripsComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__users_createtrip_createtrip_component__["a" /* CreatetripComponent */]
+            __WEBPACK_IMPORTED_MODULE_15__users_createtrip_createtrip_component__["a" /* CreatetripComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__utility_team_team_component__["a" /* TeamComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_11_ng_pick_datetime__["DateTimePickerModule"], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_6__angular_router__["g" /* RouterModule */].forRoot(appRoutes)
@@ -534,7 +538,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/users/managetrips/managetrips.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  managetrips works!\n</p>\n"
+module.exports = "<table class=\"table table-striped table-bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>Trip</th>\r\n            <th>Day</th>\r\n            <th>Time</th>\r\n            <th>Action</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let field of fieldArray; let i = index\">\r\n            <td>\r\n                <input [(ngModel)]=\"field.code\" class=\"form-control\" type=\"text\" name=\"{{field.code}}\" />\r\n            </td>\r\n            <td>\r\n                <input [(ngModel)]=\"field.name\" class=\"form-control\" type=\"text\" name=\"{{field.name}}\" />\r\n            </td>\r\n            <td>\r\n                <input [(ngModel)]=\"field.price\" class=\"form-control\" type=\"text\" name=\"{{field.price}}\" />\r\n            </td>\r\n            <td>\r\n                <button class=\"btn btn-default\"  type=\"button\" (click)=\"deleteFieldValue(i)\">Delete</button>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>\r\n                <input class=\"form-control\" type=\"text\" id=\"newAttributeCode\" [(ngModel)]=\"newAttribute.code\" name=\"newAttributeCode\" />\r\n            </td>\r\n            <td>\r\n                <input class=\"form-control\" type=\"text\" id=\"newAttributeName\" [(ngModel)]=\"newAttribute.name\" name=\"newAttributeName\" />\r\n            </td>\r\n            <td>\r\n                <input class=\"form-control\" type=\"text\" id=\"newAttributePrice\" [(ngModel)]=\"newAttribute.price\" name=\"newAttributePrice\" />\r\n            </td>\r\n            <td>\r\n                <button class=\"btn btn-default\" type=\"button\" (click)=\"addFieldValue()\">Add</button>\r\n            </td>\r\n        </tr>\r\n    </tbody>\r\n</table>"
 
 /***/ }),
 
@@ -556,8 +560,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ManagetripsComponent = (function () {
     function ManagetripsComponent() {
+        this.fieldArray = [];
+        this.newAttribute = {};
     }
     ManagetripsComponent.prototype.ngOnInit = function () {
+    };
+    ManagetripsComponent.prototype.addFieldValue = function () {
+        this.fieldArray.push(this.newAttribute);
+        this.newAttribute = {};
+    };
+    ManagetripsComponent.prototype.deleteFieldValue = function (index) {
+        this.fieldArray.splice(index, 1);
     };
     return ManagetripsComponent;
 }());
@@ -582,7 +595,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".center-block{\n    margin: 0\n}\n\n.container{\n    background: #d6f9ff;\n    background: linear-gradient(to bottom, rgba(214, 250, 255, 0.8) 0%,rgba(158, 233, 250, 0.9) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6f9ff', endColorstr='#9ee8fa',GradientType=0 );\n    border-radius: 5px;\n    box-shadow: 0px 1px 10px 1px rgba(90, 80, 80, 0.63);\n    width: 100%;\n}\n\np{\n    padding: 1%;\n}\n\nli{\n    list-style: none;\n    padding: 5px;\n    \n}", ""]);
+exports.push([module.i, ".box {\r\n    box-sizing: border-box;\r\n  }\r\n*, *:before, *:after {\r\n    box-sizing: inherit;\r\n  }\r\nimg{\r\n    width:100%;\r\n    height:250px;\r\n}\r\nh2{\r\n    color: #333180;\r\n}\r\n  .column {\r\n    float: left;\r\n    width: 33.3%;\r\n    margin-bottom: 16px;\r\n    padding: 0 8px;\r\n  }\r\n  \r\n  @media (max-width: 650px) {\r\n    .column {\r\n      width: 100%;\r\n      display: block;\r\n    }\r\n  }\r\n  \r\n  .card {\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n  }\r\n  \r\n  .inner-content {\r\n    padding: 16px;\r\n    text-align: center;\r\n  }\r\n  \r\n  .inner-content::after, .row::after {\r\n    content: \"\";\r\n    clear: both;\r\n    display: table;\r\n  }\r\n  \r\n  .title {\r\n    color: grey;\r\n  }", ""]);
 
 // exports
 
@@ -595,7 +608,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/utility/about/about.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row center-block\">\n    <div class=\"col\">\n      <p>Looking for someone to join you on your next travel adventure? Looking for someone to meet up with on your next business trip? You've come to the right place! Let TravelBuddy connect you with other travelers instead of traveling alone.</p>\n      <div class=\"panel panel-info\">\n        <div class=\"panel-heading\">\n          <h4 class=\"panel-title\">With TravelBuddy you can:</h4>\n        </div>\n        <div class=\"panel-content\">\n          <ul>\n            <li>Sign up and create a profile.</li>\n            <li>Create a trip you would like to take/are taking.</li>\n            <li>Search for trips to destinations you're interested in.</li>\n            <li>Follow and message other users.</li>\n          </ul>\n        </div>\n      </div>\n    \n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container box\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4\">\r\n          <div class=\"card\">\r\n            <img src=\"/assets/imgs/subway.jpg\" >\r\n            <div class=\"inner-content\">\r\n              <h2>Create</h2><br>\r\n              <p class=\"title\">Create profile and trip</p><br>\r\n              <p>Like other User to travel with them</p><br>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      \r\n        <div class=\"col-md-4\">\r\n          <div class=\"card\">\r\n            <img src=\"/assets/imgs/friends1.jpg\">\r\n            <div class=\"inner-content\">\r\n              <h2>Match</h2><br>\r\n              <p class=\"title\">If they Like you, Its a Match</p><br>\r\n              <p>Keep Searching</p><br>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-4\">\r\n          <div class=\"card\">\r\n            <img src=\"/assets/imgs/friends.jpg\">\r\n            <div class=\"inner-content\">\r\n              <h2>Travel</h2><br>\r\n              <p class=\"title\">Travel and Chat with matched user</p><br>\r\n              <p>Get Started Now!</p><br>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n</div>"
 
 /***/ }),
 
@@ -704,7 +717,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".center{\n  margin: auto;\n  text-align: center !important;\n}\n\n.design{\n  background-color: rgba(59, 58, 65, 0.479);\n  border-top-left-radius: 400px;\n  border-top-right-radius: 400px;\n  border-bottom-left-radius: 200px;\n  border-bottom-right-radius: 200px;\n  width: 100%;\n  \n  -webkit-animation: fade-in 4s ease infinite alternate;\n  \n          animation: fade-in 4s ease infinite alternate;\n}\n.fade-in{\n  -webkit-animation: fade 1s ease 1 alternate;\n          animation: fade 1s ease 1 alternate;\n}\n@-webkit-keyframes fade{\n  0%{opacity: 0%;}\n  25%{opacity: 50%;}\n  90%{opacity: 70}\n  100%{opacity: 100%;}\n}\n@keyframes fade{\n  0%{opacity: 0%;}\n  25%{opacity: 50%;}\n  90%{opacity: 70}\n  100%{opacity: 100%;}\n}\n@-webkit-keyframes fade-in{\n  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}\n  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}\n}\n@keyframes fade-in{\n  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}\n  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}\n}\ndiv{\n  padding: 10px;\n}\n\n.content{\n  -webkit-animation: landinganim 0.5s 0s alternate both ease-in;\n          animation: landinganim 0.5s 0s alternate both ease-in; \n}\n.content1{\n  color: lightsalmon;\n  -webkit-animation: landinganim2 1s 0.6s alternate both ease-in;\n          animation: landinganim2 1s 0.6s alternate both ease-in;\n}\n.content2{\n  color: lightgreen;\n  -webkit-animation: landinganim3 1s 0.6s alternate both ease-in;\n          animation: landinganim3 1s 0.6s alternate both ease-in;\n}\n.content3{\n  color: lightskyblue;\n  -webkit-animation: landinganim2 1s 0.6s alternate both ease-in;\n          animation: landinganim2 1s 0.6s alternate both ease-in;\n}\nspan{\n  color: gold !important;\n}\n\nimg{\n  width: 64px;\n}\n\n\n@-webkit-keyframes landinganim{\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n\n@keyframes landinganim{\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@-webkit-keyframes landinganim2 {\n  0%{ -webkit-transform: scale(0) translate(-400px, 0px); transform: scale(0) translate(-400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@keyframes landinganim2 {\n  0%{ -webkit-transform: scale(0) translate(-400px, 0px); transform: scale(0) translate(-400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@-webkit-keyframes landinganim3 {\n  0%{ -webkit-transform: scale(0) translate(400px, 0px); transform: scale(0) translate(400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}\n\n@keyframes landinganim3 {\n  0%{ -webkit-transform: scale(0) translate(400px, 0px); transform: scale(0) translate(400px, 0px)}\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\n}", ""]);
+exports.push([module.i, "@media only screen and (max-width: 768px) {\r\n  .img1 {\r\n    display: none;\r\n  }\r\n}\r\n.btn {\r\n  background: #191842;\r\n  background-image: linear-gradient(to bottom, #191842, #6461b3);\r\n  border-radius: 58px;\r\n  box-shadow: 0px 1px 3px #666666;\r\n  font-family: Arial;\r\n  color: #ffffff;\r\n  font-size: 20px;\r\n  padding: 15px 40px 15px 40px;\r\n  text-decoration: none;\r\n}\r\n\r\n.btn:hover {\r\n  background: #6461b3;\r\n  background-image: linear-gradient(to bottom, #6461b3, #191842);\r\n  text-decoration: none;\r\n}\r\n\r\n.img1{\r\n  width:500px;\r\n  -webkit-transform: rotate(-7deg);\r\n          transform: rotate(-7deg);\r\n  margin-top: 50px; \r\n}\r\n.center{\r\n  margin: auto;\r\n  text-align: center !important;\r\n}\r\n\r\n.design{\r\n  border-top-left-radius: 400px;\r\n  border-top-right-radius: 400px;\r\n  border-bottom-left-radius: 200px;\r\n  border-bottom-right-radius: 200px;\r\n  \r\n  -webkit-animation: fade-in 4s ease infinite alternate;\r\n  \r\n          animation: fade-in 4s ease infinite alternate;\r\n}\r\n.fade-in{\r\n  -webkit-animation: fade 1s ease 1 alternate;\r\n          animation: fade 1s ease 1 alternate;\r\n}\r\n@-webkit-keyframes fade{\r\n  0%{opacity: 0%;}\r\n  25%{opacity: 50%;}\r\n  90%{opacity: 70}\r\n  100%{opacity: 100%;}\r\n}\r\n@keyframes fade{\r\n  0%{opacity: 0%;}\r\n  25%{opacity: 50%;}\r\n  90%{opacity: 70}\r\n  100%{opacity: 100%;}\r\n}\r\n@-webkit-keyframes fade-in{\r\n  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}\r\n  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}\r\n}\r\n@keyframes fade-in{\r\n  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}\r\n  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}\r\n}\r\ndiv{\r\n  padding: 10px;\r\n}\r\n\r\n.content{\r\n  -webkit-animation: landinganim 0.5s 0s alternate both ease-in;\r\n          animation: landinganim 0.5s 0s alternate both ease-in; \r\n}\r\n.content1{\r\n  color: lightsalmon;\r\n  -webkit-animation: landinganim2 1s 0.6s alternate both ease-in;\r\n          animation: landinganim2 1s 0.6s alternate both ease-in;\r\n}\r\n.content2{\r\n  color: lightgreen;\r\n  -webkit-animation: landinganim3 1s 0.6s alternate both ease-in;\r\n          animation: landinganim3 1s 0.6s alternate both ease-in;\r\n}\r\n.content3{\r\n  color: lightskyblue;\r\n  -webkit-animation: landinganim2 1s 0.6s alternate both ease-in;\r\n          animation: landinganim2 1s 0.6s alternate both ease-in;\r\n}\r\nspan{\r\n  color: gold !important;\r\n}\r\n.logo{\r\n  width: 64px;\r\n}\r\n\r\n@-webkit-keyframes landinganim{\r\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n@keyframes landinganim{\r\n  0%{ -webkit-transform: scale(0) translate(0px, -400px); transform: scale(0) translate(0px, -400px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n@-webkit-keyframes landinganim2 {\r\n  0%{ -webkit-transform: scale(0) translate(-400px, 0px); transform: scale(0) translate(-400px, 0px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n@keyframes landinganim2 {\r\n  0%{ -webkit-transform: scale(0) translate(-400px, 0px); transform: scale(0) translate(-400px, 0px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n@-webkit-keyframes landinganim3 {\r\n  0%{ -webkit-transform: scale(0) translate(400px, 0px); transform: scale(0) translate(400px, 0px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}\r\n\r\n@keyframes landinganim3 {\r\n  0%{ -webkit-transform: scale(0) translate(400px, 0px); transform: scale(0) translate(400px, 0px)}\r\n  100% { -webkit-transform: scale(1) translate(0px, 0px); transform: scale(1) translate(0px, 0px)}\r\n}", ""]);
 
 // exports
 
@@ -717,7 +730,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/utility/landing/landing.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row center\">\n    <div class=\"col-md-6 center design fade-in\">\n        <img class=\"content coolShadow\" src=\"/assets/imgs/travellogoicon.png\"/>\n        <div class=\"content1 coolShadow\">\n            <h1>Find Buddies</h1>\n            <span>with whom you want to</span>\n        </div>\n        <div class=\"content2 coolShadow\">\n            <h1>Commute</h1>\n            <span>and</span>\n        </div>\n        <div class=\"content3 coolShadow\">\n            <h1>Share</h1>\n            <span>your boredom</span>\n        </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\r\n        <div class=\"row center\">\r\n            <div class=\"col-md-6 center \">\r\n                <img class=\"img1 coolShadow\" src=\"/assets/imgs/friends1.jpg\"/>\r\n            </div>\r\n            <div class=\"col-md-6 center design fade-in\">\r\n                <img class=\"logo content coolShadow\" src=\"/assets/imgs/travellogoicon.png\"/>\r\n                <div class=\"content1 coolShadow\">\r\n                    <h1>Find Buddies</h1>\r\n                    <span>with whom you want to</span>\r\n                </div>\r\n                <div class=\"content2 coolShadow\">\r\n                    <h1>Commute</h1>\r\n                    <span>and</span>\r\n                </div>\r\n                <div class=\"content3 coolShadow\">\r\n                    <h1>Share</h1>\r\n                    <span>your boredom</span>\r\n                </div>\r\n\r\n          </div>\r\n          <button class=\"btn\">Sign Up Online</button>\r\n        </div>\r\n      </div>"
 
 /***/ }),
 
@@ -756,6 +769,67 @@ LandingComponent = __decorate([
 ], LandingComponent);
 
 //# sourceMappingURL=landing.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/utility/team/team.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\r\n.heading-title {\r\n    margin-bottom: 100px;\r\n}\r\n.text-center {\r\n    text-align: center;\r\n}\r\n.heading-title h3 {\r\n    margin-bottom: 0;\r\n    letter-spacing: 2px;\r\n    font-weight: normal;\r\n}\r\n.team-member, .team-member .team-img {\r\n    position: relative;\r\n}\r\n.team-member {\r\n    overflow: hidden;\r\n}\r\n.team-member, .team-member .team-img {\r\n    position: relative;\r\n}\r\n.team-member{\r\n    margin: 0 10px;\r\n    color: #333;\r\n    font-size: 16px;\r\n}\r\n.team-title {\r\n    position: static;\r\n    padding: 20px 0;\r\n    display: inline-block;\r\n    letter-spacing: 2px;\r\n    width: 100%;\r\n}\r\n.team-title h5 {\r\n    margin-bottom: 0px;\r\n    display: block;\r\n    text-transform: uppercase;\r\n}\r\n.team-title span {\r\n    font-size: 12px;\r\n    text-transform: uppercase;\r\n    color: #a5a5a5;\r\n    letter-spacing: 1px;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/utility/team/team.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"heading-title text-center\">\r\n            <h3>OUR TEAM </h3>\r\n        </div>\r\n\r\n        <div class=\"col-md-3 col-sm-3\">\r\n            <div class=\"team-member\">\r\n                <div class=\"team-img\">\r\n                    <img src=\"/assets/imgs/aanchal.jpeg\" alt=\"team member\" class=\"img-responsive\">\r\n                </div>\r\n            </div>\r\n            <div class=\"team-title\">\r\n                <h5>Aanchal Sharma</h5>\r\n                <span>Computer Science</span>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3 col-sm-3\">\r\n            <div class=\"team-member\">\r\n                <div class=\"team-img\">\r\n                    <img src=\"/assets/imgs/akul.jpeg\" alt=\"team member\" class=\"img-responsive\">\r\n                </div>\r\n            </div>\r\n            <div class=\"team-title\">\r\n                <h5>Akul Swami</h5>\r\n                <span>Computer Engineering</span>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3 col-sm-3\">\r\n            <div class=\"team-member\">\r\n                <div class=\"team-img\">\r\n                    <img src=\"/assets/imgs/sam.jpeg\" alt=\"team member\" class=\"img-responsive\">\r\n                </div>\r\n            </div>\r\n            <div class=\"team-title\">\r\n                <h5>Samartha</h5>\r\n                <span>Computer Science</span>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-md-3 col-sm-3\">\r\n            <div class=\"team-member\">\r\n                <div class=\"team-img\">\r\n                    <img src=\"/assets/imgs/riya.jpeg\" alt=\"team member\" class=\"img-responsive\">\r\n                </div>\r\n            </div>\r\n            <div class=\"team-title\">\r\n                <h5>Riya Bulia</h5>\r\n                <span>Computer Science</span>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/utility/team/team.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TeamComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TeamComponent = (function () {
+    function TeamComponent() {
+    }
+    TeamComponent.prototype.ngOnInit = function () {
+    };
+    return TeamComponent;
+}());
+TeamComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-team',
+        template: __webpack_require__("../../../../../src/app/utility/team/team.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/utility/team/team.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], TeamComponent);
+
+//# sourceMappingURL=team.component.js.map
 
 /***/ }),
 
