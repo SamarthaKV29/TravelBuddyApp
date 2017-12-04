@@ -9486,9 +9486,11 @@ var DateTimePickerComponent = (function () {
         this.dataType = 'date';
         this.dateFormat = 'YYYY/MM/DD HH:mm';
         this.disabledDates = [];
+        this.hideClearButton = false;
         this.placeHolder = 'yyyy/mm/dd hh:mm';
         this.readonlyInput = true;
         this.selectionMode = 'single';
+        this.tabIndex = 0;
         this.type = 'both';
         this.hourFormat = '24';
         this.showOtherMonths = true;
@@ -9496,6 +9498,7 @@ var DateTimePickerComponent = (function () {
         this.onBlur = new core_1.EventEmitter();
         this.onClear = new core_1.EventEmitter();
         this.onClose = new core_1.EventEmitter();
+        this.onConfirm = new core_1.EventEmitter();
         this.onInvalid = new core_1.EventEmitter();
         this.onSelect = new core_1.EventEmitter();
         this.calendarYears = [];
@@ -9548,7 +9551,8 @@ var DateTimePickerComponent = (function () {
         configurable: true
     });
     DateTimePickerComponent.prototype.ngOnInit = function () {
-        this.pickerMoment = this.defaultMoment ? this.parseToDate(this.defaultMoment) : new Date();
+        this.now = new Date();
+        this.pickerMoment = this.defaultMoment ? this.parseToDate(this.defaultMoment) : this.now;
         this.generateWeekDays();
         this.generateMonthList();
         this.generateCalendar();
@@ -9657,11 +9661,20 @@ var DateTimePickerComponent = (function () {
     };
     DateTimePickerComponent.prototype.onConfirmClick = function (event) {
         this.updateModel(this.value);
+        this.updateFormattedValue();
+        this.onConfirm.next({
+            originalEvent: event,
+            value: this.value
+        });
         this.hide(event);
+        event.stopPropagation();
+        event.preventDefault();
         return;
     };
     DateTimePickerComponent.prototype.onCloseClick = function (event) {
         this.hide(event);
+        event.stopPropagation();
+        event.preventDefault();
         return;
     };
     DateTimePickerComponent.prototype.onSelectDate = function (event, date) {
@@ -9680,7 +9693,13 @@ var DateTimePickerComponent = (function () {
             selected = this.setDateOnMultiSelection(date);
         }
         if (selected) {
-            this.updateModel(selected);
+            if (!this.showButtons) {
+                this.updateModel(selected);
+                this.updateFormattedValue();
+            }
+            else {
+                this.value = selected;
+            }
             if (this.value instanceof Array) {
                 this.updateCalendar(this.value[this.valueIndex]);
                 this.updateTimer(this.value[this.valueIndex]);
@@ -9691,7 +9710,6 @@ var DateTimePickerComponent = (function () {
                 this.updateTimer(this.value);
                 this.onSelect.emit({ event: event, value: this.value });
             }
-            this.updateFormattedValue();
         }
         if (this.autoClose) {
             this.hide(event);
@@ -9745,7 +9763,7 @@ var DateTimePickerComponent = (function () {
             hours -= 12;
         }
         var selectedTime = date_fns_1.setHours(value, hours);
-        this.setSelectedTime(selectedTime);
+        this.setSelectedTime(event, selectedTime);
         event.preventDefault();
         return;
     };
@@ -9788,7 +9806,7 @@ var DateTimePickerComponent = (function () {
             hours = 23;
         }
         var selectedTime = date_fns_1.setHours(value, hours);
-        var done = this.setSelectedTime(selectedTime);
+        var done = this.setSelectedTime(event, selectedTime);
         if (input) {
             this.runTimeoutOutsideZone(function () {
                 input.focus();
@@ -9836,7 +9854,7 @@ var DateTimePickerComponent = (function () {
             minutes = 59;
         }
         var selectedTime = date_fns_1.setMinutes(value, minutes);
-        var done = this.setSelectedTime(selectedTime);
+        var done = this.setSelectedTime(event, selectedTime);
         if (input) {
             this.runTimeoutOutsideZone(function () {
                 input.focus();
@@ -9884,7 +9902,7 @@ var DateTimePickerComponent = (function () {
             seconds = 59;
         }
         var selectedTime = date_fns_1.setSeconds(value, seconds);
-        var done = this.setSelectedTime(selectedTime);
+        var done = this.setSelectedTime(event, selectedTime);
         if (input) {
             this.runTimeoutOutsideZone(function () {
                 input.focus();
@@ -10016,7 +10034,7 @@ var DateTimePickerComponent = (function () {
         this.updateModel(null);
         this.updateTimer(this.value);
         this.updateFormattedValue();
-        this.onClear.emit({ event: event });
+        this.onClear.emit({ originalEvent: event, value: this.value });
         event.preventDefault();
     };
     DateTimePickerComponent.prototype.show = function (event) {
@@ -10110,7 +10128,7 @@ var DateTimePickerComponent = (function () {
                 week.push({
                     date: date,
                     num: date_fns_1.getDate(date),
-                    today: date_fns_1.isToday(date),
+                    today: date_fns_1.isSameDay(this.now, date),
                     otherMonth: inOtherMonth,
                     hide: !this.showOtherMonths && inOtherMonth,
                 });
@@ -10279,7 +10297,7 @@ var DateTimePickerComponent = (function () {
         this.formattedValue = formattedValue;
         return;
     };
-    DateTimePickerComponent.prototype.setSelectedTime = function (val) {
+    DateTimePickerComponent.prototype.setSelectedTime = function (event, val) {
         var done;
         var selected;
         if (this.isSingleSelection()) {
@@ -10293,7 +10311,13 @@ var DateTimePickerComponent = (function () {
         }
         if (selected) {
             this.value = selected;
-            done = this.updateModel(this.value);
+            if (!this.showButtons) {
+                done = this.updateModel(this.value);
+                this.updateFormattedValue();
+            }
+            else {
+                done = true;
+            }
             if (this.value instanceof Array) {
                 done = done && this.updateTimer(this.value[this.valueIndex]);
             }
@@ -10301,7 +10325,6 @@ var DateTimePickerComponent = (function () {
                 done = done && this.updateTimer(this.value);
             }
             this.onSelect.emit({ event: event, value: this.value });
-            this.updateFormattedValue();
         }
         else {
             this.onInvalid.emit({ originalEvent: event, value: val });
@@ -10544,8 +10567,8 @@ var DateTimePickerComponent = (function () {
 DateTimePickerComponent.decorators = [
     { type: core_1.Component, args: [{
                 selector: 'owl-date-time',
-                template: "<div [ngClass]=\"{\n     'owl-dateTime owl-widget': true,\n     'owl-dateTime-inline': inline\n     }\" [class]=\"styleClass\" [ngStyle]=\"style\" #container><div *ngIf=\"!inline && customTemp.children.length == 0\" class=\"owl-dateTime-inputWrapper\"><input type=\"text\" [class]=\"inputStyleClass\" [ngClass]=\"{\n            'owl-dateTime-input owl-inputtext owl-state-default owl-corner-all': true,\n            'owl-state-focus': focus\n            }\" [ngStyle]=\"inputStyle\" [attr.placeholder]=\"placeHolder\" [attr.tabindex]=\"tabIndex\" [attr.id]=\"inputId\" [attr.required]=\"required\" [disabled]=\"disabled\" [value]=\"formattedValue\" [readonly]=\"readonlyInput\" (focus)=\"onInputFocus($event)\" (blur)=\"onInputBlur($event)\" (click)=\"onInputClick($event)\" (input)=\"onInputUpdate($event)\"> <i class=\"owl-dateTime-cancel icon icon-owl-cancel\" [hidden]=\"!value\" (click)=\"clearValue($event)\"></i></div><!-- Workaround of ng-content default content (angular issue #12530) --><div [ngClass]=\"{'owl-dateTime-customTemp': customTemp.children.length !== 0}\" #customTemp (click)=\"onInputClick($event)\"><ng-content></ng-content></div><div class=\"owl-dateTime-dialog owl-state-default owl-corner-all\" [ngStyle]=\"{'display': inline ? 'inline-block' : null}\" [@fadeInOut]=\"dialogVisible? 'visible' : (!inline? 'hidden': null)\" (click)=\"onDialogClick($event)\" #dialog><div *ngIf=\"showHeader\" class=\"owl-dateTime-dialogHeader owl-corner-top\"><span *ngIf=\"value; else elseBlock\">{{formattedValue}}</span><ng-template #elseBlock><span>{{placeHolder}}</span></ng-template></div><div *ngIf=\"type ==='both' || type === 'calendar'\" class=\"owl-calendar-wrapper owl-corner-all\"><div class=\"owl-calendar-control\"><div class=\"owl-calendar-controlNav\"><span class=\"nav-prev\" (click)=\"prevMonth($event)\"></span></div><div class=\"owl-calendar-controlContent\"><span class=\"month-control\" (click)=\"changeDialogType(2)\">{{pickerMonth}}</span> <span class=\"year-control\" (click)=\"changeDialogType(3)\">{{pickerYear}}</span></div><div class=\"owl-calendar-controlNav\"><span class=\"nav-next\" (click)=\"nextMonth($event)\"></span></div></div><div class=\"owl-calendar\" [hidden]=\"dialogType !== 1\"><table class=\"owl-calendar-day\"><thead><tr class=\"owl-weekdays\"><th *ngFor=\"let weekDay of calendarWeekdays\" class=\"owl-weekday\" scope=\"col\"><span>{{weekDay}}</span></th></tr></thead><tbody><tr class=\"owl-days\" *ngFor=\"let week of calendarDays\"><td *ngFor=\"let d of week\" class=\"owl-day\" [ngClass]=\"{\n                        'owl-calendar-selected': isSelectedDay(d.date),\n                        'owl-calendar-invalid': !isValidDay(d.date),\n                        'owl-calendar-outFocus': d.otherMonth,\n                        'owl-calendar-hidden': d.hide,\n                        'owl-day-today': d.today\n                    }\" (click)=\"onSelectDate($event, d.date)\"><a>{{d.num}}</a></td></tr></tbody></table></div><div class=\"owl-calendar\" [hidden]=\"dialogType !== 2\"><table class=\"owl-calendar-month\"><tbody><tr class=\"owl-months\" *ngFor=\"let months of calendarMonths; let i = index\"><td *ngFor=\"let month of months; let j = index\" class=\"owl-month\" [ngClass]=\"{'owl-calendar-selected': isCurrentMonth(i*3 + j)}\" (click)=\"selectMonth(i*3 + j)\"><a>{{month}}</a></td></tr></tbody></table></div><div class=\"owl-calendar\" [hidden]=\"dialogType !== 3\"><table class=\"owl-calendar-year\"><tbody><tr class=\"owl-years\" *ngFor=\"let years of calendarYears\"><td class=\"owl-year\" *ngFor=\"let year of years\" [ngClass]=\"{'owl-calendar-selected': isCurrentYear(+year)}\" (click)=\"selectYear(+year)\"><a>{{year}}</a></td></tr></tbody></table><div class=\"owl-calendar-yearArrow left\" (click)=\"generateYearList('prev')\"><i class=\"icon icon-owl-left-open\"></i></div><div class=\"owl-calendar-yearArrow right\" (click)=\"generateYearList('next')\"><i class=\"icon icon-owl-right-open\"></i></div></div></div><div *ngIf=\"type ==='both' || type === 'timer'\" class=\"owl-timer-wrapper owl-corner-all\"><div class=\"owl-timer owl-hours\"><div class=\"owl-timer-control\" (click)=\"setHours($event, 'increase', hoursInput)\"><i class=\"icon icon-owl-up-open\"></i></div><div class=\"owl-timer-text\"><input class=\"owl-timer-input owl-inputtext owl-state-default owl-corner-all\" placeholder=\"hh\" onfocus=\"this.select()\" [ngModel]=\"hourValue | numberFixedLen : 2\" (blur)=\"onTimerInputBlur($event, hoursInput, 'hours', hourValue)\" #hoursInput></div><div class=\"owl-timer-control\" (click)=\"setHours($event, 'decrease', hoursInput)\"><i class=\"icon icon-owl-down-open\"></i></div></div><div class=\"owl-timer owl-minutes\"><div class=\"owl-timer-divider\"><span class=\"owl-timer-dot dot-top\"></span> <span class=\"owl-timer-dot dot-bottom\"></span></div><div class=\"owl-timer-control\" (click)=\"setMinutes($event, 'increase', minutesInput)\"><i class=\"icon icon-owl-up-open\"></i></div><div class=\"owl-timer-text\"><input class=\"owl-timer-input owl-inputtext owl-state-default owl-corner-all\" placeholder=\"mm\" onfocus=\"this.select()\" [ngModel]=\"minValue | numberFixedLen : 2\" (blur)=\"onTimerInputBlur($event, minutesInput, 'minutes', minValue)\" #minutesInput></div><div class=\"owl-timer-control\" (click)=\"setMinutes($event, 'decrease', minutesInput)\"><i class=\"icon icon-owl-down-open\"></i></div></div><div *ngIf=\"showSecondsTimer\" class=\"owl-timer owl-seconds\"><div class=\"owl-timer-divider\"><span class=\"owl-timer-dot dot-top\"></span> <span class=\"owl-timer-dot dot-bottom\"></span></div><div class=\"owl-timer-control\" (click)=\"setSeconds($event, 'increase', secondsInput)\"><i class=\"icon icon-owl-up-open\"></i></div><div class=\"owl-timer-text\"><input class=\"owl-timer-input owl-inputtext owl-state-default owl-corner-all\" placeholder=\"ss\" onfocus=\"this.select()\" [ngModel]=\"secValue | numberFixedLen : 2\" (blur)=\"onTimerInputBlur($event, secondsInput, 'seconds', secValue)\" #secondsInput></div><div class=\"owl-timer-control\" (click)=\"setSeconds($event, 'decrease', secondsInput)\"><i class=\"icon icon-owl-down-open\"></i></div></div><div *ngIf=\"hourFormat === '12'\" class=\"owl-timer owl-meridian\"><button class=\"owl-btn owl-meridian-btn\" (click)=\"toggleMeridian($event)\">{{meridianValue}}</button></div></div><div *ngIf=\"showButtons\" class=\"owl-dateTime-btnWrapper\"><div class=\"owl-dateTime-btn owl-corner-bottomLeft owl-dateTime-btnConfirm\" (click)=\"onConfirmClick($event)\">Confirm</div><div class=\"owl-dateTime-btn owl-corner-bottomRight owl-dateTime-btnClose\" (click)=\"onCloseClick($event)\">Close</div></div></div></div>",
-                styles: [".owl-dateTime-input{width:100%;padding-right:1.5em}.owl-dateTime-cancel{position:absolute;top:50%;right:.1em;-moz-border-radius:50%;border-radius:50%;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);cursor:pointer;color:inherit}.owl-dateTime-inputWrapper{position:relative}.owl-dateTime-customTemp{display:inline-block;position:relative}.owl-dateTime-dialog{position:absolute}.owl-dateTime-dialogHeader{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;width:100%}.owl-calendar-wrapper,.owl-timer-wrapper{position:relative;width:100%;padding:.2em .5em}.owl-calendar-control{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;width:100%;height:2em}.owl-calendar-control .owl-calendar-controlNav{position:relative;cursor:pointer;width:12.5%}.owl-calendar-control .owl-calendar-controlContent{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;width:75%;height:100%}.owl-calendar{position:relative;min-height:13.7em}.owl-calendar table{width:100%;border-collapse:collapse}.owl-calendar tbody td{position:relative;text-align:center}.owl-calendar tbody td a{display:block;width:100%;height:100%;text-decoration:none;color:inherit}.owl-calendar .owl-calendar-yearArrow{position:absolute;top:50%;width:1.5em;height:1.5em;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);cursor:pointer}.owl-calendar .owl-calendar-yearArrow.left{left:-.5em}.owl-calendar .owl-calendar-yearArrow.right{right:-.5em}.owl-timer-wrapper{position:relative;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center}.owl-timer-wrapper .owl-timer{position:relative;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;width:25%;height:100%}.owl-timer-wrapper .owl-timer-control{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;height:30%;width:100%;cursor:pointer}.owl-timer-wrapper .owl-timer-control .icon:before{margin:0}.owl-timer-wrapper .owl-timer-input{width:60%;height:100%}.owl-dateTime-btnWrapper{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;width:100%}"],
+                template: "<div [ngClass]=\"{\n     'owl-dateTime owl-widget': true,\n     'owl-dateTime-inline': inline\n     }\" [class]=\"styleClass\" [ngStyle]=\"style\" #container><div *ngIf=\"!inline && customTemp.children.length == 0\" class=\"owl-dateTime-inputWrapper\"><input type=\"text\" [class]=\"inputStyleClass\" [ngClass]=\"{\n            'owl-datetime-input owl-datetime-main-input': true,\n            'owl-state-focus': focus\n            }\" [ngStyle]=\"inputStyle\" [attr.placeholder]=\"placeHolder\" [attr.tabindex]=\"tabIndex\" [attr.id]=\"inputId\" [attr.required]=\"required\" [disabled]=\"disabled\" [value]=\"formattedValue\" [readonly]=\"readonlyInput\" (focus)=\"onInputFocus($event)\" (blur)=\"onInputBlur($event)\" (click)=\"onInputClick($event)\" (input)=\"onInputUpdate($event)\"> <i *ngIf=\"!hideClearButton\" aria-label=\"Clear Input Value\" class=\"owl-dateTime-cancel icon icon-owl-cancel\" [hidden]=\"!formattedValue\" (click)=\"clearValue($event)\"></i></div><!-- Workaround of ng-content default content (angular issue #12530) --><div [ngClass]=\"{'owl-dateTime-customTemp': customTemp.children.length !== 0}\" #customTemp (click)=\"onInputClick($event)\"><ng-content></ng-content></div><div class=\"owl-dateTime-dialog owl-state-default owl-corner-all\" [ngStyle]=\"{'display': inline ? 'inline-block' : null}\" [@fadeInOut]=\"dialogVisible? 'visible' : (!inline? 'hidden': null)\" (click)=\"onDialogClick($event)\" #dialog><div *ngIf=\"showHeader\" class=\"owl-dateTime-dialogHeader owl-corner-top\"><span *ngIf=\"value; else elseBlock\">{{formattedValue}}</span><ng-template #elseBlock><span>{{placeHolder}}</span></ng-template></div><div *ngIf=\"type ==='both' || type === 'calendar'\" class=\"owl-calendar-wrapper owl-corner-all\"><div class=\"owl-calendar-control\"><div class=\"owl-calendar-controlNav\" (click)=\"prevMonth($event)\"><i class=\"icon icon-owl-left-open\"></i></div><div class=\"owl-calendar-controlContent\"><span class=\"month-control\" (click)=\"changeDialogType(2)\">{{pickerMonth}}</span> <span class=\"year-control\" (click)=\"changeDialogType(3)\">{{pickerYear}}</span></div><div class=\"owl-calendar-controlNav\" (click)=\"nextMonth($event)\"><i class=\"icon icon-owl-right-open\"></i></div></div><div class=\"owl-calendar\" [hidden]=\"dialogType !== 1\"><table class=\"owl-calendar-day\"><thead><tr class=\"owl-weekdays\"><th *ngFor=\"let weekDay of calendarWeekdays\" class=\"owl-weekday\" scope=\"col\"><span>{{weekDay}}</span></th></tr></thead><tbody><tr class=\"owl-days\" *ngFor=\"let week of calendarDays\"><td *ngFor=\"let d of week\" class=\"owl-day\" [ngClass]=\"{\n                        'owl-calendar-selected': isSelectedDay(d.date),\n                        'owl-calendar-invalid': !isValidDay(d.date),\n                        'owl-calendar-outFocus': d.otherMonth,\n                        'owl-calendar-hidden': d.hide,\n                        'owl-day-today': d.today\n                    }\" (click)=\"onSelectDate($event, d.date)\"><a>{{d.num}}</a></td></tr></tbody></table></div><div class=\"owl-calendar\" [hidden]=\"dialogType !== 2\"><table class=\"owl-calendar-month\"><tbody><tr class=\"owl-months\" *ngFor=\"let months of calendarMonths; let i = index\"><td *ngFor=\"let month of months; let j = index\" class=\"owl-month\" [ngClass]=\"{'owl-calendar-selected': isCurrentMonth(i*3 + j)}\" (click)=\"selectMonth(i*3 + j)\"><a>{{month}}</a></td></tr></tbody></table></div><div class=\"owl-calendar\" [hidden]=\"dialogType !== 3\"><table class=\"owl-calendar-year\"><tbody><tr class=\"owl-years\" *ngFor=\"let years of calendarYears\"><td class=\"owl-year\" *ngFor=\"let year of years\" [ngClass]=\"{'owl-calendar-selected': isCurrentYear(+year)}\" (click)=\"selectYear(+year)\"><a>{{year}}</a></td></tr></tbody></table><div class=\"owl-calendar-yearArrow left\" (click)=\"generateYearList('prev')\"><i class=\"icon icon-owl-left-open\"></i></div><div class=\"owl-calendar-yearArrow right\" (click)=\"generateYearList('next')\"><i class=\"icon icon-owl-right-open\"></i></div></div></div><div *ngIf=\"type ==='both' || type === 'timer'\" class=\"owl-timer-wrapper owl-corner-all\"><div class=\"owl-timer owl-hours\"><div class=\"owl-timer-control\" (click)=\"setHours($event, 'increase', hoursInput)\"><i class=\"icon icon-owl-up-open\"></i></div><div class=\"owl-timer-text\"><input class=\"owl-datetime-input owl-timer-input\" placeholder=\"hh\" onfocus=\"this.select()\" [ngModel]=\"hourValue | numberFixedLen : 2\" (blur)=\"onTimerInputBlur($event, hoursInput, 'hours', hourValue)\" #hoursInput></div><div class=\"owl-timer-control\" (click)=\"setHours($event, 'decrease', hoursInput)\"><i class=\"icon icon-owl-down-open\"></i></div></div><div class=\"owl-timer owl-minutes\"><div class=\"owl-timer-divider\"><span class=\"owl-timer-dot dot-top\"></span> <span class=\"owl-timer-dot dot-bottom\"></span></div><div class=\"owl-timer-control\" (click)=\"setMinutes($event, 'increase', minutesInput)\"><i class=\"icon icon-owl-up-open\"></i></div><div class=\"owl-timer-text\"><input class=\"owl-datetime-input owl-timer-input\" placeholder=\"mm\" onfocus=\"this.select()\" [ngModel]=\"minValue | numberFixedLen : 2\" (blur)=\"onTimerInputBlur($event, minutesInput, 'minutes', minValue)\" #minutesInput></div><div class=\"owl-timer-control\" (click)=\"setMinutes($event, 'decrease', minutesInput)\"><i class=\"icon icon-owl-down-open\"></i></div></div><div *ngIf=\"showSecondsTimer\" class=\"owl-timer owl-seconds\"><div class=\"owl-timer-divider\"><span class=\"owl-timer-dot dot-top\"></span> <span class=\"owl-timer-dot dot-bottom\"></span></div><div class=\"owl-timer-control\" (click)=\"setSeconds($event, 'increase', secondsInput)\"><i class=\"icon icon-owl-up-open\"></i></div><div class=\"owl-timer-text\"><input class=\"owl-datetime-input owl-timer-input\" placeholder=\"ss\" onfocus=\"this.select()\" [ngModel]=\"secValue | numberFixedLen : 2\" (blur)=\"onTimerInputBlur($event, secondsInput, 'seconds', secValue)\" #secondsInput></div><div class=\"owl-timer-control\" (click)=\"setSeconds($event, 'decrease', secondsInput)\"><i class=\"icon icon-owl-down-open\"></i></div></div><div *ngIf=\"hourFormat === '12'\" class=\"owl-timer owl-meridian\"><button class=\"owl-btn owl-meridian-btn\" (click)=\"toggleMeridian($event)\">{{meridianValue}}</button></div></div><div *ngIf=\"showButtons\" class=\"owl-dateTime-btnWrapper\"><div class=\"owl-dateTime-btn owl-corner-bottomLeft owl-dateTime-btnConfirm\" (click)=\"onConfirmClick($event)\">Confirm</div><div class=\"owl-dateTime-btn owl-corner-bottomRight owl-dateTime-btnClose\" (click)=\"onCloseClick($event)\">Close</div></div></div></div>",
+                styles: [".owl-dateTime-cancel{position:absolute;top:50%;right:.1em;-moz-border-radius:50%;border-radius:50%;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);cursor:pointer;color:inherit}.owl-dateTime-inputWrapper{position:relative}.owl-dateTime-customTemp{display:inline-block;position:relative}.owl-dateTime-dialog{position:absolute}.owl-dateTime-dialogHeader{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;width:100%}.owl-calendar-wrapper,.owl-timer-wrapper{position:relative;width:100%;padding:.2em .5em}.owl-calendar-control{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;width:100%;height:2em}.owl-calendar-control .owl-calendar-controlNav{position:relative;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;cursor:pointer;width:12.5%}.owl-calendar-control .owl-calendar-controlContent{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;width:75%;height:100%}.owl-calendar{position:relative;min-height:13.7em}.owl-calendar table{width:100%;border-collapse:collapse}.owl-calendar tbody td{position:relative;text-align:center}.owl-calendar tbody td a{display:block;width:100%;height:100%;text-decoration:none;color:inherit}.owl-calendar .owl-calendar-yearArrow{position:absolute;top:50%;width:1.5em;height:1.5em;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);cursor:pointer}.owl-calendar .owl-calendar-yearArrow.left{left:-.5em}.owl-calendar .owl-calendar-yearArrow.right{right:-.5em}.owl-timer-wrapper{position:relative;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center}.owl-timer-wrapper .owl-timer{position:relative;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;width:25%;height:100%}.owl-timer-wrapper .owl-timer-control{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;height:30%;width:100%;cursor:pointer}.owl-timer-wrapper .owl-timer-control .icon:before{margin:0}.owl-timer-wrapper .owl-timer-input{display:block;width:60%;height:100%}.owl-dateTime-btnWrapper{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;width:100%}"],
                 providers: [numberedFixLen_pipe_1.NumberFixedLenPipe, exports.DATETIMEPICKER_VALUE_ACCESSOR],
                 animations: [
                     animations_1.trigger('fadeInOut', [
@@ -10576,6 +10599,7 @@ DateTimePickerComponent.propDecorators = {
     'disabled': [{ type: core_1.Input },],
     'disabledDates': [{ type: core_1.Input },],
     'disabledDays': [{ type: core_1.Input },],
+    'hideClearButton': [{ type: core_1.Input },],
     'inline': [{ type: core_1.Input },],
     'inputId': [{ type: core_1.Input },],
     'inputStyle': [{ type: core_1.Input },],
@@ -10601,6 +10625,7 @@ DateTimePickerComponent.propDecorators = {
     'onBlur': [{ type: core_1.Output },],
     'onClear': [{ type: core_1.Output },],
     'onClose': [{ type: core_1.Output },],
+    'onConfirm': [{ type: core_1.Output },],
     'onInvalid': [{ type: core_1.Output },],
     'onSelect': [{ type: core_1.Output },],
     'containerElm': [{ type: core_1.ViewChild, args: ['container',] },],
