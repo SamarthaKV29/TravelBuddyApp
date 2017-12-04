@@ -1,49 +1,7 @@
-<nav class="navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" (click)="collapse()">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span> 
-            </button>
-        <a class="navbar-brand colorChangeAnimation d-flex" routerLink='/'>
-          <span class="d-inline">Travel Buddy</span>
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="collapsible" #collapsible>
-        <ul class="nav navbar-nav">
-          <li>
-            <a class="active" [routerLink]="['/home']">Home</a>
-          </li>
-          <li>
-            <a [routerLink]="['/about']">About</a>
-          </li>
-          <li>
-              <a [routerLink]="['/team']">Team</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/signup', new]"> Sign Up</a>
-          </li>
-          <li  *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/login', true]"> Log In</a>
-          </li>
-          <li *ngIf="this.isLoggedin">
-            <a [routerLink]="['/profile', this.currentUser.username]"><i class="glyphicon glyphicon-user"></i> User Profile</a>
-          </li>
-          <li *ngIf="this.isLoggedin">
-            <a [routerLink]="['/login', false]"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="wrapper">
-    <app-landing *ngIf="landing"></app-landing>
-    <div class="loading" *ngIf="this.loading">
-        <p class="alert alert-warning">Loading . . . </p>
-    </div>
-    <router-outlet *ngIf="!this.loading"></router-outlet>
-  </div>
+<!-- Navigation -->
+<app-navbar></app-navbar>
+
+<!-- Intro Section -->
+<section id="demo" class="demo-section">
+  <app-demo></app-demo>
+</section>
