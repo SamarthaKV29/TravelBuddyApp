@@ -1,10 +1,7 @@
-.screen-only
-{
-display: block;
-}
-.mobile-only
-{
-display: none;
+@media only screen and (max-width: 768px) {
+  .img1 {
+    display: none;
+  }
 }
 .btn {
   background: #191842;
@@ -34,6 +31,25 @@ display: none;
   background-image: -o-linear-gradient(top, #6461b3, #191842);
   background-image: linear-gradient(to bottom, #6461b3, #191842);
   text-decoration: none;
+}
+
+.img1{
+  width:500px;
+  transform: rotate(-7deg);
+  margin-top: 50px; 
+}
+.center{
+  margin: auto;
+  text-align: center !important;
+}
+
+.design{
+  border-top-left-radius: 400px;
+  border-top-right-radius: 400px;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+  
+  animation: fade-in 4s ease infinite alternate;
 }
 .fade-in{
   animation: fade 1s ease 1 alternate;
