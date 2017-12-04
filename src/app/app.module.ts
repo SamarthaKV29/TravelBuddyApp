@@ -18,6 +18,7 @@ import { AboutComponent } from './utility/about/about.component';
 import { InboxComponent } from './users/inbox/inbox.component';
 import { ManagetripsComponent } from './users/managetrips/managetrips.component';
 import { CreatetripComponent } from './users/createtrip/createtrip.component';
+import { TeamComponent } from './utility/team/team.component';
 
 
 const homeRoutes: Routes = [
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
   //{ path: 'profile/:user', component: UserProfileComponent},
   //{ path: 'profile/:user/:updstate', component: UserProfileComponent },
   { path: 'error', component: ErrorComponent},
-  { path: 'about', component: AboutComponent}
+  { path: 'about', component: AboutComponent},
+  { path: 'team', component: TeamComponent}
 ];
 //{ path: '**', component: AppComponent},
 @NgModule({
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     AboutComponent,
     InboxComponent,
     ManagetripsComponent,
-    CreatetripComponent
+    CreatetripComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule, DateTimePickerModule, BrowserAnimationsModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes)

@@ -1,4 +1,4 @@
-<div class="container center">
+<div class="container">
     <div class="row center">
         <div class="col center">
             <div class="panel panel-info">
@@ -8,7 +8,8 @@
                     </div>
                 </div>
                 <!-- *ngIf="this.loggedIn" -->
-                <div class="panel-content" *ngIf="this.loggedIn">
+                
+                <div class="panel-content">
                     <ul class="nav nav-tabs">
                         <li><a [routerLink]="['create']" ><i class="glyphicon glyphicon-plus-sign"></i> Create Trip</a></li>
                         <li><a [routerLink]="['manage']"><i class="glyphicon glyphicon-cog"></i> Manage Trips</a></li>

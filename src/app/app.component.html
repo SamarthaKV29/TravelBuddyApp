@@ -1,5 +1,4 @@
-<div class="container">
-  <nav class="navbar navbar-inverse">
+<nav class="navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" (click)="collapse()">
@@ -14,18 +13,21 @@
       <div class="collapse navbar-collapse" id="collapsible" #collapsible>
         <ul class="nav navbar-nav">
           <li>
-            <a class="active" [routerLink]="['/home']"><i class="glyphicon glyphicon-home"></i> Home</a>
+            <a class="active" [routerLink]="['/home']">Home</a>
           </li>
           <li>
-            <a [routerLink]="['/about']"><i class="glyphicon glyphicon-info-sign"></i> About</a>
+            <a [routerLink]="['/about']">About</a>
           </li>
+          <li>
+              <a [routerLink]="['/team']">Team</a>
+            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/signup', new]"><i class="glyphicon glyphicon-user"></i> Sign Up</a>
+            <a [routerLink]="['/signup', new]"> Sign Up</a>
           </li>
           <li  *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/login', true]"><i class="glyphicon glyphicon-log-in"></i> Log In</a>
+            <a [routerLink]="['/login', true]"> Log In</a>
           </li>
           <li *ngIf="this.isLoggedin">
             <a [routerLink]="['/profile', this.currentUser.username]"><i class="glyphicon glyphicon-user"></i> User Profile</a>
@@ -39,14 +41,9 @@
     </div>
   </nav>
   <div class="wrapper">
-    <h1 class="h1 text-center coolShadow" *ngIf="this.landing">Welcome to
-      <span class="colorChangeAnimation">Travel Buddy</span>
-    </h1>
     <app-landing *ngIf="landing"></app-landing>
     <div class="loading" *ngIf="this.loading">
         <p class="alert alert-warning">Loading . . . </p>
     </div>
     <router-outlet *ngIf="!this.loading"></router-outlet>
   </div>
-  
-</div>

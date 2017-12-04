@@ -7,11 +7,19 @@ body{
     padding-top: 0;
     background: none;
 }
-
+.navbar-inverse{
+    background-color:#2f296b;;
+}
+.navbar {
+    min-height: 50px;
+  }
 .navbar-brand{
+    height: 50px;
 	text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
 }
-
+.container-fluid{
+    padding: 15px 7%;
+}
 #collapsible ul.nav * a{
 	color: white !important;
 }
@@ -19,7 +27,6 @@ body{
 #collapsible ul.nav * a:hover{
     color: gold !important;
 }
-
 
 router-outlet{
     text-align: center;
@@ -29,6 +36,9 @@ router-outlet{
 
 .welcomeColor {
     color: white;
+}
+.wrapper{
+    margin-top: 80px;
 }
 
 
