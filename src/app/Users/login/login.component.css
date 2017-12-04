@@ -1,7 +1,6 @@
 .margin {
     margin: auto;
   }
-
 .glyphicon-refresh-animate {
   -animation: spin .7s infinite linear;
 }

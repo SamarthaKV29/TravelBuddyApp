@@ -40,10 +40,13 @@
       </div>
     </div>
   </nav>
-  <div class="wrapper">
-    <app-landing *ngIf="landing"></app-landing>
-    <div class="loading" *ngIf="this.loading">
-        <p class="alert alert-warning">Loading . . . </p>
+  <div class="container" style="width:100%; padding:0;margin:0;">
+    <div class="wrapper">
+      <app-landing *ngIf="landing"></app-landing>
+      <div class="loading" *ngIf="this.loading">
+          <p class="alert alert-warning">Loading . . . </p>
+      </div>
+      <router-outlet *ngIf="!this.loading"></router-outlet>
     </div>
-    <router-outlet *ngIf="!this.loading"></router-outlet>
   </div>
+  
