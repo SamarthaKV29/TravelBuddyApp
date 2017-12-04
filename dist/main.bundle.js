@@ -124,7 +124,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Users/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container margin\">\n    <div class=\"row centered-form\">\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\n            <div class=\"panel panel-default\">\n                <div class=\"panel-heading\">\n                    <h3 class=\"panel-title\">Log In \n                    </h3>\n                </div>\n                <div class=\"panel-body\">\n                    <p class=\"text-warning\" *ngIf=\"this.message\">{{this.message}}</p>\n                    <p class=\"text-success\" *ngIf=\"!this.loginstate\">Logged out successfully.</p>\n                    <!-- <form class=\"form-horizontal\" #userLogin=\"ngForm\" method=\"post\">\n                        <fieldset>\n                            <p class=\"text-danger bg-danger\" *ngIf=\"this.error\">Invalid username or password.</p>\n                            <div class=\"form-group\">\n                                <div class=\"col-md-12  inputGroupContainer\">\n                                    <div class=\"input-group\">\n                                        <span class=\"input-group-addon\">\n                                            <i class=\"glyphicon glyphicon-user\"></i>\n                                        </span>\n                                        <input name=\"username\" #name=\"ngModel\" [(ngModel)]=\"this.username\" placeholder=\"User Name\" class=\"form-control\" type=\"text\" required>\n                                        <span class=\"text-warning\" *ngIf=\"username.errors\">Invalid username</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"form-group\">\n                                <div class=\"col-md-12  inputGroupContainer\">\n                                    <div class=\"input-group\">\n                                        <span class=\"input-group-addon\">\n                                            <i class=\"glyphicon glyphicon-lock\"></i>\n                                        </span>\n                                        <input class=\"form-control\" #name=\"ngModel\" name=\"password\" type=\"password\" [(ngModel)]=\"this.password\" placeholder=\"****\" minlength=\"4\"/>\n                                        <span class=\"text-warning\" *ngIf=\"password.errors\">Check password</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"form-group\">\n                                <div class=\"col-md-12\">\n                                    <button type=\"button\" (click)=\"checkLogin()\" class=\"btn btn-info btn-block\">Login\n                                    <i class=\"glyphicon glyphicon-refresh glyphicon-refresh-animate\" *ngIf=\"loading\"></i></button>\n                                </div>\n                            </div>\n                            <div class=\"form-group\">\n                                    <div class=\"col-md-12\">\n                                        <a [routerLink]=\"['/forgotpass']\">Forgot Password</a>\n                                    </div>\n                                </div>\n                        </fieldset>\n                    </form> -->\n                </div>\n            </div>             \n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"container margin\">\n    <div class=\"row centered-form\">\n        <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\n            <div class=\"panel panel-default\">\n                <div class=\"panel-heading\">\n                    <h3 class=\"panel-title\">Log In \n                    </h3>\n                </div>\n                <div class=\"panel-body\">\n                    <div class=\"g-signin2\" data-onsuccess=\"onSignIn\"></div>\n                </div>\n            </div>             \n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -135,55 +135,16 @@ module.exports = "<div class=\"container margin\">\n    <div class=\"row centere
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 /* unused harmony export User */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
 
 var LoginComponent = (function () {
-    function LoginComponent(router, route) {
-        this.router = router;
-        this.route = route;
-        this.users = undefined;
-        this.loginstate = undefined;
-        this.username = "";
-        this.password = "";
-        this.loading = false;
-        this.error = false;
+    function LoginComponent() {
     }
-    LoginComponent.prototype.ngOnInit = function () { };
-    LoginComponent.prototype.checkLogin = function () {
-        var _this = this;
-        this.loading = true;
-        if (this.users) {
-            var USER = this.users.find(function (x) { return x.username.toLowerCase() == _this.username.toLowerCase() && x.password === _this.password; });
-            if (USER) {
-                var currentMilli = new Date().getMilliseconds();
-                var token = {
-                    user: USER,
-                    start: currentMilli
-                };
-                sessionStorage.setItem('token', JSON.stringify(token));
-                this.router.navigate(['home']);
-                this.error = false;
-                this.username = this.password = "";
-            }
-            else {
-                this.error = true;
-                this.password = "";
-            }
-        }
-        else {
-            this.message = "Server busy, please try after some time.";
-        }
-    };
     return LoginComponent;
 }());
 LoginComponent = __decorate([
@@ -192,8 +153,7 @@ LoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/Users/login/login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/Users/login/login.component.css")],
         providers: []
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object])
+    })
 ], LoginComponent);
 
 var User = (function () {
@@ -202,7 +162,6 @@ var User = (function () {
     return User;
 }());
 
-var _a, _b;
 //# sourceMappingURL=login.component.js.map
 
 /***/ }),
