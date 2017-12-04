@@ -8,27 +8,16 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Users/login/login.component';
-<<<<<<< HEAD
-//import { HomeComponent } from './users/home/home.component';
-=======
 import { HomeComponent } from './Users/home/home.component';
->>>>>>> 545a76866c8775769db272a84d38aa3712636e6d
 //import { UserProfileComponent } from './users/user-profile/user-profile.component';
 //import { ForgotPassComponent } from './users/forgot-pass/forgot-pass.component';
 import { ErrorComponent } from './utility/error/error.component';
 import { LandingComponent } from './utility/landing/landing.component';
 import { DateTimePickerModule } from 'ng-pick-datetime';
 import { AboutComponent } from './utility/about/about.component';
-<<<<<<< HEAD
-import { UserProfileComponentComponent } from './Users/user-profile-component/user-profile-component.component';
-//import { InboxComponent } from './users/inbox/inbox.component';
-//import { ManagetripsComponent } from './users/managetrips/managetrips.component';
-//import { CreatetripComponent } from './users/createtrip/createtrip.component';
-=======
 import { InboxComponent } from './users/inbox/inbox.component';
 import { ManagetripsComponent } from './users/managetrips/managetrips.component';
 import { CreatetripComponent } from './users/createtrip/createtrip.component';
->>>>>>> 545a76866c8775769db272a84d38aa3712636e6d
 
 
 const homeRoutes: Routes = [
