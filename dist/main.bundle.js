@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Navigation -->\n<app-navbar></app-navbar>\n\n<!-- Intro Section -->\n<section id=\"sociallogin\" class=\"social-login\">\n  <social-login></social-login>\n</section>\n"
+module.exports = "<section id=\"sociallogin\" class=\"social-login\">\n  <social-login></social-login>\n</section>\n"
 
 /***/ }),
 
