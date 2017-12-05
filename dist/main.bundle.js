@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\n              <span class=\"icon-bar\"></span>\n              <span class=\"icon-bar\"></span>\n              <span class=\"icon-bar\"></span> \n            </button>\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\n          <span class=\"d-inline\">Travel Buddy</span>\n        </a>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\n        <ul class=\"nav navbar-nav\">\n          <li>\n            <a class=\"active\" [routerLink]=\"['/home']\">Home</a>\n          </li>\n          <li>\n            <a [routerLink]=\"['/about']\">About</a>\n          </li>\n          <li>\n              <a [routerLink]=\"['/team']\">Team</a>\n            </li>\n        </ul>\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li *ngIf=\"!this.isLoggedin\">\n            <a [routerLink]=\"['/signup', new]\"> Sign Up</a>\n          </li>\n          <li  *ngIf=\"!this.isLoggedin\">\n            <a [routerLink]=\"['/login', true]\"> Log In</a>\n          </li>\n          <li *ngIf=\"this.isLoggedin\">\n            <a [routerLink]=\"['/profile', this.currentUser.username]\"><i class=\"glyphicon glyphicon-user\"></i> User Profile</a>\n          </li>\n          <li *ngIf=\"this.isLoggedin\">\n            <a [routerLink]=\"['/login', false]\"><i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\n          </li>\n          \n        </ul>\n      </div>\n    </div>\n  </nav>\n  <div class=\"container\" style=\"width:100%; padding:0;margin:0;\">\n    <div class=\"wrapper\">\n      <app-landing *ngIf=\"landing\"></app-landing>\n      <div class=\"loading\" *ngIf=\"this.loading\">\n          <p class=\"alert alert-warning\">Loading . . . </p>\n      </div>\n      <router-outlet *ngIf=\"!this.loading\"></router-outlet>\n    </div>\n  </div>\n  "
+module.exports = "<nav class=\"navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\n              <span class=\"icon-bar\"></span>\n              <span class=\"icon-bar\"></span>\n              <span class=\"icon-bar\"></span> \n            </button>\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\n          <span class=\"d-inline\">Travel Buddy</span>\n        </a>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\n        <ul class=\"nav navbar-nav\">\n          <li>\n            <a class=\"active\" [routerLink]=\"['/home']\">Home</a>\n          </li>\n          <li>\n            <a [routerLink]=\"['/about']\">About</a>\n          </li>\n          <li>\n              <a [routerLink]=\"['/team']\">Team</a>\n            </li>\n        </ul>\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li *ngIf=\"!this.isLoggedin\">\n            <a [routerLink]=\"['/signup', new]\"> Sign Up</a>\n          </li>\n          <li  *ngIf=\"!this.isLoggedin\">\n            <a [routerLink]=\"['/login', true]\"> Log In</a>\n          </li>\n          <li *ngIf=\"this.isLoggedin\">\n            <a [routerLink]=\"['/profile', this.currentUser.username]\"><i class=\"glyphicon glyphicon-user\"></i> User Profile</a>\n          </li>\n          <li *ngIf=\"this.isLoggedin\">\n            <a [routerLink]=\"['/login', false]\"><i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\n          </li>\n          \n        </ul>\n      </div>\n    </div>\n  </nav>\n  <div class=\"container\" style=\"width:100%; padding:0;margin:0;\">\n    <div class=\"wrapper\">\n      <div class=\"loading\" *ngIf=\"this.loading\">\n          <p class=\"alert alert-warning\">Loading . . . </p>\n      </div>\n      <router-outlet *ngIf=\"!this.loading\"></router-outlet>\n    </div>\n  </div>\n  "
 
 /***/ }),
 
@@ -201,7 +201,7 @@ var appRoutes = [
     { path: 'error', component: __WEBPACK_IMPORTED_MODULE_9__utilities_error_error_component__["a" /* ErrorComponent */], pathMatch: "full" },
     { path: 'about', component: __WEBPACK_IMPORTED_MODULE_12__utilities_about_about_component__["a" /* AboutComponent */], pathMatch: "full" },
     { path: 'team', component: __WEBPACK_IMPORTED_MODULE_13__utilities_team_team_component__["a" /* TeamComponent */], pathMatch: "full" },
-    { path: '**', component: __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */], pathMatch: "full" }
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_10__utilities_landing_landing_component__["a" /* LandingComponent */], pathMatch: "full" }
 ];
 //{ path: '**', component: AppComponent},
 var AppModule = (function () {
@@ -260,7 +260,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <div class=\"row center\">\n        <div class=\"col center\">\n            <div class=\"panel panel-info\">\n                <div class=\"panel-heading\">\n                    <div class=\"panel-title\">\n                        {{this.message}}\n                    </div>\n                </div>\n                <!-- *ngIf=\"this.loggedIn\" -->\n                \n                <div class=\"panel-content\">\n                    <ul class=\"nav nav-tabs\">\n                        <li><a [routerLink]=\"['create']\" ><i class=\"glyphicon glyphicon-plus-sign\"></i> Create Trip</a></li>\n                        <li><a [routerLink]=\"['manage']\"><i class=\"glyphicon glyphicon-cog\"></i> Manage Trips</a></li>\n                        <li><a [routerLink]=\"['inbox']\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li>\n                    </ul>\n                </div>\n            </div>\n            <router-outlet></router-outlet>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n    <div class=\"row center\">\n        <div class=\"col center\">\n            <div class=\"panel panel-info\">\n                <div class=\"panel-heading\">\n                    <div class=\"panel-title\" *ngIf=\"!this.loggedIn\">\n                        {{this.message}}\n                    </div>\n                </div>\n                <!--  -->\n                \n                <div class=\"panel-content\">\n                    <ul class=\"nav nav-tabs\" *ngIf=\"this.loggedIn\">\n                        <li><a [routerLink]=\"['create']\" ><i class=\"glyphicon glyphicon-plus-sign\"></i> Create Trip</a></li>\n                        <li><a [routerLink]=\"['manage']\"><i class=\"glyphicon glyphicon-cog\"></i> Manage Trips</a></li>\n                        <li><a [routerLink]=\"['inbox']\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li>\n                    </ul>\n                </div>\n            </div>\n            <router-outlet></router-outlet>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -289,10 +289,10 @@ var HomeComponent = (function () {
         //currentUser: SocialUser;
         this.message = "Please login first.";
         this.loggedIn = false;
-        //setInterval(this.checkLoggedIn, 5000);
+        setInterval(this.checkLoggedIn, 5000);
     }
     HomeComponent.prototype.ngOnInit = function () {
-        //this.checkLoggedIn();
+        this.checkLoggedIn();
     };
     HomeComponent.prototype.checkLoggedIn = function () {
     };

@@ -35,7 +35,7 @@ const appRoutes: Routes = [
   { path: 'error', component: ErrorComponent, pathMatch: "full"},
   { path: 'about', component: AboutComponent, pathMatch: "full"},
   { path: 'team', component: TeamComponent, pathMatch: "full"},
-  { path: '**', component: AppComponent, pathMatch: "full"}
+  { path: '**', component: LandingComponent, pathMatch: "full"}
 ];
 //{ path: '**', component: AppComponent},
 @NgModule({

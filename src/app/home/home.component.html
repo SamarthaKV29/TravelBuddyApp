@@ -3,14 +3,14 @@
         <div class="col center">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <div class="panel-title">
+                    <div class="panel-title" *ngIf="!this.loggedIn">
                         {{this.message}}
                     </div>
                 </div>
-                <!-- *ngIf="this.loggedIn" -->
+                <!--  -->
                 
                 <div class="panel-content">
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs" *ngIf="this.loggedIn">
                         <li><a [routerLink]="['create']" ><i class="glyphicon glyphicon-plus-sign"></i> Create Trip</a></li>
                         <li><a [routerLink]="['manage']"><i class="glyphicon glyphicon-cog"></i> Manage Trips</a></li>
                         <li><a [routerLink]="['inbox']"><i class="glyphicon glyphicon-comment"></i> Inbox</a></li>
