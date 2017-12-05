@@ -26,7 +26,10 @@ export class DemoComponent implements OnInit {
   }
 
   signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(resp=>{
+      this.user = resp;
+      console.log("USER");
+    }, rej=>rej);
   }
 
   signOut(): void {

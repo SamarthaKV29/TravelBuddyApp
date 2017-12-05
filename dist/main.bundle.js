@@ -206,7 +206,11 @@ var DemoComponent = /** @class */ (function () {
         this.authService.signIn(__WEBPACK_IMPORTED_MODULE_1_angular4_social_login__["GoogleLoginProvider"].PROVIDER_ID);
     };
     DemoComponent.prototype.signInWithFB = function () {
-        this.authService.signIn(__WEBPACK_IMPORTED_MODULE_1_angular4_social_login__["FacebookLoginProvider"].PROVIDER_ID);
+        var _this = this;
+        this.authService.signIn(__WEBPACK_IMPORTED_MODULE_1_angular4_social_login__["FacebookLoginProvider"].PROVIDER_ID).then(function (resp) {
+            _this.user = resp;
+            console.log("USER");
+        }, function (rej) { return rej; });
     };
     DemoComponent.prototype.signOut = function () {
         this.authService.signOut();
