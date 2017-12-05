@@ -12,7 +12,7 @@ import { SocialUser } from 'angular4-social-login/entities/user';
 
 
 export class AppComponent implements OnInit{
-  landing: boolean = true;
+  landing: boolean = true; 
   isLoggedin: boolean = false;
   title = 'TravelBuddy';  
   collapsed: boolean = true;
