@@ -14,7 +14,13 @@ export class DemoComponent implements OnInit {
 
   user: SocialUser;
   loggedIn: boolean;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) { 
+    setInterval(()=>{
+      if(this.loggedIn && this.user){
+        console.log("logged In : " + this.user.name);
+      }
+    }, 2000);
+  }
 
   ngOnInit() {
     this.authService.authState.subscribe((user) => {

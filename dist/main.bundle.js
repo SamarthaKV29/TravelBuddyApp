@@ -194,7 +194,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var DemoComponent = (function () {
     function DemoComponent(authService) {
+        var _this = this;
         this.authService = authService;
+        setInterval(function () {
+            if (_this.loggedIn && _this.user) {
+                console.log("logged In : " + _this.user.name);
+            }
+        }, 2000);
     }
     DemoComponent.prototype.ngOnInit = function () {
         var _this = this;
