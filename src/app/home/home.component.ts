@@ -17,29 +17,15 @@ export class HomeComponent implements OnInit{
   message: string = "Please login first.";
   loggedIn: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute) { 
-    //setInterval(this.checkLoggedIn, 5000);
+    setInterval(this.checkLoggedIn, 5000);
   }
 
   ngOnInit() {
-    //this.checkLoggedIn();
+    this.checkLoggedIn();
   }
 
 
-  checkLoggedIn(){
-    if(sessionStorage.getItem('token')){
-      var curr;
-      if (curr = sessionStorage.getItem('token')){
-        curr = JSON.parse(curr);
-        this.currentUser = curr.user;
-        this.message = "Welcome " + this.currentUser.name;
-        this.loggedIn = true;
-      }
-    }
-    else{
-      this.message = "Please login first.";
-      this.loggedIn = false;
-    }
-  }
+  checkLoggedIn(){  }
   
 
 }
