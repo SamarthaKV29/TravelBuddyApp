@@ -7,10 +7,10 @@ import { reject } from 'q';
 
 @Component({
   selector: 'social-login',
-  templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.css']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class DemoComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   user: SocialUser;
   loggedIn: boolean;
