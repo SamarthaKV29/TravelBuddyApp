@@ -35,7 +35,7 @@ export function provideConfig() {
     BrowserModule,
     FormsModule,
     HttpModule,
-    SocialLoginModule
+    SocialLoginModule.initialize(provideConfig())
   ],
   providers: [
     {
