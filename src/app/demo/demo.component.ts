@@ -5,7 +5,7 @@ import { SocialUser } from 'angular4-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
 
 @Component({
-  selector: 'app-demo',
+  selector: 'social-login',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })

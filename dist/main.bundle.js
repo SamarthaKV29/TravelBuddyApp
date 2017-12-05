@@ -109,7 +109,7 @@ var config = new __WEBPACK_IMPORTED_MODULE_7_angular4_social_login__["AuthServic
     },
     {
         id: __WEBPACK_IMPORTED_MODULE_7_angular4_social_login__["FacebookLoginProvider"].PROVIDER_ID,
-        provider: new __WEBPACK_IMPORTED_MODULE_7_angular4_social_login__["FacebookLoginProvider"]("1187767548020643")
+        provider: new __WEBPACK_IMPORTED_MODULE_7_angular4_social_login__["FacebookLoginProvider"]("227631451109453")
     }
 ]);
 function provideConfig() {
