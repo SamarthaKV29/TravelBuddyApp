@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
 import { RouterLink, Router, ActivatedRoute, Event as RouterEvent, NavigationStart, NavigationCancel, NavigationEnd, NavigationError} from '@angular/router';
-import {User} from './Users/login/login.component';
+import { SocialUser } from 'angular4-social-login/entities/user';
+
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,12 @@ import {User} from './Users/login/login.component';
 
 
 export class AppComponent implements OnInit{
-  landing: boolean = true;
+  landing: boolean = true; 
   isLoggedin: boolean = false;
   title = 'TravelBuddy';  
   collapsed: boolean = true;
   loading: boolean = true;
-  currentUser: User;
+  currentUser: SocialUser;
 
   @ViewChild('collapsible') collapsible: ElementRef;
   
@@ -24,20 +25,20 @@ export class AppComponent implements OnInit{
     this.router.events.subscribe((event: RouterEvent) => {
       this.navIntercept(event);
     });
-    sessionStorage.clear();
-    let checker = setInterval(()=>{
-      //console.log("loginstate: " + this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
-      if(sessionStorage.getItem('token')){
-        this.isLoggedin = true;
-        var tok = sessionStorage.getItem('token');
-        var s = JSON.parse(tok);
-        this.currentUser = s.user;
-      }
-      else if(!sessionStorage.getItem('token')){
-        this.isLoggedin = false;
-        this.currentUser = null;
-      }
-    }, 200);
+    // sessionStorage.clear();
+    // let checker = setInterval(()=>{
+    //   //console.log("loginstate: " + this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
+    //   if(sessionStorage.getItem('token')){
+    //     this.isLoggedin = true;
+    //     var tok = sessionStorage.getItem('token');
+    //     var s = JSON.parse(tok);
+    //     this.currentUser = s.user;
+    //   }
+    //   else if(!sessionStorage.getItem('token')){
+    //     this.isLoggedin = false;
+    //     this.currentUser = null;
+    //   }
+    // }, 200);
     
   }
 

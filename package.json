@@ -23,6 +23,7 @@
     "@angular/router": "^4.4.6",
     "@sendgrid/mail": "^6.1.4",
     "angular2-jwt": "^0.2.3",
+    "angular4-social-login": "^1.0.13",
     "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
     "ejs": "^2.5.7",
@@ -30,9 +31,9 @@
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.6",
     "ng-pick-datetime": "^5.0.0-beta.10",
-    "rxjs": "^5.5.3",
+    "rxjs": "^5.1.0",
     "server": "^1.0.12",
-    "zone.js": "^0.8.18"
+    "zone.js": "^0.8.16"
   },
   "devDependencies": {
     "@angular/cli": "^1.5.5",
