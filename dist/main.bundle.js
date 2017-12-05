@@ -55,7 +55,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-var AppComponent = /** @class */ (function () {
+var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent = __decorate([
@@ -115,7 +115,7 @@ var config = new __WEBPACK_IMPORTED_MODULE_7_angular4_social_login__["AuthServic
 function provideConfig() {
     return config;
 }
-var AppModule = /** @class */ (function () {
+var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
@@ -129,7 +129,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_7_angular4_social_login__["SocialLoginModule"]
+                __WEBPACK_IMPORTED_MODULE_7_angular4_social_login__["SocialLoginModule"].initialize(provideConfig())
             ],
             providers: [
                 {
@@ -192,7 +192,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var DemoComponent = /** @class */ (function () {
+var DemoComponent = (function () {
     function DemoComponent(authService) {
         this.authService = authService;
     }
@@ -200,10 +200,11 @@ var DemoComponent = /** @class */ (function () {
         var _this = this;
         this.authService.authState.subscribe(function (user) {
             _this.user = user;
+            _this.loggedIn = (user != null);
         });
     };
     DemoComponent.prototype.signInWithGoogle = function () {
-        this.authService.signIn(__WEBPACK_IMPORTED_MODULE_1_angular4_social_login__["GoogleLoginProvider"].PROVIDER_ID);
+        this.authService.signIn(__WEBPACK_IMPORTED_MODULE_1_angular4_social_login__["GoogleLoginProvider"].PROVIDER_ID).then();
     };
     DemoComponent.prototype.signInWithFB = function () {
         var _this = this;
@@ -271,7 +272,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var NavbarComponent = /** @class */ (function () {
+var NavbarComponent = (function () {
     function NavbarComponent() {
     }
     NavbarComponent.prototype.ngOnInit = function () {
