@@ -7,18 +7,18 @@ import { AppComponent } from './app.component';
 //import { UserService } from './_services/user.service';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './Users/login/login.component';
-import { HomeComponent } from './Users/home/home.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 //import { UserProfileComponent } from './users/user-profile/user-profile.component';
 //import { ForgotPassComponent } from './users/forgot-pass/forgot-pass.component';
-import { ErrorComponent } from './utility/error/error.component';
-import { LandingComponent } from './utility/landing/landing.component';
+import { ErrorComponent } from './utilities/error/error.component';
+import { LandingComponent } from './utilities/landing/landing.component';
 import { DateTimePickerModule } from 'ng-pick-datetime';
-import { AboutComponent } from './utility/about/about.component';
-import { InboxComponent } from './users/inbox/inbox.component';
-import { ManagetripsComponent } from './users/managetrips/managetrips.component';
-import { CreatetripComponent } from './users/createtrip/createtrip.component';
-import { TeamComponent } from './utility/team/team.component';
+import { AboutComponent } from './utilities/about/about.component';
+import { InboxComponent } from './inbox/inbox.component';
+import { ManagetripsComponent } from './managetrips/managetrips.component';
+import { CreatetripComponent } from './createtrip/createtrip.component';
+import { TeamComponent } from './utilities/team/team.component';
 
 
 const homeRoutes: Routes = [

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
 import { RouterLink, Router, ActivatedRoute, Event as RouterEvent, NavigationStart, NavigationCancel, NavigationEnd, NavigationError} from '@angular/router';
-import {User} from './Users/login/login.component';
+import { SocialUser } from 'angular4-social-login/entities/user';
+
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit{
   title = 'TravelBuddy';  
   collapsed: boolean = true;
   loading: boolean = true;
-  currentUser: User;
+  currentUser: SocialUser;
 
   @ViewChild('collapsible') collapsible: ElementRef;
   
