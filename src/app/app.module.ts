@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 //import { UserDetailComponent } from './users/user-detail/user-detail.component';
 //import { UserService } from './_services/user.service';
@@ -15,29 +15,50 @@ import { ErrorComponent } from './utilities/error/error.component';
 import { LandingComponent } from './utilities/landing/landing.component';
 import { DateTimePickerModule } from 'ng-pick-datetime';
 import { AboutComponent } from './utilities/about/about.component';
-import { InboxComponent } from './inbox/inbox.component';
-import { ManagetripsComponent } from './managetrips/managetrips.component';
-import { CreatetripComponent } from './createtrip/createtrip.component';
+//import { InboxComponent } from './inbox/inbox.component';
+// import { ManagetripsComponent } from './managetrips/managetrips.component';
+// import { CreatetripComponent } from './createtrip/createtrip.component';
 import { TeamComponent } from './utilities/team/team.component';
+//FOR AUTH
+import { AuthService, AuthServiceConfig } from 'angular4-social-login';
+import { SocialUser } from 'angular4-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
+import { reject } from 'q';
+import { SocialLoginModule } from 'angular4-social-login/sociallogin.module';
 
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("495117966480-vuaop607voqerspparnctjce9bebaj11.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("1187767548020643")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 const homeRoutes: Routes = [
-  { path: "create", component: CreatetripComponent},
-  { path: "manage", component: ManagetripsComponent},
-  { path: "inbox", component: InboxComponent}
+  // { path: "create", component: CreatetripComponent},
+  // { path: "manage", component: ManagetripsComponent},
+  // { path: "inbox", component: InboxComponent}
 ];
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent, children: homeRoutes},
+  { path: 'home', component: HomeComponent, children: homeRoutes, pathMatch: "full" },
   //{ path: 'signup/:regstate', component: UserDetailComponent },
-  { path: 'signup', redirectTo: 'signup/new'},
-  { path: 'login', redirectTo: 'login/true'},
-  { path: 'login/:loginstate', component: LoginComponent},
+  { path: 'signup', redirectTo: 'signup/new', pathMatch: "full" },
+  { path: 'login', redirectTo: 'login/true', pathMatch: "full" },
+  { path: 'login/:loginstate', component: LoginComponent, pathMatch: "full" },
   //{ path: 'forgotpass', component: ForgotPassComponent },
   //{ path: 'profile/:user', component: UserProfileComponent},
   //{ path: 'profile/:user/:updstate', component: UserProfileComponent },
-  { path: 'error', component: ErrorComponent},
-  { path: 'about', component: AboutComponent},
-  { path: 'team', component: TeamComponent}
+  { path: 'error', component: ErrorComponent, pathMatch: "full" },
+  { path: 'about', component: AboutComponent, pathMatch: "full" },
+  { path: 'team', component: TeamComponent, pathMatch: "full" },
+  { path: '**', component: LandingComponent, pathMatch: "full" }
 ];
 //{ path: '**', component: AppComponent},
 @NgModule({
@@ -51,15 +72,23 @@ const appRoutes: Routes = [
     ErrorComponent,
     LandingComponent,
     AboutComponent,
-    InboxComponent,
-    ManagetripsComponent,
-    CreatetripComponent,
+    // InboxComponent,
+    // ManagetripsComponent,
+    // CreatetripComponent,
     TeamComponent
   ],
   imports: [
-    BrowserModule, DateTimePickerModule, BrowserAnimationsModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes)
+    BrowserModule,
+    DateTimePickerModule,
+    BrowserAnimationsModule, ReactiveFormsModule,
+    FormsModule, HttpModule, RouterModule.forRoot(appRoutes),
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [{
+    useFactory: provideConfig,
+    provide: AuthServiceConfig
+  }],
+  
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })
