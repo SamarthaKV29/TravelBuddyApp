@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
 import { RouterLink, Router, ActivatedRoute, Event as RouterEvent, NavigationStart, NavigationCancel, NavigationEnd, NavigationError} from '@angular/router';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,12 +10,12 @@ import { RouterLink, Router, ActivatedRoute, Event as RouterEvent, NavigationSta
 
 
 export class AppComponent implements OnInit{
-  landing: boolean = true; 
+  landing: boolean = true;
   isLoggedin: boolean = false;
   title = 'TravelBuddy';  
   collapsed: boolean = true;
   loading: boolean = true;
-  //currentUser: SocialUser;
+  //currentUser: User;
 
   @ViewChild('collapsible') collapsible: ElementRef;
   

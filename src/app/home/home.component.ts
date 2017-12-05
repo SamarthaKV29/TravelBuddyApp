@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, ActivatedRoute} from '@angular/router';
-import { SocialUser } from 'angular4-social-login';
 
 
 
@@ -13,19 +12,21 @@ import { SocialUser } from 'angular4-social-login';
 
 
 export class HomeComponent implements OnInit{
-  currentUser: SocialUser;
+  //currentUser: SocialUser;
   message: string = "Please login first.";
   loggedIn: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute) { 
-    setInterval(this.checkLoggedIn, 5000);
+    //setInterval(this.checkLoggedIn, 5000);
   }
 
   ngOnInit() {
-    this.checkLoggedIn();
+    //this.checkLoggedIn();
   }
 
 
-  checkLoggedIn(){  }
+  checkLoggedIn(){
+    
+  }
   
 
 }
