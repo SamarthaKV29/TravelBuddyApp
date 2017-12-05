@@ -42,7 +42,6 @@ const homeRoutes: Routes = [
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, children: homeRoutes, pathMatch: "full"},
   //{ path: 'signup/:regstate', component: UserDetailComponent },
-  { path: 'signup', redirectTo: 'login', pathMatch: "full"},
   { path: 'login', component: LoginComponent, pathMatch: "full"},
   //{ path: 'forgotpass', component: ForgotPassComponent },
   //{ path: 'profile/:user', component: UserProfileComponent},

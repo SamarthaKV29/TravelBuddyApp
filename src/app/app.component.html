@@ -23,17 +23,14 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/signup', new]"> Sign Up</a>
-          </li>
           <li  *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/login', true]"> Log In</a>
+            <a [routerLink]="['/login']"> Log In</a>
           </li>
           <li *ngIf="this.isLoggedin">
             <a [routerLink]="['/profile', this.currentUser.username]"><i class="glyphicon glyphicon-user"></i> User Profile</a>
           </li>
           <li *ngIf="this.isLoggedin">
-            <a [routerLink]="['/login', false]"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
+            <a [routerLink]="['/login']"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
           </li>
           
         </ul>
