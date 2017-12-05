@@ -1,10 +1,10 @@
 {
-  "name": "ng4social-test",
-  "version": "0.0.0",
+  "name": "travelbuddyappsocialsignin",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
