@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#demo {\n  margin-top: 56px;\n}\n", ""]);
+exports.push([module.i, "#sociallogin {\n  margin-top: 56px;\n}\n", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Navigation -->\n<app-navbar></app-navbar>\n\n<!-- Intro Section -->\n<section id=\"demo\" class=\"demo-section\">\n  <app-demo></app-demo>\n</section>\n"
+module.exports = "<!-- Navigation -->\n<app-navbar></app-navbar>\n\n<!-- Intro Section -->\n<section id=\"sociallogin\" class=\"social-login\">\n  <social-login></social-login>\n</section>\n"
 
 /***/ }),
 
@@ -213,7 +213,7 @@ var DemoComponent = /** @class */ (function () {
     };
     DemoComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-demo',
+            selector: 'social-login',
             template: __webpack_require__("../../../../../src/app/demo/demo.component.html"),
             styles: [__webpack_require__("../../../../../src/app/demo/demo.component.css")]
         }),
@@ -292,12 +292,8 @@ var NavbarComponent = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
-    production: false
+    production: true
 };
 
 
