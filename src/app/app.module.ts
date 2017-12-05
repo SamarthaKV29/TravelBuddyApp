@@ -3,14 +3,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-//import { UserDetailComponent } from './users/user-detail/user-detail.component';
-//import { UserService } from './_services/user.service';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-//import { UserProfileComponent } from './users/user-profile/user-profile.component';
-//import { ForgotPassComponent } from './users/forgot-pass/forgot-pass.component';
 import { ErrorComponent } from './utilities/error/error.component';
 import { LandingComponent } from './utilities/landing/landing.component';
 import { DateTimePickerModule } from 'ng-pick-datetime';
@@ -20,10 +16,8 @@ import { AboutComponent } from './utilities/about/about.component';
 // import { CreatetripComponent } from './createtrip/createtrip.component';
 import { TeamComponent } from './utilities/team/team.component';
 //FOR AUTH
-import { AuthService, AuthServiceConfig } from 'angular4-social-login';
-import { SocialUser } from 'angular4-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
-import { reject } from 'q';
+import { GoogleLoginProvider, FacebookLoginProvider, AuthServiceConfig } from 'angular4-social-login';
+
 import { SocialLoginModule } from 'angular4-social-login/sociallogin.module';
 
 let config = new AuthServiceConfig([
@@ -49,9 +43,8 @@ const homeRoutes: Routes = [
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, children: homeRoutes, pathMatch: "full" },
   //{ path: 'signup/:regstate', component: UserDetailComponent },
-  { path: 'signup', redirectTo: 'signup/new', pathMatch: "full" },
-  { path: 'login', redirectTo: 'login/true', pathMatch: "full" },
-  { path: 'login/:loginstate', component: LoginComponent, pathMatch: "full" },
+  { path: 'signup', component: LoginComponent, pathMatch: "full" },
+  { path: 'login', component: LoginComponent, pathMatch: "full" },
   //{ path: 'forgotpass', component: ForgotPassComponent },
   //{ path: 'profile/:user', component: UserProfileComponent},
   //{ path: 'profile/:user/:updstate', component: UserProfileComponent },
@@ -60,15 +53,12 @@ const appRoutes: Routes = [
   { path: 'team', component: TeamComponent, pathMatch: "full" },
   { path: '**', component: LandingComponent, pathMatch: "full" }
 ];
-//{ path: '**', component: AppComponent},
+
 @NgModule({
   declarations: [
     AppComponent,
-    //UserDetailComponent,
     LoginComponent,
     HomeComponent,
-    //UserProfileComponent,
-    //ForgotPassComponent,
     ErrorComponent,
     LandingComponent,
     AboutComponent,
