@@ -1,0 +1,106 @@
+@media only screen and (max-width: 768px) {
+  .img1 {
+    display: none;
+  }
+}
+.btn {
+  background: #191842;
+  background-image: -webkit-linear-gradient(top, #191842, #6461b3);
+  background-image: -moz-linear-gradient(top, #191842, #6461b3);
+  background-image: -ms-linear-gradient(top, #191842, #6461b3);
+  background-image: -o-linear-gradient(top, #191842, #6461b3);
+  background-image: linear-gradient(to bottom, #191842, #6461b3);
+  -webkit-border-radius: 58;
+  -moz-border-radius: 58;
+  border-radius: 58px;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 15px 40px 15px 40px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #6461b3;
+  background-image: -webkit-linear-gradient(top, #6461b3, #191842);
+  background-image: -moz-linear-gradient(top, #6461b3, #191842);
+  background-image: -ms-linear-gradient(top, #6461b3, #191842);
+  background-image: -o-linear-gradient(top, #6461b3, #191842);
+  background-image: linear-gradient(to bottom, #6461b3, #191842);
+  text-decoration: none;
+}
+
+.img1{
+  width:500px;
+  transform: rotate(-7deg);
+  margin-top: 50px; 
+}
+.center{
+  margin: auto;
+  text-align: center !important;
+}
+
+.design{
+  border-top-left-radius: 400px;
+  border-top-right-radius: 400px;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+  
+  animation: fade-in 4s ease infinite alternate;
+}
+.fade-in{
+  animation: fade 1s ease 1 alternate;
+}
+@keyframes fade{
+  0%{opacity: 0%;}
+  25%{opacity: 50%;}
+  90%{opacity: 70}
+  100%{opacity: 100%;}
+}
+@keyframes fade-in{
+  0%{ box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.185) inset;}
+  100%{ box-shadow: 0px 0px 10px 10px rgba(58, 2, 2, 0.445) inset;}
+}
+div{
+  padding: 10px;
+}
+
+.content{
+  animation: landinganim 0.5s 0s alternate both ease-in; 
+}
+.content1{
+  color: lightsalmon;
+  animation: landinganim2 1s 0.6s alternate both ease-in;
+}
+.content2{
+  color: lightgreen;
+  animation: landinganim3 1s 0.6s alternate both ease-in;
+}
+.content3{
+  color: lightskyblue;
+  animation: landinganim2 1s 0.6s alternate both ease-in;
+}
+span{
+  color: gold !important;
+}
+.logo{
+  width: 64px;
+}
+
+@keyframes landinganim{
+  0%{ transform: scale(0) translate(0px, -400px)}
+  100% { transform: scale(1) translate(0px, 0px)}
+}
+
+@keyframes landinganim2 {
+  0%{ transform: scale(0) translate(-400px, 0px)}
+  100% { transform: scale(1) translate(0px, 0px)}
+}
+
+@keyframes landinganim3 {
+  0%{ transform: scale(0) translate(400px, 0px)}
+  100% { transform: scale(1) translate(0px, 0px)}
+}
