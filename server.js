@@ -1,3 +1,5 @@
+import { String } from 'core-js/library/web/timers';
+
 var express  = require('express');
 var app      = express();                               // create our app w/ express
 var mongoose = require('mongoose');                     // mongoose for mongodb
@@ -29,57 +31,74 @@ app.use(bodyParser.urlencoded({ limit: '50mb', 'extended':'true'}));            
 // listen (start app with node server.js) ======================================
 
 //API Model
-var UserSchema = new mongoose.Schema({
-  username: String,
-  created: {
-    date: Date
-  },
-  roles: [],
-  password: String,
-  email: String,
-  phone: String,
-  name: String,
-  profileData: {
-    url: String,
-    gender: String,
-    bio: String,
-    profilePic: String
-  }
-});
-var User = mongoose.model("User", UserSchema);
-
+// var UserSchema = new mongoose.Schema({
+//   username: String,
+//   created: {
+//     date: Date
+//   },
+//   roles: [],
+//   password: String,
+//   email: String,
+//   phone: String,
+//   name: String,
+//   profileData: {
+//     url: String,
+//     gender: String,
+//     bio: String,
+//     profilePic: String
+//   }
+// });
+var TripSchema = new mongoose.Schema({
+  uname: String,
+  from: String,
+  to: String,
+  days: [7]
+})
+// var User = mongoose.model("User", UserSchema);
+var Trip = mongoose.model("Trip", TripSchema);
 //API 
-app.get('/api/v1/users', (req, res)=>{
-  User.find((err, users)=>{
+// app.get('/api/v1/users', (req, res)=>{
+//   User.find((err, users)=>{
+//     if(err){
+//       console.log(err);
+//       return null;
+//     }
+//     return res.json(users);
+//   });
+// });
+
+app.get('/api/v1/trips', (req, res) => {
+  Trip.find((err, trips)=>{
     if(err){
       console.log(err);
-      return null;
     }
-    return res.json(users);
+    return res.json(trips);
   });
 });
 
-app.post('/api/v1/users', (req, res)=>{
-  User.create(req.body, (err, user)=>{
+app.post('/api/v1/trips', (req, res)=>{
+  Trip.create(req.body, (err, trip)=>{
     if(err){
       console.log(err);
       return null;
     }
-    return res.json(user);       
+    return res.json(trip);       
   });
 });
 
-app.put('/api/v1/users/:id', (req, res)=>{
-  var updateDoc = req.body;
-  User.findByIdAndUpdate(req.params.id, updateDoc, (err, user)=>{
-    if(err){
-      console.log(err);
-      return null;
-    }
-    console.log("Update success!");
-    return res.json(user);
-  });
-});
+// app.put('/api/v1/users/:id', (req, res)=>{
+//   var updateDoc = req.body;
+//   User.findByIdAndUpdate(req.params.id, updateDoc, (err, user)=>{
+//     if(err){
+//       console.log(err);
+//       return null;
+//     }
+//     console.log("Update success!");
+//     return res.json(user);
+//   });
+// });
+
+
 
 app.get('*', (req, res)=>{
   res.sendFile(__dirname + '/dist/index.html');
