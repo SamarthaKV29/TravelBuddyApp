@@ -19,18 +19,22 @@
             <a [routerLink]="['/about']">About</a>
           </li>
           <li>
-              <a [routerLink]="['/team']">Team</a>
-            </li>
+            <a [routerLink]="['/team']">Team</a>
+          </li>
+          
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li  *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/login']"> Log In</a>
+            <a [routerLink]="['/login']"><i class="glyphicon glyphicon-log-in"></i>Log In</a>
+          </li>
+          <li  *ngIf="this.isLoggedin">
+            <a [routerLink]="['/message']"><i class="glyphicon glyphicon-envelope"></i>Message</a>
+          </li>
+          <li  *ngIf="this.isLoggedin">
+            <a [routerLink]="['/manage']"><i class="glyphicon glyphicon-plane"></i>Trips</a>
           </li>
           <li *ngIf="this.isLoggedin">
-            <a [routerLink]="['/profile', this.currentUser.username]"><i class="glyphicon glyphicon-user"></i> User Profile</a>
-          </li>
-          <li *ngIf="this.isLoggedin">
-            <a [routerLink]="['/login']"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
+            <a [routerLink]="['/login']"><i class="glyphicon glyphicon-log-out"></i>Logout</a>
           </li>
           
         </ul>

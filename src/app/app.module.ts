@@ -17,7 +17,11 @@ import { DateTimePickerModule } from 'ng-pick-datetime';
 import { AboutComponent } from './utilities/about/about.component';
 import { TeamComponent } from './utilities/team/team.component';
 import { SocialLoginModule } from "angular4-social-login";
+import {ChatboxComponent} from './chatbox/chatbox.component'
 import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
+import { TripComponent } from './trip/trip.component';
+import {Trip} from './trip/trip';
+import {TripService} from './trip/trip.service';
 
 
 let config = new AuthServiceConfig([
@@ -36,7 +40,7 @@ export function provideConfig() {
 }
 const homeRoutes: Routes = [
   // { path: "create", component: CreatetripComponent},
-  // { path: "manage", component: ManagetripsComponent},
+  { path: "manage", component: TripComponent},
   // { path: "inbox", component: InboxComponent}
 ];
 const appRoutes: Routes = [
@@ -49,6 +53,7 @@ const appRoutes: Routes = [
   { path: 'error', component: ErrorComponent, pathMatch: "full"},
   { path: 'about', component: AboutComponent, pathMatch: "full"},
   { path: 'team', component: TeamComponent, pathMatch: "full"},
+  { path: 'message', component: ChatboxComponent, pathMatch: "full"},
   { path: '**', component: LandingComponent, pathMatch: "full"}
 ];
 //{ path: '**', component: AppComponent},
@@ -63,10 +68,12 @@ const appRoutes: Routes = [
     ErrorComponent,
     LandingComponent,
     AboutComponent,
+    ChatboxComponent,
     // InboxComponent,
     // ManagetripsComponent,
     // CreatetripComponent,
-    TeamComponent
+    TeamComponent,
+    TripComponent
   ],
   imports: [
     BrowserModule, SocialLoginModule, DateTimePickerModule, BrowserAnimationsModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes)

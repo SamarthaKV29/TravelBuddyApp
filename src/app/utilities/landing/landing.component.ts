@@ -11,7 +11,7 @@ export class LandingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    localStorage.clear();
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
 import { RouterLink, Router, ActivatedRoute, Event as RouterEvent, NavigationStart, NavigationCancel, NavigationEnd, NavigationError} from '@angular/router';
+import {SocialUser } from 'angular4-social-login';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent implements OnInit{
   title = 'TravelBuddy';  
   collapsed: boolean = true;
   loading: boolean = true;
-  //currentUser: User;
+  currentUser: SocialUser;
 
   @ViewChild('collapsible') collapsible: ElementRef;
   
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit{
     this.router.events.subscribe((event: RouterEvent) => {
       this.navIntercept(event);
     });
+    
     // sessionStorage.clear();
     // let checker = setInterval(()=>{
     //   //console.log("loginstate: " + this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
@@ -37,6 +39,22 @@ export class AppComponent implements OnInit{
     //     this.currentUser = null;
     //   }
     // }, 200);
+    if(localStorage.getItem("UserTok")){
+      this.isLoggedin = true;
+      try{
+        var t = localStorage.getItem('UserTok');
+        var tt = JSON.parse(t);
+        if(tt instanceof SocialUser){
+          this.currentUser = tt;
+        }
+      }
+      catch(err){
+        console.log("Failed, please login.");
+      }
+    }
+    else{
+      this.isLoggedin = false;
+    }
     
   }
 
