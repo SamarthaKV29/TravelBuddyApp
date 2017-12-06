@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class TripService {
-    private TripsUrl = '/api/v1/Trips';
+    private TripsUrl = '/api/v1/trips';
 
     constructor (private http: Http) {}
 
