@@ -1,5 +1,3 @@
-import { String } from 'core-js/library/web/timers';
-
 var express  = require('express');
 var app      = express();                               // create our app w/ express
 var mongoose = require('mongoose');                     // mongoose for mongodb
@@ -52,8 +50,8 @@ var TripSchema = new mongoose.Schema({
   uname: String,
   from: String,
   to: String,
-  days: [7]
-})
+  days: Array(7)
+});
 // var User = mongoose.model("User", UserSchema);
 var Trip = mongoose.model("Trip", TripSchema);
 //API 
