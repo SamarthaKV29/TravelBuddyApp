@@ -1,11 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:700);
 
-body{
-	width: 100% !important;
-    height: 100%;
-    padding: 5%;
-    padding-top: 0;
-}
 .navbar-inverse{
     background-color:#2f296b;;
 }
@@ -16,21 +10,13 @@ body{
     height: 50px;
 	text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
 }
-.container-fluid{
-    padding: 15px 7%;
-}
+
 #collapsible ul.nav * a{
 	color: white !important;
 }
 
 #collapsible ul.nav * a:hover{
     color: gold !important;
-}
-
-router-outlet{
-    text-align: center;
-	margin-top: 80px;
-	height: auto;
 }
 
 .welcomeColor {

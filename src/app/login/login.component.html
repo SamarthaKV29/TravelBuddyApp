@@ -1,28 +1,29 @@
-<div class="jumbotron bg-transparent text-center">
-  <div *ngIf="!user" class="card text-center">
-    <h6 class="card-header">
-      Login
-    </h6>
-    <div class="card-block">
-      <h4><p class="card-text">Sign in with</p></h4>
-    </div>
-    <div class="card-block">
-      <button class="btn btn-social-icon btn-google" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
-      <button class="btn btn-social-icon btn-facebook" (click)="signInWithFB()"><span class="fa fa-facebook"></span></button>
-    </div>
-  </div>
-  <div *ngIf="user" class="card text-center">
-    <h6 class="card-header">
-      Social Login Demo
-    </h6>
-    <div class="card-block"></div>
-    <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
-    <div class="card-block">
-      <h4 class="card-title">{{ user.name }}</h4>
-      <p class="card-text">{{ user.email }}</p>
-    </div>
-    <div class="card-block">
-      <button class="btn btn-danger" (click)="signOut()">Sign out</button>
-    </div>
+<div class="row cent">
+  <div class="col-md-6 cent">
+      <div *ngIf="!user" class="panel panel-default text-center">
+          <div class="panel-heading card-block">
+            <h4><p class="panel-title ">Sign in with</p></h4>
+          </div>
+          <div class="panel-body">
+            <div class="card-block">
+              <button class="btn btn-social-icon btn-google padding" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
+              <button class="btn btn-social-icon btn-facebook padding" (click)="signInWithFB()"><span class="fa fa-facebook"></span></button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="user" class="card text-center">
+          <h6 class="card-header">
+            Social Login Demo
+          </h6>
+          <div class="card-block"></div>
+          <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+          <div class="card-block">
+            <h4 class="card-title">{{ user.name }}</h4>
+            <p class="card-text">{{ user.email }}</p>
+          </div>
+          <div class="card-block">
+            <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+          </div>
+        </div>
   </div>
 </div>

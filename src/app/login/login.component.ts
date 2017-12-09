@@ -5,6 +5,7 @@ import { SocialUser } from 'angular4-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
 import { Router} from '@angular/router';
 
+
 @Component({
   selector: 'social-login',
   templateUrl: './login.component.html',
@@ -20,29 +21,31 @@ export class LoginComponent implements OnInit{
       this.authService.authState.subscribe((user) => {
         this.user = user;
       });
-      
+      setInterval(()=>{
+        if(this.user){
+          console.log("LOGGED IN");
+        }
+      }, 1000);
     }
   
     signInWithGoogle(): void {
-      this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(onfullilled=>{
-        if(this.user && !localStorage.getItem("UserTok")){
-          localStorage.setItem("UserTok", JSON.stringify(this.user));
-        }
-        console.log(this.user);
-        this.router.navigate(['home']);
-      });
+      this.signIn(GoogleLoginProvider.PROVIDER_ID);
     }
   
     signInWithFB(): void {
-      this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(onfullilled=>{
+      this.signIn(FacebookLoginProvider.PROVIDER_ID);
+    }
+  
+    signIn(prov_id): void {
+      this.authService.signIn(prov_id).then(success=>{
+        localStorage.clear();
         if(this.user && !localStorage.getItem("UserTok")){
           localStorage.setItem("UserTok", JSON.stringify(this.user));
         }
-        console.log(this.user);
         this.router.navigate(['home']);
-      });;
+      });
+      
     }
-  
     signOut(): void {
       this.authService.signOut().then(success=>{
         if(this.user && localStorage.getItem("UserTok")){
@@ -50,5 +53,7 @@ export class LoginComponent implements OnInit{
           this.user = null;
         }
       });
+      
+      
     }
 }

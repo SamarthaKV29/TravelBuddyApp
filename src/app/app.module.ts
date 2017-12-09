@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppComponent } from './app.component';
 //import { UserDetailComponent } from './users/user-detai
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, RouterLink, ɵROUTER_PROVIDERS  } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 //import { UserProfileComponent } from './users/user-profile/user-profile.component';
@@ -22,6 +22,7 @@ import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'a
 import { TripComponent } from './trip/trip.component';
 import {Trip} from './trip/trip';
 import {TripService} from './trip/trip.service';
+import { ProfileComponent } from './profile/profile.component';
 
 
 let config = new AuthServiceConfig([
@@ -40,11 +41,12 @@ export function provideConfig() {
 }
 const homeRoutes: Routes = [
   // { path: "create", component: CreatetripComponent},
-  { path: "manage", component: TripComponent},
-  // { path: "inbox", component: InboxComponent}
+  { path: "trips", component: TripComponent},
+  { path: "profile", component: ProfileComponent}
+  //{ path: "**", component: TripComponent, pathMatch:"full"}
 ];
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent, children: homeRoutes, pathMatch: "full"},
+  { path: 'home', component: HomeComponent, children: homeRoutes},
   //{ path: 'signup/:regstate', component: UserDetailComponent },
   { path: 'login', component: LoginComponent, pathMatch: "full"},
   //{ path: 'forgotpass', component: ForgotPassComponent },
@@ -73,7 +75,8 @@ const appRoutes: Routes = [
     // ManagetripsComponent,
     // CreatetripComponent,
     TeamComponent,
-    TripComponent
+    TripComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule, SocialLoginModule, DateTimePickerModule, BrowserAnimationsModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes)
@@ -82,7 +85,8 @@ const appRoutes: Routes = [
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    TripService
   ],
   bootstrap: [AppComponent],
   exports: [RouterModule]

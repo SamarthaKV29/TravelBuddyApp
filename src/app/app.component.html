@@ -13,40 +13,44 @@
       <div class="collapse navbar-collapse" id="collapsible" #collapsible>
         <ul class="nav navbar-nav">
           <li>
-            <a class="active" [routerLink]="['/home']">Home</a>
+            <a class="active" [routerLink]="['/home']"><i class="fa fa-home"></i> Home</a>
           </li>
           <li>
-            <a [routerLink]="['/about']">About</a>
+            <a [routerLink]="['/about']"><i class="fa fa-vcard"></i> About</a>
           </li>
           <li>
-            <a [routerLink]="['/team']">Team</a>
+            <a [routerLink]="['/team']"><i class="fa fa-users"></i> Team</a>
           </li>
           
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li  *ngIf="!this.isLoggedin">
-            <a [routerLink]="['/login']"><i class="glyphicon glyphicon-log-in"></i>Log In</a>
+            <a [routerLink]="['/login']"><i class="fa fa-signin"></i> Log In</a>
           </li>
           <li  *ngIf="this.isLoggedin">
-            <a [routerLink]="['/message']"><i class="glyphicon glyphicon-envelope"></i>Message</a>
+            <a [routerLink]="['/message']"><i class="glyphicon glyphicon-envelope"></i> Message</a>
           </li>
           <li  *ngIf="this.isLoggedin">
-            <a [routerLink]="['/manage']"><i class="glyphicon glyphicon-plane"></i>Trips</a>
+            <a [routerLink]="['/trips']"><i class="glyphicon glyphicon-plane"></i> Trips</a>
           </li>
           <li *ngIf="this.isLoggedin">
-            <a [routerLink]="['/login']"><i class="glyphicon glyphicon-log-out"></i>Logout</a>
+            <a [routerLink]="['/login']"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
           </li>
           
         </ul>
       </div>
     </div>
   </nav>
-  <div class="container" style="width:100%; padding:0;margin:0;">
+  <div class="container" style="width:98%; margin: auto; padding: 2%">
     <div class="wrapper">
       <div class="loading" *ngIf="this.loading">
           <p class="alert alert-warning">Loading . . . </p>
       </div>
-      <router-outlet *ngIf="!this.loading"></router-outlet>
+      <div class="row">
+        <div class="col-md-12">
+            <router-outlet *ngIf="!this.loading" class="cent" ></router-outlet>
+        </div>
+      </div>
     </div>
   </div>
   

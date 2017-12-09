@@ -1,23 +1,28 @@
-<div class="container">
-    <div class="row center">
-        <div class="col center">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title" *ngIf="!this.loggedIn">
-                        {{this.message}}
-                    </div>
-                </div>
-                <!--  -->
-                
-                <div class="panel-content">
-                    <ul class="nav nav-tabs" *ngIf="this.loggedIn">
-                        <li><a [routerLink]="['create']" ><i class="glyphicon glyphicon-plus-sign"></i> Create Trip</a></li>
-                        <li><a [routerLink]="['manage']"><i class="glyphicon glyphicon-cog"></i> Manage Trips</a></li>
-                        <li><a [routerLink]="['inbox']"><i class="glyphicon glyphicon-comment"></i> Inbox</a></li>
-                    </ul>
+<div class="row cent">
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <span *ngIf="!this.loggedIn ">{{this.message}}</span>
+                    <span *ngIf="this.loggedIn"> <i class="glyphicon glyphicon-home"></i> Home </span>
                 </div>
             </div>
-            <router-outlet></router-outlet>
+            <!--  -->
+            
+            <div class="panel-content">
+                <ul class="nav nav-tabs" *ngIf="this.loggedIn">
+                    <!-- <li><a [routerLink]="['create']" ><i class="glyphicon glyphicon-plus-sign"></i> Create Trip</a></li> -->
+                    <li><a [routerLink]="['trips']"><i class="glyphicon glyphicon-cog"></i> Manage Trips </a></li>
+                    <!-- <li><a [routerLink]="['inbox']"><i class="glyphicon glyphicon-comment"></i> Inbox</a></li> -->
+                    <li><a [routerLink]="['profile']"><i class="glyphicon glyphicon-user"></i> Profile </a></li>
+                </ul>
+            </div>
         </div>
+        
+    </div>
+</div>
+<div class="row cent">
+    <div class="col-md-12">
+        <router-outlet class="cent"></router-outlet>
     </div>
 </div>

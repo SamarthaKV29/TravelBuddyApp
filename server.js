@@ -47,6 +47,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', 'extended':'true'}));            
 //   }
 // });
 var TripSchema = new mongoose.Schema({
+  _id: String,
   uname: String,
   from: String,
   to: String,

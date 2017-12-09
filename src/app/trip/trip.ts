@@ -1,6 +1,7 @@
 export class Trip{
+    _id: String;
     uname: String;
     from: String;
     to: String;
-    days: [7]
+    days: Array<Number>;
 }
