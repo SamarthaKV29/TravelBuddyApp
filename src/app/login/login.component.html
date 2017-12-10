@@ -1,6 +1,6 @@
 <div class="row cent">
   <div class="col-md-6 cent">
-      <div *ngIf="!user" class="panel panel-default text-center">
+      <div *ngIf="!this.user && !this.loggedIn" class="panel panel-default text-center">
           <div class="panel-heading card-block">
             <h4><p class="panel-title ">Sign in with</p></h4>
           </div>
@@ -11,7 +11,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="user" class="card text-center">
+        <div *ngIf="this.user && this.loggedIn" class="card text-center">
           <h6 class="card-header">
             Social Login Demo
           </h6>

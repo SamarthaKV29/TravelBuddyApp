@@ -13,23 +13,27 @@ import { Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit{
 
-  user: SocialUser;
-  loggedIn: boolean;
+  user: SocialUser = null;
+  loggedIn: boolean = false;
   constructor(private authService: AuthService, private router: Router) {   }
   
     ngOnInit() {
-      this.loggedIn = false;
-      this.user = null;
       this.authService.authState.subscribe((user) => {
         this.user = user;
       });
       setInterval(()=>{
-        if(this.user){
-          console.log("LOGGED IN");
-        }
-      }, 1000);
+        this.checkLogin();
+      }, 200);
     }
   
+    checkLogin(){
+      if(localStorage.getItem("UserTok")){
+        this.loggedIn = true;
+      }
+      else{
+        this.loggedIn = false;
+      }
+    }
     signInWithGoogle(): void {
       this.signIn(GoogleLoginProvider.PROVIDER_ID);
     }
@@ -44,6 +48,7 @@ export class LoginComponent implements OnInit{
         if(this.user && !localStorage.getItem("UserTok")){
           localStorage.setItem("UserTok", JSON.stringify(this.user));
         }
+        this.loggedIn = true;
         this.router.navigate(['home']);
       });
       
@@ -55,6 +60,11 @@ export class LoginComponent implements OnInit{
           this.user = null;
         }
       });
+      if(this.loggedIn){
+        this.loggedIn = false;
+        localStorage.clear();
+      }
+      console.log(localStorage.length, this.loggedIn);
       
       
     }

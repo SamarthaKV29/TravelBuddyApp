@@ -49,8 +49,6 @@ module.exports = "<nav class=\"navbar-inverse\">\n    <div class=\"container-flu
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular4_social_login__ = __webpack_require__("../../../../angular4-social-login/angular4-social-login.umd.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular4_social_login___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular4_social_login__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62,7 +60,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var AppComponent = (function () {
     function AppComponent(router, route, renderer) {
         var _this = this;
@@ -70,29 +67,22 @@ var AppComponent = (function () {
         this.route = route;
         this.renderer = renderer;
         this.landing = true;
-        this.isLoggedin = false;
         this.title = 'TravelBuddy';
         this.collapsed = true;
         this.loading = true;
+        this.isLoggedin = false;
         this.router.events.subscribe(function (event) {
             _this.navIntercept(event);
         });
-        if (localStorage.getItem("UserTok")) {
-            this.isLoggedin = true;
-            try {
-                var t = localStorage.getItem('UserTok');
-                var tt = JSON.parse(t);
-                if (tt instanceof __WEBPACK_IMPORTED_MODULE_2_angular4_social_login__["SocialUser"]) {
-                    this.currentUser = tt;
-                }
+        setInterval(function () {
+            if (localStorage.getItem("UserTok")) {
+                _this.isLoggedin = true;
+                _this.currentUser = JSON.parse(localStorage.getItem("UserTok"));
             }
-            catch (err) {
-                console.log("Failed, please login.");
+            else {
+                _this.isLoggedin = false;
             }
-        }
-        else {
-            this.isLoggedin = false;
-        }
+        }, 200);
     }
     AppComponent.prototype.navIntercept = function (event) {
         if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["e" /* NavigationStart */]) {
@@ -415,14 +405,10 @@ var HomeComponent = (function () {
         setInterval(this.checkLoggedIn, 200);
     }
     HomeComponent.prototype.ngOnInit = function () {
-        var _this = this;
         this.checkLoggedIn();
-        setInterval(function () {
-            _this.checkLoggedIn();
-        }, 200);
     };
     HomeComponent.prototype.checkLoggedIn = function () {
-        if (localStorage.getItem('UserTok')) {
+        if (!this.loggedIn && localStorage.getItem('UserTok')) {
             try {
                 var t = localStorage.getItem('UserTok');
                 var tt = JSON.parse(t);
@@ -435,8 +421,9 @@ var HomeComponent = (function () {
                 console.log("Failed, please login.");
             }
         }
-        else
+        else {
             this.loggedIn = false;
+        }
     };
     return HomeComponent;
 }());
@@ -476,7 +463,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row cent\">\n  <div class=\"col-md-6 cent\">\n      <div *ngIf=\"!user\" class=\"panel panel-default text-center\">\n          <div class=\"panel-heading card-block\">\n            <h4><p class=\"panel-title \">Sign in with</p></h4>\n          </div>\n          <div class=\"panel-body\">\n            <div class=\"card-block\">\n              <button class=\"btn btn-social-icon btn-google padding\" (click)=\"signInWithGoogle()\"><span class=\"fa fa-google\"></span></button>\n              <button class=\"btn btn-social-icon btn-facebook padding\" (click)=\"signInWithFB()\"><span class=\"fa fa-facebook\"></span></button>\n            </div>\n          </div>\n        </div>\n        <div *ngIf=\"user\" class=\"card text-center\">\n          <h6 class=\"card-header\">\n            Social Login Demo\n          </h6>\n          <div class=\"card-block\"></div>\n          <img class=\"card-img-top img-responsive photo\" src=\"{{ user.photoUrl }}\">\n          <div class=\"card-block\">\n            <h4 class=\"card-title\">{{ user.name }}</h4>\n            <p class=\"card-text\">{{ user.email }}</p>\n          </div>\n          <div class=\"card-block\">\n            <button class=\"btn btn-danger\" (click)=\"signOut()\">Sign out</button>\n          </div>\n        </div>\n  </div>\n</div>"
+module.exports = "<div class=\"row cent\">\n  <div class=\"col-md-6 cent\">\n      <div *ngIf=\"!this.user && !this.loggedIn\" class=\"panel panel-default text-center\">\n          <div class=\"panel-heading card-block\">\n            <h4><p class=\"panel-title \">Sign in with</p></h4>\n          </div>\n          <div class=\"panel-body\">\n            <div class=\"card-block\">\n              <button class=\"btn btn-social-icon btn-google padding\" (click)=\"signInWithGoogle()\"><span class=\"fa fa-google\"></span></button>\n              <button class=\"btn btn-social-icon btn-facebook padding\" (click)=\"signInWithFB()\"><span class=\"fa fa-facebook\"></span></button>\n            </div>\n          </div>\n        </div>\n        <div *ngIf=\"this.user && this.loggedIn\" class=\"card text-center\">\n          <h6 class=\"card-header\">\n            Social Login Demo\n          </h6>\n          <div class=\"card-block\"></div>\n          <img class=\"card-img-top img-responsive photo\" src=\"{{ user.photoUrl }}\">\n          <div class=\"card-block\">\n            <h4 class=\"card-title\">{{ user.name }}</h4>\n            <p class=\"card-text\">{{ user.email }}</p>\n          </div>\n          <div class=\"card-block\">\n            <button class=\"btn btn-danger\" (click)=\"signOut()\">Sign out</button>\n          </div>\n        </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -506,19 +493,25 @@ var LoginComponent = (function () {
     function LoginComponent(authService, router) {
         this.authService = authService;
         this.router = router;
+        this.user = null;
+        this.loggedIn = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.loggedIn = false;
-        this.user = null;
         this.authService.authState.subscribe(function (user) {
             _this.user = user;
         });
         setInterval(function () {
-            if (_this.user) {
-                console.log("LOGGED IN");
-            }
-        }, 1000);
+            _this.checkLogin();
+        }, 200);
+    };
+    LoginComponent.prototype.checkLogin = function () {
+        if (localStorage.getItem("UserTok")) {
+            this.loggedIn = true;
+        }
+        else {
+            this.loggedIn = false;
+        }
     };
     LoginComponent.prototype.signInWithGoogle = function () {
         this.signIn(__WEBPACK_IMPORTED_MODULE_1_angular4_social_login__["GoogleLoginProvider"].PROVIDER_ID);
@@ -533,6 +526,7 @@ var LoginComponent = (function () {
             if (_this.user && !localStorage.getItem("UserTok")) {
                 localStorage.setItem("UserTok", JSON.stringify(_this.user));
             }
+            _this.loggedIn = true;
             _this.router.navigate(['home']);
         });
     };
@@ -544,6 +538,11 @@ var LoginComponent = (function () {
                 _this.user = null;
             }
         });
+        if (this.loggedIn) {
+            this.loggedIn = false;
+            localStorage.clear();
+        }
+        console.log(localStorage.length, this.loggedIn);
     };
     return LoginComponent;
 }());

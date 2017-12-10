@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
 import { RouterLink, Router, ActivatedRoute, Event as RouterEvent, NavigationStart, NavigationCancel, NavigationEnd, NavigationError} from '@angular/router';
-import {SocialUser } from 'angular4-social-login';
+import { SocialUser } from 'angular4-social-login';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +12,10 @@ import {SocialUser } from 'angular4-social-login';
 
 export class AppComponent implements OnInit{
   landing: boolean = true;
-  isLoggedin: boolean = false;
   title = 'TravelBuddy';  
   collapsed: boolean = true;
   loading: boolean = true;
+  isLoggedin: boolean = false;
   currentUser: SocialUser;
 
   @ViewChild('collapsible') collapsible: ElementRef;
@@ -24,23 +24,15 @@ export class AppComponent implements OnInit{
     this.router.events.subscribe((event: RouterEvent) => {
       this.navIntercept(event);
     });
-    if(localStorage.getItem("UserTok")){
-      this.isLoggedin = true;
-      try{
-        var t = localStorage.getItem('UserTok');
-        var tt = JSON.parse(t);
-        if(tt instanceof SocialUser){
-          this.currentUser = tt;
-        }
+    setInterval(()=>{
+      if(localStorage.getItem("UserTok")){
+        this.isLoggedin = true;
+        this.currentUser = JSON.parse(localStorage.getItem("UserTok"));
       }
-      catch(err){
-        console.log("Failed, please login.");
+      else{
+        this.isLoggedin = false;
       }
-    }
-    else{
-      this.isLoggedin = false;
-    }
-    
+    }, 200);
   }
 
   navIntercept(event: RouterEvent): void{

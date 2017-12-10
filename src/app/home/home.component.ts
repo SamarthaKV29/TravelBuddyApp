@@ -21,14 +21,11 @@ export class HomeComponent implements OnInit{
 
   ngOnInit() {
     this.checkLoggedIn();
-    setInterval(()=>{
-      this.checkLoggedIn();
-    }, 200);
   }
 
 
   checkLoggedIn(){
-    if(localStorage.getItem('UserTok')){
+    if(!this.loggedIn && localStorage.getItem('UserTok')){
       try{
         var t = localStorage.getItem('UserTok');
         var tt = JSON.parse(t);
@@ -41,8 +38,11 @@ export class HomeComponent implements OnInit{
         console.log("Failed, please login.");
       }
     }
-    else
+    else{
       this.loggedIn = false;
+    }
+    
+      
   }
   
 
