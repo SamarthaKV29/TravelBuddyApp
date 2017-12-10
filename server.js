@@ -67,6 +67,7 @@ var Trip = mongoose.model("Trip", TripSchema);
 // });
 
 app.get('/api/v1/trips', (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "travel-buddy-app.herokuapp.com");
   Trip.find((err, trips)=>{
     if(err){
       console.log(err);

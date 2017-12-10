@@ -12,9 +12,12 @@ export class TripService {
 
     // get("/api/Trips")
     getTrips(): Promise<void | Trip[]> {
+
       return this.http.get(this.TripsUrl)
                  .toPromise()
-                 .then(response => response.json() as Trip[])
+                 .then(response => {
+                     return response.json() as Trip[];
+                    })
                  .catch(handle);
     }
     //post`

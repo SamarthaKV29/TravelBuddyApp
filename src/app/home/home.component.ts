@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.checkLoggedIn();
     setInterval(()=>{
       this.checkLoggedIn();
     }, 200);
@@ -28,7 +29,6 @@ export class HomeComponent implements OnInit{
 
   checkLoggedIn(){
     if(localStorage.getItem('UserTok')){
-      
       try{
         var t = localStorage.getItem('UserTok');
         var tt = JSON.parse(t);

@@ -24,21 +24,6 @@ export class AppComponent implements OnInit{
     this.router.events.subscribe((event: RouterEvent) => {
       this.navIntercept(event);
     });
-    
-    // sessionStorage.clear();
-    // let checker = setInterval(()=>{
-    //   //console.log("loginstate: " + this.isLoggedin, "sessionStore: " + sessionStorage.getItem('token'));
-    //   if(sessionStorage.getItem('token')){
-    //     this.isLoggedin = true;
-    //     var tok = sessionStorage.getItem('token');
-    //     var s = JSON.parse(tok);
-    //     this.currentUser = s.user;
-    //   }
-    //   else if(!sessionStorage.getItem('token')){
-    //     this.isLoggedin = false;
-    //     this.currentUser = null;
-    //   }
-    // }, 200);
     if(localStorage.getItem("UserTok")){
       this.isLoggedin = true;
       try{
