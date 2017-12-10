@@ -13,7 +13,7 @@ import {Trip} from './trip';
 export class TripComponent implements OnInit {
 
   selectedTrip: Trip;
-  trips: Trip[] = [{"_id":"5a272a97734d1d08d124fbb4","uname":"samarthakv29@gmail.com","from":"Boston","to":"Lowell","days":[1,0,1,0,0,0,0]},{"_id":"5a272b16734d1d08d124ff06","uname":"swami.akul@gmail.com","from":"Nashua","to":"Lawrence","days":[1,0,1,1,0,0,0]},{"_id":"5a272b62734d1d08d125017d","uname":"aanchal.sharma.punj@gmail.com","from":"Nashua","to":"Lawrence","days":[1,1,1,1,0,0,0]},{"_id":"5a272b9d734d1d08d12502e9","uname":"riyabulia12@gmail.com","from":"Boston","to":"Lowell","days":[1,0,1,0,0,0,0]}];
+  trips: Trip[];
   constructor(private TripService: TripService) { }
 
   ngOnInit() {
