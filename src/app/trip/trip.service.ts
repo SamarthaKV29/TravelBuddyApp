@@ -11,12 +11,14 @@ export class TripService {
     constructor (private http: Http) {}
 
     // get("/api/Trips")
-    getTrips(): Promise<void | Trip[]> {
+    getTrips(userEmailID: String): Promise<void | Trip[]> {
 
       return this.http.get(this.TripsUrl)
                  .toPromise()
                  .then(response => {
-                     return response.json() as Trip[];
+                     var trips = response.json() as Trip[];
+                     trips = trips.filter(trip => trip.uname == userEmailID);
+                     return trips;
                     })
                  .catch(handle);
     }

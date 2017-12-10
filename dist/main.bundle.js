@@ -683,8 +683,9 @@ var TripComponent = (function () {
     }
     TripComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.currUser = JSON.parse(localStorage.getItem("UserTok"));
         if (!this.trips)
-            this.TripService.getTrips().then(function (trips) {
+            this.TripService.getTrips(this.currUser.email).then(function (trips) {
                 _this.trips = trips.map(function (trip) {
                     return trip;
                 });
@@ -736,11 +737,13 @@ var TripService = (function () {
         this.TripsUrl = 'https://travel-buddy-app.herokuapp.com/api/v1/trips';
     }
     // get("/api/Trips")
-    TripService.prototype.getTrips = function () {
+    TripService.prototype.getTrips = function (userEmailID) {
         return this.http.get(this.TripsUrl)
             .toPromise()
             .then(function (response) {
-            return response.json();
+            var trips = response.json();
+            trips = trips.filter(function (trip) { return trip.uname == userEmailID; });
+            return trips;
         })
             .catch(handle);
     };

@@ -66,7 +66,8 @@ var Trip = mongoose.model("Trip", TripSchema);
 //   });
 // });
 
-app.get('/api/v1/trips', (req, res) => {
+app.get('/api/v1/trips/', (req, res) => {
+  var id = req.params.id;
   Trip.find((err, trips)=>{
     if(err){
       console.log(err);
@@ -75,7 +76,7 @@ app.get('/api/v1/trips', (req, res) => {
   });
 });
 
-app.post('/api/v1/trips', (req, res)=>{
+app.post('/api/v1/trips/', (req, res)=>{
   Trip.create(req.body, (err, trip)=>{
     if(err){
       console.log(err);
@@ -110,7 +111,7 @@ app.use((err, req, res, next)=>{
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>\
     </head>\
     <body>\
-      <div class='container center-block'> \
+      <div class='container'> \
         <div class='row'> \
           <div class='col-md-6 center-block'> \
             <p class='alert alert-danger'>"+ err.message +"</p>\
