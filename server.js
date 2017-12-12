@@ -26,26 +26,12 @@ app.use(bodyParser.json({ limit: '50mb'}));                                     
 app.use(bodyParser.json({ limit: '50mb', type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(bodyParser.urlencoded({ limit: '50mb', 'extended':'true'}));            // parse application/x-www-form-urlencoded
 
-// listen (start app with node server.js) ======================================
 
-//API Model
-// var UserSchema = new mongoose.Schema({
-//   username: String,
-//   created: {
-//     date: Date
-//   },
-//   roles: [],
-//   password: String,
-//   email: String,
-//   phone: String,
-//   name: String,
-//   profileData: {
-//     url: String,
-//     gender: String,
-//     bio: String,
-//     profilePic: String
-//   }
-// });
+var PalSchema = new mongoose.Schema({
+  _id: String,
+  userID: String,
+  pals: []
+});
 var TripSchema = new mongoose.Schema({
   _id: String,
   uname: String,
@@ -53,21 +39,20 @@ var TripSchema = new mongoose.Schema({
   to: String,
   days: Array(7)
 });
-// var User = mongoose.model("User", UserSchema);
+
 var Trip = mongoose.model("Trip", TripSchema);
-//API 
-// app.get('/api/v1/users', (req, res)=>{
-//   User.find((err, users)=>{
-//     if(err){
-//       console.log(err);
-//       return null;
-//     }
-//     return res.json(users);
-//   });
-// });
+var Pal = mongoose.model("Pal", PalSchema);
+
+app.get('/api/v1/pals/', (req, res)=>{
+  Pal.find((err, pals)=>{
+    if(err){
+      console.log(err);
+    }
+    return res.json(pals);
+  });
+});
 
 app.get('/api/v1/trips/', (req, res) => {
-  var id = req.params.id;
   Trip.find((err, trips)=>{
     if(err){
       console.log(err);

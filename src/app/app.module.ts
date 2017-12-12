@@ -23,6 +23,7 @@ import { TripComponent } from './trip/trip.component';
 import {Trip} from './trip/trip';
 import {TripService} from './trip/trip.service';
 import { ProfileComponent } from './profile/profile.component';
+import { PalComponent } from './pal/pal.component';
 
 
 let config = new AuthServiceConfig([
@@ -76,7 +77,8 @@ const appRoutes: Routes = [
     // CreatetripComponent,
     TeamComponent,
     TripComponent,
-    ProfileComponent
+    ProfileComponent,
+    PalComponent
   ],
   imports: [
     BrowserModule, SocialLoginModule, DateTimePickerModule, BrowserAnimationsModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot( appRoutes)

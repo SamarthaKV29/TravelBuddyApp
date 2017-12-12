@@ -166,6 +166,7 @@ var _a, _b, _c, _d;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__trip_trip_component__ = __webpack_require__("../../../../../src/app/trip/trip.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__trip_trip_service__ = __webpack_require__("../../../../../src/app/trip/trip.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pal_pal_component__ = __webpack_require__("../../../../../src/app/pal/pal.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -185,6 +186,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 //import { UserProfileComponent } from './users/user-profile/user-profile.component';
 //import { ForgotPassComponent } from './users/fl/user-detail.component';
 //import { UserService } from './_services/user.service';orgot-pass/forgot-pass.component';
+
 
 
 
@@ -252,7 +254,8 @@ AppModule = __decorate([
             // CreatetripComponent,
             __WEBPACK_IMPORTED_MODULE_13__utilities_team_team_component__["a" /* TeamComponent */],
             __WEBPACK_IMPORTED_MODULE_16__trip_trip_component__["a" /* TripComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__profile_profile_component__["a" /* ProfileComponent */]
+            __WEBPACK_IMPORTED_MODULE_18__profile_profile_component__["a" /* ProfileComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__pal_pal_component__["a" /* PalComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_14_angular4_social_login__["SocialLoginModule"], __WEBPACK_IMPORTED_MODULE_11_ng_pick_datetime__["DateTimePickerModule"], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_6__angular_router__["h" /* RouterModule */].forRoot(appRoutes)
@@ -557,6 +560,67 @@ LoginComponent = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=login.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/pal/pal.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pal/pal.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  pal works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pal/pal.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PalComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PalComponent = (function () {
+    function PalComponent() {
+    }
+    PalComponent.prototype.ngOnInit = function () {
+    };
+    return PalComponent;
+}());
+PalComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-pal',
+        template: __webpack_require__("../../../../../src/app/pal/pal.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/pal/pal.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], PalComponent);
+
+//# sourceMappingURL=pal.component.js.map
 
 /***/ }),
 
