@@ -43,7 +43,8 @@ export function provideConfig() {
 const homeRoutes: Routes = [
   // { path: "create", component: CreatetripComponent},
   { path: "trips", component: TripComponent},
-  { path: "profile", component: ProfileComponent}
+  { path: "profile", component: ProfileComponent},
+  { path: "friends", component: PalComponent}
   //{ path: "**", component: TripComponent, pathMatch:"full"}
 ];
 const appRoutes: Routes = [

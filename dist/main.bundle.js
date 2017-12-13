@@ -214,7 +214,8 @@ function provideConfig() {
 var homeRoutes = [
     // { path: "create", component: CreatetripComponent},
     { path: "trips", component: __WEBPACK_IMPORTED_MODULE_16__trip_trip_component__["a" /* TripComponent */] },
-    { path: "profile", component: __WEBPACK_IMPORTED_MODULE_18__profile_profile_component__["a" /* ProfileComponent */] }
+    { path: "profile", component: __WEBPACK_IMPORTED_MODULE_18__profile_profile_component__["a" /* ProfileComponent */] },
+    { path: "friends", component: __WEBPACK_IMPORTED_MODULE_19__pal_pal_component__["a" /* PalComponent */] }
     //{ path: "**", component: TripComponent, pathMatch:"full"}
 ];
 var appRoutes = [
@@ -374,7 +375,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row cent\">\n    <div class=\"col-md-12\">\n        <div class=\"panel panel-info\">\n            <div class=\"panel-heading\">\n                <div class=\"panel-title\">\n                    <span *ngIf=\"!this.loggedIn \">{{this.message}}</span>\n                    <span *ngIf=\"this.loggedIn\"> <i class=\"glyphicon glyphicon-home\"></i> Home </span>\n                </div>\n            </div>\n            <!--  -->\n            \n            <div class=\"panel-content\">\n                <ul class=\"nav nav-tabs\" *ngIf=\"this.loggedIn\">\n                    <!-- <li><a [routerLink]=\"['create']\" ><i class=\"glyphicon glyphicon-plus-sign\"></i> Create Trip</a></li> -->\n                    <li><a [routerLink]=\"['trips']\"><i class=\"glyphicon glyphicon-cog\"></i> Manage Trips </a></li>\n                    <!-- <li><a [routerLink]=\"['inbox']\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li> -->\n                    <li><a [routerLink]=\"['profile']\"><i class=\"glyphicon glyphicon-user\"></i> Profile </a></li>\n                </ul>\n            </div>\n        </div>\n        \n    </div>\n</div>\n<div class=\"row cent\">\n    <div class=\"col-md-12\">\n        <router-outlet class=\"cent\"></router-outlet>\n    </div>\n</div>"
+module.exports = "<div class=\"row cent\">\n    <div class=\"col-md-12\">\n        <div class=\"panel panel-info\">\n            <div class=\"panel-heading\">\n                <div class=\"panel-title\">\n                    <span *ngIf=\"!this.loggedIn \">{{this.message}}</span>\n                    <span *ngIf=\"this.loggedIn\"> <i class=\"glyphicon glyphicon-home\"></i> Home </span>\n                </div>\n            </div>\n            <!--  -->\n            \n            <div class=\"panel-content\">\n                <ul class=\"nav nav-tabs\" *ngIf=\"this.loggedIn\">\n                    <!-- <li><a [routerLink]=\"['create']\" ><i class=\"glyphicon glyphicon-plus-sign\"></i> Create Trip</a></li> -->\n                    <li><a [routerLink]=\"['trips']\"><i class=\"glyphicon glyphicon-cog\"></i> Manage Trips </a></li>\n                    <!-- <li><a [routerLink]=\"['inbox']\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li> -->\n                    <li><a [routerLink]=\"['profile']\"><i class=\"glyphicon glyphicon-user\"></i> Profile </a></li>\n                    <li><a [routerLink]=\"['friends']\"><i class=\"glyphicon glyphicon-user-group\"></i> Friends </a></li>\n                </ul>\n            </div>\n        </div>\n        \n    </div>\n</div>\n<div class=\"row cent\">\n    <div class=\"col-md-12\">\n        <router-outlet class=\"cent\"></router-outlet>\n    </div>\n</div>"
 
 /***/ }),
 

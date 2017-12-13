@@ -19,7 +19,27 @@ export class PalService{
                         .catch(handle);
 
     }
-
+    addPal(newPal: Pal): Promise<void | Pal[]>{
+        try{
+            var palslist = this.getPals(newPal.userID);
+            if(palslist instanceof Array){
+                return this.http.post(this.PalsUrl, newPal)
+                .toPromise()
+                .then(response=> response.json() as Pal[])
+                .catch(handle);
+            }
+            else{
+                return this.http.post(this.PalsUrl, newPal)
+                .toPromise()
+                .then(response=> response.json() as Pal[])
+                .catch(handle);
+            }
+        }
+        catch(err){
+            handle(err);
+        }
+        
+    }
 }
 
 

@@ -52,6 +52,12 @@ app.get('/api/v1/pals/', (req, res)=>{
   });
 });
 
+app.post('/api/v1/pals/', (req,res)=>{
+  var data = req.body;
+  console.log(data);
+  //Pal.create()
+});
+
 app.get('/api/v1/trips/', (req, res) => {
   Trip.find((err, trips)=>{
     if(err){
