@@ -13,7 +13,7 @@ import { Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit{
 
-  user: SocialUser = null;
+  user: SocialUser = undefined;
   loggedIn: boolean = false;
   constructor(private authService: AuthService, private router: Router) {   }
   
@@ -29,9 +29,17 @@ export class LoginComponent implements OnInit{
     checkLogin(){
       if(localStorage.getItem("UserTok")){
         this.loggedIn = true;
+        try{
+          this.user = JSON.parse(localStorage.getItem("UserTok"));
+        }
+        catch(err){
+          console.log("FAILED TO SETUP USER.");
+        }
+
       }
       else{
         this.loggedIn = false;
+        this.user = null;
       }
     }
     signInWithGoogle(): void {

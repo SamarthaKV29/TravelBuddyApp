@@ -497,7 +497,7 @@ var LoginComponent = (function () {
     function LoginComponent(authService, router) {
         this.authService = authService;
         this.router = router;
-        this.user = null;
+        this.user = undefined;
         this.loggedIn = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
@@ -512,9 +512,16 @@ var LoginComponent = (function () {
     LoginComponent.prototype.checkLogin = function () {
         if (localStorage.getItem("UserTok")) {
             this.loggedIn = true;
+            try {
+                this.user = JSON.parse(localStorage.getItem("UserTok"));
+            }
+            catch (err) {
+                console.log("FAILED TO SETUP USER.");
+            }
         }
         else {
             this.loggedIn = false;
+            this.user = null;
         }
     };
     LoginComponent.prototype.signInWithGoogle = function () {
