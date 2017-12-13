@@ -467,7 +467,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row cent\">\n  <div class=\"col-md-6 cent\">\n      <div *ngIf=\"!this.user && !this.loggedIn\" class=\"panel panel-default text-center\">\n          <div class=\"panel-heading card-block\">\n            <h4><p class=\"panel-title \">Sign in with</p></h4>\n          </div>\n          <div class=\"panel-body\">\n            <div class=\"card-block\">\n              <button class=\"btn btn-social-icon btn-google padding\" (click)=\"signInWithGoogle()\"><span class=\"fa fa-google\"></span></button>\n              <button class=\"btn btn-social-icon btn-facebook padding\" (click)=\"signInWithFB()\"><span class=\"fa fa-facebook\"></span></button>\n            </div>\n          </div>\n        </div>\n        <div *ngIf=\"this.user && this.loggedIn\" class=\"card text-center\">\n          <h6 class=\"card-header\">\n            Social Login Demo\n          </h6>\n          <div class=\"card-block\"></div>\n          <img class=\"card-img-top img-responsive photo\" src=\"{{ user.photoUrl }}\">\n          <div class=\"card-block\">\n            <h4 class=\"card-title\">{{ user.name }}</h4>\n            <p class=\"card-text\">{{ user.email }}</p>\n          </div>\n          <div class=\"card-block\">\n            <button class=\"btn btn-danger\" (click)=\"signOut()\">Sign out</button>\n          </div>\n        </div>\n  </div>\n</div>"
+module.exports = "<div class=\"row cent\">\n  <div class=\"col-md-6 cent\">\n      <div *ngIf=\"!this.user || !this.loggedIn\" class=\"panel panel-default text-center\">\n          <div class=\"panel-heading card-block\">\n            <h4><p class=\"panel-title \">Sign in with</p></h4>\n          </div>\n          <div class=\"panel-body\">\n            <div class=\"card-block\">\n              <button class=\"btn btn-social-icon btn-google padding\" (click)=\"signInWithGoogle()\"><span class=\"fa fa-google\"></span></button>\n              <button class=\"btn btn-social-icon btn-facebook padding\" (click)=\"signInWithFB()\"><span class=\"fa fa-facebook\"></span></button>\n            </div>\n          </div>\n        </div>\n        <div *ngIf=\"this.user && this.loggedIn\" class=\"card text-center\">\n          <h6 class=\"card-header\">\n            Social Login Demo\n          </h6>\n          <div class=\"card-block\"></div>\n          <img class=\"card-img-top img-responsive photo\" src=\"{{ user.photoUrl }}\">\n          <div class=\"card-block\">\n            <h4 class=\"card-title\">{{ user.name }}</h4>\n            <p class=\"card-text\">{{ user.email }}</p>\n          </div>\n          <div class=\"card-block\">\n            <button class=\"btn btn-danger\" (click)=\"signOut()\">Sign out</button>\n          </div>\n        </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -585,7 +585,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pal/pal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  pal works!\n</p>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-6 center-block\">\n    <h3>Buddies</h3>\n\n  </div>\n</div>"
 
 /***/ }),
 

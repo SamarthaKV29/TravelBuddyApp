@@ -1,6 +1,6 @@
 <div class="row cent">
   <div class="col-md-6 cent">
-      <div *ngIf="!this.user && !this.loggedIn" class="panel panel-default text-center">
+      <div *ngIf="!this.user || !this.loggedIn" class="panel panel-default text-center">
           <div class="panel-heading card-block">
             <h4><p class="panel-title ">Sign in with</p></h4>
           </div>
