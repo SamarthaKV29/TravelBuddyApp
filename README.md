@@ -1,4 +1,4 @@
-# Internet & Web Systems
+# Travel Buddy
 ## Team Name: MEANBlaze
 ## App: [Heroku/TravelBuddyApp](https://travel-buddy-app.herokuapp.com/)
 ### Members:
@@ -31,13 +31,28 @@ https://invis.io/D5DNLRF7W#/255170170_Loading
 3. Testing
 
 
-
-
-
-
 ### Restfull API help
 [Best Practices](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
 [Heroku Tutorial - REST APIs](https://devcenter.heroku.com/articles/mean-apps-restful-api#source-code-structure)
 
+### Features
+- Find Buddies
+with whom you want to
+- Commute
+and
+- Share
+your boredom
+### LINK: https://travel-buddy-app.herokuapp.com/
+## Details
+### Engine
+- MEAN stack
+- MVC architecture
 
+### Components
+- Home
+- Manage
+- Login/Signup
 
+### Deployment 
+- Heroku server
+- NPM serve + server.js
