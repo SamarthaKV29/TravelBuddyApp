@@ -1,32 +1,36 @@
 <div class="row cent">
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading" style="text-align: center">Trips</div>
-            <div class="panel-body" style="text-align: center">Here you can view your existing trips!</div>
-            <table class="table table-hover table-bordered table-responsive">
-              <tr>
-                <th>User</th>
-                <th>From</th>
-                <th>To</th>
-              </tr>
-              <tr *ngFor="let trip of this.trips" (click)="onSelect(trip)" [class.selected]="trip === selectedTrip">
-                <td>{{trip.uname}}</td>
-                <td>{{trip.from}}</td>
-                <td>{{trip.to}}</td>
-              </tr>
-            </table>
-          </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">Trips</div>
+      <div class="panel-body" style="text-align: center">Here you can view your
+        existing trips!</div>
+      <table class="table table-hover table-bordered table-responsive">
+        <tr>
+          <th>User</th>
+          <th>From</th>
+          <th>To</th>
+        </tr>
+        <tr *ngFor="let trip of this.trips" (click)="onSelect(trip)"
+          [class.selected]="trip=== selectedTrip">
+          <td>{{trip.uname}}</td>
+          <td>{{trip.from}}</td>
+          <td>{{trip.to}}</td>
+
+        </tr>
+      </table>
     </div>
-    <div class="col-md-6">
-        <div *ngIf="selectedTrip" class="panel panel-default padding" style="text-align: center">
-            <div class="panel-heading">Trip</div>
-            <div class="panel-body">
-              <span><b>Trip ID:</b><span> {{selectedTrip._id}}</span></span>
-              <p>{{selectedTrip.from}}</p>
-              <p><i class="glyphicon glyphicon-plane"></i></p>
-              <p>{{selectedTrip.to}}</p>
-            </div>
-            
-        </div>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="selectedTrip" class="panel panel-default padding"
+      style="text-align: center">
+      <div class="panel-heading">Trip</div>
+      <div class="panel-body">
+        <span><b>Trip ID:</b><span> {{selectedTrip._id}}</span></span>
+        <p>{{selectedTrip.from}}</p>
+        <p><i class="glyphicon glyphicon-plane"></i></p>
+        <p>{{selectedTrip.to}}</p>
+      </div>
+
     </div>
-</div>
+  </div>
+</div>>>>
