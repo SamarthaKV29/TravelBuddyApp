@@ -44,7 +44,7 @@ var CountrySchema = new mongoose.Schema({
   name: String,
   country: String,
   subcountry: String,
-  geonameid: number,
+  geonameid: Number
 });
 
 var Trip = mongoose.model("Trip", TripSchema);
