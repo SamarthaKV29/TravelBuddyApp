@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink, ActivatedRoute} from '@angular/router';
+import { Component, OnInit, InjectionToken, Injectable, Inject } from '@angular/core';
+import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { SocialUser } from 'angular4-social-login';
 
 
@@ -11,39 +11,41 @@ import { SocialUser } from 'angular4-social-login';
 })
 
 
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
   currentUser: SocialUser;
   message: string = "Please login first.";
   loggedIn: boolean = false;
-  constructor(private router: Router, private route: ActivatedRoute) { 
+  constructor(private router: Router, private route: ActivatedRoute) {
     setInterval(this.checkLoggedIn, 200);
+
   }
 
   ngOnInit() {
     this.checkLoggedIn();
+
   }
 
 
-  checkLoggedIn(){
-    if(!this.loggedIn && localStorage.getItem('UserTok')){
-      try{
+  checkLoggedIn() {
+    if (!this.loggedIn && localStorage.getItem('UserTok')) {
+      try {
         var t = localStorage.getItem('UserTok');
         var tt = JSON.parse(t);
-        if(tt instanceof SocialUser){
+        if (tt instanceof SocialUser) {
           this.currentUser = tt;
         }
         this.loggedIn = true;
       }
-      catch(err){
+      catch (err) {
         console.log("Failed, please login.");
       }
     }
-    else{
+    else {
       this.loggedIn = false;
     }
-    
-      
+
+
   }
-  
+
 
 }

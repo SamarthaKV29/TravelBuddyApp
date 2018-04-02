@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 //import { UserDetailComponent } from './users/user-detai
@@ -23,6 +23,7 @@ import { Trip } from './trip/trip';
 import { TripService } from './trip/trip.service';
 import { ProfileComponent } from './profile/profile.component';
 import { PalComponent } from './pal/pal.component';
+import { CountryService } from './countries/countries.service';
 
 
 let config = new AuthServiceConfig([
@@ -39,6 +40,7 @@ let config = new AuthServiceConfig([
 export function provideConfig() {
   return config;
 }
+
 const homeRoutes: Routes = [
   // { path: "create", component: CreatetripComponent},
   { path: "trips", component: TripComponent },
@@ -88,7 +90,8 @@ const appRoutes: Routes = [
       provide: AuthServiceConfig,
       useFactory: provideConfig
     },
-    TripService
+    TripService,
+    CountryService
   ],
   bootstrap: [AppComponent],
   exports: [RouterModule]
