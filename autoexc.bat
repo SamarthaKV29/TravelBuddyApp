@@ -5,4 +5,4 @@ git add .
 git commit -m "Upd"
 @echo on
 
-git push origin Dev
+git push origin master
