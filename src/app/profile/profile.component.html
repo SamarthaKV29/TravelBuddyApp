@@ -1,21 +1,38 @@
-<div class="row">
-  <div class="col-md-4 cent" style="text-align: center">
-      <div class="panel panel-default" >
-          <div class="panel-heading">Profile</div>
-          <div class="panel-body">
-            <div class="card" >
-                <img class="card-img-top profimg" src="{{this.currentUser.photoUrl}}" alt="Profile Pic">
-                <div class="card-body">
-                  <h4 class="card-title">{{this.currentUser.name}}</h4>
-                  <p>{{this.currentUser.email}}</p>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-8">
+      <h3>Profile</h3>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="card">
+
+            <div class="card-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-2">
+                    <img class="card-img-top profimg" src="{{this.currentUser.photoUrl}}" alt="Profile Pic">
+                    <h4 class="card-title">{{this.currentUser.name}}</h4>
+                    <p>{{this.currentUser.email}}</p>
+                  </div>
+                  <div class="col-sm-auto" *ngIf="trips && buddies">
+                    <table class="table table-responsive" style="width: 40rem; text-align:center">
+                      <tr>
+                        <td>Trips</td>
+                        <td>Buddies</td>
+                      </tr>
+                      <tr>
+                        <td>{{trips.length}}</td>
+                        <td>{{buddies.length}}</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <table class="table table-responsive table-bordered table-striped" >
-          <tr>
-            <th>Trip</th><td>0</td>
-            <th>Friends</th><td>0</td>
-          </tr>
-        </table>
-  </div>            
-</div> 
+
+      </div>
+    </div>
+  </div>
+</div>

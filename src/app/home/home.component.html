@@ -1,29 +1,29 @@
-<div class="row cent">
-    <div class="col-md-12">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="panel-title">
-                    <span *ngIf="!this.loggedIn ">{{this.message}}</span>
-                    <span *ngIf="this.loggedIn"> <i class="glyphicon glyphicon-home"></i> Home </span>
-                </div>
-            </div>
-            <!--  -->
-            
-            <div class="panel-content">
-                <ul class="nav nav-tabs" *ngIf="this.loggedIn">
-                    <!-- <li><a [routerLink]="['create']" ><i class="glyphicon glyphicon-plus-sign"></i> Create Trip</a></li> -->
-                    <li><a [routerLink]="['trips']"><i class="glyphicon glyphicon-cog"></i> Manage Trips </a></li>
-                    <!-- <li><a [routerLink]="['inbox']"><i class="glyphicon glyphicon-comment"></i> Inbox</a></li> -->
-                    <li><a [routerLink]="['profile']"><i class="glyphicon glyphicon-user"></i> Profile </a></li>
-                    <li><a [routerLink]="['friends']"><i class="glyphicon glyphicon-user-group"></i> Friends </a></li>
-                </ul>
-            </div>
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs">
+                <li>
+                    <a *ngIf="!this.loggedIn ">{{this.message}}</a>
+                </li>
+                <li *ngIf="this.loggedIn">
+                    <a [routerLink]="['trips']">
+                        <i class="glyphicon glyphicon-cog"></i> Manage Trips </a>
+                </li>
+                <!-- <li><a [routerLink]="['inbox']"><i class="glyphicon glyphicon-comment"></i> Inbox</a></li> -->
+                <li *ngIf="this.loggedIn">
+                    <a [routerLink]="['profile']">
+                        <i class="glyphicon glyphicon-user"></i> Profile </a>
+                </li>
+                <li *ngIf="this.loggedIn">
+                    <a [routerLink]="['friends']">
+                        <i class="glyphicon glyphicon-user-group"></i> Friends </a>
+                </li>
+            </ul>
         </div>
-        
     </div>
-</div>
-<div class="row cent">
-    <div class="col-md-12">
-        <router-outlet class="cent"></router-outlet>
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <router-outlet class="cent"></router-outlet>
+        </div>
     </div>
 </div>
