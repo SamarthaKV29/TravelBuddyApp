@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   loggedIn: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute) {
     setInterval(this.checkLoggedIn, 200);
-
+    this.router.navigate(["/home/trips"]);
   }
 
   ngOnInit() {

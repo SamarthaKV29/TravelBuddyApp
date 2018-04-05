@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TripService} from './trip.service';
-import {Trip} from './trip'; 
-import { SocialUser} from 'angular4-social-login';
+import { TripService } from './trip.service';
+import { Trip } from './trip';
+import { SocialUser } from 'angular4-social-login';
 
 
 
@@ -17,20 +17,22 @@ export class TripComponent implements OnInit {
   currUser: SocialUser;
   selectedTrip: Trip;
   trips: Trip[];
+  viewing: Boolean = true;
   constructor(private TripService: TripService) { }
 
   ngOnInit() {
     this.currUser = JSON.parse(localStorage.getItem("UserTok"));
-    if(!this.trips)
-      this.TripService.getTrips(this.currUser.email).then((trips: Trip[])=>{
+    if (!this.trips && this.currUser != null)
+      this.TripService.getTrips(this.currUser.email).then((trips: Trip[]) => {
         this.trips = trips.map((trip) => {
           return trip;
         });
       });
+
   }
 
 
-  onSelect(trip: Trip){
+  onSelect(trip: Trip) {
     this.selectedTrip = trip;
   }
 

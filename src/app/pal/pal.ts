@@ -1,8 +1,12 @@
-export class Pal{
+export class Pal {
     _id: String;
     userID: String;
-    pals: [{
-        palID: String;
-        status: String; 
-    }];
+    pals: Array<Pal>;
+    req: String;
+
+    constructor(user, pals, req) {
+        this.userID = user;
+        this.pals = pals;
+        this.req = req;
+    }
 }

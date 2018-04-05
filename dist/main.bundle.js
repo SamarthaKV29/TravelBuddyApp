@@ -27,7 +27,7 @@ module.exports = "@import url(https://fonts.googleapis.com/css?family=Lato:700);
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span> \r\n            </button>\r\n        <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n          <span class=\"d-inline\">Travel Buddy</span>\r\n        </a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n        <ul class=\"nav navbar-nav\">\r\n          <li>\r\n            <a class=\"active\" [routerLink]=\"['/home']\"><i class=\"fa fa-home\"></i> Home</a>\r\n          </li>\r\n          <li>\r\n            <a [routerLink]=\"['/about']\"><i class=\"fa fa-vcard\"></i> About</a>\r\n          </li>\r\n          <li>\r\n            <a [routerLink]=\"['/team']\"><i class=\"fa fa-users\"></i> Team</a>\r\n          </li>\r\n          \r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li  *ngIf=\"!this.isLoggedin\">\r\n            <a [routerLink]=\"['/login']\"><i class=\"fa fa-signin\"></i> Log In</a>\r\n          </li>\r\n          <li  *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/message']\"><i class=\"glyphicon glyphicon-envelope\"></i> Message</a>\r\n          </li>\r\n          <li  *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/trips']\"><i class=\"glyphicon glyphicon-plane\"></i> Trips</a>\r\n          </li>\r\n          <li *ngIf=\"this.isLoggedin\">\r\n            <a [routerLink]=\"['/login']\"><i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\r\n          </li>\r\n          \r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"container\" style=\"width:98%; margin: auto; padding: 2%\">\r\n    <div class=\"wrapper\">\r\n      <div class=\"loading\" *ngIf=\"this.loading\">\r\n          <p class=\"alert alert-warning\">Loading . . . </p>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <router-outlet *ngIf=\"!this.loading\" class=\"cent\" ></router-outlet>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  "
+module.exports = "<nav class=\"navbar-inverse\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" (click)=\"collapse()\">\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n      </button>\r\n      <a class=\"navbar-brand colorChangeAnimation d-flex\" routerLink='/'>\r\n        <span class=\"d-inline\">Travel Buddy</span>\r\n      </a>\r\n    </div>\r\n    <div class=\"collapse navbar-collapse\" id=\"collapsible\" #collapsible>\r\n      <ul class=\"nav navbar-nav\">\r\n        <li>\r\n          <a class=\"active\" [routerLink]=\"['/home']\">\r\n            <i class=\"fa fa-home\"></i> Home</a>\r\n        </li>\r\n        <li>\r\n          <a [routerLink]=\"['/about']\">\r\n            <i class=\"fa fa-vcard\"></i> About</a>\r\n        </li>\r\n        <li>\r\n          <a [routerLink]=\"['/team']\">\r\n            <i class=\"fa fa-users\"></i> Team</a>\r\n        </li>\r\n\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li *ngIf=\"!this.isLoggedin\">\r\n          <a [routerLink]=\"['/login']\">\r\n            <i class=\"fa fa-signin\"></i> Log In</a>\r\n        </li>\r\n        <li *ngIf=\"this.isLoggedin\">\r\n          <a [routerLink]=\"['/message']\">\r\n            <i class=\"glyphicon glyphicon-envelope\"></i> Message</a>\r\n        </li>\r\n        <li *ngIf=\"this.isLoggedin\">\r\n          <a [routerLink]=\"['/trips']\">\r\n            <i class=\"glyphicon glyphicon-plane\"></i> Trips</a>\r\n        </li>\r\n        <li *ngIf=\"this.isLoggedin\">\r\n          <a [routerLink]=\"['/login']\">\r\n            <i class=\"glyphicon glyphicon-log-out\"></i> Logout</a>\r\n        </li>\r\n\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</nav>\r\n<div class=\"container-fluid\">\r\n  <div class=\"loading\" *ngIf=\"this.loading\">\r\n    <p class=\"alert alert-warning\">Loading . . . </p>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <router-outlet *ngIf=\"!this.loading\" class=\"cent\"></router-outlet>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -393,7 +393,7 @@ module.exports = ""
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row cent\">\r\n    <div class=\"col-md-12\">\r\n        <div class=\"panel panel-info\">\r\n            <div class=\"panel-heading\">\r\n                <div class=\"panel-title\">\r\n                    <span *ngIf=\"!this.loggedIn \">{{this.message}}</span>\r\n                    <span *ngIf=\"this.loggedIn\"> <i class=\"glyphicon glyphicon-home\"></i> Home </span>\r\n                </div>\r\n            </div>\r\n            <!--  -->\r\n            \r\n            <div class=\"panel-content\">\r\n                <ul class=\"nav nav-tabs\" *ngIf=\"this.loggedIn\">\r\n                    <!-- <li><a [routerLink]=\"['create']\" ><i class=\"glyphicon glyphicon-plus-sign\"></i> Create Trip</a></li> -->\r\n                    <li><a [routerLink]=\"['trips']\"><i class=\"glyphicon glyphicon-cog\"></i> Manage Trips </a></li>\r\n                    <!-- <li><a [routerLink]=\"['inbox']\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li> -->\r\n                    <li><a [routerLink]=\"['profile']\"><i class=\"glyphicon glyphicon-user\"></i> Profile </a></li>\r\n                    <li><a [routerLink]=\"['friends']\"><i class=\"glyphicon glyphicon-user-group\"></i> Friends </a></li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n        \r\n    </div>\r\n</div>\r\n<div class=\"row cent\">\r\n    <div class=\"col-md-12\">\r\n        <router-outlet class=\"cent\"></router-outlet>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row \">\r\n        <div class=\"col-md-12\">\r\n            <ul class=\"nav nav-tabs\">\r\n                <li>\r\n                    <a *ngIf=\"!this.loggedIn \">{{this.message}}</a>\r\n                </li>\r\n                <li *ngIf=\"this.loggedIn\">\r\n                    <a [routerLink]=\"['trips']\">\r\n                        <i class=\"glyphicon glyphicon-cog\"></i> Manage Trips </a>\r\n                </li>\r\n                <!-- <li><a [routerLink]=\"['inbox']\"><i class=\"glyphicon glyphicon-comment\"></i> Inbox</a></li> -->\r\n                <li *ngIf=\"this.loggedIn\">\r\n                    <a [routerLink]=\"['profile']\">\r\n                        <i class=\"glyphicon glyphicon-user\"></i> Profile </a>\r\n                </li>\r\n                <li *ngIf=\"this.loggedIn\">\r\n                    <a [routerLink]=\"['friends']\">\r\n                        <i class=\"glyphicon glyphicon-user-group\"></i> Friends </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"d-flex justify-content-center\">\r\n            <router-outlet class=\"cent\"></router-outlet>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -425,6 +425,7 @@ var HomeComponent = (function () {
         this.message = "Please login first.";
         this.loggedIn = false;
         setInterval(this.checkLoggedIn, 200);
+        this.router.navigate(["/home/trips"]);
     }
     HomeComponent.prototype.ngOnInit = function () {
         this.checkLoggedIn();
@@ -588,7 +589,7 @@ module.exports = ""
 /***/ "./src/app/pal/pal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-6 center-block\">\r\n    <h3>Buddies</h3>\r\n\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row \">\r\n    <div class=\"col-md-8\">\r\n      <h3>Buddies</h3>\r\n      <div class=\"panel panel-default\">\r\n        <div class=\"panel-body\">\r\n          <div class=\"card\">\r\n            <ul>\r\n              <li *ngFor=\"let pal of pals\">\r\n                {{pal.userID}}\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -598,6 +599,8 @@ module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-6 center-block\">
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PalComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pal__ = __webpack_require__("./src/app/pal/pal.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__trip_trip_service__ = __webpack_require__("./src/app/trip/trip.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -608,8 +611,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var PalComponent = (function () {
-    function PalComponent() {
+    function PalComponent(tripservice) {
+        var _this = this;
+        this.tripservice = tripservice;
+        this.pals = [
+            new __WEBPACK_IMPORTED_MODULE_1__pal__["a" /* Pal */]("snehakou@gmail.com", [], "req"),
+        ];
+        this.currUser = JSON.parse(localStorage.getItem("UserTok"));
+        if (!this.trips && this.currUser != null)
+            this.tripservice.getTrips(this.currUser.email).then(function (trips) {
+                _this.trips = trips.map(function (trip) {
+                    return trip;
+                });
+            });
     }
     PalComponent.prototype.ngOnInit = function () {
     };
@@ -621,10 +638,29 @@ PalComponent = __decorate([
         template: __webpack_require__("./src/app/pal/pal.component.html"),
         styles: [__webpack_require__("./src/app/pal/pal.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__trip_trip_service__["a" /* TripService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__trip_trip_service__["a" /* TripService */]) === "function" && _a || Object])
 ], PalComponent);
 
+var _a;
 //# sourceMappingURL=pal.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/pal/pal.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Pal; });
+var Pal = (function () {
+    function Pal(user, pals, req) {
+        this.userID = user;
+        this.pals = pals;
+        this.req = req;
+    }
+    return Pal;
+}());
+
+//# sourceMappingURL=pal.js.map
 
 /***/ }),
 
@@ -638,7 +674,7 @@ module.exports = ""
 /***/ "./src/app/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-4 cent\" style=\"text-align: center\">\r\n      <div class=\"panel panel-default\" >\r\n          <div class=\"panel-heading\">Profile</div>\r\n          <div class=\"panel-body\">\r\n            <div class=\"card\" >\r\n                <img class=\"card-img-top profimg\" src=\"{{this.currentUser.photoUrl}}\" alt=\"Profile Pic\">\r\n                <div class=\"card-body\">\r\n                  <h4 class=\"card-title\">{{this.currentUser.name}}</h4>\r\n                  <p>{{this.currentUser.email}}</p>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <table class=\"table table-responsive table-bordered table-striped\" >\r\n          <tr>\r\n            <th>Trip</th><td>0</td>\r\n            <th>Friends</th><td>0</td>\r\n          </tr>\r\n        </table>\r\n  </div>            \r\n</div> "
+module.exports = "<div class=\"container\">\r\n  <div class=\"row justify-content-md-center\">\r\n    <div class=\"col-md-8\">\r\n      <h3>Profile</h3>\r\n      <div class=\"panel panel-default\">\r\n        <div class=\"panel-body\">\r\n          <div class=\"card\">\r\n\r\n            <div class=\"card-body\">\r\n              <div class=\"container\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-2\">\r\n                    <img class=\"card-img-top profimg\" src=\"{{this.currentUser.photoUrl}}\" alt=\"Profile Pic\">\r\n                    <h4 class=\"card-title\">{{this.currentUser.name}}</h4>\r\n                    <p>{{this.currentUser.email}}</p>\r\n                  </div>\r\n                  <div class=\"col-sm-auto\" *ngIf=\"trips && buddies\">\r\n                    <table class=\"table table-responsive\" style=\"width: 40rem; text-align:center\">\r\n                      <tr>\r\n                        <td>Trips</td>\r\n                        <td>Buddies</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>{{trips.length}}</td>\r\n                        <td>{{buddies.length}}</td>\r\n                      </tr>\r\n                    </table>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -649,6 +685,8 @@ module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-4 cent\" style=\"
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__trip_trip_service__ = __webpack_require__("./src/app/trip/trip.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pal_pal__ = __webpack_require__("./src/app/pal/pal.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -660,14 +698,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var ProfileComponent = (function () {
-    function ProfileComponent(router) {
+    function ProfileComponent(router, tripservice) {
         this.router = router;
+        this.tripservice = tripservice;
+        this.pals = [
+            new __WEBPACK_IMPORTED_MODULE_3__pal_pal__["a" /* Pal */]("snehakou@gmail.com", [], "req"),
+        ];
     }
     ProfileComponent.prototype.ngOnInit = function () {
+        var _this = this;
         if (localStorage.getItem("UserTok")) {
             this.currentUser = JSON.parse(localStorage.getItem("UserTok"));
-            console.log(this.currentUser);
+            if (!this.trips)
+                this.tripservice.getTrips(this.currentUser.email).then(function (trips) {
+                    _this.trips = trips.map(function (trip) {
+                        return trip;
+                    });
+                });
         }
         else {
             console.log("Please log in");
@@ -683,10 +733,10 @@ ProfileComponent = __decorate([
         template: __webpack_require__("./src/app/profile/profile.component.html"),
         styles: [__webpack_require__("./src/app/profile/profile.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__trip_trip_service__["a" /* TripService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__trip_trip_service__["a" /* TripService */]) === "function" && _b || Object])
 ], ProfileComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=profile.component.js.map
 
 /***/ }),
@@ -701,7 +751,7 @@ module.exports = ".selected{\r\n    background-color: #42ccee;\r\n}"
 /***/ "./src/app/trip/trip.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row cent\">\r\n  <div class=\"col-md-6\">\r\n    <div class=\"panel panel-default\">\r\n      <div class=\"panel-heading\" style=\"text-align: center\">Trips</div>\r\n      <div class=\"panel-body\" style=\"text-align: center\">Here you can view your existing trips!</div>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6 p-3\">\r\n          <nav>\r\n            <ul>\r\n              <li>\r\n                <button type=\"button\" class=\"btn btn-primary\" id=\"addTrip\" (click)=\"addNewTrip()\">Add</button>\r\n              </li>\r\n            </ul>\r\n          </nav>\r\n        </div>\r\n      </div>\r\n      <table class=\"table table-hover table-bordered table-responsive\">\r\n        <tr>\r\n          <th>User</th>\r\n          <th>From</th>\r\n          <th>To</th>\r\n        </tr>\r\n        <tr *ngFor=\"let trip of this.trips\" (click)=\"onSelect(trip)\" [class.selected]=\"trip=== selectedTrip\">\r\n          <td>{{trip.uname}}</td>\r\n          <td>{{trip.from}}</td>\r\n          <td>{{trip.to}}</td>\r\n        </tr>\r\n\r\n      </table>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div *ngIf=\"selectedTrip\" class=\"panel panel-default padding\" style=\"text-align: center\">\r\n      <div class=\"panel-heading\">Trip</div>\r\n      <div class=\"panel-body\">\r\n        <span>\r\n          <b>Trip ID:</b>\r\n          <span> {{selectedTrip._id}}</span>\r\n        </span>\r\n        <p>{{selectedTrip.from}}</p>\r\n        <p>\r\n          <i class=\"glyphicon glyphicon-plane\"></i>\r\n        </p>\r\n        <p>{{selectedTrip.to}}</p>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row justify-content-md-center\">\r\n    <div class=\"col-md-8\">\r\n      <h3>Trips</h3>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n          <div class=\"panel panel-info\">\r\n            <div class=\"panel-heading\">\r\n              Manage\r\n            </div>\r\n            <div class=\"panel-body\">\r\n              <div class=\"card\">\r\n                <ul class=\"list-group\">\r\n                  <li class=\"list-group-item\" *ngFor=\"let trip of this.trips\" (click)=\"onSelect(trip)\" [class.selected]=\"trip === selectedTrip\">\r\n                    <div class=\"row justify-content-md-center\">\r\n                      <div class=\"col-sm-3\">\r\n                        <div class=\"\">\r\n                          {{trip.from}}\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"col-sm-1\">\r\n                        <i class=\"glyphicon glyphicon-arrow-right\"></i>\r\n                      </div>\r\n                      <div class=\"col-sm-3\">\r\n                        <div class=\"\">\r\n                          {{trip.to}}\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </li>\r\n                </ul>\r\n              </div>\r\n            </div>\r\n          </div>\r\n\r\n        </div>\r\n        <div class=\"col-sm-4\" style=\"height: 100%;\">\r\n          <div *ngIf=\"selectedTrip\" class=\"panel panel-default\" style=\"text-align: center\">\r\n            <div class=\"panel-heading\">Trip</div>\r\n            <div class=\"panel-body\">\r\n              <span>\r\n                <b>Trip ID:</b>\r\n                <span> {{selectedTrip._id.slice(-4)}}</span>\r\n              </span>\r\n              <p>{{selectedTrip.from}}</p>\r\n              <p>\r\n                <i class=\"glyphicon glyphicon-plane\"></i>\r\n              </p>\r\n              <p>{{selectedTrip.to}}</p>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -726,11 +776,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var TripComponent = (function () {
     function TripComponent(TripService) {
         this.TripService = TripService;
+        this.viewing = true;
     }
     TripComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.currUser = JSON.parse(localStorage.getItem("UserTok"));
-        if (!this.trips)
+        if (!this.trips && this.currUser != null)
             this.TripService.getTrips(this.currUser.email).then(function (trips) {
                 _this.trips = trips.map(function (trip) {
                     return trip;
