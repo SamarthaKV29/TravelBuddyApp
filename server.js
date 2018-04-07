@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', 'extended': 'true' }));          
 var PalSchema = new mongoose.Schema({
   _id: String,
   userID: String,
-  pals: []
+  pals: String[]
 });
 var TripSchema = new mongoose.Schema({
   _id: String,
@@ -54,22 +54,26 @@ var Country = mongoose.model("Country", CountrySchema);
 app.get('/api/v1/pals/', (req, res) => {
   Pal.find((err, pals) => {
     if (err) {
-      console.log(err);
+      console.log("ERROR1: Could not handle Data", err);
     }
     return res.json(pals);
   });
 });
 
 app.post('/api/v1/pals/', (req, res) => {
-  var data = req.body;
-  console.log(data);
-  //Pal.create()
+  console.log(req.body);
+  Pal.create(req.body, (err, pal) => {
+    if (err) {
+      console.log("ERROR1: Could not handle Data", err);
+    }
+    return res.json(pal);
+  });
 });
 
 app.get('/api/v1/trips/', (req, res) => {
   Trip.find((err, trips) => {
     if (err) {
-      console.log(err);
+      console.log("ERROR1: Could not handle Data", err);
     }
     return res.json(trips);
   });
@@ -77,7 +81,7 @@ app.get('/api/v1/trips/', (req, res) => {
 app.get('/api/v1/countries/', (req, res) => {
   Country.find((err, countries) => {
     if (err) {
-      console.log(err);
+      console.log("ERROR1: Could not handle Data", err);
     }
     return res.json(countries);
   });
@@ -86,7 +90,7 @@ app.get('/api/v1/countries/', (req, res) => {
 app.post('/api/v1/trips/', (req, res) => {
   Trip.create(req.body, (err, trip) => {
     if (err) {
-      console.log(err);
+      console.log("ERROR1: Could not handle Data", err);
       return null;
     }
     return res.json(trip);
@@ -97,7 +101,7 @@ app.post('/api/v1/trips/', (req, res) => {
 //   var updateDoc = req.body;
 //   User.findByIdAndUpdate(req.params.id, updateDoc, (err, user)=>{
 //     if(err){
-//       console.log(err);
+//       console.log("ER1:ROR Could not handle Data", err);
 //       return null;
 //     }
 //     console.log("Update success!");

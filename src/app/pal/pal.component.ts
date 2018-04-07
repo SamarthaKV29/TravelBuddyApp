@@ -17,17 +17,20 @@ export class PalComponent implements OnInit {
 
   currUser: SocialUser;
   trips: Trip[];
-  pals: Pal[] = [
+  pals: Pal[];
+  /*  = [
     new Pal("snehakou@gmail.com", [], "req"),
-  ]
-  constructor(private tripservice: TripService) {
+  ]*/
+
+  constructor(private palServe: PalService) {
     this.currUser = JSON.parse(localStorage.getItem("UserTok"));
-    if (!this.trips && this.currUser != null)
-      this.tripservice.getTrips(this.currUser.email).then((trips: Trip[]) => {
-        this.trips = trips.map((trip) => {
-          return trip;
+    if (!this.pals && this.currUser != null)
+      this.palServe.getPals(this.currUser.email).then((pals: Pal[]) => {
+        this.pals = pals.map((pal) => {
+          return pal;
         });
       });
+
   }
 
   ngOnInit() {

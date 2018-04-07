@@ -166,14 +166,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-//import { UserDetailComponent } from './users/user-detai
 
 
 
 
-//import { UserProfileComponent } from './users/user-profile/user-profile.component';
-//import { ForgotPassComponent } from './users/fl/user-detail.component';
-//import { UserService } from './_services/user.service';orgot-pass/forgot-pass.component';
 
 
 
@@ -599,8 +595,7 @@ module.exports = "<div class=\"container\">\r\n  <div class=\"row \">\r\n    <di
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PalComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pal__ = __webpack_require__("./src/app/pal/pal.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__trip_trip_service__ = __webpack_require__("./src/app/trip/trip.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pal_service__ = __webpack_require__("./src/app/pal/pal.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -612,19 +607,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var PalComponent = (function () {
-    function PalComponent(tripservice) {
+    /*  = [
+      new Pal("snehakou@gmail.com", [], "req"),
+    ]*/
+    function PalComponent(palServe) {
         var _this = this;
-        this.tripservice = tripservice;
-        this.pals = [
-            new __WEBPACK_IMPORTED_MODULE_1__pal__["a" /* Pal */]("snehakou@gmail.com", [], "req"),
-        ];
+        this.palServe = palServe;
         this.currUser = JSON.parse(localStorage.getItem("UserTok"));
-        if (!this.trips && this.currUser != null)
-            this.tripservice.getTrips(this.currUser.email).then(function (trips) {
-                _this.trips = trips.map(function (trip) {
-                    return trip;
+        if (!this.pals && this.currUser != null)
+            this.palServe.getPals(this.currUser.email).then(function (pals) {
+                _this.pals = pals.map(function (pal) {
+                    return pal;
                 });
             });
     }
@@ -638,11 +632,68 @@ PalComponent = __decorate([
         template: __webpack_require__("./src/app/pal/pal.component.html"),
         styles: [__webpack_require__("./src/app/pal/pal.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__trip_trip_service__["a" /* TripService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__trip_trip_service__["a" /* TripService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__pal_service__["a" /* PalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__pal_service__["a" /* PalService */]) === "function" && _a || Object])
 ], PalComponent);
 
 var _a;
 //# sourceMappingURL=pal.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/pal/pal.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PalService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PalService = (function () {
+    function PalService(http) {
+        this.http = http;
+        this.PalsUrl = "https://travel-buddy-app.herokuapp.com/api/v1/pals";
+    }
+    PalService.prototype.getPals = function (userEmail) {
+        return this.http.get(this.PalsUrl)
+            .toPromise()
+            .then(function (res) {
+            var pals = res.json();
+            pals = pals.filter(function (pal) { return pal.userID == userEmail; });
+            return pals;
+        })
+            .catch(handle);
+    };
+    PalService.prototype.createPal = function (newPal) {
+        return this.http.post(this.PalsUrl, newPal)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(handle);
+    };
+    return PalService;
+}());
+PalService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+], PalService);
+
+function handle(err) {
+    console.log(err);
+}
+var _a;
+//# sourceMappingURL=pal.service.js.map
 
 /***/ }),
 
@@ -654,8 +705,7 @@ var _a;
 var Pal = (function () {
     function Pal(user, pals, req) {
         this.userID = user;
-        this.pals = pals;
-        this.req = req;
+        this.palsemail = pals;
     }
     return Pal;
 }());

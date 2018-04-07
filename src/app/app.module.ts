@@ -3,14 +3,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, InjectionToken } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-//import { UserDetailComponent } from './users/user-detai
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes, RouterLink, ɵROUTER_PROVIDERS } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-//import { UserProfileComponent } from './users/user-profile/user-profile.component';
-//import { ForgotPassComponent } from './users/fl/user-detail.component';
-//import { UserService } from './_services/user.service';orgot-pass/forgot-pass.component';
 import { ErrorComponent } from './utilities/error/error.component';
 import { LandingComponent } from './utilities/landing/landing.component';
 import { AboutComponent } from './utilities/about/about.component';
