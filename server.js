@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', 'extended': 'true' }));          
 var PalSchema = new mongoose.Schema({
   _id: String,
   userID: String,
-  pals: String[]
+  pals: Array
 });
 var TripSchema = new mongoose.Schema({
   _id: String,
@@ -63,6 +63,15 @@ app.get('/api/v1/pals/', (req, res) => {
 app.post('/api/v1/pals/', (req, res) => {
   console.log(req.body);
   Pal.create(req.body, (err, pal) => {
+    if (err) {
+      console.log("ERROR1: Could not handle Data", err);
+    }
+    return res.json(pal);
+  });
+});
+app.put('/api/v1/pals/', (req, res) => {
+  console.log(req.body);
+  Pal.update(req.body, (err, pal) => {
     if (err) {
       console.log("ERROR1: Could not handle Data", err);
     }
