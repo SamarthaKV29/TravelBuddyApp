@@ -32,9 +32,10 @@ export class HomeComponent implements OnInit {
         var tt = JSON.parse(t);
         if (tt instanceof SocialUser) {
           this.currentUser = tt;
+          this.loggedIn = true;
+          this.router.navigate(["/home/trips"]);
         }
-        this.loggedIn = true;
-        this.router.navigate(["/home/trips"]);
+
       }
       catch (err) {
         console.log("Failed, please login.");
