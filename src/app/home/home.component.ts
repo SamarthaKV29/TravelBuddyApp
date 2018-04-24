@@ -42,6 +42,8 @@ export class HomeComponent implements OnInit {
     else {
       this.loggedIn = false;
     }
+    console.log(this.route.url.map(seg => seg.join('')));
+
 
 
   }
