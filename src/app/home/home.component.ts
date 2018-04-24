@@ -13,7 +13,7 @@ import { SocialUser } from 'angular4-social-login';
 
 export class HomeComponent implements OnInit {
   currentUser: SocialUser;
-  message: string = "Please login first.";
+  message: string = "Please login first. Redirecting";
   loggedIn: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute) {
     setInterval(this.checkLoggedIn, 200);
@@ -41,6 +41,16 @@ export class HomeComponent implements OnInit {
     }
     else {
       this.loggedIn = false;
+      console.log("Failed, please login.");
+      setTimeout(() => {
+        this.router.navigate["/login"];
+      }, 3000);
+      for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+          this.message += " . ";
+        }, 1000);
+      }
+
     }
     console.log(this.route.url.map(seg => seg.join('')));
 
