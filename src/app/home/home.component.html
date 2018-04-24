@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <ul class="nav nav-tabs">
                 <li>
-                    <a *ngIf="!this.loggedIn ">{{this.message}}</a>
+                    <a *ngIf="!this.loggedIn">{{this.message}}</a>
                 </li>
                 <li *ngIf="this.loggedIn">
                     <a [routerLink]="['trips']">
@@ -21,7 +21,7 @@
             </ul>
         </div>
     </div>
-    <div class="row">
+    <div *ngIf="this.loggedIn" class="row">
         <div class="d-flex justify-content-center">
             <router-outlet class="cent"></router-outlet>
         </div>
