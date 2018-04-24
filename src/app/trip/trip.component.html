@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="loggedIn">
   <div class="row justify-content-md-center">
     <div class="col-md-8">
       <h3>Trips</h3>
@@ -11,7 +11,9 @@
             <div class="panel-body">
               <div class="card">
                 <ul class="list-group">
-                  <li class="list-group-item" *ngFor="let trip of this.trips" (click)="onSelect(trip)" [class.selected]="trip === selectedTrip">
+                  <li class="list-group-item" *ngFor="let trip of this.trips"
+                    (click)="onSelect(trip)" [class.selected]="trip===
+                    selectedTrip">
                     <div class="row justify-content-md-center">
                       <div class="col-sm-3">
                         <div class="">
@@ -35,7 +37,8 @@
 
         </div>
         <div class="col-sm-4" style="height: 100%;">
-          <div *ngIf="selectedTrip" class="panel panel-default" style="text-align: center">
+          <div *ngIf="selectedTrip" class="panel panel-default"
+            style="text-align: center">
             <div class="panel-heading">Trip</div>
             <div class="panel-body">
               <span>
@@ -53,4 +56,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>>

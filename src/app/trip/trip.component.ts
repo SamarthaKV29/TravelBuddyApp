@@ -13,8 +13,8 @@ import { SocialUser } from 'angular4-social-login';
 
 
 export class TripComponent implements OnInit {
-
-  currUser: SocialUser;
+  loggedIn: boolean = false;
+  currUser: SocialUser = null;
   selectedTrip: Trip;
   trips: Trip[];
   viewing: Boolean = true;
@@ -22,12 +22,19 @@ export class TripComponent implements OnInit {
 
   ngOnInit() {
     this.currUser = JSON.parse(localStorage.getItem("UserTok"));
-    if (!this.trips && this.currUser != null)
+    if (!this.trips && this.currUser != null) {
+      this.loggedIn = true;
       this.TripService.getTrips(this.currUser.email).then((trips: Trip[]) => {
         this.trips = trips.map((trip) => {
           return trip;
         });
       });
+    }
+    else {
+      this.currUser = null;
+      this.loggedIn = false;
+    }
+
 
   }
 
