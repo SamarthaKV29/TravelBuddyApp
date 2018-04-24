@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   loggedIn: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute) {
     setInterval(this.checkLoggedIn, 200);
-    this.router.navigate(["/home/trips"]);
+
   }
 
   ngOnInit() {
@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
           this.currentUser = tt;
         }
         this.loggedIn = true;
+        this.router.navigate(["/home/trips"]);
       }
       catch (err) {
         console.log("Failed, please login.");
