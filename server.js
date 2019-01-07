@@ -3,9 +3,12 @@ var app = express();                               // create our app w/ express
 var mongoose = require('mongoose');                     // mongoose for mongodb
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 
-if (!process.env.MONGODB_URI || process.env.MONGODB_URI == "") {
-  process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:k3j5qi89b97t5lr0jo2arb7umt@ds147274.mlab.com:47274/heroku_tdjrgd33";
-}
+// if (!process.env.MONGODB_URI || process.env.MONGODB_URI == "") {
+//   process.env.MONGODB_URI = "mongodb://heroku_tdjrgd33:
+//k3j5qi89b97t5lr0jo2arb7umt@ds147274
+//mlab:47274
+//heroku_tdjrgd33";
+// }
 
 mongoose.connect(process.env.MONGODB_URI, {
   useMongoClient: true,
