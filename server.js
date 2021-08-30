@@ -10,6 +10,33 @@ var bodyParser = require('body-parser');    // pull information from HTML POST (
 //heroku_tdjrgd33";
 // }
 
+
+// var mongoOption = {
+//   useMongoClient: true,
+//   socketTimeoutMS: 0,
+//   keepAlive: true,
+//   reconnectTries: 30
+// }
+
+// var mongoCallbackFunc = function (err) {
+//   if (err) {
+//       console.log(err.message);
+//     }
+//     app.listen(process.env.PORT || 4500);
+//     console.log("App started");
+// }
+
+// var mongoCallbackFuncES6 = (err) => {
+//   if (err) {
+//       console.log(err.message);
+//     }
+//     app.listen(process.env.PORT || 4500);
+//     console.log("App started");
+// }
+
+
+// mongoose.connect(MONGODB_URI, mongoOption, mongoCallbackFuncES6)
+
 mongoose.connect(process.env.MONGODB_URI, {
   useMongoClient: true,
   socketTimeoutMS: 0,
