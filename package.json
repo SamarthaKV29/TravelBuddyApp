@@ -28,7 +28,7 @@
     "core-js": "^2.5.4",
     "countries-data": "^1.0.1",
     "ejs": "^2.5.8",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "mongodb": "^2.2.35",
     "mongoimport": "^1.0.6",
     "mongoose": "^4.13.12",
