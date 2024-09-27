@@ -1,4 +1,7 @@
 # Travel Buddy
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0f298a055f3240b7b3f1c1f71468baa6)](https://app.codacy.com/app/samarthakv29/TravelBuddyApp?utm_source=github.com&utm_medium=referral&utm_content=SamarthaKV29/TravelBuddyApp&utm_campaign=badger)
+
 ## Team Name: MEANBlaze
 ## App: [Heroku/TravelBuddyApp](https://travel-buddy-app.herokuapp.com/)
 ### Members:
