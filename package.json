@@ -29,7 +29,7 @@
     "countries-data": "^1.0.1",
     "ejs": "^2.5.8",
     "express": "^4.16.3",
-    "mongodb": "^2.2.35",
+    "mongodb": "^3.1.13",
     "mongoimport": "^1.0.6",
     "mongoose": "^4.13.12",
     "rxjs": "^5.5.8",
